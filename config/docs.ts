@@ -119,16 +119,17 @@ export const docsConfig: DocsConfig = {
     {
       title: "Components",
       items: [
-        {
-          title: "Marquee",
-          href: `/docs/components/marquee`,
-          items: [],
-        },
+        
         {
           title: "Hero Video Dialog",
           href: `/docs/components/hero-video-dialog`,
           items: [],
           label: "",
+        },
+        {
+          title: "NFT Hero",
+          href: `/docs/components/nft-hero`,
+          items: [],
         },
         {
           title: "Bento Grid",

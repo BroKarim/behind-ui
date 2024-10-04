@@ -57,34 +57,33 @@ export const ui: Registry = [
     dependencies: ["framer-motion"],
     files: ["magicui/hero-video-dialog.tsx"],
   },
-  {
-    name: "marquee",
-    type: "registry:ui",
-    files: ["magicui/marquee.tsx"],
-    tailwind: {
-      config: {
-        theme: {
-          extend: {
-            keyframes: {
-              marquee: {
-                from: { transform: "translateX(0)" },
-                to: { transform: "translateX(calc(-100% - var(--gap)))" },
-              },
-              "marquee-vertical": {
-                from: { transform: "translateY(0)" },
-                to: { transform: "translateY(calc(-100% - var(--gap)))" },
-              },
-            },
-            animation: {
-              marquee: "marquee var(--duration) infinite linear",
-              "marquee-vertical":
-                "marquee-vertical var(--duration) linear infinite",
-            },
-          },
-        },
-      },
-    },
-  },
+  // {
+  //   name: "marquee",
+  //   type: "registry:ui",
+  //   files: ["magicui/marquee.tsx"],
+  //   tailwind: {
+  //     config: {
+  //       theme: {
+  //         extend: {
+  //           keyframes: {
+  //             marquee: {
+  //               from: { transform: "translateX(0)" },
+  //               to: { transform: "translateX(calc(-100% - var(--gap)))" },
+  //             },
+  //             "marquee-vertical": {
+  //               from: { transform: "translateY(0)" },
+  //               to: { transform: "translateY(calc(-100% - var(--gap)))" },
+  //             },
+  //           },
+  //           animation: {
+  //             marquee: "marquee var(--duration) infinite linear",
+  //             "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
+  //           },
+  //         },
+  //       },
+  //     },
+  //   },
+  // },
   {
     name: "globe",
     type: "registry:ui",
@@ -468,6 +467,7 @@ export const ui: Registry = [
     type: "registry:ui",
     files: ["magicui/animated-circular-progress-bar.tsx"],
   },
+
   {
     name: "confetti",
     type: "registry:ui",

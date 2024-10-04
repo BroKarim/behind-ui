@@ -68,12 +68,7 @@ export const examples: Registry = [
     type: "registry:example",
     files: ["example/hero-video-dialog-demo-top-in-bottom-out.tsx"],
   },
-  {
-    name: "marquee-demo",
-    type: "registry:example",
-    registryDependencies: ["marquee"],
-    files: ["example/marquee-demo.tsx"],
-  },
+  
   {
     name: "marquee-demo-vertical",
     type: "registry:example",
@@ -372,6 +367,7 @@ export const examples: Registry = [
     type: "registry:example",
     files: ["example/shine-border-demo-2.tsx"],
   },
+
   {
     name: "confetti-demo",
     type: "registry:example",
@@ -471,5 +467,10 @@ export const examples: Registry = [
     name: "rainbow-button-demo",
     type: "registry:example",
     files: ["example/rainbow-button-demo.tsx"],
+  },
+  {
+    name: "nft-hero",
+    type: "registry:example",
+    files: ["example/nft-hero.tsx"],
   },
 ];
