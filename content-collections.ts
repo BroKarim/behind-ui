@@ -14,11 +14,7 @@ import { rehypeComponent } from "./lib/rehype-component";
 import { rehypeNpmCommand } from "./lib/rehype-npm-command";
 
 const prettyCodeOptions: Options = {
-  theme: JSON.parse(
-    String(
-      readFileSync(path.join(process.cwd(), "/lib/highlighter-theme.json")),
-    ),
-  ),
+  theme: JSON.parse(String(readFileSync(path.join(process.cwd(), "/lib/highlighter-theme.json")))),
   getHighlighter: (options) =>
     createHighlighter({
       ...options,
@@ -130,7 +126,7 @@ const documents = defineCollection({
                 return;
               }
               if (codeEl.data?.meta) {
-                // Extract event from meta and pass it down the tree.
+                // Ex tract event from meta and pass it down the tree.
                 const regex = /event="([^"]*)"/;
                 const match = codeEl.data?.meta.match(regex);
                 if (match) {
@@ -157,8 +153,7 @@ const documents = defineCollection({
                 return;
               }
 
-              preElement.properties["__withMeta__"] =
-                node.children.at(0).tagName === "div";
+              preElement.properties["__withMeta__"] = node.children.at(0).tagName === "div";
               preElement.properties["__rawString__"] = node.__rawString__;
 
               if (node.__src__) {
