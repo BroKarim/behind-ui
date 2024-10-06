@@ -24,6 +24,16 @@ export const docsConfig: DocsConfig = {
   ],
   sidebarNav: [
     {
+      title: "Follow",
+      items: [
+        {
+          title: "Twitter @BroKarim",
+          href: "https://x.com/BroKariim",
+          items: [],
+        },
+      ],
+    },
+    {
       title: "Getting Started",
       items: [
         {
@@ -32,94 +42,25 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
-          title: "Installation",
+          title: "Install Nextjs",
           href: "/docs/installation",
-          items: [
-            {
-              title: "Next.js",
-              href: `/docs/installation/next`,
-              items: [],
-            },
-            {
-              title: "Vite",
-              href: `/docs/installation/vite`,
-              items: [],
-            },
-            {
-              title: "Remix",
-              href: `/docs/installation/remix`,
-              items: [],
-            },
-            {
-              title: "Astro",
-              href: `/docs/installation/astro`,
-              items: [],
-            },
-            {
-              title: "Laravel",
-              href: `/docs/installation/laravel`,
-              items: [],
-            },
-            {
-              title: "Gatsby",
-              href: `/docs/installation/gatsby`,
-              items: [],
-            },
-            {
-              title: "Manual",
-              href: `/docs/installation/manual`,
-              items: [],
-            },
-          ],
         },
         {
-          title: "CLI",
+          title: "Install TailwindCSS",
           href: "/docs/cli",
           items: [],
         },
-      ],
-    },
-    {
-      title: "Templates",
-      items: [
         {
-          title: "Portfolio",
-          href: `/docs/templates/portfolio`,
+          title: "Install Shadcn",
+          href: "/docs/shadcn",
           items: [],
-          label: "",
-          event: "template_portfolio_clicked",
-        },
-        {
-          title: "Startup",
-          href: `/docs/templates/startup`,
-          items: [],
-          label: "",
-          paid: true,
-          event: "template_startup_clicked",
-        },
-        {
-          title: "SaaS",
-          href: `/docs/templates/saas`,
-          items: [],
-          label: "New",
-          paid: true,
-          event: "template_saas_clicked",
-        },
-        {
-          title: "Mobile App",
-          href: `/docs/templates/app`,
-          items: [],
-          disabled: true,
-          label: "Coming soon",
-          paid: true,
-          event: "template_app_clicked",
         },
       ],
     },
+
     {
-      title: "Components",
+      title: "All Design",
       items: [
-        
         {
           title: "Hero Video Dialog",
           href: `/docs/components/hero-video-dialog`,
@@ -130,6 +71,7 @@ export const docsConfig: DocsConfig = {
           title: "NFT Hero",
           href: `/docs/components/nft-hero`,
           items: [],
+          label: "New",
         },
         {
           title: "Bento Grid",
@@ -147,66 +89,10 @@ export const docsConfig: DocsConfig = {
           items: [],
           label: "",
         },
-        {
-          title: "Globe",
-          href: `/docs/components/globe`,
-          items: [],
-        },
-        {
-          title: "Tweet Card",
-          href: `/docs/components/tweet-card`,
-          items: [],
-        },
-        {
-          title: "Orbiting Circles",
-          href: `/docs/components/orbiting-circles`,
-          items: [],
-          label: "",
-        },
+      ],
+    },
 
-        {
-          title: "Avatar Circles",
-          href: `/docs/components/avatar-circles`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Interactive Icon Cloud",
-          href: `/docs/components/icon-cloud`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Animated Circular Progress Bar",
-          href: `/docs/components/animated-circular-progress-bar`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "File Tree",
-          href: `/docs/components/file-tree`,
-          items: [],
-          label: "",
-        },
-      ],
-    },
-    {
-      title: "Device Mocks",
-      items: [
-        {
-          title: "Safari",
-          href: `/docs/components/safari`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "iPhone 15 Pro",
-          href: `/docs/components/iphone-15-pro`,
-          items: [],
-          label: "",
-        },
-      ],
-    },
+    // ntar special effect itu berbayar, sisanya dribble style
     {
       title: "Special Effects",
       items: [
@@ -214,204 +100,18 @@ export const docsConfig: DocsConfig = {
           title: "Animated Beam",
           href: `/docs/components/animated-beam`,
           items: [],
+          label: "paid",
         },
-        {
-          title: "Border Beam",
-          href: `/docs/components/border-beam`,
-          items: [],
-        },
-        {
-          title: "Shine Border",
-          href: `/docs/components/shine-border`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Magic Card",
-          href: `/docs/components/magic-card`,
-          items: [],
-        },
+
         {
           title: "Meteors",
           href: `/docs/components/meteors`,
           items: [],
         },
-        {
-          title: "Neon Gradient Card",
-          href: `/docs/components/neon-gradient-card`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Confetti",
-          href: `/docs/components/confetti`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Particles",
-          href: `/docs/components/particles`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Cool Mode",
-          href: `/docs/components/cool-mode`,
-          items: [],
-          label: "",
-        },
       ],
     },
-    {
-      title: "Animations",
-      items: [
-        {
-          title: "Blur Fade",
-          href: `/docs/components/blur-fade`,
-          items: [],
-          label: "",
-        },
-      ],
-    },
-    {
-      title: "Text Animations",
-      items: [
-        {
-          title: "Number Ticker",
-          href: `/docs/components/number-ticker`,
-          items: [],
-        },
-        {
-          title: "Animated Shiny Text",
-          href: `/docs/components/animated-shiny-text`,
-          items: [],
-        },
-        {
-          title: "Animated Gradient Text",
-          href: `/docs/components/animated-gradient-text`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Text Reveal",
-          href: `/docs/components/text-reveal`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Hyper Text",
-          href: `/docs/components/hyper-text`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Word Rotate",
-          href: `/docs/components/word-rotate`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Typing Animation",
-          href: `/docs/components/typing-animation`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Blur In",
-          href: `/docs/components/blur-in`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Scroll Based Velocity",
-          href: `/docs/components/scroll-based-velocity`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Letter Pullup",
-          href: `/docs/components/letter-pullup`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Word Pull Up",
-          href: `/docs/components/word-pull-up`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Flip Text",
-          href: `/docs/components/flip-text`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Gradual Spacing",
-          href: `/docs/components/gradual-spacing`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Word Fade In",
-          href: `/docs/components/word-fade-in`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Fade Text",
-          href: `/docs/components/fade-text`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Box Reveal",
-          href: `/docs/components/box-reveal`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Sparkles Text",
-          href: `/docs/components/sparkles-text`,
-          items: [],
-          label: "",
-        },
-      ],
-    },
-    {
-      title: "Buttons",
-      items: [
-        {
-          title: "Rainbow Button",
-          href: `/docs/components/rainbow-button`,
-          items: [],
-          label: "New",
-        },
-        {
-          title: "Shimmer Button",
-          href: `/docs/components/shimmer-button`,
-          items: [],
-        },
-        {
-          title: "Shiny Button",
-          href: `/docs/components/shiny-button`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Animated Subscribe Button",
-          href: `/docs/components/animated-subscribe-button`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Pulsating Button",
-          href: "/docs/components/pulsating-button",
-          items: [],
-          label: "",
-        },
-      ],
-    },
+
+    // background bakal tetap ada karena dia mirip UI
     {
       title: "Backgrounds",
       items: [
