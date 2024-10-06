@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const NftHero = () => {
   return (
-    <section className="relative overflow-hidden py-32">
+    <section className="relative overflow-hidden bg-white ">
       <div className="container">
         <div className="absolute inset-x-0 top-0 z-10 flex size-full items-center justify-center opacity-100">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1125">
@@ -173,7 +173,8 @@ const NftHero = () => {
         </div>
         <div className="mx-auto flex max-w-5xl flex-col items-center">
           <div className="z-10 flex flex-col items-center gap-6 text-center">
-            <Image src="https://www.shadcnblocks.com/images/block/block-1.svg" alt="logo" className="h-16" />
+            {/* cause we use link, we need to add width though */}
+            <img src="https://www.shadcnblocks.com/images/block/block-1.svg" alt="logo"  className="h-16 object-contain" />
             <Badge variant="outline">UI Blocks</Badge>
             <div>
               <h1 className="mb-6 text-pretty text-2xl font-bold lg:text-5xl">Build your next project with Blocks</h1>
@@ -189,17 +190,17 @@ const NftHero = () => {
               <p className="text-center: text-muted-foreground lg:text-left">Built with open-source technologies</p>
               <div className="flex flex-wrap items-center justify-center gap-4">
                 <a href="#" className={cn(buttonVariants({ variant: "outline" }), "group px-3")}>
-                  <Image src="https://www.shadcnblocks.com/images/block/logos/shadcn-ui-small.svg" alt="company logo" className="h-6 saturate-0 transition-all group-hover:saturate-100" />
+                  <img src="https://www.shadcnblocks.com/images/block/logos/shadcn-ui-small.svg" alt="company logo" className="h-6 saturate-0 transition-all group-hover:saturate-100" />
                 </a>
                 <a href="#" className={cn(buttonVariants({ variant: "outline" }), "group px-3")}>
-                  <Image src="https://www.shadcnblocks.com/images/block/logos/typescript-small.svg" alt="company logo" className="h-6 saturate-0 transition-all group-hover:saturate-100" />
+                  <img src="https://www.shadcnblocks.com/images/block/logos/typescript-small.svg" alt="company logo" className="h-6 saturate-0 transition-all group-hover:saturate-100" />
                 </a>
 
                 <a href="#" className={cn(buttonVariants({ variant: "outline" }), "group px-3")}>
-                  <Image src="https://www.shadcnblocks.com/images/block/logos/react-icon.svg" alt="company logo" className="h-6 saturate-0 transition-all group-hover:saturate-100" />
+                  <img src="https://www.shadcnblocks.com/images/block/logos/react-icon.svg" alt="company logo" className="h-6 saturate-0 transition-all group-hover:saturate-100" />
                 </a>
                 <a href="#" className={cn(buttonVariants({ variant: "outline" }), "group px-3")}>
-                  <Image src="https://www.shadcnblocks.com/images/block/logos/tailwind-small.svg" alt="company logo" className="h-4 saturate-0 transition-all group-hover:saturate-100" />
+                  <img src="https://www.shadcnblocks.com/images/block/logos/tailwind-small.svg" alt="company logo" className="h-4 saturate-0 transition-all group-hover:saturate-100" />
                 </a>
               </div>
             </div>
