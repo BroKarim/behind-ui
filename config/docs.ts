@@ -9,7 +9,7 @@ export const docsConfig: DocsConfig = {
   mainNav: [
     {
       title: "Components",
-      href: "/components",
+      href: "/docs/components/",
     },
     {
       title: "Templates",
@@ -73,22 +73,6 @@ export const docsConfig: DocsConfig = {
           items: [],
           label: "New",
         },
-        {
-          title: "Bento Grid",
-          href: `/docs/components/bento-grid`,
-          items: [],
-        },
-        {
-          title: "Animated List",
-          href: `/docs/components/animated-list`,
-          items: [],
-        },
-        {
-          title: "Dock",
-          href: `/docs/components/dock`,
-          items: [],
-          label: "",
-        },
       ],
     },
 
@@ -97,16 +81,10 @@ export const docsConfig: DocsConfig = {
       title: "Special Effects",
       items: [
         {
-          title: "Animated Beam",
-          href: `/docs/components/animated-beam`,
+          title: "NFT Hero Effect",
+          href: `/docs/components/nft-hero`,
           items: [],
           label: "paid",
-        },
-
-        {
-          title: "Meteors",
-          href: `/docs/components/meteors`,
-          items: [],
         },
       ],
     },
@@ -116,36 +94,10 @@ export const docsConfig: DocsConfig = {
       title: "Backgrounds",
       items: [
         {
-          title: "Flickering Grid",
-          href: `/docs/components/flickering-grid`,
+          title: "NFT Hero Backgournd",
+          href: `/docs/components/nft-hero`,
           items: [],
-          label: "",
-        },
-        {
-          title: "Animated Grid Pattern",
-          href: `/docs/components/animated-grid-pattern`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "Retro Grid",
-          href: `/docs/components/retro-grid`,
-          items: [],
-        },
-        {
-          title: "Ripple",
-          href: `/docs/components/ripple`,
-          items: [],
-        },
-        {
-          title: "Dot Pattern",
-          href: `/docs/components/dot-pattern`,
-          items: [],
-        },
-        {
-          title: "Grid Pattern",
-          href: `/docs/components/grid-pattern`,
-          items: [],
+          label: "paid",
         },
       ],
     },
