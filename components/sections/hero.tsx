@@ -1,19 +1,15 @@
 import { allDocs } from "content-collections";
 import { compareDesc } from "date-fns";
-import { ChevronRight } from "lucide-react";
 import Link from "next/link";
-
-import TechStack from "@/components/tech-stack";
-import { buttonVariants } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Button, buttonVariants } from "../ui/button";
 import { Separator } from "@/components/ui/separator";
+import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default async function Hero() {
   const post = allDocs
-    .filter(
-      (post) =>
-        post.date && post.date <= new Date().toISOString() && post.published
-    )
+    .filter((post) => post.date && post.date <= new Date().toISOString() && post.published)
     .sort((a, b) => {
       if (!a.date && !b.date) return 0; // Both dates are undefined, keep original order
       if (!a.date) return 1; // Move a to the end if date is undefined
@@ -23,10 +19,12 @@ export default async function Hero() {
 
   return (
     <section id="hero">
-      <div className="relative h-full overflow-hidden py-5 md:py-14">
+      <div className="relative h-full overflow-hidden py-5 ">
         <div className="z-10 flex flex-col">
           <div className="mt-10 grid grid-cols-1 md:mt-20">
             <div className="flex flex-col items-start gap-6 px-7 pb-8 text-center md:items-center md:px-10">
+              {/* NOTE : 
+                 will be redirected to doc/component */}
               <Link
                 href={post.slug}
                 className={cn(
@@ -37,76 +35,22 @@ export default async function Hero() {
                   "rounded-full"
                 )}
               >
-                🎉 <Separator className="mx-2 h-4" orientation="vertical" />
-                Introducing {post.title}
+                For the love of beautiful & functional
                 <ChevronRight className="ml-1 h-4 w-4 text-muted-foreground" />
               </Link>
               <div className="relative flex flex-col gap-4 md:items-center lg:flex-row">
-                <h1
-                  className={cn(
-                    "text-black dark:text-white",
-                    "relative mx-0 max-w-[43.5rem]  pt-5  md:mx-auto md:px-4 md:py-2",
-                    "text-balance text-left font-semibold tracking-tighter md:text-center",
-                    "text-5xl sm:text-7xl md:text-7xl lg:text-7xl"
-                  )}
-                >
-                  UI library for Design Engineers
-                </h1>
+                <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl">When Dribble Meets Code</h1>
               </div>
 
-              <p className="max-w-xl text-balance text-left text-base tracking-tight text-black dark:font-medium dark:text-white md:text-center md:text-lg ">
-                50+ free and open-source animated components built with{" "}
-                <b>React</b>, <b>Typescript</b>, <b>Tailwind CSS</b>, and{" "}
-                <b>Framer Motion</b>
-                .
-                <br />
-                Perfect companion for <b>shadcn/ui</b>.
+              <p className="max-w-xl text-balance text-left text-base tracking-tight text-black dark:font-medium dark:text-white md:max-w-4xl md:text-center md:text-lg ">
+                Ready to use world class headline components for your website with the backbone of clean code.
               </p>
 
-              <div className="mx-0 flex w-full max-w-full flex-col gap-4 py-1 sm:max-w-lg sm:flex-row md:mx-auto">
-                <div className="flex w-full flex-col gap-2 sm:flex-row sm:gap-4">
-                  <Link
-                    href="/components"
-                    className={cn(
-                      buttonVariants({
-                        variant: "rainbow",
-                        size: "lg",
-                      }),
-                      "w-full gap-2"
-                    )}
-                  >
-                    Browse Components
-                    <ChevronRight className="ml-1  size-4 shrink-0 transition-all duration-300 ease-out group-hover:translate-x-1" />
-                  </Link>
-                  <Link
-                    href="https://pro.magicui.design"
-                    className={cn(
-                      buttonVariants({
-                        size: "lg",
-                        variant: "rainbow-outline",
-                      }),
-                      "w-full gap-2"
-                    )}
-                  >
-                    Browse Templates
-                    <ChevronRight className="ml-1 size-4 shrink-0 transition-all duration-300 ease-out group-hover:translate-x-1" />
-                  </Link>
-                </div>
+              <div className="mx-0 flex w-full max-w-full  justify-center  py-1 sm:max-w-lg  md:mx-auto">
+                {/* NOTE : Will ber redirect to docs/ */}
+                <Button>Get Started</Button>
               </div>
             </div>
-          </div>
-
-          <div className="relative mx-auto flex w-full max-w-56 items-center justify-center">
-            <TechStack
-              className="mx-auto flex w-full items-center justify-between"
-              technologies={[
-                "react",
-                "typescript",
-                "tailwindcss",
-                "framermotion",
-                "shadcn",
-              ]}
-            />
           </div>
         </div>
       </div>
