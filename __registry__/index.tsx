@@ -577,17 +577,6 @@ export const Index: Record<string, any> = {
       subcategory: "undefined",
       chunks: []
     },
-    "nft-hero": {
-      name: "nft-hero",
-      type: "registry:example",
-      registryDependencies: undefined,
-      files: ["registry/default/example/nft-hero.tsx"],
-      component: React.lazy(() => import("@/registry/default/example/nft-hero.tsx")),
-      source: "",
-      category: "undefined",
-      subcategory: "undefined",
-      chunks: []
-    },
     "saas-hero-one": {
       name: "saas-hero-one",
       type: "registry:example",
