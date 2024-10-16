@@ -9,7 +9,7 @@ export const docsConfig: DocsConfig = {
   mainNav: [
     {
       title: "Components",
-      href: "/docs/components/",
+      href: "/docs/display/",
     },
     {
       title: "Templates",
@@ -70,6 +70,12 @@ export const docsConfig: DocsConfig = {
         {
           title: "NFT Hero",
           href: `/docs/components/nft-hero`,
+          items: [],
+          label: "New",
+        },
+        {
+          title: "SaaS Hero One",
+          href: `/docs/components/saas-hero-one`,
           items: [],
           label: "New",
         },

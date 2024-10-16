@@ -18,6 +18,7 @@ const nextConfig = {
         destination: "https://discord.gg/X4BBMBjHNf",
         permanent: true,
       },
+
       {
         source: "/components/:path*",
         destination: "/docs/components/:path*",
