@@ -6,4 +6,9 @@ export const examples: Registry = [
     type: "registry:example",
     files: ["example/saas-hero-one.tsx"],
   },
+  {
+    name: "saas-hero-two",
+    type: "registry:example",
+    files: ["example/saas-hero-two.tsx"],
+  },
 ];

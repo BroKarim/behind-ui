@@ -68,14 +68,14 @@ export const docsConfig: DocsConfig = {
           label: "",
         },
         {
-          title: "NFT Hero",
-          href: `/docs/components/nft-hero`,
+          title: "SaaS Hero One",
+          href: `/docs/components/saas-hero-one`,
           items: [],
           label: "New",
         },
         {
-          title: "SaaS Hero One",
-          href: `/docs/components/saas-hero-one`,
+          title: "SaaS Hero Two",
+          href: `/docs/components/saas-hero-two`,
           items: [],
           label: "New",
         },
