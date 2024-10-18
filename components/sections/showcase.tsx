@@ -9,7 +9,7 @@ import Marquee from "@/registry/default/magicui/marquee";
 
 export interface ShowcaseCardProps {
   title: string;
-  image: string;
+  image?: string;
   href: string;
   affiliation?: string;
 }
@@ -53,7 +53,9 @@ export function ShowcaseCard({ title, image, href, affiliation }: ShowcaseCardPr
 }
 
 export default function Showcase() {
+  // only take folder on componets/
   const docsFromComponents = (allDocs || []).filter((doc) => doc.slugAsParams.startsWith("components/"));
+  console.log(docsFromComponents);
   return (
     <section id="showcase" className="container py-14">
       <Tabs defaultValue={categories[0]} className="w-full">
@@ -68,17 +70,9 @@ export default function Showcase() {
           <ScrollBar orientation="horizontal" className="w-0 bg-transparent  " />
         </ScrollArea>
       </Tabs>
-      <div className="grid gap-10 sm:grid-cols-2">
-        {docsFromComponents.map((doc) => (
-          <Link href={doc.slugAsParams} key={doc.slugAsParams} className="group relative flex flex-col space-y-2">
-            {/* seharusnya doc.image, tpi karena kebanyak belum ada jadi dia error, negok aja di   */}
-            <img src={doc.image} alt={doc.title} width={500} height={300} className="size-full max-h-[300px] rounded-xl object-cover" />
-            <div className="card-content">
-              <h2 className="text-2xl font-extrabold">{doc.title}</h2>
-
-              <p>{doc.description}</p>
-            </div>
-          </Link>
+      <div className="mb-10 grid gap-10 sm:grid-cols-3">
+        {docsFromComponents.map((doc, idx) => (
+          <ComponentShowcase key={idx} {...doc} href={doc.slug} />
         ))}
       </div>
       {/* marquee */}
@@ -92,5 +86,21 @@ export default function Showcase() {
         <div className="pointer-events-none absolute inset-y-0 right-0 h-full  w-1/12 bg-gradient-to-l from-background"></div>
       </div>
     </section>
+  );
+}
+
+export function ComponentShowcase({ title, image, href, affiliation }: ShowcaseCardProps) {
+  return (
+    <Link href={href} className="group relative flex cursor-pointer flex-col gap-2 overflow-hidden">
+      <img src={image || "/showcase/aomni.png"} alt={title} width={500} height={300} className="size-full max-h-[300px] rounded-xl object-cover" />
+
+      <div className="flex flex-col">
+        <div className="group inline-flex cursor-pointer items-center justify-start gap-1 text-xl font-semibold text-neutral-700 duration-200 hover:text-neutral-700 dark:text-neutral-300 dark:hover:text-neutral-200">
+          {title}
+          <ChevronRightIcon className="size-4 translate-x-0 opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100" />
+        </div>
+        <p className="text-sm text-neutral-400">{affiliation}</p>
+      </div>
+    </Link>
   );
 }
