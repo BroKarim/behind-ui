@@ -1,9 +1,14 @@
+"use client";
+
+import { useState } from "react";
 import { ChevronRightIcon } from "@radix-ui/react-icons";
+import { Button } from "../ui/button";
 import { allShowcases } from "content-collections";
 import Link from "next/link";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { allDocs } from "content-collections";
+import { Loader2 } from "lucide-react";
 
 import Marquee from "@/registry/default/magicui/marquee";
 
@@ -53,9 +58,16 @@ export function ShowcaseCard({ title, image, href, affiliation }: ShowcaseCardPr
 }
 
 export default function Showcase() {
+  // Tentukan berapa banyak item yang akan ditampilkan awalnya dan setiap kali "Load More" ditekan
+  const itemsPerPage = 3;
+  const [visibleItems, setVisibleItems] = useState(itemsPerPage);
+
   // only take folder on componets/
   const docsFromComponents = (allDocs || []).filter((doc) => doc.slugAsParams.startsWith("components/"));
-  console.log(docsFromComponents);
+  // console.log(docsFromComponents);
+  const handleLoadMore = () => {
+    setVisibleItems((prev) => prev + itemsPerPage); // Tambah 3 item lagi setiap kali tombol ditekan
+  };
   return (
     <section id="showcase" className="container py-14">
       <Tabs defaultValue={categories[0]} className="w-full">
@@ -71,17 +83,17 @@ export default function Showcase() {
         </ScrollArea>
       </Tabs>
       <div className="mb-10 grid gap-10 sm:grid-cols-3">
-        {docsFromComponents.map((doc, idx) => (
+        {docsFromComponents.slice(0, visibleItems).map((doc, idx) => (
           <ComponentShowcase key={idx} {...doc} href={doc.slug} />
         ))}
       </div>
+
+      <div className="mx-0 flex w-full max-w-full  justify-center  py-1 sm:max-w-lg  md:mx-auto">
+        {/* NOTE : Will ber redirect to docs/ */}
+        {visibleItems < docsFromComponents.length && <Button onClick={handleLoadMore}>Load More</Button>}
+      </div>
       {/* marquee */}
       <div className="relative flex flex-col">
-        <Marquee className="max-w-screen [--duration:40s]">
-          {allShowcases.map((showcase, idx) => (
-            <ShowcaseCard key={idx} {...showcase} href={showcase.slug} />
-          ))}
-        </Marquee>
         <div className="pointer-events-none absolute inset-y-0 left-0 h-full w-1/12 bg-gradient-to-r from-background"></div>
         <div className="pointer-events-none absolute inset-y-0 right-0 h-full  w-1/12 bg-gradient-to-l from-background"></div>
       </div>
