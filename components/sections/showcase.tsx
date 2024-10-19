@@ -58,15 +58,18 @@ export function ShowcaseCard({ title, image, href, affiliation }: ShowcaseCardPr
 }
 
 export default function Showcase() {
-  // Tentukan berapa banyak item yang akan ditampilkan awalnya dan setiap kali "Load More" ditekan
-  const itemsPerPage = 3;
+  const itemsPerPage = 3; //custom item per page
   const [visibleItems, setVisibleItems] = useState(itemsPerPage);
+  const [isLoading, setIsLoading] = useState(false);
 
-  // only take folder on componets/
   const docsFromComponents = (allDocs || []).filter((doc) => doc.slugAsParams.startsWith("components/"));
   // console.log(docsFromComponents);
   const handleLoadMore = () => {
-    setVisibleItems((prev) => prev + itemsPerPage); // Tambah 3 item lagi setiap kali tombol ditekan
+    setIsLoading(true);
+    setTimeout(() => {
+      setVisibleItems((prev) => prev + itemsPerPage);
+      setIsLoading(false);
+    }, 1000); //delay simulation, change it when production react
   };
   return (
     <section id="showcase" className="container py-14">
@@ -90,7 +93,14 @@ export default function Showcase() {
 
       <div className="mx-0 flex w-full max-w-full  justify-center  py-1 sm:max-w-lg  md:mx-auto">
         {/* NOTE : Will ber redirect to docs/ */}
-        {visibleItems < docsFromComponents.length && <Button onClick={handleLoadMore}>Load More</Button>}
+        {isLoading ? (
+          <div className="mt-14 flex h-9 items-center">
+            <Loader2 className="mr-2 animate-spin text-pink-500" size={18} />
+            Loading more...
+          </div>
+        ) : (
+          visibleItems < docsFromComponents.length && <Button onClick={handleLoadMore}>Load More</Button>
+        )}
       </div>
       {/* marquee */}
       <div className="relative flex flex-col">
