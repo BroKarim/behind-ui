@@ -15,13 +15,13 @@ export function MainNav() {
   const pathname = usePathname();
 
   return (
-    <div className="mr-4 hidden md:flex">
+    <div className="mr-4 hidden gap-x-8 md:flex">
       <Link href="/" className="relative mr-6 flex items-center justify-center text-center">
         {/* <Icons.logo1 className="size-12" /> */}
         <Icons.logo className=" size-8 " />
         <span className="hidden text-center font-mono  font-bold md:inline-block">{siteConfig.name}</span>
       </Link>
-      <nav className="hidden items-center space-x-6 text-sm font-medium xl:flex">
+      <nav className="hidden items-center space-x-6  font-medium xl:flex">
         {docsConfig.mainNav.map((item) => (
           <Link
             key={item.href}

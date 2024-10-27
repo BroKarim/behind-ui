@@ -41,9 +41,6 @@ export async function SiteHeader() {
         <MainNav />
         <MobileNav />
         <div className="flex flex-1 items-center justify-between gap-2 md:justify-end">
-          <div className="w-full flex-1 md:w-auto md:flex-none">
-            <CommandMenu />
-          </div>
           <nav className="flex items-center gap-1">
             <Link href={siteConfig.links.discord} target="_blank" rel="noreferrer">
               <div
@@ -58,19 +55,7 @@ export async function SiteHeader() {
                 <span className="sr-only">Discord</span>
               </div>
             </Link>
-            <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
-              <div
-                className={cn(
-                  buttonVariants({
-                    variant: "ghost",
-                  }),
-                  "w-9 px-0"
-                )}
-              >
-                <Icons.gitHub className="size-4" />
-                <span className="sr-only">GitHub</span>
-              </div>
-            </Link>
+
             <Link href={siteConfig.links.twitter} target="_blank" rel="noreferrer">
               <div
                 className={cn(
@@ -86,6 +71,9 @@ export async function SiteHeader() {
             </Link>
             <ModeToggle />
           </nav>
+          <div className="w-full flex-1 md:w-auto md:flex-none">
+            <CommandMenu />
+          </div>
         </div>
       </div>
       <hr className="m-0 h-px w-full border-none bg-gradient-to-r from-neutral-200/0 via-neutral-200/30 to-neutral-200/0" />
