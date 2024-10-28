@@ -78,13 +78,13 @@ export default async function DocPage({ params }: DocPageProps) {
 
   return (
     <main
-      className={cn("relative py-6 lg:py-8  ", {
+      className={cn("relative gap-2 px-16 py-6 lg:py-8 xl:flex", {
         "xl:grid-cols-[1fr_300px]": doc.toc,
       })}
     >
-      <div className="mx-auto w-full min-w-0">
+      <div className="mx-auto w-full min-w-0 ">
         <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
-          <div className="truncate">Docs</div>
+          <div className="truncate">Shots</div>
           <ChevronRightIcon className="size-4" />
           <div className="font-medium text-foreground">{doc.title}</div>
         </div>

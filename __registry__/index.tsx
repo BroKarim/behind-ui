@@ -599,6 +599,50 @@ export const Index: Record<string, any> = {
       subcategory: "undefined",
       chunks: []
     },
+    "saas-hero-three": {
+      name: "saas-hero-three",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/hero-one/hero-one.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/hero-one/hero-one.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "saas-hero-three-wrapper": {
+      name: "saas-hero-three-wrapper",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/hero-one/hero-one-wrapper.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/hero-one/hero-one-wrapper.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "saas-hero-three-banner": {
+      name: "saas-hero-three-banner",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/hero-one/hero-one-banner.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/hero-one/hero-one-banner.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "saas-hero-three-navbar": {
+      name: "saas-hero-three-navbar",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/hero-one/hero-one-navbar.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/hero-one/hero-one-navbar.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
     "utils": {
       name: "utils",
       type: "registry:lib",
