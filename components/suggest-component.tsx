@@ -55,10 +55,10 @@ const SuggestComponents = forwardRef<HTMLDivElement, SuggestComponentsProps>(({ 
           {/* check lagi */}
           <div className={cn(" relative mx-auto w-full max-w-[80rem]")}>
             {/* <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500" /> */}
-            <div className="relative flex rounded-lg border border-gray-600 bg-[#141414] p-1">
+            <div className="relative flex rounded-lg border-2 border-black p-1 dark:border dark:border-gray-600 dark:bg-[#141414]">
               <BorderBeam />
               <textarea
-                className="relative h-[100px] min-h-[100px] w-[30rem] resize-none rounded-md bg-transparent px-3 py-2 text-sm text-white placeholder:text-gray-400 focus:outline-none"
+                className="relative h-[100px] min-h-[100px] w-[30rem] resize-none rounded-md bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none dark:text-white"
                 placeholder="Drop a link or description of the hero section you’d like us to add."
               />
 
