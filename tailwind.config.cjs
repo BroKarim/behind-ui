@@ -5,12 +5,7 @@ const colors = require("tailwindcss/colors");
 
 module.exports = {
   darkMode: ["class"],
-  content: [
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./content/**/*.mdx",
-    "./registry/**/*.{ts,tsx}",
-  ],
+  content: ["./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./content/**/*.mdx", "./registry/**/*.{ts,tsx}"],
   theme: {
     container: {
       center: true,
@@ -73,17 +68,16 @@ module.exports = {
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
         "shiny-text": "shiny-text 8s infinite",
-        "shimmer-slide":
-          "shimmer-slide var(--speed) ease-in-out infinite alternate",
+        "shimmer-slide": "shimmer-slide var(--speed) ease-in-out infinite alternate",
         ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
         line: "line 2s linear infinite",
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
         orbit: "orbit calc(var(--duration)*1s) linear infinite",
-        "background-position-spin":
-          "background-position-spin 3000ms infinite alternate",
+        "background-position-spin": "background-position-spin 3000ms infinite alternate",
         shine: "shine var(--duration) infinite linear",
         pulse: "pulse var(--duration) ease-out infinite",
         rainbow: "rainbow var(--speed, 2s) infinite linear",
+        "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
       },
       keyframes: {
         "accordion-down": {
@@ -93,6 +87,11 @@ module.exports = {
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
+        },
+        "border-beam": {
+          "100%": {
+            "offset-distance": "100%",
+          },
         },
         "background-position-spin": {
           "0%": { backgroundPosition: "top center" },
@@ -169,12 +168,10 @@ module.exports = {
         },
         orbit: {
           "0%": {
-            transform:
-              "rotate(0deg) translateY(calc(var(--radius) * 1px)) rotate(0deg)",
+            transform: "rotate(0deg) translateY(calc(var(--radius) * 1px)) rotate(0deg)",
           },
           "100%": {
-            transform:
-              "rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg)",
+            transform: "rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg)",
           },
         },
         shine: {

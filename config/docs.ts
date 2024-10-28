@@ -9,14 +9,9 @@ export const docsConfig: DocsConfig = {
   mainNav: [
     {
       title: "Components",
-      href: "/docs/display/",
+      href: "/shots/",
     },
-    {
-      title: "Template",
-      href: "https://pro.magicui.design",
-      event: "header_cta_clicked",
-      label: "New",
-    },
+
     {
       title: "Figma",
       href: "/figma",
