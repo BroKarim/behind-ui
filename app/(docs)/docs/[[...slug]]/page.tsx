@@ -78,7 +78,7 @@ export default async function DocPage({ params }: DocPageProps) {
 
   return (
     <main
-      className={cn("relative gap-2 px-16 py-6 lg:py-8 xl:flex", {
+      className={cn("relative gap-4 px-4 py-6 lg:py-8 xl:flex", {
         "xl:grid-cols-[1fr_300px]": doc.toc,
       })}
     >
