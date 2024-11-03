@@ -17,7 +17,7 @@ export const docsConfig: DocsConfig = {
       href: "/figma",
     },
     {
-      title: "Faq",
+      title: "FAQs",
       href: "/faq",
     },
   ],
