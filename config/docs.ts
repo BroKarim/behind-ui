@@ -8,7 +8,7 @@ interface DocsConfig {
 export const docsConfig: DocsConfig = {
   mainNav: [
     {
-      title: "Components",
+      title: "Explore",
       href: "/shots/",
     },
 
@@ -17,8 +17,8 @@ export const docsConfig: DocsConfig = {
       href: "/figma",
     },
     {
-      title: "Docs",
-      href: "/docs",
+      title: "FAQs",
+      href: "/faq",
     },
   ],
   sidebarNav: [

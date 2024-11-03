@@ -18,14 +18,7 @@ interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
   preview?: boolean;
 }
 
-export function ComponentPreview({
-  name,
-  children,
-  className,
-  align = "center",
-  preview = false,
-  ...props
-}: ComponentPreviewProps) {
+export function ComponentPreview({ name, children, className, align = "center", preview = false, ...props }: ComponentPreviewProps) {
   const [key, setKey] = React.useState(0);
   const [config] = useConfig();
   const index = styles.findIndex((style) => style.name === config.style);
@@ -40,11 +33,7 @@ export function ComponentPreview({
       console.error(`Component with name "${name}" not found in registry.`);
       return (
         <p className="text-sm text-muted-foreground">
-          Component{" "}
-          <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
-            {name}
-          </code>{" "}
-          not found in registry.
+          Component <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">{name}</code> not found in registry.
         </p>
       );
     }
@@ -53,13 +42,7 @@ export function ComponentPreview({
   }, [name, config.style]);
 
   return (
-    <div
-      className={cn(
-        "relative my-4 flex flex-col space-y-2 lg:max-w-[120ch]",
-        className,
-      )}
-      {...props}
-    >
+    <div className={cn("relative my-4 flex flex-col space-y-2 lg:max-w-[120ch]", className)} {...props}>
       <Tabs defaultValue="preview" className="relative mr-auto w-full">
         {!preview && (
           <div className="flex items-center justify-between pb-3">
@@ -81,11 +64,7 @@ export function ComponentPreview({
         )}
         <TabsContent value="preview" className="relative rounded-md" key={key}>
           <ComponentWrapper>
-            <Button
-              onClick={() => setKey((prev) => prev + 1)}
-              className="absolute right-1.5 top-1.5 z-10 ml-4 flex items-center rounded-lg px-3 py-1"
-              variant="ghost"
-            >
+            <Button onClick={() => setKey((prev) => prev + 1)} className="absolute right-1.5 top-1.5 z-10 ml-4 flex items-center rounded-lg px-3 py-1" variant="ghost">
               <RotateCcw aria-label="restart-btn" size={16} />
             </Button>
             <React.Suspense
@@ -102,9 +81,7 @@ export function ComponentPreview({
         </TabsContent>
         <TabsContent value="code">
           <div className="flex flex-col space-y-4">
-            <div className="w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto">
-              {Code}
-            </div>
+            <div className="w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto">{Code}</div>
           </div>
         </TabsContent>
       </Tabs>

@@ -6,11 +6,74 @@ published: true
 image: /showcase/cognosys.png
 ---
 
-<ComponentPreview name="saas-hero-two" />
+<ComponentPreview name="saas-hero-three" />
 
-**Hi everyone!! 👀**
-I'm back again. This time, I would like to share the results of my exploration on illustrations with a slight touch of header layout about our project called Japanese Born Ape Society. Inspired from studio vor.
+<div className="py-12 px-20">
+## Overview
 
-Don't forget to press (L) if you like this, and feel free to leave your feedback.
+A modern, minimalist hero section that emphasizes developer-focused content with a clean code presentation. The layout combines promotional content with a live code example, creating an engaging first impression for technical users.
 
-Thank you and have a nice day 😎
+## Full preview
+    <div className="w-full flex justify-center items-center mt-4">
+        <img src="/showcase/cognosys.png" className="rounded-lg" alt="Image alt" />
+    </div>
+
+
+## Key Components
+
+### Navigation Bar
+
+- Clean, horizontal layout with responsive design
+- Right-aligned menu items: "helo\_", "docs", "changelogs", "community"
+- Top banner announcement with "$30M series B" funding news
+- Subtle border-bottom separation for visual hierarchy
+
+### Hero Content
+
+- Two-column layout for larger screens, stacked on mobile
+- Left column:
+  - Label badge: "Powerful for developer."
+  - Main heading: "Fast for everyone."
+  - Subheading: "Most powerfull API built spesofically for the modern web."
+  - CTA button: "Explore the doc" with arrow icon
+- Right column :
+  - Using Prism React Renderer for syntax highlighting
+  - File indicator: "demo.tsx" with "animation.js"
+  - Line numbers for better readability
+  - Custom styling for TypeScript/React syntax
+  - Integration logos with marquee animation
+
+### Visual Design
+
+- Background:
+
+  - Light mode: Clean white (#FFFFFF)
+  - Dark mode: Rich dark (#0A0A0A)
+
+- Typography:
+  - Modern monospace for code blocks
+  - Sans-serif for main content
+
+<hr />
+
+## Supporting Components
+
+<h1 className="mt-2">`wrapper.tsx`</h1>
+
+<ComponentSource name="saas-hero-three-wrapper" />
+
+<h1>`banner.tsx`</h1>
+
+<ComponentSource name="saas-hero-three-banner" />
+
+<h1>`navbar.tsx`</h1>
+
+<ComponentSource name="saas-hero-three-navbar" />
+</div>
+
+<div className="py-12 px-20">
+
+Now the hero section ready to use<br/>
+Stay tune for more🚀
+
+</div>

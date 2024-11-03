@@ -5,6 +5,8 @@ import { useEffect, useMemo, useState } from "react";
 import type { TableOfContents } from "@/lib/toc";
 import { useMounted } from "@/lib/use-mounted";
 import { cn } from "@/lib/utils";
+import { Icons } from "./icons";
+// import { TableOfContents as Table } from "lucide-react";
 
 interface TocProps {
   toc: TableOfContents;
@@ -36,7 +38,7 @@ export function TableOfContents({ toc }: TocProps) {
             .filter(Boolean)
             .map((id) => id?.split("#")[1])
         : [],
-    [refinedToc],
+    [refinedToc]
   ) as string[];
 
   const activeHeading = useActiveItem(itemIds);
@@ -47,8 +49,10 @@ export function TableOfContents({ toc }: TocProps) {
   }
 
   return (
-    <div className="space-y-2">
-      <p className="font-medium">On This Page</p>
+    <div className="space-y-1">
+      <p className="flex items-center gap-x-1">
+        <Icons.contentMenu size={14} /> On This Page
+      </p>
       <Tree tree={refinedToc} activeItem={activeHeading} />
     </div>
   );
@@ -66,7 +70,7 @@ function useActiveItem(itemIds: string[]): string | null {
           }
         });
       },
-      { rootMargin: `0% 0% -80% 0%` },
+      { rootMargin: `0% 0% -80% 0%` }
     );
 
     itemIds?.forEach((id) => {
@@ -101,20 +105,10 @@ function Tree({ tree, level = 1, activeItem }: TreeProps) {
       {tree.items.map((item, index) => {
         return (
           <li key={index} className={cn("mt-0 pt-2")}>
-            <a
-              href={item.url}
-              className={cn(
-                "inline-block no-underline transition-colors hover:text-foreground",
-                item.url === `#${activeItem}`
-                  ? "font-medium text-foreground"
-                  : "text-muted-foreground",
-              )}
-            >
+            <a href={item.url} className={cn("inline-block no-underline transition-colors hover:text-foreground", item.url === `#${activeItem}` ? "font-medium text-foreground" : "text-muted-foreground")}>
               {item.title}
             </a>
-            {item.items?.length ? (
-              <Tree tree={item} level={level + 1} activeItem={activeItem} />
-            ) : null}
+            {item.items?.length ? <Tree tree={item} level={level + 1} activeItem={activeItem} /> : null}
           </li>
         );
       })}
