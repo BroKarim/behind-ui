@@ -25,29 +25,6 @@ interface DocPageProps {
   };
 }
 
-const categories = [
-  "All",
-  "Portofolio",
-  "Startup",
-  "Agency",
-  "Branding",
-  "Tools",
-  "Finance",
-  "E-commerce",
-  "SaaS",
-  "Non-profit & charity",
-  "Food & Drink",
-  "Real estate",
-  "Photography",
-  "Product",
-  "App",
-  "Education",
-  "Blog",
-  "Personal",
-  "Production Studio",
-  "Architecture & Interior design",
-];
-
 async function getDocFromParams({ params }: DocPageProps) {
   const slug = params.slug?.join("/") || "";
   const doc = allDocs.find((doc) => doc.slugAsParams === slug);
@@ -116,18 +93,7 @@ export default async function DocPage({ params }: DocPageProps) {
           </div>
         </div>
         <hr className="my-8" />
-        <Tabs defaultValue={categories[0]} className="w-full">
-          <ScrollArea className="h-16 w-full whitespace-nowrap rounded-md bg-transparent">
-            <TabsList className="bg-transparent">
-              {categories.map((category) => (
-                <TabsTrigger key={category} value={category} className="text-md">
-                  {category}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-            <ScrollBar orientation="horizontal" className="w-0 bg-transparent  " />
-          </ScrollArea>
-        </Tabs>
+
         <div className="grid w-full gap-9 pt-4 md:grid-cols-2 lg:grid-cols-3 lg:pt-8">
           {docsFromComponents.map((doc) => (
             <Link href={doc.slugAsParams} key={doc.slugAsParams} className="group relative flex flex-col space-y-2">
