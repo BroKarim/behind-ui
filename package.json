@@ -17,6 +17,7 @@
     "build:docs": "content-collections build",
     "typecheck": "pnpm build:docs && tsc --noEmit",
     "start": "next start",
+    "clean": "rm -rf .next",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
