@@ -74,31 +74,7 @@ export const docsConfig: DocsConfig = {
         },
         {
           title: "SaaS Hero Two",
-          href: `/docs/components/saas-hero-two`,
-          items: [],
-          label: "New",
-        },
-        {
-          title: "SaaS Hero Two",
           href: `/docs/components/saas-hero-three`,
-          items: [],
-          label: "New",
-        },
-        {
-          title: "ProjectPath",
-          href: `/docs/components/saas-hero-four`,
-          items: [],
-          label: "New",
-        },
-        {
-          title: "Nexus",
-          href: `/docs/components/saas-hero-five`,
-          items: [],
-          label: "New",
-        },
-        {
-          title: "Finnpay",
-          href: `/docs/components/saas-hero-six`,
           items: [],
           label: "New",
         },

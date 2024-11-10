@@ -6,13 +6,7 @@ import { Command } from "commander";
 
 import { getEnv } from "./utils/get-env";
 import { getPackageInfo } from "./utils/get-package-info";
-import {
-  ASCII_PRO,
-  ASCII_TEXT,
-  ColorFullText,
-  hasPro,
-  tryPro,
-} from "./utils/logger";
+import { ASCII_PRO, ASCII_TEXT, ColorFullText, hasPro, tryPro } from "./utils/logger";
 
 process.on("SIGINT", async () => {
   await posthog.shutdown();
@@ -33,11 +27,7 @@ async function main() {
     .addHelpText("after", ColorFullText(MAGICUI_PRO_ENV ? hasPro : tryPro))
     .name("magicui-cli")
     .description("Add Magic UI components to your apps.")
-    .version(
-      packageInfo.version || "1.0.0",
-      "-v, --version",
-      "display the version number",
-    );
+    .version(packageInfo.version || "1.0.0", "-v, --version", "display the version number");
 
   program.addCommand(init).addCommand(add);
 

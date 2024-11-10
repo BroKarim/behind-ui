@@ -1,9 +1,4 @@
 "use client";
-import ComponentDemos from "@/components/sections/component-demos";
-import Hero from "@/components/sections/hero";
-import Showcase from "@/components/sections/showcase";
-import Link from "next/link";
-import Testimonials from "@/components/sections/testimonials";
 import SuggestComponents from "@/components/suggest-component";
 
 export default function Home() {

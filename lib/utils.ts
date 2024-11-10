@@ -55,8 +55,8 @@ export function absoluteUrl(path: string) {
 }
 
 export function constructMetadata({
-  title = "Magic UI - Modern React + Tailwind CSS components & Templates",
-  description = "Magic UI is a curated collection of the best landing page components built using React + Tailwind CSS + Framer Motion",
+  title = "BehindUI - When Dribble Meet Code",
+  description = "BehindUI is a collection of ready to use world class headline components for your website",
   image = absoluteUrl("/og"),
   ...props
 }: {
@@ -68,14 +68,7 @@ export function constructMetadata({
   return {
     title,
     description,
-    keywords: [
-      "React",
-      "Tailwind CSS",
-      "Framer Motion",
-      "Landing Page",
-      "Components",
-      "Next.js",
-    ],
+    keywords: ["React", "Tailwind CSS", "Framer Motion", "Landing Page", "Components", "Next.js"],
     openGraph: {
       title,
       description,
@@ -94,17 +87,17 @@ export function constructMetadata({
       title,
       description,
       images: [image],
-      creator: "@dillionverma",
+      creator: "@BroKariim",
     },
     icons: "/favicon.ico",
-    metadataBase: new URL("https://magicui.design"),
+    metadataBase: new URL("https://behindui.vercel.app/"),
     authors: [
       {
-        name: "dillionverma",
-        url: "https://twitter.com/dillionverma",
+        name: "BroKarim",
+        url: "https://x.com/BroKariim",
       },
     ],
-    creator: "dillionverma",
+    creator: "BroKarim",
     ...props,
   };
 }
