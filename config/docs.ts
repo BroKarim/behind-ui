@@ -78,6 +78,12 @@ export const docsConfig: DocsConfig = {
           items: [],
           label: "New",
         },
+        {
+          title: "Maria & Co.",
+          href: `/docs/components/maria-and-co`,
+          items: [],
+          label: "New",
+        },
       ],
     },
 

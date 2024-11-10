@@ -643,6 +643,28 @@ export const Index: Record<string, any> = {
       subcategory: "undefined",
       chunks: []
     },
+    "maria-and-co": {
+      name: "maria-and-co",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/maria-and-co/index.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/maria-and-co/index.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "maria-and-co-header": {
+      name: "maria-and-co-header",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/maria-and-co/header.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/maria-and-co/header.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
     "utils": {
       name: "utils",
       type: "registry:lib",
