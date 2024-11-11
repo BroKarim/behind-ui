@@ -1,4 +1,5 @@
 import { AnimatePresence, cubicBezier, motion } from "framer-motion";
+import { SendHorizontal, Ban } from "lucide-react";
 
 interface SendButtonProps {
   show: boolean;
@@ -13,7 +14,7 @@ export function SendButton({ show, isStreaming, onClick }: SendButtonProps) {
     <AnimatePresence>
       {show ? (
         <motion.button
-          className="bg-accent-500 hover:brightness-94 color-white transition-theme absolute right-[22px] top-[18px] flex h-[34px] w-[34px] items-center justify-center rounded-md p-1"
+          className="bg-accent-500 hover:brightness-94 color-white transition-theme absolute right-[22px] top-[18px] z-10 flex h-[34px] w-[34px] items-center justify-center rounded-md p-1"
           transition={{ ease: customEasingFn, duration: 0.17 }}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -23,7 +24,17 @@ export function SendButton({ show, isStreaming, onClick }: SendButtonProps) {
             onClick?.(event);
           }}
         >
-          <div className="text-lg">{!isStreaming ? <div className="i-ph:arrow-right"></div> : <div className="i-ph:stop-circle-bold"></div>}</div>
+          <div className="text-lg">
+            {!isStreaming ? (
+              <div>
+                <SendHorizontal />
+              </div>
+            ) : (
+              <div className="stop-circle-bold">
+                <Ban />
+              </div>
+            )}
+          </div>
         </motion.button>
       ) : null}
     </AnimatePresence>
