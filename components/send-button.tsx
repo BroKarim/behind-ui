@@ -23,12 +23,12 @@ export function SendButton({ show, isStreaming, onClick }: SendButtonProps) {
             event.preventDefault();
             onClick?.(event);
           }}
+          type="submit"
+          disabled={!show}
         >
           <div className="text-lg">
             {!isStreaming ? (
-              <div>
-                <SendHorizontal />
-              </div>
+              <SendHorizontal />
             ) : (
               <div className="stop-circle-bold">
                 <Ban />
