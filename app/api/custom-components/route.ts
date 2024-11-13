@@ -3,11 +3,6 @@ import { NextResponse } from "next/server";
 
 export const dynamic = "force-static";
 
-interface Data {
-  // email: string;
-  message: string;
-}
-
 export async function POST(request: Request) {
   console.log("Received request");
   try {
@@ -26,6 +21,9 @@ export async function POST(request: Request) {
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
+      },
+      tls: {
+        rejectUnauthorized: true,
       },
     });
 

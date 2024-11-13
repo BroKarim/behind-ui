@@ -7,6 +7,15 @@ import { cn } from "@/lib/utils";
 import { BorderBeam } from "./ui/border-beam";
 import { SendButton } from "./send-button";
 import PulsatingButton from "@/registry/default/magicui/pulsating-button";
+import { useToast } from "@/hooks/use-toast";
+import { ToastAction } from "@/components/ui/toast";
+type FormStatus = "idle" | "loading" | "success" | "error";
+
+interface ApiResponse {
+  success?: boolean;
+  error?: string;
+  message?: string;
+}
 
 interface SuggestComponentsProps {
   textareaRef?: React.RefObject<HTMLTextAreaElement> | undefined;
@@ -30,6 +39,7 @@ const SuggestComponents = forwardRef<HTMLDivElement, SuggestComponentsProps>(({ 
   const [message, setMessage] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const { toast } = useToast();
   // const [isStreaming, setIsStreaming] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -42,97 +52,40 @@ const SuggestComponents = forwardRef<HTMLDivElement, SuggestComponentsProps>(({ 
     }
   };
 
-  // const handleSend = () => {
-  //   if (message.trim() && onSend) {
-  //     onSend(message);
-  //     setMessage("");
-
-  //     // Reset textarea height
-  //     if (textareaRef.current) {
-  //       textareaRef.current.style.height = "auto";
-  //     }
-  //   }
-  // };
-
-  // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-
-  //   if (!message.trim() || status === "loading") return;
-
-  //   try {
-  //     setStatus("loading");
-
-  //     const response = await fetch("/api/repo/custom-component", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({ message: message.trim() }),
-  //     });
-
-  //     if (!response.ok) {
-  //       const errorData = await response.json();
-  //       throw new Error(errorData.error || "Failed to send message");
-  //     }
-
-  //     setStatus("success");
-  //     setMessage("");
-
-  //     if (textareaRef.current) {
-  //       textareaRef.current.style.height = "auto";
-  //     }
-  //   } catch (error) {
-  //     console.error("Send message error:", error);
-  //     setStatus("error");
-  //   } finally {
-  //     setStatus("idle");
-  //   }
-  // };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!message.trim() || status === "loading") return;
 
+    setStatus("loading");
     try {
-      setStatus("loading");
-
-      const response = await fetch("/api/custom-component", {
+      const response = await fetch("/api/custom-components", {
         method: "post",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ message: message.trim() }),
       });
-      console.log("Response status:", response.status);
-      const responseText = await response.text();
-      console.log("Response text:", responseText);
+
+      const data: ApiResponse = await response.json();
+
       if (response.ok) {
-        let data;
-        try {
-          data = JSON.parse(responseText);
-        } catch (e: any) {
-          console.log("error e : ", e.message);
-          throw new Error("Invalid response from server");
-        }
-
-        if (!response.ok) {
-          throw new Error(data.error || "Failed to send message");
-        }
-
-        setStatus("success");
-        setMessage("");
-
-        // Optional: Show success message
-        alert("Message sent successfully!");
-      } else {
-        alert(response.status);
+        throw new Error(data.error || "Failed to send message");
       }
+      setMessage("");
+      toast({
+        description: "Message sent successfully",
+      });
+      setStatus("success");
     } catch (error) {
-      setStatus("error");
-      console.error("Send message error:", error);
+      const errorMessage = error instanceof Error ? error.message : "Failed to send message";
 
-      // Show error to user
-      alert(error instanceof Error ? error.message : "Failed to send message");
+      toast({
+        variant: "destructive",
+        description: errorMessage,
+        action: <ToastAction altText="Try again">Try again</ToastAction>,
+      });
+      setStatus("error");
     } finally {
       setStatus("idle");
     }
