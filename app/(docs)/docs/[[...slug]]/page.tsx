@@ -84,13 +84,15 @@ export default async function DocPage({ params }: DocPageProps) {
     >
       <div className="mx-auto w-full min-w-0 ">
         <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
-          <div className="truncate">Shots</div>
+          <Link href="/shots" className="cursor-pointer truncate">
+            Shots
+          </Link>
           <ChevronRightIcon className="size-4" />
           <div className="font-medium text-foreground">{doc.title}</div>
         </div>
         <div className="space-y-2">
           <h1 className={cn("scroll-m-20 text-4xl font-bold tracking-tight")}>{doc.title}</h1>
-          {doc.description && <p className="text-balance text-lg text-muted-foreground">{doc.description}</p>}
+          {doc.description && <p className="max-w-2xl text-balance text-lg text-muted-foreground">{doc.description}</p>}
         </div>
         {doc.links ? (
           <div className="flex items-center space-x-2 pt-4">

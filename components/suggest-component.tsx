@@ -35,12 +35,12 @@ interface SuggestComponentsProps {
   onSend?: (message: string) => void;
 }
 
-const SuggestComponents = forwardRef<HTMLDivElement, SuggestComponentsProps>(({ input = "", onSend, isStreaming = false, handleStop }) => {
+const SuggestComponents = forwardRef<HTMLDivElement, SuggestComponentsProps>(({ input = "", onSend, handleStop }) => {
   const [message, setMessage] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const { toast } = useToast();
-  // const [isStreaming, setIsStreaming] = useState(false);
+  const [isStreaming, setIsStreaming] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(e.target.value);
@@ -58,6 +58,7 @@ const SuggestComponents = forwardRef<HTMLDivElement, SuggestComponentsProps>(({ 
     if (!message.trim() || status === "loading") return;
 
     setStatus("loading");
+    setIsStreaming(true);
     try {
       const response = await fetch("/api/custom-components", {
         method: "post",
@@ -69,17 +70,19 @@ const SuggestComponents = forwardRef<HTMLDivElement, SuggestComponentsProps>(({ 
 
       const data: ApiResponse = await response.json();
 
-      if (response.ok) {
-        throw new Error(data.error || "Failed to send message");
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message from fe");
+        return;
       }
       setMessage("");
+      console.log("Success toast triggered");
       toast({
         description: "Message sent successfully",
       });
       setStatus("success");
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : "Failed to send message";
-
+      const errorMessage = error instanceof Error ? error.message : "Failed to send message from fe 2";
+      console.log("Error toast trigger ", errorMessage);
       toast({
         variant: "destructive",
         description: errorMessage,
@@ -87,6 +90,7 @@ const SuggestComponents = forwardRef<HTMLDivElement, SuggestComponentsProps>(({ 
       });
       setStatus("error");
     } finally {
+      setIsStreaming(false);
       setStatus("idle");
     }
   };

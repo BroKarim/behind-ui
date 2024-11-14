@@ -14,13 +14,7 @@ export default function Home() {
                 <div className="absolute left-1/2 top-0 -translate-x-1/2">
                   <div className="z-[-1] h-[450px] w-[700px] bg-[radial-gradient(at_0%_0%,#0894ff_0,rgba(0,0,0,0)_40%),radial-gradient(at_50%_30%,#ff2e54_0,rgba(0,0,0,0)_60%),radial-gradient(at_100%_0%,#ff9004_0,rgba(0,0,0,0)_40%)] blur-[100px]" />
                 </div>
-                <SuggestComponents
-                  onSend={(message) => {
-                    // Handle sending message here
-                    console.log(message);
-                  }}
-                />
-                {/* <SearchCommand context animated className="mt-6 h-64 w-full lg:min-w-[600px]" /> */}
+                <SuggestComponents />
               </div>
             </div>
             {/* footer */}
