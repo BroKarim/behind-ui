@@ -31,7 +31,7 @@ export async function POST(request: Request) {
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: "brokariim@gmail.com",
-      subject: "Anonymous Message from Website",
+      subject: "Custom Design Request",
       text: message,
     });
 
