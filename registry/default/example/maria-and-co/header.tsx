@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MobileHeader } from "./mobile-header";
 
 export function Header() {
   return (
@@ -27,7 +28,7 @@ export function Header() {
           Maria & Co.
         </Link>
       </div>
-
+      <MobileHeader />
       <div className="w-full px-8 md:mt-2">
         <ul className="flex items-center justify-end gap-4 text-sm  font-medium  md:justify-between">
           <li>
