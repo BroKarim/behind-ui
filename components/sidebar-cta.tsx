@@ -17,18 +17,11 @@ export default function SidebarCTA() {
     >
       <WordPullUp words="Looking for templates?" className="text-4xl" />
       <AnimatedShinyText className="group inline-flex items-center justify-center whitespace-pre via-white/80 text-white dark:text-white">
-        ✨ Introducing Magic UI Pro
+        ✨ Introducing BehindUI
         <ChevronRight className="ml-1 size-4 transition-all duration-300 ease-out group-hover:translate-x-1" />
       </AnimatedShinyText>
 
-      <video
-        autoPlay
-        loop
-        playsInline
-        muted
-        src="/startup-template-demo.mp4"
-        className="w-full overflow-hidden rounded-xl shadow-2xl"
-      />
+      <video autoPlay loop playsInline muted src="/startup-template-demo.mp4" className="w-full overflow-hidden rounded-xl shadow-2xl" />
     </Link>
   );
 }

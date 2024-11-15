@@ -82,32 +82,35 @@ export default async function DocPage({ params }: DocPageProps) {
 
   if (!params.slug) {
     return (
-      <section className="py-6 lg:py-10">
-        <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
-          <div className="flex-1 space-y-4">
-            <h1 className="inline-block max-w-2xl text-4xl font-bold tracking-tight lg:text-5xl">
-              The Ultimate Source <br />
-              for High-Quality Code and Stunning Design
-            </h1>
-            <p className=" text-base">A curated collection of the best SaaS websites on the web. Updated every*week*day</p>
+      <>
+        <hr className="mb-2 border-2 border-black dark:border dark:border-white" />
+        <section className="py-6 ">
+          <div className="flex h-96 flex-col items-start  gap-4  md:flex-row md:justify-between md:gap-8">
+            <div className="w-full flex-1 space-y-4 px-4">
+              <h1 className="inline-block  text-2xl tracking-tight  md:text-4xl lg:text-5xl">
+                BehindUI is the ultimate source for ready-to-use hero sections and templates, blending stunning design with seamless code. Discover a curated collection crafted to inspire and streamline your projects, updated every weekday
+                to keep your creativity flowing effortlessly.
+              </h1>
+              {/* <p className=" text-base">A curated collection of the best SaaS websites on the web. Updated every*week*day</p> */}
+            </div>
           </div>
-        </div>
-        <hr className="my-8" />
+          <hr className="mb-8 mt-16 border-2 border-black dark:border dark:border-white" />
 
-        <div className="grid w-full gap-9 pt-4 md:grid-cols-2 lg:grid-cols-3 lg:pt-8">
-          {docsFromComponents.map((doc) => (
-            <Link href={doc.slugAsParams} key={doc.slugAsParams} className="group relative flex flex-col space-y-2">
-              {/* seharusnya doc.image, tpi karena kebanyak belum ada jadi dia error, negok aja di   */}
-              <img src={doc.image} alt={doc.title} width={500} height={300} className="size-full max-h-[300px] rounded-xl object-cover" />
-              <div className="card-content">
-                <h2 className="text-2xl font-extrabold">{doc.title}</h2>
+          <div className="mt-8 grid w-full gap-9 px-4 pt-4 md:grid-cols-2 lg:grid-cols-3 lg:pt-8">
+            {docsFromComponents.map((doc) => (
+              <Link href={doc.slugAsParams} key={doc.slugAsParams} className="group relative flex flex-col space-y-2">
+                {/* seharusnya doc.image, tpi karena kebanyak belum ada jadi dia error, negok aja di   */}
+                <img src={doc.image} alt={doc.title} width={500} height={300} className="size-full max-h-[300px]  object-cover" />
+                <div className="card-content">
+                  {/* <h2 className="text-2xl font-extrabold">{doc.title}</h2> */}
 
-                <p>{doc.description}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+                  <p className="text-lg">{doc.description}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      </>
     );
   }
   return (
