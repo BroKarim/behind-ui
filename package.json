@@ -4,7 +4,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "prefix:cli": "pnpm --prefix ./packages/cli/ -- ",
     "install:cli": "pnpm prefix:cli install",
     "dev:cli": "pnpm prefix:cli dev",
     "build:cli": "pnpm prefix:cli build",

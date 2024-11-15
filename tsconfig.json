@@ -28,5 +28,5 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".content-colletions/generated"],
-  "exclude": ["node_modules", "packages/**/*", "scripts/**/*", "scripts/build-registry.ts", "__registry__"]
+  "exclude": ["node_modules", "scripts/**/*", "scripts/build-registry.ts", "__registry__"]
 }

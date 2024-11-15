@@ -9,16 +9,10 @@ const nextConfig = {
     optimizeCss: true,
   },
   images: {
-    domains: ["localhost", "cdn.magicui.design"],
+    domains: ["localhost"],
   },
   async redirects() {
     return [
-      {
-        source: "/discord",
-        destination: "https://discord.gg/X4BBMBjHNf",
-        permanent: true,
-      },
-
       {
         source: "/components/:path*",
         destination: "/docs/components/:path*",
