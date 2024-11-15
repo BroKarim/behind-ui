@@ -33,48 +33,11 @@ export const docsConfig: DocsConfig = {
       ],
     },
     {
-      title: "Getting Started",
-      items: [
-        {
-          title: "Introduction",
-          href: "/docs",
-          items: [],
-        },
-        {
-          title: "Install Nextjs",
-          href: "/docs/installation",
-        },
-        {
-          title: "Install TailwindCSS",
-          href: "/docs/cli",
-          items: [],
-        },
-        {
-          title: "Install Shadcn",
-          href: "/docs/shadcn",
-          items: [],
-        },
-      ],
-    },
-
-    {
       title: "All Design",
       items: [
         {
-          title: "Hero Video Dialog",
-          href: `/docs/components/hero-video-dialog`,
-          items: [],
-          label: "",
-        },
-        {
-          title: "SaaS Hero One",
-          href: `/docs/components/saas-hero-one`,
-          items: [],
-          label: "New",
-        },
-        {
-          title: "SaaS Hero Two",
-          href: `/docs/components/saas-hero-three`,
+          title: "Clair",
+          href: `/docs/components/clair`,
           items: [],
           label: "New",
         },
@@ -83,32 +46,6 @@ export const docsConfig: DocsConfig = {
           href: `/docs/components/maria-and-co`,
           items: [],
           label: "New",
-        },
-      ],
-    },
-
-    // ntar special effect itu berbayar, sisanya dribble style
-    {
-      title: "Special Effects",
-      items: [
-        {
-          title: "NFT Hero Effect",
-          href: `/docs/components/nft-hero`,
-          items: [],
-          label: "paid",
-        },
-      ],
-    },
-
-    // background bakal tetap ada karena dia mirip UI
-    {
-      title: "Backgrounds",
-      items: [
-        {
-          title: "NFT Hero Backgournd",
-          href: `/docs/components/nft-hero`,
-          items: [],
-          label: "paid",
         },
       ],
     },

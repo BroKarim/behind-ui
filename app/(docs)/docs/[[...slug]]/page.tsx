@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: DocPageProps): Promise<Metada
   }
 
   return {
-    title: `${doc.title} | Magic UI`,
+    title: `${doc.title} | BehindUI`,
     description: doc.description,
     openGraph: {
       title: doc.title,
