@@ -5,7 +5,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { siteConfig } from "@/config/site";
 import { getTableOfContents } from "@/lib/toc";
 import { absoluteUrl, cn } from "@/lib/utils";
-
+import Image from "next/image";
 import "@/styles/mdx.css";
 
 import { ChevronRightIcon, ExternalLinkIcon } from "@radix-ui/react-icons";
@@ -100,7 +100,8 @@ export default async function DocPage({ params }: DocPageProps) {
             {docsFromComponents.map((doc) => (
               <Link href={doc.slugAsParams} key={doc.slugAsParams} className="group relative flex flex-col space-y-2">
                 {/* seharusnya doc.image, tpi karena kebanyak belum ada jadi dia error, negok aja di   */}
-                <img src={doc.image} alt={doc.title} width={500} height={300} className="size-full max-h-[300px]  object-cover" />
+                {doc.image && <Image src={doc.image} alt={doc.title || "Default Alt Text"} width={500} height={300} />}
+                {/* <Image src={doc.image} alt={doc.title} width={500} height={300} className="size-full max-h-[300px]  object-cover" /> */}
                 <div className="card-content">
                   {/* <h2 className="text-2xl font-extrabold">{doc.title}</h2> */}
 
