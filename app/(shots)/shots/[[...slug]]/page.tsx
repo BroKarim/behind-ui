@@ -19,6 +19,29 @@ import ComponentRecom from "@/components/components-recom";
 import { Contribute } from "@/components/contribute";
 import { TableOfContents } from "@/components/toc";
 
+const categories = [
+  "All",
+  "Portofolio",
+  "Startup",
+  "Agency",
+  "Branding",
+  "Tools",
+  "Finance",
+  "E-commerce",
+  "SaaS",
+  "Non-profit & charity",
+  "Food & Drink",
+  "Real estate",
+  "Photography",
+  "Product",
+  "App",
+  "Education",
+  "Blog",
+  "Personal",
+  "Production Studio",
+  "Architecture & Interior design",
+];
+
 interface DocPageProps {
   params: {
     slug: string[];
@@ -83,29 +106,38 @@ export default async function DocPage({ params }: DocPageProps) {
   if (!params.slug) {
     return (
       <>
-        <hr className="mb-2 border-2 border-black dark:border dark:border-white" />
         <section className="py-6 ">
-          <div className="flex h-96 flex-col items-start  gap-4  md:flex-row md:justify-between md:gap-8">
+          <div className="flex h-72 flex-col items-start gap-4 md:mb-0 md:h-56  md:flex-row  md:justify-between md:gap-8 md:overflow-auto xl:h-64">
             <div className="w-full flex-1 space-y-4 px-4">
-              <h1 className="inline-block  text-2xl tracking-tight  md:text-4xl lg:text-5xl">
+              <h1 className="inline-block  text-2xl tracking-tight  lg:text-4xl  xl:text-5xl">
                 BehindUI is the ultimate source for ready-to-use hero sections and templates, blending stunning design with seamless code. Discover a curated collection crafted to inspire and streamline your projects, updated every weekday
                 to keep your creativity flowing effortlessly.
               </h1>
-              {/* <p className=" text-base">A curated collection of the best SaaS websites on the web. Updated every*week*day</p> */}
             </div>
           </div>
-          <hr className="mb-8 mt-16 border-2 border-black dark:border dark:border-white" />
+          <Tabs defaultValue={categories[0]} className="w-full">
+            <ScrollArea className="h-16 w-full whitespace-nowrap rounded-md bg-transparent">
+              <TabsList className="bg-transparent">
+                {categories.map((category) => (
+                  <TabsTrigger key={category} value={category} className="text-md">
+                    {category}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+              <ScrollBar orientation="horizontal" className="w-0 bg-transparent  " />
+            </ScrollArea>
+          </Tabs>
 
-          <div className="mt-8 grid w-full gap-9 px-4 pt-4 md:grid-cols-2 lg:grid-cols-3 lg:pt-8">
+          <div className=" grid w-full place-items-center gap-6 px-4 md:grid-cols-2 md:gap-9 lg:grid-cols-4 ">
             {docsFromComponents.map((doc) => (
               <Link href={doc.slugAsParams} key={doc.slugAsParams} className="group relative flex flex-col space-y-2">
                 {/* seharusnya doc.image, tpi karena kebanyak belum ada jadi dia error, negok aja di   */}
-                {doc.image && <Image src={doc.image} alt={doc.title || "Default Alt Text"} width={500} height={300} />}
-                {/* <Image src={doc.image} alt={doc.title} width={500} height={300} className="size-full max-h-[300px]  object-cover" /> */}
-                <div className="card-content">
+                {doc.image && <Image src={doc.image} alt={doc.title || "Default Alt Text"} className="rounded-lg  " width={400} height={300} />}
+
+                <div className="card-content ">
                   {/* <h2 className="text-2xl font-extrabold">{doc.title}</h2> */}
 
-                  <p className="text-lg">{doc.description}</p>
+                  <p className="text-lg font-semibold">{doc.title}</p>
                 </div>
               </Link>
             ))}

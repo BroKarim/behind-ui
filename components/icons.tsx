@@ -131,6 +131,16 @@ export const Icons = {
       <path d="M13.966 22.624l-1.69-4.281H8.122l3.892-9.144 5.662 13.425zM8.884 1.376H0v21.248zm15.116 0h-8.884L24 22.624Z" />
     </svg>
   ),
+  odama: (props: IconProps) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width={33} height={33} className="fill-black dark:fill-white" {...props}>
+      <path
+        className="fill-black dark:fill-white"
+        fillRule="evenodd"
+        d="M33 16.5C33 25.613 25.613 33 16.5 33S0 25.613 0 16.5 7.387 0 16.5 0 33 7.387 33 16.5Zm-5.186 0c0 6.249-5.065 11.314-11.314 11.314-.433 0-.86-.024-1.281-.072 5.686-.597 10.118-5.407 10.118-11.251 0-5.816-4.388-10.606-10.033-11.243.393-.041.792-.062 1.196-.062 6.249 0 11.314 5.065 11.314 11.314Zm-14.968 7.97c3.73-.66 6.566-3.977 6.566-7.97s-2.836-7.31-6.566-7.97a8.088 8.088 0 1 1 0 15.939Z"
+        clipRule="evenodd"
+      />
+    </svg>
+  ),
   npm: (props: IconProps) => (
     <svg viewBox="0 0 24 24" {...props}>
       <path
