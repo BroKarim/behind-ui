@@ -665,6 +665,17 @@ export const Index: Record<string, any> = {
       subcategory: "undefined",
       chunks: []
     },
+    "odama": {
+      name: "odama",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/odama.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/odama.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
     "utils": {
       name: "utils",
       type: "registry:lib",

@@ -41,4 +41,9 @@ export const examples: Registry = [
     type: "registry:example",
     files: ["example/maria-and-co/header.tsx"],
   },
+  {
+    name: "odama",
+    type: "registry:example",
+    files: ["example/odama.tsx"],
+  },
 ];

@@ -47,6 +47,12 @@ export const docsConfig: DocsConfig = {
           items: [],
           label: "New",
         },
+        {
+          title: "Odama",
+          href: `/docs/components/odama`,
+          items: [],
+          label: "New",
+        },
       ],
     },
   ],
