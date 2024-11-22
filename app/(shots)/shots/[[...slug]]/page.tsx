@@ -130,13 +130,10 @@ export default async function DocPage({ params }: DocPageProps) {
 
           <div className=" grid w-full place-items-center gap-6 px-4 md:grid-cols-2 md:gap-9 lg:grid-cols-4 ">
             {docsFromComponents.map((doc) => (
-              <Link href={doc.slugAsParams} key={doc.slugAsParams} className="group relative flex flex-col space-y-2">
-                {/* seharusnya doc.image, tpi karena kebanyak belum ada jadi dia error, negok aja di   */}
+              <Link href={doc.slugAsParams} key={doc.slug} className="group relative flex flex-col space-y-2">
                 {doc.image && <Image src={doc.image} alt={doc.title || "Default Alt Text"} className="rounded-lg  " width={400} height={300} />}
 
                 <div className="card-content ">
-                  {/* <h2 className="text-2xl font-extrabold">{doc.title}</h2> */}
-
                   <p className="text-lg font-semibold">{doc.title}</p>
                 </div>
               </Link>
@@ -148,19 +145,21 @@ export default async function DocPage({ params }: DocPageProps) {
   }
   return (
     <main
-      className={cn("relative py-6 lg:py-8  ", {
+      className={cn("relative gap-4 px-4 py-6 lg:py-8 xl:flex", {
         "xl:grid-cols-[1fr_300px]": doc.toc,
       })}
     >
-      <div className="mx-auto w-full min-w-0">
+      <div className="mx-auto w-full min-w-0 ">
         <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
-          <div className="truncate">Docs</div>
+          <Link href="/shots" className="cursor-pointer truncate">
+            Shots
+          </Link>
           <ChevronRightIcon className="size-4" />
           <div className="font-medium text-foreground">{doc.title}</div>
         </div>
         <div className="space-y-2">
           <h1 className={cn("scroll-m-20 text-4xl font-bold tracking-tight")}>{doc.title}</h1>
-          {doc.description && <p className="text-balance text-lg text-muted-foreground">{doc.description}</p>}
+          {doc.description && <p className="max-w-2xl text-balance text-lg text-muted-foreground">{doc.description}</p>}
         </div>
         {doc.links ? (
           <div className="flex items-center space-x-2 pt-4">
@@ -181,10 +180,9 @@ export default async function DocPage({ params }: DocPageProps) {
         <div className="pb-12 pt-8">
           <Mdx code={doc.body.code} />
         </div>
-        {/* <ComponentRecom /> */}
         <DocPager doc={doc} />
-        {/* you mya also like */}
       </div>
+
       {/* {doc.toc && (
         <div className="hidden text-sm xl:block">
           <div className="sticky top-16 -mt-10 pt-4">

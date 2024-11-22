@@ -43,13 +43,13 @@ export const docsConfig: DocsConfig = {
         },
         {
           title: "Maria & Co.",
-          href: `/docs/components/maria-and-co`,
+          href: `/shots/components/maria-and-co`,
           items: [],
           label: "New",
         },
         {
           title: "Odama",
-          href: `/docs/components/odama`,
+          href: `/shots/components/odama`,
           items: [],
           label: "New",
         },

@@ -7,5 +7,5 @@ interface DocsLayoutProps {
 }
 
 export default function DocsLayout({ children }: DocsLayoutProps) {
-  return <div className=" flex-1 items-start  md:gap-6 lg:grid-cols-[250px_minmax(0,1fr)] lg:gap-10">{children}</div>;
+  return <div className="container flex-1 items-center  md:gap-6 lg:grid-cols-[250px_minmax(0,1fr)] lg:gap-10">{children}</div>;
 }

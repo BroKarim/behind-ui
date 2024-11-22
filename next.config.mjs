@@ -16,7 +16,7 @@ const nextConfig = {
     return [
       {
         source: "/components/:path*",
-        destination: "/docs/components/:path*",
+        destination: "/shots/components/:path*",
         permanent: true,
       },
       {
