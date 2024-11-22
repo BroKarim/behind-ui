@@ -4,7 +4,7 @@ import { Marquee } from "../components/marquee";
 export default function MariaAndCo() {
   return (
     <>
-      <div className="z-1 relative flex flex-col justify-between bg-white dark:bg-black  md:h-full">
+      <div className="z-1 relative flex flex-col justify-between overflow-hidden bg-white dark:bg-black  md:h-full">
         <Header />
         <section className="relative mx-auto flex w-full flex-col space-y-6 px-4 pb-8 pt-6 md:pt-10 lg:pt-16 ">
           <h1 className="mb-8 text-center text-7xl font-black leading-none tracking-tighter md:text-5xl lg:text-[10rem]">

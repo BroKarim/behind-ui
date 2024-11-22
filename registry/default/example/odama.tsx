@@ -8,8 +8,8 @@ export default function Odama() {
   const { theme, setTheme } = useTheme();
   return (
     <>
-      <div className="z-1 relative flex flex-col justify-between bg-white dark:bg-black  md:h-full">
-        <Marquee className="bg-[#01ff00]">
+      <div className="z-1 relative flex flex-col justify-between  bg-white dark:bg-black  md:h-full">
+        <Marquee className="z-0  bg-[#01ff00]">
           <div className="flex w-full items-center justify-center gap-8  text-black ">
             <p className="font-sans text-sm font-medium">
               now accepting new projects
