@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import FigmaLogo from "/Users/kiram/Code/magicui/public/figma-comingsoon.png";
+// import FigmaLogo from "/Users/kiram/Code/magicui/public/figma-comingsoon.png";
 
 export default function FigmaPage() {
   return (
@@ -25,7 +25,7 @@ export default function FigmaPage() {
 
         <div className="flex w-full  flex-col items-center justify-center font-sans md:mb-10">
           <div className="flex max-w-4xl flex-col gap-2 rounded-2xl border-2 border-white/20">
-            <Image src={FigmaLogo} alt="Github icon" className="" />
+            {/* <Image src={FigmaLogo} alt="Github icon" className="" /> */}
           </div>
           <div className=" mt-[-70px] ">
             <h1 className=" font-display mb-3 flex items-center justify-center  bg-gradient-to-tr from-zinc-400/30 via-white to-white/60 bg-clip-text text-transparent sm:text-4xl md:text-5xl">Coming Soon</h1>

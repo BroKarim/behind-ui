@@ -12,10 +12,10 @@ export const docsConfig: DocsConfig = {
       href: "/shots/",
     },
 
-    {
-      title: "Figma",
-      href: "/figma",
-    },
+    // {
+    //   title: "Figma",
+    //   href: "/figma",
+    // },
     {
       title: "FAQs",
       href: "/faq",
