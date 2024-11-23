@@ -1,8 +1,16 @@
 import { Switch } from "@/components/ui/switch";
 import { Icons } from "@/components/icons";
 import { Marquee } from "./components/marquee";
-import { Player } from "@lottiefiles/react-lottie-player";
+// import { Player } from "@lottiefiles/react-lottie-player";
 import { useTheme } from "next-themes";
+import dynamic from "next/dynamic";
+
+const Player = dynamic(
+  () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
+  {
+    ssr: false,
+  },
+);
 
 export default function Odama() {
   const { theme, setTheme } = useTheme();
