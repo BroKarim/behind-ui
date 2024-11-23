@@ -1,7 +1,6 @@
 import { Switch } from "@/components/ui/switch";
 import { Icons } from "@/components/icons";
 import { Marquee } from "./components/marquee";
-// import { Player } from "@lottiefiles/react-lottie-player";
 import { useTheme } from "next-themes";
 import dynamic from "next/dynamic";
 
