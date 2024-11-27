@@ -128,10 +128,12 @@ export default async function DocPage({ params }: DocPageProps) {
             </ScrollArea>
           </Tabs>
 
-          <div className=" grid w-full place-items-center gap-6 px-4 md:grid-cols-2 md:gap-9 lg:grid-cols-4 ">
+          <div className=" grid w-full gap-4 px-4 md:grid-cols-2  md:gap-8 lg:grid-cols-4 ">
             {docsFromComponents.map((doc) => (
-              <Link href={doc.slugAsParams} key={doc.slug} className="group relative flex flex-col space-y-2">
-                {doc.image && <Image src={doc.image} alt={doc.title || "Default Alt Text"} className="rounded-lg  " width={400} height={300} />}
+              <Link href={doc.slugAsParams} key={doc.slug} className="group relative flex flex-col ">
+                <div className="relative aspect-[16/10] w-full">
+                  {doc.image && <Image src={doc.image} alt={doc.title || "Default Alt Text"} className="object-cover transition-transform duration-300 group-hover:scale-105" width={400} height={300} />}
+                </div>
 
                 <div className="card-content ">
                   <p className="text-lg font-semibold">{doc.title}</p>
