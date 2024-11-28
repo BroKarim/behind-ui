@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { MarqueeDemoHorizontal, MarqueeDemoVertical } from "./card";
 
-const HeroDemo5 = () => {
+const Fund = () => {
   return (
     <>
       <div className="relative flex flex-col items-center justify-center  overflow-hidden bg-white font-mono dark:bg-black md:h-screen">
@@ -22,25 +22,11 @@ const HeroDemo5 = () => {
           <div className="mx-auto  grid max-w-full grid-cols-1 items-center gap-y-8  md:gap-x-8   lg:grid-cols-2 lg:px-8  lg:py-4 xl:gap-x-8">
             <div className="relative block  px-10 md:px-4 md:text-center  lg:text-left">
               <div className="flex flex-col  gap-2 md:items-center lg:items-start">
-                {/* <PulicBetaBadge text="Beta" /> */}
                 <Link href="/">
-                  <Button
-                    variant="outline"
-                    className="flex items-center space-x-2 rounded-full  border-border"
-                  >
-                    <span className="font-mono text-xs">
-                      July Product Updates
-                    </span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width={12}
-                      height={12}
-                      fill="none"
-                    >
-                      <path
-                        fill="currentColor"
-                        d="M8.783 6.667H.667V5.333h8.116L5.05 1.6 6 .667 11.333 6 6 11.333l-.95-.933 3.733-3.733Z"
-                      />
+                  <Button variant="outline" className="flex items-center space-x-2 rounded-full  border-border">
+                    <span className="font-mono text-xs">Fund, Fast as flash</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width={12} height={12} fill="none">
+                      <path fill="currentColor" d="M8.783 6.667H.667V5.333h8.116L5.05 1.6 6 .667 11.333 6 6 11.333l-.95-.933 3.733-3.733Z" />
                     </svg>
                   </Button>
                 </Link>
@@ -51,17 +37,13 @@ const HeroDemo5 = () => {
 
                 <p className="mt-4 max-w-[600px] text-[#878787] md:mt-6">
                   {/* !make more hooking */}
-                  Fundraise at the speed of thought! Elvate you cause in just
-                  minute with our lightning-fast fundraising platform
+                  Fundraise at the speed of thought! Elvate you cause in just minute with our lightning-fast fundraising platform
                 </p>
 
                 <div className="mt-8">
                   <div className="flex items-center space-x-4">
                     <Link href="/">
-                      <Button
-                        variant="outline"
-                        className="h-12 border border-primary px-6"
-                      >
+                      <Button variant="outline" className="h-12 border border-primary px-6">
                         Talk to us
                       </Button>
                     </Link>
@@ -73,11 +55,11 @@ const HeroDemo5 = () => {
                 </div>
 
                 <p className="mt-8 font-mono text-xs text-[#707070]">
-                  Used by over{" "}
+                  Trusted by more than{" "}
                   <Link href="/">
                     <span className="underline">5800+</span>
                   </Link>{" "}
-                  businesses.
+                  communities.
                 </p>
               </div>
             </div>
@@ -97,4 +79,4 @@ const HeroDemo5 = () => {
   );
 };
 
-export default HeroDemo5;
+export default Fund;

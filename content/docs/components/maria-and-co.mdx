@@ -1,7 +1,7 @@
 ---
 title: Maria & Co
 date: 2024-11-10
-description:  well-suited for high-end fashion brands or modern lifestyle businesses that focus on exclusivity, timeless aesthetics, and understated elegance.
+description: well-suited for high-end fashion brands or modern lifestyle businesses that focus on exclusivity, timeless aesthetics, and understated elegance.
 author: brokariim
 published: true
 image: https://res.cloudinary.com/dctl5pihh/image/upload/v1731641458/maria-co_thumb_s7nkjk.png
@@ -9,8 +9,8 @@ image: https://res.cloudinary.com/dctl5pihh/image/upload/v1731641458/maria-co_th
 
 <ComponentPreview name="maria-and-co" />
 
-<div className="py-12  px-20">
-<div className="w-full grid md:grid-cols-2 grid-cols-1 gap-2">
+<div className="md:py-12 md:px-20">
+<div className="w-full grid md:grid-cols-2 grid-cols-1 space-y-4 md:space-y-0 gap-2">
 
     <div>
         ## Overview
@@ -100,22 +100,21 @@ export function Header() {
     </header>
   );
 }
-
 ```
 
 <h1 className="font-bold text-xl">Copy paste this `marquee.tsx`</h1>
 
-```tsx 
-import {cn} from "@/lib/utils";
+```tsx
+import { cn } from "@/lib/utils";
 
 interface MarqueeProps {
-className?: string;
-reverse?: boolean;
-pauseOnHover?: boolean;
-children?: React.ReactNode;
-vertical?: boolean;
-repeat?: number;
-[key: string]: any;
+  className?: string;
+  reverse?: boolean;
+  pauseOnHover?: boolean;
+  children?: React.ReactNode;
+  vertical?: boolean;
+  repeat?: number;
+  [key: string]: any;
 }
 
 export function Marquee({ className, reverse, pauseOnHover = false, children, vertical = false, repeat = 4, ...props }: MarqueeProps) {
@@ -150,6 +149,5 @@ export function Marquee({ className, reverse, pauseOnHover = false, children, ve
   );
 }
 ```
-
 
 </div>

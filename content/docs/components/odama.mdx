@@ -9,8 +9,8 @@ catagory: Studio, finance, Blog
 
 <ComponentPreview name="odama" />
 
-<div className="py-12  px-20">
-<div className="w-full grid md:grid-cols-2 grid-cols-1 gap-2">
+<div className="md:py-12 md:px-20">
+<div className="w-full grid md:grid-cols-2 grid-cols-1 space-y-4 md:space-y-0 gap-2">
 
     <div>
         ## Overview
@@ -86,6 +86,7 @@ interface MarqueeProps {
   pauseOnHover?: boolean;
   children?: React.ReactNode;
   vertical?: boolean;
+  cp;
   repeat?: number;
   [key: string]: any;
 }
@@ -197,10 +198,6 @@ export function ThemeProvider({ children, defaultTheme = "system", storageKey = 
   );
 }
 ```
-
-</div>
-
-<div className="py-12 px-20">
 
 Now the hero section ready to use<br/>
 Stay tune for more🚀
