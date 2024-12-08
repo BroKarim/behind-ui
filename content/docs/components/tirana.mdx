@@ -1,0 +1,614 @@
+---
+title: Tirana - AI Automation Website
+description: Tirana is a typescript template built for AI Automation agencies that are looking to increase their conversion rate, showcase their work, and boost their brand credibility.
+date: 2024-12-8
+published: true
+image: https://res.cloudinary.com/dctl5pihh/image/upload/v1732695001/fund_t_1_qdfong.png
+catagory: Artificial Intelligence, Startup, Agency
+---
+
+<ComponentPreview name="tirana" />
+
+<div className="md:py-12 md:px-18">
+<div className="w-full grid md:grid-cols-2 grid-cols-1 space-y-4 md:space-y-0 gap-2">
+
+    <div>
+        ## Overview
+        This hero section effectively sets the stage, communicating the product's core value proposition through a visually striking and conceptually cohesive design. It strikes a balance between bold, impactful branding and a clear invitation for user interaction.
+    </div>
+    <div>
+        ## Key Components
+
+        <Accordion type="single" collapsible>
+            <AccordionItem value="item-1">
+                <AccordionTrigger className="underline-none">Clean, minimalistic design</AccordionTrigger>
+                <AccordionContent>
+                The hero features a clean and minimalistic design that is perfect for showcasing your work in an elegant and professional manner.
+                </AccordionContent>
+            </AccordionItem>
+             <AccordionItem value="item-2">
+                <AccordionTrigger className="underline-none">Micro Interaction</AccordionTrigger>
+                <AccordionContent>
+               The expandable tab allows users to easily access additional information or content within the hero section without overcrowding the main layout. This type of interactive element can help grab the user's attention, encourage exploration, and provide a more engaging and dynamic presentation of your content.
+                </AccordionContent>
+            </AccordionItem>
+             <AccordionItem value="item-3">
+                <AccordionTrigger className="underline-none">Responsive design</AccordionTrigger>
+                <AccordionContent>
+                 It's fully responsive, ensuring that it looks great on all devices, from desktops to smartphones.
+                </AccordionContent>
+            </AccordionItem>
+             <AccordionItem value="item-4">
+                <AccordionTrigger className="underline-none">Gradients</AccordionTrigger>
+                <AccordionContent>
+                A gradient that seamlessly blends three or more colors, creating smooth transitions to add depth, dimension, and a polished look to your design.
+                </AccordionContent>
+            </AccordionItem>
+        </Accordion>
+    </div>
+
+</div>
+## Supporting Components
+
+This design leverages TypeScript, Tailwind, and ShadCN, with the support of MagicUI. Additionally, it includes several supporting components to complete this hero section.
+
+```tsx
+// navbar-components.tsx
+import { Menu } from "lucide-react";
+import { Fragment, createContext, useContext, useState } from "react";
+import { AnimatePresence, FadeIn } from "./fade-in";
+import { Button } from "@/components/ui/button";
+import { ExpandableTabs } from "./expandable-tab";
+import { Bell, HelpCircle, Settings, Shield, Mail, User, FileText, Lock } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
+
+interface NavbarMobileContextProps {
+  isOpen: boolean;
+  toggleNavbar: () => void;
+  isDocsOpen: boolean;
+  toggleDocsNavbar: () => void;
+}
+
+const NavbarContext = createContext<NavbarMobileContextProps | undefined>(undefined);
+
+export const NavbarProvider = ({ children }: { children: React.ReactNode }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isDocsOpen, setIsDocsOpen] = useState(false);
+
+  const toggleNavbar = () => {
+    setIsOpen((prevIsOpen) => !prevIsOpen);
+  };
+  const toggleDocsNavbar = () => {
+    setIsDocsOpen((prevIsOpen) => !prevIsOpen);
+  };
+  // @ts-ignore
+  return <NavbarContext.Provider value={{ isOpen, toggleNavbar, isDocsOpen, toggleDocsNavbar }}>{children}</NavbarContext.Provider>;
+};
+
+export const useNavbarMobile = (): NavbarMobileContextProps => {
+  const context = useContext(NavbarContext);
+  if (!context) {
+    throw new Error("useNavbarMobile must be used within a NavbarMobileProvider");
+  }
+  return context;
+};
+
+export const NavbarMobileBtn: React.FC = () => {
+  const { toggleNavbar } = useNavbarMobile();
+
+  return (
+    <div className="z-10 flex items-center">
+      <button
+        className="block overflow-hidden px-2.5 text-muted-foreground md:hidden"
+        onClick={() => {
+          toggleNavbar();
+        }}
+      >
+        <Menu color="black" />
+      </button>
+    </div>
+  );
+};
+
+export const NavbarMobile = () => {
+  const { isOpen, toggleNavbar } = useNavbarMobile();
+
+  const tabs = [
+    { title: "Notifications", icon: Bell },
+    { title: "Support", icon: HelpCircle },
+  ];
+
+  return (
+    <div className="fixed left-0  top-[60px] z-[100] mx-auto w-full  transform-gpu bg-background  px-4 md:hidden  ">
+      <AnimatePresence>
+        {isOpen && (
+          <FadeIn fromTopToBottom className="overflow-y-auto bg-transparent py-2">
+            {navMenu.map((menu, i) => (
+              <Fragment key={menu.name}>
+                <Button className="block bg-transparent py-4 text-base  text-black">{menu.name}</Button>
+              </Fragment>
+            ))}
+            <Separator className="mt-6 h-[2px] bg-black" />
+            <div className="flex w-full justify-end ">
+              <ExpandableTabs tabs={tabs} />
+            </div>
+          </FadeIn>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+export const navMenu: {
+  name: string;
+  path: string;
+  child?: {
+    name: string;
+    path: string;
+  }[];
+}[] = [
+  {
+    name: "feature",
+    path: "/",
+  },
+
+  {
+    name: "pricing",
+    path: "/",
+  },
+  {
+    name: "help center",
+    path: "/",
+  },
+  {
+    name: "toolbox",
+    path: "/",
+  },
+];
+```
+
+The NavbarProvider function establishes a context for managing the state of a mobile navbar and documentation sidebar, providing isOpen and toggleNavbar for toggling the main navbar visibility, as well as isDocsOpen and toggleDocsNavbar for controlling a documentation-specific navbar. The NavbarMobile component uses this context to dynamically render a mobile-friendly navigation bar, featuring tabs like “Notifications” and “Support,” which appear when the isOpen state is active.
+
+```tsx
+// fade-in.tsx
+
+"use client";
+
+import {
+  AnimatePresence as PrimitiveAnimatePresence,
+  motion,
+  useReducedMotion,
+} from "framer-motion";
+import { createContext, useContext } from "react";
+
+const FadeInStaggerContext = createContext(false);
+
+const viewport = { once: true, margin: "0px 0px -200px" };
+
+export const FadeIn = (
+  props: React.ComponentPropsWithoutRef<typeof motion.div> & {
+    fromTopToBottom?: boolean;
+  },
+) => {
+  const shouldReduceMotion = useReducedMotion();
+  const isInStaggerGroup = useContext(FadeInStaggerContext);
+
+  return (
+    <motion.div
+      variants={{
+        hidden: {
+          opacity: 0,
+          y: shouldReduceMotion ? 0 : props.fromTopToBottom ? -24 : 2,
+        },
+        visible: { opacity: 1, y: 0 },
+      }}
+      transition={{ duration: 0.3 }}
+      {...(isInStaggerGroup
+        ? {}
+        : {
+            initial: "hidden",
+            whileInView: "visible",
+            viewport,
+          })}
+      {...props}
+    />
+  );
+};
+
+export const FadeInStagger = ({
+  faster = false,
+  ...props
+}: React.ComponentPropsWithoutRef<typeof motion.div> & {
+  faster?: boolean;
+}) => {
+  return (
+    <FadeInStaggerContext.Provider value={true}>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewport}
+        transition={{ staggerChildren: faster ? 0.08 : 0.2 }}
+        {...props}
+      />
+    </FadeInStaggerContext.Provider>
+  );
+};
+
+export const AnimatePresence = (
+  props: React.ComponentPropsWithoutRef<typeof PrimitiveAnimatePresence>,
+) => {
+  return <PrimitiveAnimatePresence {...props} />;
+};
+
+
+```
+
+The FadeIn component enhances UI animations by applying motion effects such as opacity changes and vertical translation, with optional direction control (fromTopToBottom) and accessibility support through useReducedMotion. It leverages motion.div from Framer Motion, defining hidden and visible states with smooth transitions. The AnimatePresence component acts as a wrapper to handle the mounting and unmounting of animated components, ensuring seamless entry and exit transitions for elements like the navbar menu
+
+```tsx
+// expandable-tab.tsx
+
+"use client";
+
+import * as React from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useOnClickOutside } from "usehooks-ts";
+import { cn } from "@/lib/utils";
+import { LucideIcon } from "lucide-react";
+
+interface Tab {
+  title: string;
+  icon: LucideIcon;
+  type?: never;
+}
+
+interface Separator {
+  type: "separator";
+  title?: never;
+  icon?: never;
+}
+
+type TabItem = Tab | Separator;
+
+interface ExpandableTabsProps {
+  tabs: TabItem[];
+  className?: string;
+  activeColor?: string;
+  onChange?: (index: number | null) => void;
+}
+
+const buttonVariants = {
+  initial: {
+    gap: 0,
+    paddingLeft: ".5rem",
+    paddingRight: ".5rem",
+  },
+  animate: (isSelected: boolean) => ({
+    gap: isSelected ? ".5rem" : 0,
+    paddingLeft: isSelected ? "1rem" : ".5rem",
+    paddingRight: isSelected ? "1rem" : ".5rem",
+  }),
+};
+
+const spanVariants = {
+  initial: { width: 0, opacity: 0 },
+  animate: { width: "auto", opacity: 1 },
+  exit: { width: 0, opacity: 0 },
+};
+
+const transition = { delay: 0.1, type: "spring", bounce: 0, duration: 0.6 };
+
+export function ExpandableTabs({
+  tabs,
+  className,
+  activeColor = "text-primary",
+  onChange,
+}: ExpandableTabsProps) {
+  const [selected, setSelected] = React.useState<number | null>(null);
+  const outsideClickRef = React.useRef(null);
+
+  useOnClickOutside(outsideClickRef, () => {
+    setSelected(null);
+    onChange?.(null);
+  });
+
+  const handleSelect = (index: number) => {
+    setSelected(index);
+    onChange?.(index);
+  };
+
+  const Separator = () => (
+    <div className="mx-1 h-[24px] w-[1.2px] bg-border" aria-hidden="true" />
+  );
+
+  return (
+    <div
+      ref={outsideClickRef}
+      className={cn(
+        "flex flex-wrap items-center gap-2 rounded-2xl  bg-background p-1",
+        className,
+      )}
+    >
+      {tabs.map((tab, index) => {
+        if (tab.type === "separator") {
+          return <Separator key={`separator-${index}`} />;
+        }
+
+        const Icon = tab.icon;
+        return (
+          <motion.button
+            key={tab.title}
+            variants={buttonVariants}
+            initial={false}
+            animate="animate"
+            custom={selected === index}
+            onClick={() => handleSelect(index)}
+            transition={transition}
+            className={cn(
+              "relative flex items-center rounded-xl px-4 py-2 text-sm font-medium transition-colors duration-300",
+              selected === index
+                ? cn("bg-muted", activeColor)
+                : "text-muted-foreground hover:bg-muted hover:text-foreground",
+            )}
+          >
+            <Icon size={20} />
+            <AnimatePresence initial={false}>
+              {selected === index && (
+                <motion.a
+                  href="/"
+                  variants={spanVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  transition={transition}
+                  className="overflow-hidden text-[10px] md:text-base"
+                >
+                  {tab.title}
+                </motion.a>
+              )}
+            </AnimatePresence>
+          </motion.button>
+        );
+      })}
+    </div>
+  );
+}
+
+```
+
+The ExpandableTabs component creates an interactive tab system with micro animations, where clicking an icon expands to reveal its title. It uses motion.button for animating the button’s appearance based on its selection state and motion.a for animating the title, making it slide out smoothly from behind the icon when active. The useOnClickOutside hook resets the selection when clicking outside, ensuring intuitive behavior. These animations and interactions enhance user experience by providing a sleek, dynamic tab design.
+
+Another component we use is `chat.tsx` and `earth.tsx`, serving as the input section in the hero, similar to AI websites with question-and-answer features.
+
+```tsx
+// chat.tsx
+
+import * as React from "react";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
+
+import { EarthIcon } from "./earth";
+
+const suggestions = [
+  "What are some unique features for a productivity app? ",
+  "What strategies can enhance social media engagement?",
+  "What are the essential elements of a meditation app?",
+  "What are innovative ideas for a travel planning app?",
+  "Draft a presentation with Slidev",
+  "How can we optimize a food delivery app for user convenience?",
+];
+
+export default function Chat({
+  borderSize = 2,
+  borderRadius = 20,
+  neonColors = {
+    firstColor: "#ff00aa",
+    secondColor: "#00FFF1",
+  },
+  ...props
+}) {
+  const [isFocused, setIsFocused] = React.useState(false);
+  const [query, setQuery] = React.useState("");
+  const inputRef = React.useRef<HTMLInputElement>(null);
+
+  // Handle clicking outside to close suggestions
+  React.useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        inputRef.current &&
+        !inputRef.current.contains(event.target as Node)
+      ) {
+        setIsFocused(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  return (
+    <div className="mx-auto w-full p-4 md:max-w-2xl ">
+      <div className="relative" ref={inputRef}>
+        <div className="relative flex items-center">
+          <div className="pointer-events-none absolute left-2 flex items-center">
+            {/* <Globe className="h-5 w-5 text-muted-foreground" /> */}
+            <EarthIcon />
+          </div>
+
+          <Input
+            type="text"
+            placeholder="Ask Something..."
+            className="h-12  rounded-full border-none bg-white pl-12 text-base ring-0 focus:outline-none"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onFocus={() => setIsFocused(true)}
+          />
+          <Button
+            size="icon"
+            variant="ghost"
+            className="absolute right-1 h-10 w-10 rounded-full bg-black hover:bg-green-500 "
+          >
+            <ArrowRight color="white" className="h-5 w-5 " />
+          </Button>
+        </div>
+
+        {/* Suggestions dropdown */}
+        <div
+          className={cn(
+            "absolute inset-x-0 top-full mt-2 h-72 overflow-y-auto rounded-lg bg-transparent p-2",
+            "transition-all duration-200 ease-in-out",
+            isFocused
+              ? "translate-y-0 opacity-100"
+              : "pointer-events-none -translate-y-2 opacity-0",
+          )}
+        >
+          <div className="relative flex  flex-wrap gap-2">
+            {suggestions.map((suggestion) => (
+              <Button
+                key={suggestion}
+                // variant="secondary"
+                className={cn(
+                  "h-auto rounded-full bg-white px-3 py-1.5 text-sm font-normal text-black hover:bg-transparent",
+                )}
+                onClick={() => {
+                  setQuery(suggestion);
+                  setIsFocused(false);
+                  if (inputRef.current) {
+                    inputRef.current.focus();
+                  }
+                }}
+              >
+                {suggestion}
+              </Button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+```
+
+```tsx
+// earth.tsx
+
+"use client";
+
+// import type { Transition, Variants } from "motion/react";
+import type { Transition, Variants } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+
+const circleTransition: Transition = {
+  duration: 0.3,
+  delay: 0.1,
+  opacity: { delay: 0.15 },
+};
+
+const circleVariants: Variants = {
+  normal: {
+    pathLength: 1,
+    opacity: 1,
+  },
+  animate: {
+    pathLength: [0, 1],
+    opacity: [0, 1],
+  },
+};
+
+const EarthIcon = () => {
+  const controls = useAnimation();
+
+  return (
+    <div
+      className="flex cursor-pointer select-none items-center justify-center rounded-md p-2 transition-colors duration-200 hover:bg-accent"
+      onMouseEnter={() => controls.start("animate")}
+      onMouseLeave={() => controls.start("normal")}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="28"
+        height="28"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <motion.path
+          animate={controls}
+          d="M21.54 15H17a2 2 0 0 0-2 2v4.54"
+          transition={{ duration: 0.7, delay: 0.5, opacity: { delay: 0.5 } }}
+          variants={{
+            normal: {
+              pathLength: 1,
+              opacity: 1,
+              pathOffset: 0,
+            },
+            animate: {
+              pathLength: [0, 1],
+              opacity: [0, 1],
+              pathOffset: [1, 0],
+            },
+          }}
+        />
+        <motion.path
+          animate={controls}
+          d="M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17"
+          transition={{ duration: 0.7, delay: 0.5, opacity: { delay: 0.5 } }}
+          variants={{
+            normal: {
+              pathLength: 1,
+              opacity: 1,
+              pathOffset: 0,
+            },
+            animate: {
+              pathLength: [0, 1],
+              opacity: [0, 1],
+              pathOffset: [1, 0],
+            },
+          }}
+        />
+        <motion.path
+          animate={controls}
+          d="M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05"
+          transition={{ duration: 0.7, delay: 0.5, opacity: { delay: 0.5 } }}
+          variants={{
+            normal: {
+              pathLength: 1,
+              opacity: 1,
+              pathOffset: 0,
+            },
+            animate: {
+              pathLength: [0, 1],
+              opacity: [0, 1],
+              pathOffset: [1, 0],
+            },
+          }}
+        />
+        <motion.circle
+          cx="12"
+          cy="12"
+          r="10"
+          transition={circleTransition}
+          variants={circleVariants}
+          animate={controls}
+        />
+      </svg>
+    </div>
+  );
+};
+
+export { EarthIcon };
+
+```
+
+
+Now the hero section ready to use<br/>
+Stay tune for more🚀
+
+</div>

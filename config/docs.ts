@@ -39,17 +39,20 @@ export const docsConfig: DocsConfig = {
           title: "Clair",
           href: `/docs/components/clair`,
           items: [],
-          label: "New",
         },
         {
           title: "Maria & Co.",
           href: `/shots/components/maria-and-co`,
           items: [],
-          label: "New",
         },
         {
           title: "Odama",
           href: `/shots/components/odama`,
+          items: [],
+        },
+        {
+          title: "Tirana",
+          href: `/shots/components/tirana`,
           items: [],
           label: "New",
         },

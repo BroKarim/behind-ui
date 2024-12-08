@@ -687,6 +687,17 @@ export const Index: Record<string, any> = {
       subcategory: "undefined",
       chunks: []
     },
+    "tirana": {
+      name: "tirana",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/tirana/tirana.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/tirana/tirana.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
     "utils": {
       name: "utils",
       type: "registry:lib",
