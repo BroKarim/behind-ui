@@ -80,7 +80,7 @@ const projects = [
 const FrankGoodman = () => {
   return (
     <>
-      <div className="container relative z-50 mx-auto p-4 md:overflow-hidden">
+      <div className="container relative z-30 mx-auto p-4 md:overflow-hidden">
         <BottomNavigation />
         <AnimatedGroup
           className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"

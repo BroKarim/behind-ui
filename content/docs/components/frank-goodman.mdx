@@ -3,7 +3,7 @@ title: FGoodman - Minimal Template
 description: Minimal portfolio template with a clean and elegant layout that focuses on showcasing your work, ensuring that your creative efforts and professional achievements are highlighted effectively.
 date: 2024-12-14
 published: true
-image: https://res.cloudinary.com/dctl5pihh/image/upload/v1734161298/frank-2_py3z99.png
+image: https://res.cloudinary.com/dctl5pihh/image/upload/v1734171578/BeUI-thum-frank_1_okofyh.png
 catagory: Portfolio, Startup, Agency
 ---
 
@@ -54,8 +54,7 @@ catagory: Portfolio, Startup, Agency
 This design is built using TypeScript, Tailwind, and Framer Motion for animations. It also includes extra components to enhance and complete the hero section.<br/>
 To enhance the user experience, I implemented floating navigation across the website using position: fixed. This design choice ensures seamless accessibility and adds a modern, interactive feel to the interface.
 
-
-```bash
+```
 // navbar.tsx
 import React from "react";
 import { PersonStanding, Mail, Compass } from "lucide-react";
@@ -102,7 +101,7 @@ export default BottomNavigation;
 
 I created a wrapper that animates all items from opacity 0 to 1 on reload, with a brief delay between each item’s appearance for a smooth transition effect.
 
-```tsx
+```
 // animated-group.tsx
 
 "use client";
@@ -276,7 +275,7 @@ export { AnimatedGroup };
 ```
 
 The card component showcases our main content with animations like zoom-in and entrance effects for each card tag. It also uses images and videos as backgrounds, sourced from Unsplash for high-quality visuals.
-```tsx
+```
 // work-card.tsx
 
 import { ArrowUpRight } from "lucide-react";
@@ -446,7 +445,7 @@ export function WorkCard({ title, media, category }: WorkCardProps) {
 ```
 The `MorphingDialog` reveals detailed content from a card when clicked, using layout animations for a smooth transition into a focused view. It includes click-outside detection and escape key support for easy closing.
 
-```tsx
+```
 // morphic-dialog.tsx
 
 "use client";
