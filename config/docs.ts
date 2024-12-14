@@ -7,10 +7,10 @@ interface DocsConfig {
 
 export const docsConfig: DocsConfig = {
   mainNav: [
-    {
-      title: "Explore",
-      href: "/shots/",
-    },
+    // {
+    //   title: "Explore",
+    //   href: "/shots/",
+    // },
 
     // {
     //   title: "Figma",

@@ -56,4 +56,9 @@ export const examples: Registry = [
     type: "registry:example",
     files: ["example/tirana/tirana.tsx"],
   },
+  {
+    name: "frankgoodman",
+    type: "registry:example",
+    files: ["example/frank-goodman/frank-goodman.tsx"],
+  },
 ];

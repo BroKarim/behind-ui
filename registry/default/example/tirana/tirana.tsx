@@ -5,7 +5,11 @@ import Link from "next/link";
 import { Bell, HelpCircle } from "lucide-react";
 import Chat from "./chat";
 import { ExpandableTabs } from "./expandable-tab";
-import { NavbarMobile, NavbarProvider, NavbarMobileBtn } from "./navbar-components";
+import {
+  NavbarMobile,
+  NavbarProvider,
+  NavbarMobileBtn,
+} from "./navbar-components";
 
 const Tirana = () => {
   const tabs = [
@@ -43,8 +47,13 @@ const Tirana = () => {
             <div className="relative size-full">
               <div className="container flex  h-full flex-col items-center justify-center">
                 <div className="-translate-y-10">
-                  <h1 className="font-heading xs:text-2xl text-pretty text-center text-xl font-semibold tracking-tighter sm:text-3xl md:text-4xl">Where ideas and AI come together.</h1>
-                  <h2 className="text-fg-muted mt-3 text-center text-sm">Ready to use world class headline components for your website with the backbone of clean code.</h2>
+                  <h1 className="font-heading xs:text-2xl text-pretty text-center text-xl font-semibold tracking-tighter sm:text-3xl md:text-4xl">
+                    Where ideas and AI come together.
+                  </h1>
+                  <h2 className="text-fg-muted mt-3 text-center text-sm">
+                    Ready to use world class headline components for your
+                    website with the backbone of clean code.
+                  </h2>
                   <div className="relative flex w-full items-center justify-center">
                     <div className="absolute left-1/2 top-0 -translate-x-1/2">
                       <div className="z-[-1] h-[450px] w-[700px] bg-[radial-gradient(at_0%_0%,#0894ff_0,rgba(0,0,0,0)_40%),radial-gradient(at_50%_30%,#ff2e54_0,rgba(0,0,0,0)_60%),radial-gradient(at_100%_0%,#ff9004_0,rgba(0,0,0,0)_40%)] blur-[100px]" />

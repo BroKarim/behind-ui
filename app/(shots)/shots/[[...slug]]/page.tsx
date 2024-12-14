@@ -111,7 +111,7 @@ export default async function DocPage({ params }: DocPageProps) {
     >
       <div className="mx-auto w-full min-w-0 ">
         <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
-          <Link href="/shots" className="cursor-pointer truncate">
+          <Link href="/" className="cursor-pointer truncate">
             Shots
           </Link>
           <ChevronRightIcon className="size-4" />
