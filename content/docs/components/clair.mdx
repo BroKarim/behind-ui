@@ -1,0 +1,65 @@
+---
+title: Clair.
+description: Annn infiniteee scrolling component that can be used to display text, images, or videos.
+date: 2024-10-26
+published: true
+image: https://res.cloudinary.com/dctl5pihh/image/upload/v1731640483/qyej6ljzpq4fuwxadtov.png
+catagory: Startup, finance, Blog
+---
+
+<ComponentPreview name="saas-hero-three" />
+
+<div className="md:py-12 md:px-20">
+<div className="w-full grid md:grid-cols-2 grid-cols-1 space-y-4 md:space-y-0 gap-2">
+
+    <div>
+        ## Overview
+        A modern, minimalist hero section that emphasizes developer-focused content with a clean code presentation. The layout combines promotional content with a live code example, creating an engaging first impression for technical users.
+    </div>
+
+    <div>
+        ## Key Components
+
+        <Accordion type="single" collapsible>
+            <AccordionItem value="item-1">
+                <AccordionTrigger className="underline-none">Responsive design</AccordionTrigger>
+                <AccordionContent>
+                Yes. It adheres to the WAI-ARIA design pattern.
+                </AccordionContent>
+            </AccordionItem>
+             <AccordionItem value="item-2">
+                <AccordionTrigger className="underline-none">Components</AccordionTrigger>
+                <AccordionContent>
+                - The navigation bar features a clean, responsive layout with a top banner announcing “$30M Series B” funding news and a subtle border-bottom for visual hierarchy.
+                - The hero section includes a two-column layout for larger screens that stacks on mobile, utilizes Prism React Renderer for syntax highlighting, and features integration logos with a marquee animation.
+                </AccordionContent>
+            </AccordionItem>
+             <AccordionItem value="item-3">
+                <AccordionTrigger className="underline-none">Visual Design</AccordionTrigger>
+                <AccordionContent>
+                In our visual design, we use a clean white background (#FFFFFF) for light mode and a rich dark background (#0A0A0A) for dark mode, pairing modern monospace typography for code blocks with sans-serif fonts for main content.
+                </AccordionContent>
+            </AccordionItem>
+        </Accordion>
+    </div>
+
+</div>
+
+## Supporting Components
+
+<h1 className="mt-2">`wrapper.tsx`</h1>
+
+<ComponentSource name="saas-hero-three-wrapper" />
+
+<h1>`marquee.tsx`</h1>
+
+<ComponentSource name="saas-hero-three-banner" />
+
+<h1>`navbar.tsx`</h1>
+
+<ComponentSource name="saas-hero-three-navbar" />
+
+Now the hero section ready to use<br/>
+Stay tune for more🚀
+
+</div>

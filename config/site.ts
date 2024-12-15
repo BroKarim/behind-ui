@@ -1,23 +1,14 @@
 export const siteConfig = {
   name: "Behind UI",
-  url: "https://magicui.design",
-  ogImage: "https://magicui.design/og",
-  description:
-    "Beautifully designed landing page components built with React & Tailwind CSS.",
+  url: "https://behindui.vercel.app/",
+  description: "Ready to use world class headline components for your website.",
   links: {
-    twitter: "https://twitter.com/magicuidesign",
+    twitter: "https://x.com/BroKariim",
     discord: "https://discord.gg/87p2vpsat5",
-    github: "https://github.com/magicuidesign/magicui",
-    instagram: "https://instagram.com/magicuidesign/",
+    github: "https://github.com/BroKarim",
+    instagram: "https://www.instagram.com/brokariim/",
   },
-  keywords: [
-    "React",
-    "Tailwind CSS",
-    "Framer Motion",
-    "Landing Page",
-    "Components",
-    "Next.js",
-  ],
+  keywords: ["React", "Tailwind CSS", "Framer Motion", "Landing Page", "Components", "Next.js"],
 };
 
 export type SiteConfig = typeof siteConfig;

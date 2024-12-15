@@ -1,0 +1,205 @@
+---
+title: Odama - Minimal Agency Temlate
+description: Odama is a minimal & modern Hero Template perfectly suited for studio, designers, or agencies.
+date: 2024-11-21
+published: true
+image: https://res.cloudinary.com/dctl5pihh/image/upload/v1732178354/odama_r2cr1f.png
+catagory: Studio, finance, Blog
+---
+
+<ComponentPreview name="odama" />
+
+<div className="md:py-12 md:px-20">
+<div className="w-full grid md:grid-cols-2 grid-cols-1 space-y-4 md:space-y-0 gap-2">
+
+    <div>
+        ## Overview
+        The hero section employs a minimalist design approach, emphasizing simplicity and elegance to immediately captivate the viewer’s attention.
+    </div>
+
+    <div>
+        ## Key Components
+
+        <Accordion type="single" collapsible>
+            <AccordionItem value="item-1">
+                <AccordionTrigger className="underline-none">User Experience</AccordionTrigger>
+                <AccordionContent>
+                - The hero section offers a bold and minimalist user experience that effectively captures attention and communicates its message clearly.
+                - The prominent text, set in a large serif typeface, immediately establishes the theme of thoughtful, high-quality design. The supporting tagline below adds an emotional and relatable touch, encouraging users to connect with the brand’s mission.
+                - The ample white space ensures a clean and uncluttered experience, focusing user attention on the core message while maintaining a professional and approachable tone.
+                </AccordionContent>
+            </AccordionItem>
+             <AccordionItem value="item-2">
+                <AccordionTrigger className="underline-none">The Marquee Effect</AccordionTrigger>
+                <AccordionContent>
+                Displaying scrolling text across the screen, the code for this marquee from MagiUI—be sure to check out their website, it's truly impressive.<br/>
+                This element adds a lively and engaging touch to the website, instantly grabbing the user's attention.
+                </AccordionContent>
+            </AccordionItem>
+             <AccordionItem value="item-3">
+                <AccordionTrigger className="underline-none">Switch Toggle</AccordionTrigger>
+                <AccordionContent>
+                - Switch toggle  allows users to change the website's theme. I've implemented this using `next-themes` for seamless theme switching in Next.js.<br/>
+                - Additionally, for those preferring React.js, I've created a custom hook that you can easily call to achieve the same functionality. The code for the hook is provided below.
+                - This component enhances user experience by offering a quick and intuitive way to toggle between themes.
+                </AccordionContent>
+            </AccordionItem>
+             <AccordionItem value="item-4">
+                <AccordionTrigger className="underline-none">Using Lottie File</AccordionTrigger>
+                <AccordionContent>
+                - As you can see we have animated arrow, I sourced this animation from LottieFiles and used the `@react-lottie-player` library to play it.
+                - While there are other libraries available to display Lottie animations, such as `@lottiefiles/dotlottie-react`, or the `lottie-player` if you're not using React. <br/>
+                I prefer `@react-lottie-player` cause it offers seamless integration with Next.js, providing server-side rendering support, and it's highly customizable.
+                </AccordionContent>
+            </AccordionItem>
+        </Accordion>
+    </div>
+
+</div>
+
+## Supporting Components
+
+<h1 className="mt-8 text-2xl font-bold">Why using `dynamic`</h1>
+
+I encountered the error <strong className="text-red-600">`ReferenceError: document is not defined`</strong> during the prerendering phase of my Next.js app deployment on Vercel. This issue occurred because the `@lottiefiles/react-lottie-player` library directly interacts with the DOM, which is unavailable during server-side rendering (SSR). Since Next.js attempts to prerender all pages on the server by default, any DOM-dependent code will fail unless explicitly marked to only render on the client side.
+
+To solve this, I wrapped the Player component using Next.js’s dynamic function with the ssr: false option. This ensures that the component is only rendered in the browser, avoiding SSR-related errors. <strong className="text-green-600">If you’re copying this code and do not need server-side rendering (e.g., if you’re building a client-only app), you can remove the dynamic wrapper and directly import the `Player` component as usual</strong>. However, keep in mind that without dynamic, you may encounter issues when deploying to SSR environments.
+
+<h1 className="mt-8 text-2xl font-bold">Switch</h1>
+
+Picked up this component from `shadcn` . To add it, simply run:
+
+```bash
+npx shadcn@latest add switch
+```
+
+<h1 className="mt-8 text-2xl font-bold">Marquee</h1>
+
+Snagged this code from MagicUI—trust me, you need to check out their site, it's absolutely fantastic!
+
+```tsx
+import { cn } from "@/lib/utils";
+
+interface MarqueeProps {
+  className?: string;
+  reverse?: boolean;
+  pauseOnHover?: boolean;
+  children?: React.ReactNode;
+  vertical?: boolean;
+  cp;
+  repeat?: number;
+  [key: string]: any;
+}
+
+export function Marquee({ className, reverse, pauseOnHover = false, children, vertical = false, repeat = 4, ...props }: MarqueeProps) {
+  return (
+    <div
+      {...props}
+      className={cn(
+        "group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)]",
+        {
+          "flex-row": !vertical,
+          "flex-col": vertical,
+        },
+        className
+      )}
+    >
+      {Array(repeat)
+        .fill(0)
+        .map((_, i) => (
+          <div
+            key={i}
+            className={cn("flex shrink-0 justify-around [gap:var(--gap)]", {
+              "animate-marquee flex-row": !vertical,
+              "animate-marquee-vertical flex-col": vertical,
+              "group-hover:[animation-play-state:paused]": pauseOnHover,
+              "[animation-direction:reverse]": reverse,
+            })}
+          >
+            {children}
+          </div>
+        ))}
+    </div>
+  );
+}
+```
+
+<h1 className="mt-8 text-2xl font-bold">use-theme</h1>
+
+If you're using `react.js`, feel free to use or tweak this code as needed
+
+```tsx
+import { useContext } from "react";
+import { ThemeProviderContext, ThemeProviderState } from "@/context/ThemeContext";
+
+export function useTheme(): ThemeProviderState {
+  const context = useContext(ThemeProviderContext);
+
+  if (context === undefined) throw new Error("useTheme must be used within a ThemeProvider");
+
+  return context;
+}
+```
+
+<strong>Dont forget the context!!</strong>
+
+```tsx
+import { createContext, useEffect, useState } from "react";
+
+type ThemeProviderProps = {
+  children: React.ReactNode;
+  defaultTheme?: string;
+  storageKey?: string;
+};
+
+export type ThemeProviderState = {
+  theme: string;
+  setTheme: (theme: string) => void;
+};
+
+const initialState = {
+  theme: "system",
+  setTheme: () => null,
+};
+
+export const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
+
+export function ThemeProvider({ children, defaultTheme = "system", storageKey = "shadcn-ui-theme", ...props }: ThemeProviderProps) {
+  const [theme, setTheme] = useState(() => localStorage.getItem(storageKey) ?? defaultTheme);
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+
+    root.classList.remove("light", "dark");
+
+    if (theme === "system") {
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+
+      root.classList.add(systemTheme);
+      return;
+    }
+
+    root.classList.add(theme);
+  }, [theme]);
+
+  return (
+    <ThemeProviderContext.Provider
+      {...props}
+      value={{
+        theme,
+        setTheme: (theme: string) => {
+          localStorage.setItem(storageKey, theme);
+          setTheme(theme);
+        },
+      }}
+    >
+      {children}
+    </ThemeProviderContext.Provider>
+  );
+}
+```
+
+Now the hero section ready to use<br/>
+Stay tune for more🚀
+
+</div>

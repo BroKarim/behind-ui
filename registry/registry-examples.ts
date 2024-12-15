@@ -31,4 +31,34 @@ export const examples: Registry = [
     type: "registry:example",
     files: ["example/hero-one/hero-one-navbar.tsx"],
   },
+  {
+    name: "maria-and-co",
+    type: "registry:example",
+    files: ["example/maria-and-co/index.tsx"],
+  },
+  {
+    name: "maria-and-co-header",
+    type: "registry:example",
+    files: ["example/maria-and-co/header.tsx"],
+  },
+  {
+    name: "odama",
+    type: "registry:example",
+    files: ["example/odama.tsx"],
+  },
+  {
+    name: "fund",
+    type: "registry:example",
+    files: ["example/fund/fund.tsx"],
+  },
+  {
+    name: "tirana",
+    type: "registry:example",
+    files: ["example/tirana/tirana.tsx"],
+  },
+  {
+    name: "frankgoodman",
+    type: "registry:example",
+    files: ["example/frank-goodman/frank-goodman.tsx"],
+  },
 ];

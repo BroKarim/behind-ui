@@ -42,7 +42,7 @@ export function ComponentPreview({ name, children, className, align = "center", 
   }, [name, config.style]);
 
   return (
-    <div className={cn("relative my-4 flex flex-col space-y-2 lg:max-w-[120ch]", className)} {...props}>
+    <div className={cn("relative my-4 flex flex-col space-y-2 lg:max-w-full", className)} {...props}>
       <Tabs defaultValue="preview" className="relative mr-auto w-full">
         {!preview && (
           <div className="flex items-center justify-between pb-3">
@@ -62,7 +62,7 @@ export function ComponentPreview({ name, children, className, align = "center", 
             </TabsList>
           </div>
         )}
-        <TabsContent value="preview" className="relative rounded-md" key={key}>
+        <TabsContent value="preview" className=" relative h-96 overflow-y-scroll rounded-md border border-black dark:border-white md:h-full md:overflow-hidden" key={key}>
           <ComponentWrapper>
             <Button onClick={() => setKey((prev) => prev + 1)} className="absolute right-1.5 top-1.5 z-10 ml-4 flex items-center rounded-lg px-3 py-1" variant="ghost">
               <RotateCcw aria-label="restart-btn" size={16} />

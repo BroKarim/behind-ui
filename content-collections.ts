@@ -186,8 +186,12 @@ const documents = defineCollection({
     return {
       ...document,
       // image: `${process.env.NEXT_PUBLIC_APP_URL}/og?title=${encodeURI(document.title)}`,
-      slug: `/${document._meta.path}`,
-      slugAsParams: document._meta.path.split("/").slice(1).join("/"),
+      slug: `/shots/${document._meta.path}`,
+      slugAsParams: document._meta.path
+        .replace(/^docs/, "shots") // Mengganti 'docs' dengan 'shots' di awal path
+        .split("/")
+        .slice(1)
+        .join("/"),
       body: {
         raw: document.content,
         code: body,

@@ -37,12 +37,12 @@ export async function SiteHeader() {
 
   return (
     <header className={cn("supports-backdrop-blur:bg-background/90 sticky top-0 z-40 w-full bg-background/40 backdrop-blur-lg")}>
-      <div className="container flex h-16 items-center">
+      <div className="container flex h-16 items-center justify-between md:justify-center">
         <MainNav />
         <MobileNav />
-        <div className="flex flex-1 items-center justify-between gap-2 md:justify-end">
+        <div className="flex items-center justify-between gap-2 md:flex-1 md:justify-end">
           <nav className="flex items-center gap-1">
-            <Link href={siteConfig.links.discord} target="_blank" rel="noreferrer">
+            <Link href={siteConfig.links.instagram} target="_blank" rel="noreferrer">
               <div
                 className={cn(
                   buttonVariants({
@@ -51,8 +51,8 @@ export async function SiteHeader() {
                   "w-9 px-0"
                 )}
               >
-                <Icons.discord className="size-4" />
-                <span className="sr-only">Discord</span>
+                <Icons.instagram className="size-4" />
+                <span className="sr-only">Instagram</span>
               </div>
             </Link>
 
@@ -71,9 +71,9 @@ export async function SiteHeader() {
             </Link>
             <ModeToggle />
           </nav>
-          <div className="w-full flex-1 md:w-auto md:flex-none">
+          {/* <div className="w-full flex-1 md:w-auto md:flex-none">
             <CommandMenu />
-          </div>
+          </div> */}
         </div>
       </div>
       <hr className="m-0 h-px w-full border-none bg-gradient-to-r from-neutral-200/0 via-neutral-200/30 to-neutral-200/0" />

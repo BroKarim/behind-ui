@@ -42,7 +42,7 @@ export default function HeroDemo2() {
             <section className="relative mx-auto flex min-h-[85vh] w-full items-center justify-center gap-20  px-10 py-16 font-mono">
               <div className="absolute top-0 z-[0] hidden h-screen w-full bg-purple-950/10 bg-[radial-gradient(ellipse_20%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] dark:block" />
               <div className="overflow-hidden bg-transparent dark:-mb-32 dark:mt-[-4.75rem] dark:pb-32 dark:pt-[4.75rem] md:px-10">
-                <div className="mx-auto grid max-w-full grid-cols-1 items-center gap-x-8 gap-y-16 px-4  py-2 lg:grid-cols-2 lg:px-8  lg:py-4 xl:gap-x-16">
+                <div className="mx-auto grid max-w-full grid-cols-1 items-center gap-x-8 px-4 py-2  md:gap-y-16 lg:grid-cols-2 lg:px-8  lg:py-4 xl:gap-x-16">
                   <div className="relative z-10 md:text-center lg:text-left">
                     <div className="relative">
                       <div className="flex flex-col  items-start gap-2">
@@ -85,7 +85,7 @@ export default function HeroDemo2() {
                     </div>
                   </div>
 
-                  <div className="relative mt-14 hidden flex-none md:mt-0 md:block md:max-w-xl lg:static xl:pl-10">
+                  <div className="relative  flex-none md:mt-0 md:block md:max-w-xl lg:static xl:pl-10">
                     <div className="relative">
                       <div className="absolute inset-0 rounded-none bg-gradient-to-tr from-sky-300 via-sky-300/70 to-blue-300 opacity-5 blur-lg" />
                       <div className="absolute inset-0 rounded-none bg-gradient-to-tr from-stone-300 via-stone-300/70 to-blue-300 opacity-5" />

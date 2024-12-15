@@ -2,30 +2,42 @@
 
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+// import FigmaLogo from "/Users/kiram/Code/magicui/public/figma-comingsoon.png";
+
 export default function FigmaPage() {
   return (
     <>
-      <main className="container relative z-10 mx-auto mb-12 min-h-[calc(100vh_-_64px_-_108px)] max-w-7xl grow px-6">
-        <section className="mt-12 flex w-full flex-col items-center gap-6 lg:px-16">
-          <div className="max-w-xl text-center">
-            <h1 className="mb-2 text-4xl font-bold">NextUI Figma Kit</h1>
-            <h5 className="text-default-500 text-lg">A Figma file that contains the basis of the NextUI design system to help you design your applications.</h5>
+      <hr className="mb-2 border-2 border-black dark:border dark:border-white" />
+      <section className="py-6 ">
+        <div className="flex h-96 flex-col items-start  gap-4  md:flex-row md:justify-between md:gap-8">
+          <div className="w-full flex-1 space-y-4 px-4">
+            <h1 className="inline-block  text-2xl tracking-tight  md:text-4xl lg:text-5xl">
+              <span className="mr-8 inline-block"></span>
+              BehindUI is the ultimate source for ready-to-use hero sections and templates, blending stunning design with seamless code. Discover a curated collection crafted to inspire and streamline your projects, updated every weekday to
+              keep your creativity flowing effortlessly.
+            </h1>
+            {/* <p className=" text-base">A curated collection of the best SaaS websites on the web. Updated every*week*day</p> */}
           </div>
-          <iframe
-            className="dark:border-default-200/50 object-fit aspect-video w-full rounded-xl border border-transparent shadow-lg"
-            height="600"
-            src="https://embed.figma.com/file/1267584376234254760/hf_embed?community_viewer=true&embed_host=nextui"
-            title="NextUI Figma Kit"
-            width="800"
-          />
-          <div className="m-auto max-w-2xl text-center">
-            <Button>
-              Open in Figma
-              <ExternalLink />
-            </Button>
+        </div>
+        <hr className="mb-8 mt-16 border-2 border-black dark:border dark:border-white" />
+
+        <div className="flex w-full  flex-col items-center justify-center font-sans md:mb-10">
+          <div className="flex max-w-4xl flex-col gap-2 rounded-2xl border-2 border-white/20">
+            {/* <Image src={FigmaLogo} alt="Github icon" className="" /> */}
           </div>
-        </section>
-      </main>
+          <div className=" mt-[-70px] ">
+            <h1 className=" font-display mb-3 flex items-center justify-center  bg-gradient-to-tr from-zinc-400/30 via-white to-white/60 bg-clip-text text-transparent sm:text-4xl md:text-5xl">Coming Soon</h1>
+          </div>
+        </div>
+        {/* <div className="m-auto max-w-2xl text-center">
+          <Button>
+            Open in Figma
+            <ExternalLink />
+          </Button>
+        </div> */}
+      </section>
     </>
   );
 }

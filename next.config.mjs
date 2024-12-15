@@ -9,19 +9,14 @@ const nextConfig = {
     optimizeCss: true,
   },
   images: {
-    domains: ["localhost", "cdn.magicui.design"],
+    domains: ["localhost"],
+    domains: ["res.cloudinary.com"],
   },
   async redirects() {
     return [
       {
-        source: "/discord",
-        destination: "https://discord.gg/X4BBMBjHNf",
-        permanent: true,
-      },
-
-      {
         source: "/components/:path*",
-        destination: "/docs/components/:path*",
+        destination: "/shots/components/:path*",
         permanent: true,
       },
       {

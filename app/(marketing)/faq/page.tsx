@@ -1,6 +1,7 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { WordPullUp } from "@/components/text-animation";
 import Link from "next/link";
+import { Icons } from "@/components/icons";
 
 type FAQItem = {
   question: string;
@@ -11,33 +12,39 @@ type FAQItem = {
 const content: FAQItem[] = [
   {
     question: "What tech do you use?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    link: "https://google.com",
+    answer: "Our website components are crafted using React (TypeScript), Tailwind CSS, and Shadcn. Most animations are powered by Framer Motion, although we occasionally incorporate other animation libraries",
   },
   {
     question: "One of your component is broker!!",
-    answer: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    answer: "We always ensure thorough testing before publishing our components. However, mistakes can still happen. You can contact us through our social media channels like Twitter and Instagram for any issues.",
   },
   {
-    question: "What do I get when I purchase?",
-    answer: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    question: "How do custom components work?",
+    answer:
+      "It's simple! Just provide a reference link and a description of the component design. We'll do our best to create a similar component and publish it on the explore page. Currently, we're focusing solely on website hero sections.",
   },
+  // {
+  //   question: "What do I get when I purchase?",
+  //   answer: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  // },
   {
     question: "Do you provide design file?",
-    answer: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    answer: "Yes, we offer Figma files that you can clone or use as needed. However, they are currently still under development.",
   },
   {
     question: "What exactly can I use these components for?",
-    answer: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    answer:
+      "From the get-go, we've aimed to provide aesthetic hero components ready to shine across various fields like eCommerce, portfolios, agencies, AI, and beyond. We're also working tirelessly to develop mobile and desktop components, along with production-standard templates to meet all your needs.",
   },
   {
     question: "Do you offer technical support?",
-    answer: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    answer:
+      "Yes, we provide technical support through collaboration, similar to how an agency operates. However, this feature is currently unavailable as we're focusing on developing the website and adding more content. Stay tuned for updates!.",
   },
-  {
-    question: "What is your refund policy?",
-    answer: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
+  // {
+  //   question: "What is your refund policy?",
+  //   answer: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  // },
 ];
 
 export default function FAQ() {

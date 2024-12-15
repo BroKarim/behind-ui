@@ -643,6 +643,72 @@ export const Index: Record<string, any> = {
       subcategory: "undefined",
       chunks: []
     },
+    "maria-and-co": {
+      name: "maria-and-co",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/maria-and-co/index.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/maria-and-co/index.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "maria-and-co-header": {
+      name: "maria-and-co-header",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/maria-and-co/header.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/maria-and-co/header.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "odama": {
+      name: "odama",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/odama.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/odama.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "fund": {
+      name: "fund",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/fund/fund.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/fund/fund.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "tirana": {
+      name: "tirana",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/tirana/tirana.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/tirana/tirana.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "frankgoodman": {
+      name: "frankgoodman",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/frank-goodman/frank-goodman.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/frank-goodman/frank-goodman.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
     "utils": {
       name: "utils",
       type: "registry:lib",

@@ -1,0 +1,157 @@
+---
+title: Fund - Non Charity Template
+description: A beautifully crafted hero template perfect for Charity SaaS businesses looking to showcase their innovative goals.
+date: 2024-11-27
+published: true
+image: https://res.cloudinary.com/dctl5pihh/image/upload/v1732695001/fund_t_1_qdfong.png
+catagory: Charity, SaaS, Finance
+---
+
+<ComponentPreview name="fund" />
+
+<div className="md:py-12 md:px-20">
+<div className="w-full grid md:grid-cols-2 grid-cols-1 space-y-4 md:space-y-0 gap-2">
+
+    <div>
+        ## Overview
+        The bold, clean typography design effectively communicates the organization's goal of "empowering lives" in a clear and impactful manner. The use of a neutral, dark color scheme creates a sense of sophistication and seriousness, which aligns well with the gravity of the mission. This ensures users quickly understand the platform’s purpose and how they can get involved.
+    </div>
+    <div>
+        ## Key Components
+
+        <Accordion type="single" collapsible>
+            <AccordionItem value="item-1">
+                <AccordionTrigger className="underline-none">Clean, minimalistic design</AccordionTrigger>
+                <AccordionContent>
+                The hero features a clean and minimalistic design that is perfect for showcasing your work in an elegant and professional manner.
+                </AccordionContent>
+            </AccordionItem>
+             <AccordionItem value="item-2">
+                <AccordionTrigger className="underline-none">The Marquee Effect</AccordionTrigger>
+                <AccordionContent>
+                Displaying scrolling text across the screen, the code for this marquee from MagiUI—be sure to check out their website, it's truly impressive.<br/>
+                This element adds a lively and engaging touch to the website, instantly grabbing the user's attention.
+                </AccordionContent>
+            </AccordionItem>
+             <AccordionItem value="item-3">
+                <AccordionTrigger className="underline-none">Responsive design</AccordionTrigger>
+                <AccordionContent>
+                 It's fully responsive, ensuring that it looks great on all devices, from desktops to smartphones.
+                </AccordionContent>
+            </AccordionItem>
+             <AccordionItem value="item-4">
+                <AccordionTrigger className="underline-none">Text & color styles</AccordionTrigger>
+                <AccordionContent>
+                As a minimalist, I prefer subtle colors and simple text. However, feel free to adjust as needed
+                </AccordionContent>
+            </AccordionItem>
+        </Accordion>
+    </div>
+
+</div>
+## Supporting Components
+
+This template is crafted with TypeScript, Tailwind, and shadcn, along with [MagicUI](https://magicui.design/docs/components/marquee). For the marquee effect showcasing funding activities, I sourced the code from MagicUI, so you can easily copy it from there.
+
+```tsx
+// activity-card.tsx
+import { Marquee } from "../demo2/marquee";
+import { cn } from "@/lib/utils";
+import { Card } from "@/components/ui/card";
+
+const reviews = [
+  {
+    id: 1,
+    body: "Providing meals to underprivileged children",
+    img: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 2,
+    body: "Organizing community clean-up events.",
+    img: "https://images.unsplash.com/photo-1616680214084-22670de1bc82?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 3,
+    body: "Assisting families in need with moving and resettling",
+    img: "https://images.unsplash.com/photo-1610064094685-2015f42d8586?q=80&w=2732&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 4,
+    body: "Offering school supplies and tutoring for disadvantaged students",
+    img: "https://images.unsplash.com/flagged/photo-1574098335395-18cf525e45d6?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 5,
+    body: "Supporting medical care for low-income families",
+    img: "https://images.pexels.com/photos/263337/pexels-photo-263337.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  },
+  {
+    id: 6,
+    body: "Offering free sports programs and equipment for kids",
+    img: "https://images.unsplash.com/photo-1593101635261-8d3ba345e570?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 7,
+    body: "Saving and caring for abandoned and stray animals",
+    img: "https://images.pexels.com/photos/8576736/pexels-photo-8576736.jpeg?auto=compress&cs=tinysrgb&w=800",
+  },
+];
+
+const firstRow = reviews.slice(0, reviews.length / 2);
+const secondRow = reviews.slice(reviews.length / 2);
+
+const ReviewCard = ({ img, body, id }: { img: string; body: string; id: number }) => {
+  return (
+    <Card className="w-full max-w-xs rounded-none flex md:flex-col items-center">
+      <div className="flex flex-row items-center md:gap-2">
+        <img alt="Product Image" width={400} height={350} src={img} className="aspect-square object-cover" />
+      </div>
+      <blockquote className=" md:p-2 text-sm text-center">{body}</blockquote>
+    </Card>
+  );
+};
+
+export function MarqueeDemoVertical() {
+  return (
+    <div className="relative flex h-screen w-full flex-row items-center justify-center overflow-hidden rounded-lg  bg-background md:shadow-xl">
+      <Marquee pauseOnHover vertical className="[--duration:20s]">
+        {firstRow.map((review) => (
+          <ReviewCard key={review.id} {...review} />
+        ))}
+      </Marquee>
+      <Marquee reverse pauseOnHover vertical className="[--duration:20s]">
+        {secondRow.map((review) => (
+          <ReviewCard key={review.id} {...review} />
+        ))}
+      </Marquee>
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white dark:from-background"></div>
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white dark:from-background"></div>
+    </div>
+  );
+}
+
+export function MarqueeDemoHorizontal() {
+  return (
+    <div className="relative flex h-[500px] w-full flex-col items-center justify-start overflow-hidden  md:shadow-xl">
+      <Marquee pauseOnHover className="[--duration:20s]">
+        {firstRow.map((review) => (
+          <ReviewCard key={review.id} {...review} />
+        ))}
+      </Marquee>
+      <Marquee reverse pauseOnHover className="[--duration:20s]">
+        {secondRow.map((review) => (
+          <ReviewCard key={review.id} {...review} />
+        ))}
+      </Marquee>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
+    </div>
+  );
+}
+```
+
+As you can see, we have two functions: `MarqueeDemoVertical` and `MarqueeDemoHorizontal`. We use the vertical function for desktop sizes and the horizontal one for mobile sizes
+
+Now the hero section ready to use<br/>
+Stay tune for more🚀
+</div>
