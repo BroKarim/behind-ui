@@ -13,35 +13,6 @@ import { allDocs } from "content-collections";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import ComponentRecom from "@/components/components-recom";
-
-import { Contribute } from "@/components/contribute";
-import { TableOfContents } from "@/components/toc";
-
-const categories = [
-  "All",
-  "Portofolio",
-  "Startup",
-  "Agency",
-  "Branding",
-  "Tools",
-  "Finance",
-  "E-commerce",
-  "SaaS",
-  "Non-profit & charity",
-  "Food & Drink",
-  "Real estate",
-  "Photography",
-  "Product",
-  "App",
-  "Education",
-  "Blog",
-  "Personal",
-  "Production Studio",
-  "Architecture & Interior design",
-];
-
 interface DocPageProps {
   params: {
     slug: string[];
@@ -98,10 +69,6 @@ export default async function DocPage({ params }: DocPageProps) {
   if (!doc || !doc.published) {
     notFound();
   }
-
-  const toc = await getTableOfContents(doc.body.raw);
-  //filetring, only mdx in components/ will get
-  const docsFromComponents = (allDocs || []).filter((doc) => doc.slugAsParams.startsWith("components/"));
 
   return (
     <main

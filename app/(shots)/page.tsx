@@ -1,14 +1,28 @@
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { siteConfig } from "@/config/site";
-import { getTableOfContents } from "@/lib/toc";
-import { absoluteUrl, cn } from "@/lib/utils";
+"use client";
+
+import { useState, useEffect } from "react";
+
 import Image from "next/image";
 import "@/styles/mdx.css";
 import { allDocs } from "content-collections";
-import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+interface DocPageProps {
+  params: {
+    slug: string[];
+  };
+}
+type Doc = {
+  slug: string;
+  slugAsParams: string;
+  title?: string;
+  image?: string;
+  category?: string[];
+  published?: boolean;
+};
 
 const categories = [
   "All",
@@ -32,11 +46,6 @@ const categories = [
   "Production Studio",
   "Architecture & Interior design",
 ];
-interface DocPageProps {
-  params: {
-    slug: string[];
-  };
-}
 
 async function getDocFromParams({ params }: DocPageProps) {
   const slug = params.slug?.join("/") || "";
@@ -48,14 +57,31 @@ async function getDocFromParams({ params }: DocPageProps) {
 
   return doc;
 }
+
 export default async function Home({ params }: DocPageProps) {
   const doc = await getDocFromParams({ params });
-
   if (!doc || !doc.published) {
     notFound();
   }
-  //filetring, only mdx in components/ will get
   const docsFromComponents = (allDocs || []).filter((doc) => doc.slugAsParams.startsWith("components/"));
+  return <ClientFilterComponent initialDocs={docsFromComponents} />;
+}
+
+export function ClientFilterComponent({ initialDocs }: { initialDocs: Doc[] }) {
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [filteredDocs, setFilteredDocs] = useState<Doc[]>(initialDocs);
+
+  useEffect(() => {
+    console.log("Initial Docs:", initialDocs);
+    console.log("Active Category:", activeCategory);
+
+    const filtered = initialDocs.filter((doc) => activeCategory === "All" || (doc.category && doc.category.includes(activeCategory)));
+
+    console.log("Filtered Docs:", filtered);
+    setFilteredDocs(filtered);
+  }, [activeCategory, initialDocs]);
+  //filetring, only mdx in components/ will get
+  // const docsFromComponents = (allDocs || []).filter((doc) => doc.slugAsParams.startsWith("components/"));
 
   return (
     <>
@@ -69,19 +95,20 @@ export default async function Home({ params }: DocPageProps) {
           </div>
         </div>
         <Tabs defaultValue={categories[0]} className="w-full">
-          <ScrollArea className="h-16 w-full whitespace-nowrap rounded-md bg-transparent">
+          <ScrollArea className="whitespace-nowrap">
             <TabsList className="bg-transparent">
               {categories.map((category) => (
-                <TabsTrigger key={category} value={category} className="text-md">
+                <TabsTrigger key={category} value={category} onClick={() => setActiveCategory(category)} className="text-md">
                   {category}
                 </TabsTrigger>
               ))}
             </TabsList>
-            <ScrollBar orientation="horizontal" className="w-0 bg-transparent  " />
+            <ScrollBar className="w-4 border-none bg-transparent opacity-0" orientation="horizontal" />
           </ScrollArea>
         </Tabs>
+
         <div className=" grid w-full gap-4 px-4 md:grid-cols-2  md:gap-8 lg:grid-cols-4 ">
-          {docsFromComponents.map((doc) => (
+          {filteredDocs.map((doc) => (
             <Link href={doc.slugAsParams} key={doc.slug} className="group relative flex flex-col  ">
               <div className="relative aspect-[16/10] w-full md:h-[200px]">
                 {doc.image && (

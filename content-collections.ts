@@ -111,7 +111,7 @@ const documents = defineCollection({
     component: z.boolean().optional().default(false),
     toc: z.boolean().optional().default(true),
     image: z.string().optional(),
-    category: z.string().optional(),
+    category: z.array(z.string()).optional(),
   }),
   transform: async (document, context) => {
     const body = await compileMDX(context, document, {
