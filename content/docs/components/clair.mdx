@@ -47,17 +47,22 @@ category: ["Startup", "Finance", "Blog"]
 
 ## Supporting Components
 
-<h1 className="mt-2">`wrapper.tsx`</h1>
-
-<ComponentSource name="saas-hero-three-wrapper" />
-
-<h1>`marquee.tsx`</h1>
-
-<ComponentSource name="saas-hero-three-banner" />
-
-<h1>`navbar.tsx`</h1>
-
-<ComponentSource name="saas-hero-three-navbar" />
+<Tabs defaultValue="wrapper">
+  <TabsList>
+    <TabsTrigger value="wrapper">wrapper</TabsTrigger>
+    <TabsTrigger value="banner">banner</TabsTrigger>
+    <TabsTrigger value="navbar">navbar</TabsTrigger>
+  </TabsList>
+  <TabsContent value="wrapper">
+    <ComponentSource name="saas-hero-three-wrapper" />
+  </TabsContent>
+  <TabsContent value="banner">
+    <ComponentSource name="saas-hero-three-banner" />
+  </TabsContent>
+  <TabsContent value="navbar">
+    <ComponentSource name="saas-hero-three-navbar" />
+  </TabsContent>
+</Tabs>
 
 Now the hero section ready to use<br/>
 Stay tune for more🚀

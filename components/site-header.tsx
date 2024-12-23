@@ -1,15 +1,19 @@
 import { StarIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 
-import { CommandMenu } from "@/components/command-menu";
 import { Icons } from "@/components/icons";
-import { MainNav } from "@/components/main-nav";
 import { MobileNav } from "@/components/mobile-nav";
-import { ModeToggle } from "@/components/mode-toggle";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import NumberTicker from "@/registry/default/magicui/number-ticker";
+
+/*
+REQUIREMENT FOR NEW FEATURE
+- 
+- new way to show menu
+- expand tab : https://21st.dev/victorwelander/expandable-tabs
+
+*/
 
 export async function SiteHeader() {
   let stars = 300; // Default value
@@ -38,7 +42,12 @@ export async function SiteHeader() {
   return (
     <header className={cn("supports-backdrop-blur:bg-background/90 sticky top-0 z-40 w-full bg-background/40 backdrop-blur-lg")}>
       <div className="container flex h-16 items-center justify-between md:justify-center">
-        <MainNav />
+        <div className="mr-4 hidden gap-x-8 md:flex">
+          <Link href="/" className="relative mr-6 flex items-center justify-center text-center">
+            <Icons.logo1 className="size-12  md:size-8" />
+            <span className="hidden text-center font-mono  font-bold md:inline-block">{siteConfig.name}</span>
+          </Link>
+        </div>
         <MobileNav />
         <div className="flex items-center justify-between gap-2 md:flex-1 md:justify-end">
           <nav className="flex items-center gap-1">
@@ -69,11 +78,7 @@ export async function SiteHeader() {
                 <span className="sr-only">Twitter</span>
               </div>
             </Link>
-            <ModeToggle />
           </nav>
-          {/* <div className="w-full flex-1 md:w-auto md:flex-none">
-            <CommandMenu />
-          </div> */}
         </div>
       </div>
       <hr className="m-0 h-px w-full border-none bg-gradient-to-r from-neutral-200/0 via-neutral-200/30 to-neutral-200/0" />
