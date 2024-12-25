@@ -1,13 +1,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
+import { fontClash } from "@/lib/fonts";
 import Image from "next/image";
 import "@/styles/mdx.css";
 import Link from "next/link";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ComponentSourceTab } from "../component-source-tab";
+import { cn } from "@/lib/utils";
+import { GradualSpacing } from "../text-animation";
+// import { ComponentSourceTab } from "../component-source-tab";
 type Doc = {
   slug: string;
   slugAsParams: string;
@@ -37,7 +39,7 @@ const categories = [
   "Blog",
   "Personal",
   "Production Studio",
-  "Architecture & Interior design",
+  "Architecture",
 ];
 
 export function ClientFilterComponent({ initialDocs }: { initialDocs: Doc[] }) {
@@ -58,11 +60,11 @@ export function ClientFilterComponent({ initialDocs }: { initialDocs: Doc[] }) {
   return (
     <>
       <section className="py-6 ">
-        <div className="mb-10 flex h-72 flex-col items-start gap-4 md:mb-0 md:h-56  md:flex-row  md:justify-between md:gap-8 md:overflow-auto xl:h-64">
-          <div className="w-full flex-1 space-y-4 px-4">
-            <h1 className="inline-block  text-2xl tracking-tight  lg:text-4xl  xl:text-5xl">
-              BehindUI is the ultimate source for ready-to-use hero sections and templates, blending stunning design with seamless code. Discover a curated collection crafted to inspire and streamline your projects, updated every weekday to
-              keep your creativity flowing effortlessly.
+        <div className="mb-10 flex h-full flex-col  gap-4  md:mb-0  md:flex-row md:justify-between  md:gap-8">
+          <div className="w-full space-y-4 px-4">
+            <GradualSpacing text="BehindUI" className={cn("inline-block text-center   uppercase md:text-6xl  xl:text-[18rem] ", fontClash.className)} />
+            <h1 className="inline-block text-left text-2xl tracking-tight  md:px-2  lg:text-4xl xl:text-5xl">
+              BehindUI is the ultimate source for ready-to-use hero sections and templates | Updated every weekday to keep your creativity flowing effortlessly.
             </h1>
           </div>
         </div>
@@ -82,7 +84,7 @@ export function ClientFilterComponent({ initialDocs }: { initialDocs: Doc[] }) {
         <div className=" grid w-full gap-4 px-4 md:grid-cols-2  md:gap-8 lg:grid-cols-3 ">
           {filteredDocs.map((doc) => (
             <Link href={doc.slugAsParams} key={doc.slug} className="group relative flex flex-col ">
-              <div className={`relative aspect-[16/10] w-full overflow-hidden md:h-[250px] `} onMouseEnter={() => setIsHovered(doc.slug)} onMouseLeave={() => setIsHovered(null)}>
+              <div className={`relative aspect-[16/10] w-full overflow-hidden rounded-lg md:h-[250px]`} onMouseEnter={() => setIsHovered(doc.slug)} onMouseLeave={() => setIsHovered(null)}>
                 {doc.image && (
                   <Image
                     src={doc.image}

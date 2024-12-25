@@ -110,7 +110,7 @@ const components = {
   }) => {
     return (
       <>
-        <pre className={cn("mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border  bg-zinc-800 py-4 dark:bg-zinc-800 md:px-2", className)} {...props} />
+        <pre className={cn("mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900", className)} {...props} />
         {__rawString__ && __src__ && __event__ && <CopyButton value={__rawString__} src={__src__} event={__event__} className={cn("absolute right-4 top-4", __withMeta__ && "top-16")} />}
         {__npmCommand__ && __yarnCommand__ && __pnpmCommand__ && __bunCommand__ && (
           <CopyNpmCommandButton
@@ -126,7 +126,7 @@ const components = {
       </>
     );
   },
-  code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => <code className={cn("relative  rounded px-[0.3rem] py-[0.2rem] font-mono text-sm text-white", className)} {...props} />,
+  code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => <code className={cn("relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm", className)} {...props} />,
   LinkedCard: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
     <Link className={cn("flex w-full flex-col items-center rounded-xl border bg-card p-6 text-card-foreground shadow transition-colors hover:bg-muted/50 sm:p-10", className)} {...props} />
   ),

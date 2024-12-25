@@ -158,6 +158,18 @@ export const Icons = {
       />
     </svg>
   ),
+  nextint: (props: IconProps) => (
+    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" width={16} height={16} fill="#000" data-name="Layer 1" viewBox="0 0 24 24" {...props}>
+      <g id="SVGRepo_iconCarrier">
+        <defs>
+          <style>{".cls-1{fill:none;stroke:#020202;stroke-miterlimit:10;stroke-width:1.92px}"}</style>
+        </defs>
+        <path d="M20.63 11.04v11.5H3.38v-11.5" className="cls-1" />
+        <path d="M22.54 11.04 12 2.42 1.46 11.04V12h21.08v-.96zM13.92 16.79h1.92v5.75h-1.92zM8.17 16.79h1.92v1.92H8.17zM23.5 22.54H.5" className="cls-1" />
+        <path d="M3.38 9.47V1.46h3.83v4.88M9.13 1.46H1.46" className="cls-1" />
+      </g>
+    </svg>
+  ),
   npm: (props: IconProps) => (
     <svg viewBox="0 0 24 24" {...props}>
       <path
