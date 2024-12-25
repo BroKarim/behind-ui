@@ -61,4 +61,24 @@ export const examples: Registry = [
     type: "registry:example",
     files: ["example/frank-goodman/frank-goodman.tsx"],
   },
+  {
+    name: "nextint",
+    type: "registry:example",
+    files: ["example/next-int/next-int.tsx"],
+  },
+  {
+    name: "nextint-nav",
+    type: "registry:example",
+    files: ["example/next-int/navbar.tsx"],
+  },
+  {
+    name: "nextint-lang-switch",
+    type: "registry:example",
+    files: ["example/next-int/lang-switch.tsx"],
+  },
+  {
+    name: "nextint-photos",
+    type: "registry:example",
+    files: ["example/next-int/photos.tsx"],
+  },
 ];

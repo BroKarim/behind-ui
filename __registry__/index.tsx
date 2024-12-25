@@ -709,6 +709,50 @@ export const Index: Record<string, any> = {
       subcategory: "undefined",
       chunks: []
     },
+    "nextint": {
+      name: "nextint",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/next-int/next-int.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/next-int/next-int.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "nextint-nav": {
+      name: "nextint-nav",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/next-int/navbar.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/next-int/navbar.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "nextint-lang-switch": {
+      name: "nextint-lang-switch",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/next-int/lang-switch.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/next-int/lang-switch.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "nextint-photos": {
+      name: "nextint-photos",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/next-int/photos.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/next-int/photos.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
     "utils": {
       name: "utils",
       type: "registry:lib",
