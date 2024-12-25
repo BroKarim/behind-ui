@@ -14,7 +14,7 @@ import { rehypeComponent } from "./lib/rehype-component";
 import { rehypeNpmCommand } from "./lib/rehype-npm-command";
 
 const prettyCodeOptions: Options = {
-  theme: JSON.parse(String(readFileSync(path.join(process.cwd(), "/lib/highlighter-theme.json")))),
+  theme: "material-theme-ocean",
   getHighlighter: (options) =>
     createHighlighter({
       ...options,
