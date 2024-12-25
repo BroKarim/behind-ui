@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Analytics } from "@/components/analytics";
 import { PHProvider } from "@/components/posthog-provider";
 import { ThemeProvider } from "@/components/theme-provider";
+import localFont from "next/font/local";
 
 import "@/styles/globals.css";
 import "@/styles/mdx.css";
@@ -21,7 +22,7 @@ export const metadata: Metadata = constructMetadata({
 export const viewport: Viewport = {
   colorScheme: "dark",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: light)", color: "black" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
 };
