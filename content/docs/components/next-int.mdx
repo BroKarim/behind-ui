@@ -1,0 +1,67 @@
+---
+title: NextInt - Architecture Firm Template
+description: Showcase your architectural expertise with NextInt, a refined and contemporary typescript template designed for architecture studios and firms.
+date: 2024-12-23
+published: true
+image: https://res.cloudinary.com/dctl5pihh/image/upload/v1735017077/next-int_1_mfwwz4.png
+category: ["Real estate", "Architecture", "Portofolio"]
+---
+
+<ComponentPreview name="nextint" />
+
+<div className="md:py-12 md:px-18">
+<div className="w-full grid md:grid-cols-2 grid-cols-1 space-y-4 md:space-y-0 gap-2">
+
+    <div>
+        ## Overview
+        Elevate your architectural prowess with NextInt, a sophisticated and modern TypeScript template tailored for architecture studios and firms. This template highlighting your firm’s portfolio with stylish, high-quality visuals and a professional layout. Ideal for studios aiming to build a strong, innovative digital presence, it resonates with clients seeking contemporary, sustainable designs.
+    </div>
+    <div>
+        ## Key Components
+
+        <Accordion type="single" collapsible>
+            <AccordionItem value="item-1">
+                <AccordionTrigger className="underline-none">Components</AccordionTrigger>
+                <AccordionContent>
+                Components offer reusability across pages, with changes applied to all instances. They also offer an easy way to create animations.
+                </AccordionContent>
+            </AccordionItem>
+             <AccordionItem value="item-2">
+                <AccordionTrigger className="underline-none">Color styles</AccordionTrigger>
+                <AccordionContent>
+              Color Styles are re-usable colors. They allow you to centrally manage how the colors on your site look. You can update the look and feel of your site in one easy step.
+                </AccordionContent>
+            </AccordionItem>
+             <AccordionItem value="item-3">
+                <AccordionTrigger className="underline-none">Animations</AccordionTrigger>
+                <AccordionContent>
+                 Includes expressive animations and subtle effects when hovering to capture your audience’s attention when they land on your website
+                </AccordionContent>
+            </AccordionItem>
+        </Accordion>
+    </div>
+
+</div>
+## Supporting Components
+
+<Tabs defaultValue="navigation">
+  <TabsList className="border-none">
+    <TabsTrigger value="navigation">navigation</TabsTrigger>
+    <TabsTrigger value="switch-lang">switch-lang</TabsTrigger>
+    <TabsTrigger value="photos">photos</TabsTrigger>
+  </TabsList>
+  <TabsContent value="navigation">
+    <ComponentSource name="nextint-nav" />
+  </TabsContent>
+  <TabsContent value="switch-lang">
+    <ComponentSource name="nextint-lang-switch" />
+  </TabsContent>
+  <TabsContent value="photos">
+    <ComponentSource name="nextint-photos" />
+  </TabsContent>
+</Tabs>
+
+Now the hero section ready to use<br/>
+Stay tune for more🚀
+
+</div>
