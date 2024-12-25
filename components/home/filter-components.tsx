@@ -45,7 +45,7 @@ const categories = [
 export function ClientFilterComponent({ initialDocs }: { initialDocs: Doc[] }) {
   const [activeCategory, setActiveCategory] = useState("All");
   const [filteredDocs, setFilteredDocs] = useState<Doc[]>(initialDocs);
-  const [isHovered, setIsHovered] = useState(null);
+  const [isHovered, setIsHovered] = useState<string | null>(null);
 
   useEffect(() => {
     console.log("Initial Docs:", initialDocs);
