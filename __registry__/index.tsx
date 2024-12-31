@@ -577,6 +577,17 @@ export const Index: Record<string, any> = {
       subcategory: "undefined",
       chunks: []
     },
+    "animated-group": {
+      name: "animated-group",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/components/animated-group.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/components/animated-group.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
     "saas-hero-one": {
       name: "saas-hero-one",
       type: "registry:example",
@@ -748,6 +759,83 @@ export const Index: Record<string, any> = {
       registryDependencies: undefined,
       files: ["registry/default/example/next-int/photos.tsx"],
       component: React.lazy(() => import("@/registry/default/example/next-int/photos.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "provibe": {
+      name: "provibe",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/provibe/provibe.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/provibe/provibe.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "provibe-product": {
+      name: "provibe-product",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/provibe/product.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/provibe/product.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "provibe-product-card": {
+      name: "provibe-product-card",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/provibe/product-card.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/provibe/product-card.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "provibe-nav": {
+      name: "provibe-nav",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/provibe/nav-overlay.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/provibe/nav-overlay.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "provibe-hashtag": {
+      name: "provibe-hashtag",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/provibe/hashtag-illustration.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/provibe/hashtag-illustration.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "provibe-email-button": {
+      name: "provibe-email-button",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/provibe/compact-button.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/provibe/compact-button.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "provibe-waitlist-button": {
+      name: "provibe-waitlist-button",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/provibe/waitlist-button.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/provibe/waitlist-button.tsx")),
       source: "",
       category: "undefined",
       subcategory: "undefined",

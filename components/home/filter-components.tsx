@@ -9,6 +9,9 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import { GradualSpacing } from "../text-animation";
+import { toast } from "sonner";
+import DevelopmentToast from "../dev-toast";
+
 // import { ComponentSourceTab } from "../component-source-tab";
 type Doc = {
   slug: string;
@@ -57,12 +60,27 @@ export function ClientFilterComponent({ initialDocs }: { initialDocs: Doc[] }) {
     setFilteredDocs(filtered);
   }, [activeCategory, initialDocs]);
 
+  useEffect(() => {
+    // Wrap in setTimeout to ensure it runs after hydration
+    setTimeout(() => {
+      const hasShownToast = localStorage.getItem("hasShownToast");
+      if (!hasShownToast) {
+        toast("Website is under development.", {
+          description: "Enjoy exploring, updates coming soon!",
+          duration: 5000, // 5 seconds
+        });
+        localStorage.setItem("hasShownToast", "true");
+      }
+    }, 100);
+  }, []);
+
   return (
     <>
       <section className="py-6 ">
         <div className="mb-10 flex h-full flex-col  gap-4  md:mb-0  md:flex-row md:justify-between  md:gap-8">
           <div className="w-full space-y-4 px-4">
-            <GradualSpacing text="BehindUI" className={cn("inline-block text-center   uppercase md:text-6xl  xl:text-[18rem] ", fontClash.className)} />
+            {/* untuk ukuran xl dia pake gambar, tapi ukuran lebih keci */}
+            <GradualSpacing text="BehindUI" className={cn("inline-block text-center  uppercase lg:text-[14rem] xl:text-[18rem] ", fontClash.className)} />
             <h1 className="inline-block text-left text-2xl tracking-tight  md:px-2  lg:text-4xl xl:text-5xl">
               BehindUI is the ultimate source for ready-to-use hero sections and templates | Updated every weekday to keep your creativity flowing effortlessly.
             </h1>

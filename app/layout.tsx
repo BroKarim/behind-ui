@@ -1,10 +1,11 @@
 import { fontSans } from "@/lib/fonts";
 import { absoluteUrl, cn, constructMetadata } from "@/lib/utils";
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Analytics } from "@/components/analytics";
 import { PHProvider } from "@/components/posthog-provider";
 import { ThemeProvider } from "@/components/theme-provider";
+import { TemplateToaster } from "@/components/home/template-toast";
 import localFont from "next/font/local";
 
 import "@/styles/globals.css";
@@ -36,7 +37,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ThemeProvider attribute="class" defaultTheme="dark">
             <TooltipProvider>
               {children}
+              <Toaster />
               <Analytics />
+              <TemplateToaster />
             </TooltipProvider>
           </ThemeProvider>
         </PHProvider>

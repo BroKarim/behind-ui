@@ -1,6 +1,12 @@
 import { Registry } from "@/registry/schema";
 
 export const examples: Registry = [
+  /* ============= COMPONENTS ============= */
+  {
+    name: "animated-group",
+    type: "registry:example",
+    files: ["example/components/animated-group.tsx"],
+  },
   {
     name: "saas-hero-one",
     type: "registry:example",
@@ -80,5 +86,41 @@ export const examples: Registry = [
     name: "nextint-photos",
     type: "registry:example",
     files: ["example/next-int/photos.tsx"],
+  },
+  /* ============= PROVIBE ============= */
+  {
+    name: "provibe",
+    type: "registry:example",
+    files: ["example/provibe/provibe.tsx"],
+  },
+  {
+    name: "provibe-product",
+    type: "registry:example",
+    files: ["example/provibe/product.tsx"],
+  },
+  {
+    name: "provibe-product-card",
+    type: "registry:example",
+    files: ["example/provibe/product-card.tsx"],
+  },
+  {
+    name: "provibe-nav",
+    type: "registry:example",
+    files: ["example/provibe/nav-overlay.tsx"],
+  },
+  {
+    name: "provibe-hashtag",
+    type: "registry:example",
+    files: ["example/provibe/hashtag-illustration.tsx"],
+  },
+  {
+    name: "provibe-email-button",
+    type: "registry:example",
+    files: ["example/provibe/compact-button.tsx"],
+  },
+  {
+    name: "provibe-waitlist-button",
+    type: "registry:example",
+    files: ["example/provibe/waitlist-button.tsx"],
   },
 ];

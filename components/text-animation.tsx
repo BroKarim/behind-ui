@@ -59,7 +59,7 @@ export function GradualSpacing({
   className,
 }: GradualSpacingProps) {
   return (
-    <div className="flex justify-center space-x-1">
+    <div className={cn("flex justify-center space-x-1", className)}>
       <AnimatePresence>
         {text.split("").map((char, i) => (
           <motion.h1 key={i} initial="hidden" animate="visible" exit="hidden" variants={framerProps} transition={{ duration, delay: i * delayMultiple }} className={cn("drop-shadow-sm ", className)}>
