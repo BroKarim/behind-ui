@@ -13,10 +13,7 @@ export default function NavigationOverlay() {
   return (
     <>
       {!isOpen && (
-        <button
-          onClick={toggleNav}
-          className="text-4xl font-light transition-colors hover:text-gray-600"
-        >
+        <button onClick={toggleNav} className="text-4xl font-light transition-colors hover:text-gray-600">
           {" "}
           About{" "}
         </button>
@@ -30,13 +27,7 @@ export default function NavigationOverlay() {
               {/* Main Navigation */}
               <div className="space-y-2">
                 <div className="text-sm font-medium text-gray-500">MAIN</div>
-                {[
-                  "UI/UX",
-                  "App Design",
-                  "Visual Identity",
-                  "Illustrations",
-                  "UI Animations",
-                ].map((item) => (
+                {["Home", "Product", "Blog", "FAQ"].map((item) => (
                   <AnimatedGroup
                     key={item} // Move key here
                     variants={{
@@ -64,18 +55,14 @@ export default function NavigationOverlay() {
                       },
                     }}
                   >
-                    <Button className="rounded-full bg-[#e6e6e6] px-4 text-black">
-                      {item}
-                    </Button>
+                    <Button className="rounded-full bg-[#e6e6e6] px-4 text-black">{item}</Button>
                   </AnimatedGroup>
                 ))}
               </div>
 
               {/* Additional Links */}
               <div className="space-y-2">
-                <div className="text-sm font-medium text-gray-500">
-                  ADDITIONAL
-                </div>
+                <div className="text-sm font-medium text-gray-500">ADDITIONAL</div>
                 {["Gumroad", "Linkedin", "Twitter", "Dribbble"].map((item) => (
                   <AnimatedGroup
                     key={item}
@@ -111,9 +98,7 @@ export default function NavigationOverlay() {
 
               {/* Contacts */}
               <div className="space-y-2">
-                <div className="text-sm font-medium text-gray-500">
-                  CONTACTS
-                </div>
+                <div className="text-sm font-medium text-gray-500">CONTACTS</div>
                 <AnimatedGroup
                   variants={{
                     container: {
@@ -140,10 +125,7 @@ export default function NavigationOverlay() {
                     },
                   }}
                 >
-                  <a
-                    href="mailto:example@email.com"
-                    className="block text-xl transition-colors hover:text-gray-600"
-                  >
+                  <a href="mailto:example@email.com" className="block text-xl transition-colors hover:text-gray-600">
                     example@email.com
                   </a>
                   <div className="text-xl">Discord (@username)</div>
@@ -151,10 +133,7 @@ export default function NavigationOverlay() {
               </div>
 
               {/* Close Button */}
-              <button
-                onClick={toggleNav}
-                className="fixed bottom-8 left-8 text-4xl font-light transition-colors hover:text-gray-600"
-              >
+              <button onClick={toggleNav} className="fixed bottom-8 left-8 text-4xl font-light transition-colors hover:text-gray-600">
                 Close
               </button>
             </div>
