@@ -9,6 +9,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import { GradualSpacing } from "../text-animation";
+import { toast } from "sonner";
 
 type Doc = {
   slug: string;
@@ -56,6 +57,20 @@ export function ClientFilterComponent({ initialDocs }: { initialDocs: Doc[] }) {
     console.log("Filtered Docs:", filtered);
     setFilteredDocs(filtered);
   }, [activeCategory, initialDocs]);
+
+  useEffect(() => {
+    // Wrap in setTimeout to ensure it runs after hydration
+    setTimeout(() => {
+      const hasShownToast = localStorage.getItem("hasShownToast");
+      if (!hasShownToast) {
+        toast("Website is under development.", {
+          description: "Enjoy exploring, updates coming soon!",
+          duration: 5000, // 5 seconds
+        });
+        localStorage.setItem("hasShownToast", "true");
+      }
+    }, 100);
+  }, []);
 
   return (
     <>

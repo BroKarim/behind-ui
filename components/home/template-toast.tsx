@@ -49,7 +49,7 @@ export function TemplateToaster() {
               <div className="font-mono font-bold  uppercase tracking-tight">
                 🚧Website Under Development 🚧 <br />
               </div>
-              <CardDescription className="mt-4 text-black/90 dark:text-white/70">This website is currently in active development. Some features may be incomplete or not working as expected</CardDescription>
+              <CardDescription className="mt-4 text-black/90 dark:text-white/70">This website is currently in active development. Enjoy exploring—exciting updates coming soon!</CardDescription>
             </CardHeader>
             <CardFooter className="flex justify-end gap-4">
               <Button
