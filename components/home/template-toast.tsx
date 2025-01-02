@@ -13,23 +13,30 @@ export function TemplateToaster() {
   const [isVisibile, setIsVisible] = useState(true);
   const [notificationStatus, setNotificationStatus] = useState<string | null>(null);
   const path = usePathname();
+  const [hydrated, setHydrated] = useState(false);
 
+  // Run this effect only once to set hydrated to true
   useEffect(() => {
-    // Check localStorage only after component mounts (client-side)
-    setNotificationStatus(localStorage.getItem("farmui-notification"));
+    setHydrated(true);
   }, []);
 
-  const templates = path.includes("templates");
-  const isIframe = typeof window !== "undefined" && window.self !== window.top;
+  // Run this effect only on client side
+  useEffect(() => {
+    if (hydrated) {
+      localStorage.removeItem("behindui-notification");
 
-  // Don't render anything until we've checked localStorage
-  if (typeof window === "undefined" || notificationStatus === null) {
+      setNotificationStatus(localStorage.getItem("behindui-notification"));
+    }
+  }, [hydrated]);
+
+  if (!hydrated) {
     return null;
   }
 
-  // Your existing logic
+  const templates = path.includes("templates");
+  const isIframe = isInIframe();
   if (isIframe || notificationStatus === "off") {
-    return null;
+    return <div></div>;
   }
 
   return (
@@ -37,31 +44,22 @@ export function TemplateToaster() {
     !templates && (
       <section className="relative z-50">
         <div className="font-geist fixed bottom-4 right-4">
-          <Card className={cn("animate-background-shine w-[350px] bg-white/90 bg-opacity-10 bg-[length:250%_100%] dark:bg-black dark:bg-[linear-gradient(110deg,#000,55%,#57476e,65%,#000)]  dark:[border:1px_solid_rgba(255,255,255,.1)]")}>
+          <Card className={cn(" w-[350px] bg-background [border:1px_solid_rgba(255,255,255,.1)]")}>
             <CardHeader>
-              <div className="font-mono font-normal uppercase tracking-tight ">
-                ✨Access the full template ✨ <br />
-                <span className="mt-1 font-bold">50% discount is now available.</span>
+              <div className="font-mono font-bold  uppercase tracking-tight">
+                🚧Website Under Development 🚧 <br />
               </div>
-              <CardDescription className="mt-4 text-black/90 dark:text-white/70">
-                Go get the full access of template with almost for free and more than <span className="font-bold">50% discount</span> if you buy couple and more!
-              </CardDescription>
+              <CardDescription className="mt-4 text-black/90 dark:text-white/70">This website is currently in active development. Some features may be incomplete or not working as expected</CardDescription>
             </CardHeader>
             <CardFooter className="flex justify-end gap-4">
               <Button
-                variant="ghost"
                 size="sm"
                 onClick={() => {
-                  localStorage.setItem("farmui-notification", "off");
+                  localStorage.setItem("behindui-notification", "off");
                   setIsVisible(false);
                 }}
               >
-                Cancel
-              </Button>
-              <Button size="sm" asChild>
-                <Link href="https://farmui.com/templates" target="_blank">
-                  Get the template
-                </Link>
+                Understand
               </Button>
             </CardFooter>
           </Card>

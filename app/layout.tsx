@@ -6,7 +6,6 @@ import { Analytics } from "@/components/analytics";
 import { PHProvider } from "@/components/posthog-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TemplateToaster } from "@/components/home/template-toast";
-import localFont from "next/font/local";
 
 import "@/styles/globals.css";
 import "@/styles/mdx.css";
