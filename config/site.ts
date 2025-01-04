@@ -1,7 +1,8 @@
 export const siteConfig = {
   name: "Behind UI",
-  url: "https://behindui.vercel.app/",
-  description: "Ready to use world class headline components for your website.",
+  url: "https://www.behindui.xyz/",
+  ogImage: "https://res.cloudinary.com/dctl5pihh/image/upload/v1735979399/og-image_sncs7w.png",
+  description: "Beautiful UI components and templates to make your landing page look stunning.",
   links: {
     twitter: "https://x.com/BroKariim",
     discord: "https://discord.gg/87p2vpsat5",
