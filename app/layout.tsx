@@ -1,5 +1,5 @@
 import { fontSans } from "@/lib/fonts";
-import { absoluteUrl, cn, constructMetadata } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { Toaster } from "sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Analytics } from "@/components/analytics";
@@ -14,7 +14,7 @@ import "@/styles/mdx.css";
 import type { Viewport } from "next";
 import { Metadata } from "next";
 
-export const metadata: Metadata = constructMetadata({
+export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
   metadataBase: new URL(siteConfig.url),
@@ -25,7 +25,7 @@ export const metadata: Metadata = constructMetadata({
       url: "https://www.behindui.xyz/",
     },
   ],
-  creator: "shadcn",
+  creator: "bro",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -49,7 +49,7 @@ export const metadata: Metadata = constructMetadata({
     images: [siteConfig.ogImage],
     creator: "@Brokariim",
   },
-});
+};
 
 export const viewport: Viewport = {
   colorScheme: "dark",
