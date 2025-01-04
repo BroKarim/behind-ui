@@ -8,7 +8,7 @@ const inter600 = fetch(new URL(`../../assets/fonts/Inter-SemiBold.ttf`, import.m
 
 const inter700 = fetch(new URL(`../../assets/fonts/Inter-Bold.ttf`, import.meta.url)).then((res) => res.arrayBuffer());
 
-const logo = fetch(new URL("../../assets/images/beui-logo.png", import.meta.url)).then((res) => res.arrayBuffer());
+const logo = fetch(new URL("https://res.cloudinary.com/dctl5pihh/image/upload/v1735975505/beui-logo_ltdrqj.png", import.meta.url)).then((res) => res.arrayBuffer());
 
 export async function GET(req: Request) {
   const logoData = await logo;
