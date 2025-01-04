@@ -24,7 +24,6 @@ export function TemplateToaster() {
   useEffect(() => {
     if (hydrated) {
       localStorage.removeItem("behindui-notification");
-
       setNotificationStatus(localStorage.getItem("behindui-notification"));
     }
   }, [hydrated]);
