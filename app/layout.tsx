@@ -25,7 +25,7 @@ export const metadata: Metadata = {
       url: "https://www.behindui.xyz/",
     },
   ],
-  creator: "bro",
+  creator: "brokariim",
   openGraph: {
     type: "website",
     locale: "en_US",
