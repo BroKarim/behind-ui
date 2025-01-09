@@ -74,15 +74,12 @@ export function ClientFilterComponent({ initialDocs }: { initialDocs: Doc[] }) {
 
   return (
     <>
-      <section className="py-6 ">
-        <div className="mb-10 flex h-full flex-col  gap-4  md:mb-0  md:flex-row md:justify-between  md:gap-8">
-          <div className="w-full space-y-4 px-4">
-            {/* untuk ukuran xl dia pake gambar, tapi ukuran lebih keci */}
-            <GradualSpacing text="BehindUI" className={cn("inline-block text-center  uppercase lg:text-[14rem] xl:text-[18rem] ", fontClash.className)} />
-            <h1 className="inline-block text-left text-2xl tracking-tight  md:px-2  lg:text-4xl xl:text-5xl">
-              BehindUI is the ultimate source for ready-to-use hero sections and templates | Updated every weekday to keep your creativity flowing effortlessly.
-            </h1>
-          </div>
+      <section className="py-6 font-mono">
+        <div className="container flex flex-col items-center gap-1 py-8 md:py-10 lg:py-12">
+          <h1 className={cn("text-3xl font-bold leading-tight tracking-tighter md:text-4xl lg:leading-[1.1]")}>
+            When <span className="text-[#ff9ffa]">Dribble</span> Meet <span className="text-[#42b27f]">Code</span>
+          </h1>
+          <p className={cn("max-w-3xl text-balance text-center text-lg font-light text-foreground")}>Behind every stunning UI is a strong foundation. BehindUI delivers ready-to-use components and sections to bring your designs to life.</p>
         </div>
         <Tabs defaultValue={categories[0]} className="w-full md:my-4">
           <ScrollArea className="whitespace-nowrap">

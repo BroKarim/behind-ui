@@ -57,7 +57,7 @@ const PearlAboutSection = () => {
         </div>
 
         <div className="relative z-10 mb-12  md:mb-16">
-          <h2 className="mb-6  text-xl leading-tight md:text-4xl lg:leading-tight xl:text-6xl">
+          <h2 className="mb-6  text-xl leading-tight md:text-xl lg:leading-tight xl:text-6xl">
             <span className="text-black">Your data solutions partner. </span>
             <span className="text-gray-400">
               We assist your team in initiating and expanding digital products
