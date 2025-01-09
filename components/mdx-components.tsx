@@ -16,6 +16,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 import CodePreview from "./code-preview";
 import { ComponentPreview } from "./component-preview";
+import PostDetail from "./post-details";
 import { ComponentSource } from "./component-source";
 import { CopyButton, CopyNpmCommandButton } from "./copy-button";
 
@@ -50,6 +51,7 @@ const components = {
   Tweet: ({ id }: { id: string }) => <TweetCard id={id} className="mx-auto" />,
   ComponentPreview,
   CodePreview,
+  PostDetail,
   Badge,
   Avatar,
   AvatarFallback,
