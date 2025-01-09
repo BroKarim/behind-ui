@@ -75,11 +75,13 @@ export function ClientFilterComponent({ initialDocs }: { initialDocs: Doc[] }) {
   return (
     <>
       <section className="py-6 font-mono">
-        <div className="container flex flex-col items-center gap-1 py-8 md:py-10 lg:py-12">
-          <h1 className={cn("text-3xl font-bold leading-tight tracking-tighter md:text-4xl lg:leading-[1.1]")}>
+        <div className="container flex flex-col items-start gap-1 py-8 md:items-center md:py-10 md:text-center lg:py-12">
+          <h1 className={cn("text-3xl font-bold  leading-tight tracking-tighter md:text-4xl lg:leading-[1.1]")}>
             When <span className="text-[#ff9ffa]">Dribble</span> Meet <span className="text-[#42b27f]">Code</span>
           </h1>
-          <p className={cn("max-w-3xl text-balance text-center text-lg font-light text-foreground")}>Behind every stunning UI is a strong foundation. BehindUI delivers ready-to-use components and sections to bring your designs to life.</p>
+          <p className={cn("max-w-3xl text-balance  font-light text-foreground sm:text-lg")}>
+            Behind every stunning UI is a strong foundation. BehindUI delivers ready to use components and sections to bring your designs to life.
+          </p>
         </div>
         <Tabs defaultValue={categories[0]} className="w-full md:my-4">
           <ScrollArea className="whitespace-nowrap">
