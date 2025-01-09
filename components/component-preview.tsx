@@ -42,7 +42,7 @@ export function ComponentPreview({ name, children, className, align = "center", 
   }, [name, config.style]);
 
   return (
-    <div className={cn("relative my-4 flex flex-col space-y-2 lg:max-w-full", className)} {...props}>
+    <div className={cn("relative  my-4 flex flex-col space-y-2 lg:max-w-full", className)} {...props}>
       <Tabs defaultValue="preview" className="relative mr-auto w-full">
         {!preview && (
           <div className="flex items-center justify-between pb-3">
