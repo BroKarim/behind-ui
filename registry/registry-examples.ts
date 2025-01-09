@@ -8,6 +8,22 @@ export const examples: Registry = [
     files: ["example/components/animated-group.tsx"],
   },
   {
+    name: "animated-bg-tab",
+    type: "registry:example",
+    files: ["example/components/animated-bg-tab.tsx"],
+  },
+  {
+    name: "animated-video-tooltip",
+    type: "registry:example",
+    files: ["example/components/animated-video-tooltip.tsx"],
+  },
+  {
+    name: "dynamic-tab-nav",
+    type: "registry:example",
+    files: ["example/components/dynamic-tab-nav.tsx"],
+  },
+  /* ============= HERO ONE ============= */
+  {
     name: "saas-hero-one",
     type: "registry:example",
     files: ["example/saas-hero-one.tsx"],
@@ -122,5 +138,11 @@ export const examples: Registry = [
     name: "provibe-waitlist-button",
     type: "registry:example",
     files: ["example/provibe/waitlist-button.tsx"],
+  },
+  /* ============= PEARL ============= */
+  {
+    name: "pearl",
+    type: "registry:example",
+    files: ["example/pearl/pearl.tsx"],
   },
 ];
