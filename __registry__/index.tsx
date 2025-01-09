@@ -588,6 +588,39 @@ export const Index: Record<string, any> = {
       subcategory: "undefined",
       chunks: []
     },
+    "animated-bg-tab": {
+      name: "animated-bg-tab",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/components/animated-bg-tab.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/components/animated-bg-tab.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "animated-video-tooltip": {
+      name: "animated-video-tooltip",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/components/animated-video-tooltip.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/components/animated-video-tooltip.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "dynamic-tab-nav": {
+      name: "dynamic-tab-nav",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/components/dynamic-tab-nav.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/components/dynamic-tab-nav.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
     "saas-hero-one": {
       name: "saas-hero-one",
       type: "registry:example",
@@ -836,6 +869,17 @@ export const Index: Record<string, any> = {
       registryDependencies: undefined,
       files: ["registry/default/example/provibe/waitlist-button.tsx"],
       component: React.lazy(() => import("@/registry/default/example/provibe/waitlist-button.tsx")),
+      source: "",
+      category: "undefined",
+      subcategory: "undefined",
+      chunks: []
+    },
+    "pearl": {
+      name: "pearl",
+      type: "registry:example",
+      registryDependencies: undefined,
+      files: ["registry/default/example/pearl/pearl.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/pearl/pearl.tsx")),
       source: "",
       category: "undefined",
       subcategory: "undefined",
