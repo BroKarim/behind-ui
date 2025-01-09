@@ -40,7 +40,7 @@ export async function SiteHeader() {
   }
 
   return (
-    <header className={cn("supports-backdrop-blur:bg-background/90 sticky top-0 z-40 w-full bg-background/40 backdrop-blur-lg")}>
+    <header className={cn("supports-backdrop-blur:bg-background/90 sticky top-0 z-[999] w-full bg-background/40 backdrop-blur-lg")}>
       <div className="container flex h-16 items-center justify-between md:justify-center">
         <div className="mr-4 hidden gap-x-8 md:flex">
           <Link href="/" className="relative mr-6 flex items-center justify-center text-center">
