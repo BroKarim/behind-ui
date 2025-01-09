@@ -6,11 +6,13 @@ import { Callout } from "@/components/callout";
 import RepoDownload from "@/components/repo-download";
 import TechStack from "@/components/tech-stack";
 import TemplatePreview from "@/components/template-preview";
+import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Event } from "@/lib/events";
 import { cn } from "@/lib/utils";
 import TweetCard from "@/registry/default/magicui/tweet-card";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 import CodePreview from "./code-preview";
 import { ComponentPreview } from "./component-preview";
@@ -48,6 +50,10 @@ const components = {
   Tweet: ({ id }: { id: string }) => <TweetCard id={id} className="mx-auto" />,
   ComponentPreview,
   CodePreview,
+  Badge,
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
   ComponentSource: (props: any) => <ComponentSource {...props} />,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => <h1 className={cn("font-heading mt-2 scroll-m-20 text-4xl font-bold", className)} {...props} />,
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => <h2 className={cn("font-heading mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0", className)} {...props} />,
