@@ -7,13 +7,6 @@ import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-/*
-REQUIREMENT FOR NEW FEATURE
-- 
-- new way to show menu
-- expand tab : https://21st.dev/victorwelander/expandable-tabs
-
-*/
 
 export async function SiteHeader() {
   let stars = 300; // Default value

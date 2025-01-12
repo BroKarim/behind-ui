@@ -40,25 +40,93 @@ const prettyCodeOptions: Options = {
   },
 };
 
-const showcase = defineCollection({
-  name: "Showcase",
-  directory: "content/showcase",
+// untuk pake, nengok cara panggil showcase di 
+// klo ini pengen pake db, ini g perlu | ref framer.univ no sider + tab to show code or sheet(drawer in mobile)
+// tpi klo pengen pake mdx ya gas | ref : 21st.dev + sidebar
+const shots = defineCollection({
+  name: "Shots",
+  directory: "content/shots",
   include: "**/*.mdx",
   schema: (z) => ({
     title: z.string(),
     description: z.string(),
     image: z.string(),
     href: z.string(),
-    affiliation: z.string(),
     featured: z.boolean().optional().default(false),
   }),
   transform: async (document, context) => {
     const body = await compileMDX(context, document, {
       remarkPlugins: [codeImport, remarkGfm],
+      rehypePlugins: [
+        rehypeSlug,
+        rehypeComponent,
+        () => (tree) => {
+          visit(tree, (node) => {
+            if (node?.type === "element" && node?.tagName === "pre") {
+              const [codeEl] = node.children;
+              if (codeEl.tagName !== "code") {
+                return;
+              }
+              if (codeEl.data?.meta) {
+                // Ex tract event from meta and pass it down the tree.
+                const regex = /event="([^"]*)"/;
+                const match = codeEl.data?.meta.match(regex);
+                if (match) {
+                  node.__event__ = match ? match[1] : null;
+                  codeEl.data.meta = codeEl.data.meta.replace(regex, "");
+                }
+              }
+              node.__rawString__ = codeEl.children?.[0].value;
+              node.__src__ = node.properties?.__src__;
+              node.__style__ = node.properties?.__style__;
+            }
+          });
+        },
+        [rehypePrettyCode, prettyCodeOptions],
+        () => (tree) => {
+          visit(tree, (node) => {
+            if (node?.type === "element" && node?.tagName === "figure") {
+              if (!("data-rehype-pretty-code-figure" in node.properties)) {
+                return;
+              }
+
+              const preElement = node.children.at(-1);
+              if (preElement.tagName !== "pre") {
+                return;
+              }
+
+              preElement.properties["__withMeta__"] = node.children.at(0).tagName === "div";
+              preElement.properties["__rawString__"] = node.__rawString__;
+
+              if (node.__src__) {
+                preElement.properties["__src__"] = node.__src__;
+              }
+
+              if (node.__event__) {
+                preElement.properties["__event__"] = node.__event__;
+              }
+
+              if (node.__style__) {
+                preElement.properties["__style__"] = node.__style__;
+              }
+            }
+          });
+        },
+        rehypeNpmCommand,
+        [
+          rehypeAutolinkHeadings,
+          {
+            properties: {
+              className: ["subheading-anchor"],
+              ariaLabel: "Link to section",
+            },
+          },
+        ],
+      ],
     });
     return {
       ...document,
-      slug: `/showcase/${document._meta.path}`,
+      slug: `/shots/${document._meta.path}`,
       slugAsParams: document._meta.path,
       body: {
         raw: document.content,
@@ -201,5 +269,5 @@ const documents = defineCollection({
 });
 
 export default defineConfig({
-  collections: [documents, pages, showcase],
+  collections: [documents, pages, shots],
 });
