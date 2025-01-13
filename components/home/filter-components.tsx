@@ -8,7 +8,6 @@ import Link from "next/link";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
-import { GradualSpacing } from "../text-animation";
 import { toast } from "sonner";
 
 type Doc = {
