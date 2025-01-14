@@ -7,18 +7,14 @@ interface DocsConfig {
 
 export const docsConfig: DocsConfig = {
   mainNav: [
-    // {
-    //   title: "Explore",
-    //   href: "/shots/",
-    // },
-
-    // {
-    //   title: "Figma",
-    //   href: "/figma",
-    // },
     {
-      title: "FAQs",
-      href: "/faq",
+      title: "Components",
+      href: "/shots/",
+    },
+
+    {
+      title: "Tools",
+      href: "/figma",
     },
   ],
   sidebarNav: [
