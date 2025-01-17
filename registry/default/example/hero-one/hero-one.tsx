@@ -28,7 +28,7 @@ export default function HeroDemo2() {
   const currentCode = tabs.find((tab) => tab.name === activeTab)?.code;
   return (
     <>
-      <div className="relative flex w-full flex-col bg-white dark:bg-black">
+      <div className="relative flex w-full flex-col bg-black">
         <Banner />
         <Navbar />
         <main className="mx-auto h-min ">
