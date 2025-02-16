@@ -1,7 +1,8 @@
 import { allDocs } from "content-collections";
 import { notFound } from "next/navigation";
 
-import { ClientFilterComponent } from "@/components/home/filter-components";
+// import { ClientFilterComponent } from "@/components/home/filter-components";
+import { ClientFilterComponent } from "@/components/home/new-filter-components";
 interface DocPageProps {
   params: {
     slug: string[];

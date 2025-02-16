@@ -64,7 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={cn("relative flex min-h-screen w-full flex-col justify-center overflow-x-hidden  scroll-smooth bg-background font-sans antialiased", fontSans.variable)}>
+      <body className={cn("relative flex h-screen w-full flex-col justify-center overflow-hidden scroll-smooth  bg-background font-sans antialiased", fontSans.variable)}>
         <PHProvider>
           <ThemeProvider attribute="class" defaultTheme="dark">
             <TooltipProvider>

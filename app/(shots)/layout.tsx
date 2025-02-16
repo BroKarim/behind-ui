@@ -11,12 +11,12 @@ export default async function MarketingLayout({ children }: MarketingLayoutProps
     <>
       <SiteHeader />
 
-      <main className="relative flex-1">
+      <main className="no-scrollbar  h-screen overflow-hidden">
         {" "}
         {/* <Toaster expand={true} className="z-[999999] w-full" position="bottom-right" visibleToasts={9} /> */}
         {children}
+        <SiteFooter />
       </main>
-      <SiteFooter />
     </>
   );
 }
