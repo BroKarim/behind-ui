@@ -81,15 +81,12 @@ export function ClientFilterComponent({ initialDocs }: { initialDocs: Doc[] }) {
       <main className="relative flex h-screen overflow-hidden p-0">
         {/* Edit Tool */}
         <motion.div
-          animate={{
-            width: "500px",
-          }}
           transition={{
             opacity: { duration: 0.2, ease: "easeInOut" },
             width: { duration: 0.4, ease: "easeInOut" },
           }}
           initial={false}
-          className={` flex h-screen flex-col gap-2 overflow-y-auto`}
+          className="hidden h-screen shrink-0 flex-col gap-2 overflow-y-auto md:flex md:w-[300px] lg:w-[400px]"
         >
           <div className="sticky top-0 z-30 flex h-12 w-full items-center border-b bg-background pl-1 sm:static ">
             <h1 className="w-full font-bold">Editing Header</h1>
@@ -204,11 +201,12 @@ export function ClientFilterComponent({ initialDocs }: { initialDocs: Doc[] }) {
         </motion.div>
 
         {/* Main Content */}
-        <div className="relative mx-auto flex w-full flex-1 flex-col items-center justify-center  gap-6 border-l p-2">
-          <ScrollArea className="h-full w-full flex-1 ">
-            <div className="flex flex-col  items-center justify-center rounded-md p-6">
-              <div className="container flex w-full flex-col items-start gap-4 py-8 md:py-10 lg:py-0 ">
-                {/* <Tabs defaultValue={categories[0]} className="w-full md:my-4">
+        <div className="relative flex w-full border-l px-4 md:w-[calc(100%-300px)] md:px-6 lg:w-[calc(100%-400px)]">
+          <ScrollArea className="h-full w-full ">
+            <div className=" flex w-full flex-col items-start gap-2 py-4 md:py-10 lg:py-0">
+              <div className="sticky top-0 z-10 w-full bg-white">
+                {" "}
+                <Tabs defaultValue={categories[0]} className="w-full md:my-4">
                   <ScrollArea className="whitespace-nowrap">
                     <TabsList className="bg-transparent">
                       {categories.map((category) => (
@@ -219,28 +217,28 @@ export function ClientFilterComponent({ initialDocs }: { initialDocs: Doc[] }) {
                     </TabsList>
                     <ScrollBar className="w-4 border-none bg-transparent opacity-0" orientation="horizontal" />
                   </ScrollArea>
-                </Tabs> */}
-                <div className="flex flex-col md:gap-8">
-                  {filteredDocs.map((doc) => (
-                    <Link href={doc.slugAsParams} key={doc.slug} className="group relative flex flex-col ">
-                      <div className={`relative aspect-[16/10] w-full overflow-hidden rounded-lg md:h-[250px]`} onMouseEnter={() => setIsHovered(doc.slug)} onMouseLeave={() => setIsHovered(null)}>
-                        {doc.image && (
-                          <Image
-                            src={doc.image}
-                            alt={doc.title || "Default Alt Text"}
-                            className={`h-full w-full object-cover transition-transform duration-500 ${isHovered === doc.slug ? "scale-110" : "scale-100"}`}
-                            fill
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          />
-                        )}
-                      </div>
+                </Tabs>{" "}
+              </div>
+              <div className="grid h-full w-full grid-cols-1 md:items-center md:justify-center md:gap-8 lg:grid-cols-2">
+                {filteredDocs.map((doc) => (
+                  <Link href={doc.slugAsParams} key={doc.slug} className="group relative flex flex-col ">
+                    <div className={`relative aspect-[16/10] w-full overflow-hidden rounded-lg md:h-[250px]`} onMouseEnter={() => setIsHovered(doc.slug)} onMouseLeave={() => setIsHovered(null)}>
+                      {doc.image && (
+                        <Image
+                          src={doc.image}
+                          alt={doc.title || "Default Alt Text"}
+                          className={`h-full w-full object-cover transition-transform duration-500 ${isHovered === doc.slug ? "scale-110" : "scale-100"}`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                      )}
+                    </div>
 
-                      <div className="card-content ">
-                        <p className="text-lg font-semibold">{doc.title}</p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
+                    <div className="card-content ">
+                      <p className="text-lg font-semibold">{doc.title}</p>
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
           </ScrollArea>
