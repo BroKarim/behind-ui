@@ -5,7 +5,7 @@ import { fontClash } from "@/lib/fonts";
 import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
-import { Menu, PanelLeft, FileImage, FolderPen, Text, MapPin } from "lucide-react";
+import { FileImage, FolderPen, Text, MapPin } from "lucide-react";
 import Image from "next/image";
 import "@/styles/mdx.css";
 import Link from "next/link";
@@ -14,14 +14,15 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
+import { Mdx } from "../mdx-components";
 
 type Doc = {
   slug: string;
-  slugAsParams: string;
   title?: string;
-  image?: string;
   category?: string[];
-  published?: boolean;
+  body: {
+    code: string;
+  };
 };
 
 const categories = [
@@ -193,8 +194,6 @@ export function ClientFilterComponent({ initialDocs }: { initialDocs: Doc[] }) {
                     </div>
                   </div>
                 </div>
-
-                {/* Example block items */}
               </div>
             </div>
           </ScrollArea>
@@ -219,25 +218,11 @@ export function ClientFilterComponent({ initialDocs }: { initialDocs: Doc[] }) {
                   </ScrollArea>
                 </Tabs>{" "}
               </div>
-              <div className="grid h-full w-full grid-cols-1 md:items-center md:justify-center md:gap-8 lg:grid-cols-2">
+              <div className="grid h-full w-full grid-cols-1 md:items-center md:justify-center md:gap-8 ">
                 {filteredDocs.map((doc) => (
-                  <Link href={doc.slugAsParams} key={doc.slug} className="group relative flex flex-col ">
-                    <div className={`relative aspect-[16/10] w-full overflow-hidden rounded-lg md:h-[250px]`} onMouseEnter={() => setIsHovered(doc.slug)} onMouseLeave={() => setIsHovered(null)}>
-                      {doc.image && (
-                        <Image
-                          src={doc.image}
-                          alt={doc.title || "Default Alt Text"}
-                          className={`h-full w-full object-cover transition-transform duration-500 ${isHovered === doc.slug ? "scale-110" : "scale-100"}`}
-                          fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
-                      )}
-                    </div>
-
-                    <div className="card-content ">
-                      <p className="text-lg font-semibold">{doc.title}</p>
-                    </div>
-                  </Link>
+                  <div key={doc.slug} className="mt-4">
+                    <Mdx code={doc.body.code} />
+                  </div>
                 ))}
               </div>
             </div>
