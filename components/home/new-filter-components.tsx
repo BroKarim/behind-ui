@@ -5,7 +5,7 @@ import { fontClash } from "@/lib/fonts";
 import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
-import { FileImage, FolderPen, Text, MapPin } from "lucide-react";
+import { Moon, Sun, Text, MapPin, Check } from "lucide-react";
 import Image from "next/image";
 import "@/styles/mdx.css";
 import Link from "next/link";
@@ -24,6 +24,34 @@ type Doc = {
     code: string;
   };
 };
+interface ColorOption {
+  name: string;
+  value: string;
+  color: string;
+}
+interface RadiusOption {
+  value: string;
+  label: string;
+}
+
+const colors: ColorOption[] = [
+  { name: "Zinc", value: "zinc", color: "bg-zinc-950" },
+  { name: "Red", value: "red", color: "bg-red-500" },
+  { name: "Rose", value: "rose", color: "bg-rose-500" },
+  { name: "Orange", value: "orange", color: "bg-orange-500" },
+  { name: "Green", value: "green", color: "bg-green-500" },
+  { name: "Blue", value: "blue", color: "bg-blue-500" },
+  { name: "Yellow", value: "yellow", color: "bg-yellow-400" },
+  { name: "Violet", value: "violet", color: "bg-violet-500" },
+];
+
+const radiusOptions: RadiusOption[] = [
+  { value: "0", label: "0" },
+  { value: "0.3", label: "0.3" },
+  { value: "0.5", label: "0.5" },
+  { value: "0.75", label: "0.75" },
+  { value: "1.0", label: "1.0" },
+];
 
 const categories = [
   "All",
@@ -89,109 +117,59 @@ export function ClientFilterComponent({ initialDocs }: { initialDocs: Doc[] }) {
           initial={false}
           className="hidden h-screen shrink-0 flex-col gap-2 overflow-y-auto md:flex md:w-[300px] lg:w-[400px]"
         >
-          <div className="sticky top-0 z-30 flex h-12 w-full items-center border-b bg-background pl-1 sm:static ">
-            <h1 className="w-full font-bold">Editing Header</h1>
+          <div className="sticky top-0 z-30 flex h-fit w-full flex-col items-center gap-2 border-b bg-background p-2 sm:static ">
+            <h1 className="w-full font-bold">UI Customizer</h1>
+            <p className="w-full ">Hit the spacebar, enter a hex code, or tweak the HSL or OKLCH values to create your custom color scale.</p>
           </div>
           {/* Scrollable Blocks List */}
           <ScrollArea className="h-full w-full flex-1">
             <div className="p-4">
-              {/* Search Input - Fixed at top of scroll area */}
-              <input type="text" placeholder="Filter blocks" className="w-full rounded-md border bg-background px-3 py-2" />
-
-              {/* Blocks List - Scrollable */}
               <div className="mt-4 space-y-4">
-                <Button className="h-auto w-full justify-start gap-4 border bg-background p-2 shadow-none hover:bg-accent">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted">
-                    <FileImage className="h-5 w-5 text-muted-foreground" />
-                  </div>
-                  <div className="flex flex-col items-start gap-1 text-black">
-                    <Label htmlFor="email">Avatar</Label>
-                    <div className="text-sm text-muted-foreground">tess</div>
-                  </div>
-                </Button>
-                <div className="flex h-auto  w-full  flex-col gap-4 rounded-md border bg-background p-2 shadow-none hover:bg-accent">
-                  <div className="flex items-center justify-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted">
-                      <FolderPen className="h-5 w-5 text-muted-foreground" />
-                    </div>
-                    <div className="flex flex-col items-start gap-1 text-black">
-                      <Label htmlFor="email">Name</Label>
-                      <div className="text-sm text-muted-foreground">tess</div>
-                    </div>
-                  </div>
-                  <div className="grid w-full max-w-sm items-center gap-1.5">
-                    <Input type="email" id="email" placeholder="Email" />
+                {/* Mode opt */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-medium">Mode</h3>
+                  <div className="flex gap-4">
+                    <button className="inline-flex items-center justify-center space-x-2 rounded-full border-2 border-black bg-white px-4 py-2 text-sm font-medium shadow-sm transition-all hover:bg-gray-50">
+                      <Sun className="h-4 w-4" />
+                      <span>Light</span>
+                    </button>
+                    <button className="inline-flex items-center justify-center space-x-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium shadow-sm transition-all hover:bg-gray-50">
+                      <Moon className="h-4 w-4" />
+                      <span>Dark</span>
+                    </button>
                   </div>
                 </div>
-                {/* Location tambah aj, ntar bebas mau di pake atau ngak */}
-                <div className="flex h-auto  w-full  flex-col gap-4 rounded-md border bg-background p-2 shadow-none hover:bg-accent">
-                  <div className="flex items-center justify-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted">
-                      <MapPin className="h-5 w-5 text-muted-foreground" />
-                    </div>
-                    <div className="flex flex-col items-start gap-1 text-black">
-                      <Label htmlFor="email">Location</Label>
-                      <div className="text-sm text-muted-foreground">tess</div>
-                    </div>
-                  </div>
-                  <div className="grid w-full max-w-sm items-center gap-1.5">
-                    <Input type="email" id="email" placeholder="Email" />
-                  </div>
-                </div>
-                {/* Desc */}
-                <div className="flex h-auto  w-full  flex-col gap-4 rounded-md border bg-background p-2 shadow-none hover:bg-accent">
-                  <div className="flex items-center justify-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted">
-                      <Text className="h-5 w-5 text-muted-foreground" />
-                    </div>
-                    <div className="flex flex-col items-start gap-1 text-black">
-                      <Label htmlFor="email">Description</Label>
-                      <div className="text-sm text-muted-foreground">tess</div>
-                    </div>
+                {/* Color opt */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-medium">Color</h3>
+                  <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+                    {colors.map((color) => (
+                      <button
+                        key={color.value}
+                        className={`inline-flex items-center justify-start space-x-3 rounded-full border bg-white px-4 py-2 text-sm font-medium shadow-sm transition-all hover:bg-gray-50 ${
+                          color.value === "green" ? "border-2 border-black" : "border-gray-200"
+                        }`}
+                      >
+                        <span className={`h-4 w-4 rounded-full ${color.color}`}>{color.value === "green" && <Check className="h-4 w-4 text-white" />}</span>
+                        <span>{color.name}</span>
+                      </button>
+                    ))}
                   </div>
                 </div>
-                <div className="flex h-auto  w-full  flex-col gap-4 rounded-md border bg-background p-2 shadow-none hover:bg-accent">
-                  <div className="flex items-center justify-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted">
-                      <Text className="h-5 w-5 text-muted-foreground" />
-                    </div>
-                    <div className="flex flex-col items-start gap-1 text-black">
-                      <Label htmlFor="email">Description</Label>
-                      <div className="text-sm text-muted-foreground">tess</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex h-auto  w-full  flex-col gap-4 rounded-md border bg-background p-2 shadow-none hover:bg-accent">
-                  <div className="flex items-center justify-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted">
-                      <Text className="h-5 w-5 text-muted-foreground" />
-                    </div>
-                    <div className="flex flex-col items-start gap-1 text-black">
-                      <Label htmlFor="email">Description</Label>
-                      <div className="text-sm text-muted-foreground">tess</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex h-auto  w-full  flex-col gap-4 rounded-md border bg-background p-2 shadow-none hover:bg-accent">
-                  <div className="flex items-center justify-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted">
-                      <Text className="h-5 w-5 text-muted-foreground" />
-                    </div>
-                    <div className="flex flex-col items-start gap-1 text-black">
-                      <Label htmlFor="email">Description</Label>
-                      <div className="text-sm text-muted-foreground">tess</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex h-auto  w-full  flex-col gap-4 rounded-md border bg-background p-2 shadow-none hover:bg-accent">
-                  <div className="flex items-center justify-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted">
-                      <Text className="h-5 w-5 text-muted-foreground" />
-                    </div>
-                    <div className="flex flex-col items-start gap-1 text-black">
-                      <Label htmlFor="email">Description</Label>
-                      <div className="text-sm text-muted-foreground">tess</div>
-                    </div>
+                {/* radius opt */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-medium">Radius</h3>
+                  <div className="flex flex-wrap gap-4">
+                    {radiusOptions.map((option) => (
+                      <button
+                        key={option.value}
+                        className={`inline-flex min-w-[60px] items-center justify-center rounded-full border bg-white px-4 py-2 text-sm font-medium shadow-sm transition-all hover:bg-gray-50 ${
+                          option.value === "1.0" ? "border-2 border-black" : "border-gray-200"
+                        }`}
+                      >
+                        {option.label}
+                      </button>
+                    ))}
                   </div>
                 </div>
               </div>
