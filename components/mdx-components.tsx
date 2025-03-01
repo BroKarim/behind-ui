@@ -149,7 +149,7 @@ export function Mdx({ code, className }: MDXProps) {
   const Component = useMDXComponent(code);
 
   return (
-    <article className={cn("mx-auto flex-col  items-center md:container md:max-w-full", className)}>
+    <article className={cn("mx-auto flex-col  items-center md:max-w-full", className)}>
       <Component components={components} />
     </article>
   );
