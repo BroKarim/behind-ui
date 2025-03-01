@@ -66,7 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head />
       <body className={cn("relative flex h-screen w-full flex-col justify-center overflow-hidden scroll-smooth  bg-background font-sans antialiased", fontSans.variable)}>
         <PHProvider>
-          <ThemeProvider attribute="class" defaultTheme="dark">
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange enableColorScheme>
             <TooltipProvider>
               <Toaster />
               {children}

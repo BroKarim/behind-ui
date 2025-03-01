@@ -1,10 +1,7 @@
 import { allDocs } from "content-collections";
 import { notFound } from "next/navigation";
 
-// ubah bagin ini, lgsung tampilkan semua aj
-// pikirin gmn caranya di rapper yg nampung semua conten, itu ttp bs merubah valuenyanya
-// import { ClientFilterComponent } from "@/components/home/filter-components";
-import { ClientFilterComponent } from "@/components/home/new-filter-components";
+import { ClientFilterComponent } from "@/components/home/filter-components";
 interface DocPageProps {
   params: {
     slug: string[];
@@ -22,7 +19,7 @@ async function getDocFromParams({ params }: DocPageProps) {
   return doc;
 }
 
-export default async function Home({ params }: DocPageProps) {
+export default async function IndexPage({ params }: DocPageProps) {
   const doc = await getDocFromParams({ params });
   if (!doc || !doc.published) {
     notFound();
