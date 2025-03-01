@@ -11,7 +11,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Event } from "@/lib/events";
 import { cn } from "@/lib/utils";
-import TweetCard from "@/registry/default/magicui/tweet-card";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 import CodePreview from "./code-preview";
@@ -48,7 +47,6 @@ const components = {
   RepoDownload,
   TemplatePreview,
   Image,
-  Tweet: ({ id }: { id: string }) => <TweetCard id={id} className="mx-auto" />,
   ComponentPreview,
   CodePreview,
   PostDetail,
