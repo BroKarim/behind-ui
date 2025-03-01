@@ -12,21 +12,38 @@ export default function LogoHover() {
       const halfWidth = event.currentTarget.offsetWidth / 2;
       x.set(event.nativeEvent.offsetX - halfWidth);
     },
-    [x]
+    [x],
   );
 
   return (
-    <div className="relative h-[80px] w-[100px] cursor-pointer" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+    <div
+      className="relative h-[80px] w-[100px] cursor-pointer"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <AnimatePresence>
         {!isHovered && (
           // change with your own logo
-          <motion.img src="/theo-logo.png" alt="Wegic Logo" className="absolute inset-0 h-full w-full object-contain" initial={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }} transition={{ duration: 0.2 }} />
+          <motion.img
+            src="/theo-logo.png"
+            alt="Wegic Logo"
+            className="absolute inset-0 h-full w-full object-contain"
+            initial={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.2 }}
+          />
         )}
       </AnimatePresence>
 
       <AnimatePresence>
         {isHovered && (
-          <motion.div className="absolute inset-0 flex w-full items-center justify-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, scale: 0.8 }} transition={{ duration: 0.2 }}>
+          <motion.div
+            className="absolute inset-0 flex w-full items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.2 }}
+          >
             <button
               className="flex h-10 w-full items-center  justify-center gap-2 rounded-md border border-black  bg-white py-2"
               onMouseMove={handleMouseMove}

@@ -42,11 +42,25 @@ const activity = [
 const firstRow = activity.slice(0, activity.length / 2);
 const secondRow = activity.slice(activity.length / 2);
 
-const ReviewCard = ({ img, body, id }: { img: string; body: string; id: number }) => {
+const ReviewCard = ({
+  img,
+  body,
+  id,
+}: {
+  img: string;
+  body: string;
+  id: number;
+}) => {
   return (
     <Card className="flex w-full max-w-xs items-center rounded-none md:flex-col">
       <div className="flex flex-row items-center md:gap-2">
-        <img alt="Product Image" width={400} height={350} src={img} className="aspect-square object-cover" />
+        <img
+          alt="Product Image"
+          width={400}
+          height={350}
+          src={img}
+          className="aspect-square object-cover"
+        />
       </div>
       <blockquote className=" text-center text-sm md:p-2">{body}</blockquote>
     </Card>

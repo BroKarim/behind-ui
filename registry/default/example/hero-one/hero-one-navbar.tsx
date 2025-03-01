@@ -10,7 +10,7 @@ type Props = {
 
 export const Navbar = () => {
   return (
-    <div className="sticky top-0 z-30 flex flex-col bg-transparent   font-mono">
+    <div className="sticky top-0 flex flex-col bg-transparent   font-mono">
       <nav className="top-0 flex grid-cols-12 items-center justify-between md:grid md:border-b ">
         <Link
           href="/"

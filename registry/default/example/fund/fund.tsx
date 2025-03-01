@@ -23,10 +23,23 @@ const Fund = () => {
             <div className="relative block  px-10 md:px-4 md:text-center  lg:text-left">
               <div className="flex flex-col  gap-2 md:items-center lg:items-start">
                 <Link href="/">
-                  <Button variant="outline" className="flex items-center space-x-2 rounded-full  border-border">
-                    <span className="font-mono text-xs">Fund, Fast as flash</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width={12} height={12} fill="none">
-                      <path fill="currentColor" d="M8.783 6.667H.667V5.333h8.116L5.05 1.6 6 .667 11.333 6 6 11.333l-.95-.933 3.733-3.733Z" />
+                  <Button
+                    variant="outline"
+                    className="flex items-center space-x-2 rounded-full  border-border"
+                  >
+                    <span className="font-mono text-xs">
+                      Fund, Fast as flash
+                    </span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width={12}
+                      height={12}
+                      fill="none"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M8.783 6.667H.667V5.333h8.116L5.05 1.6 6 .667 11.333 6 6 11.333l-.95-.933 3.733-3.733Z"
+                      />
                     </svg>
                   </Button>
                 </Link>
@@ -37,13 +50,17 @@ const Fund = () => {
 
                 <p className="mt-4 max-w-[600px] text-[#878787] md:mt-6">
                   {/* !make more hooking */}
-                  Fundraise at the speed of thought! Elvate you cause in just minute with our lightning-fast fundraising platform
+                  Fundraise at the speed of thought! Elvate you cause in just
+                  minute with our lightning-fast fundraising platform
                 </p>
 
                 <div className="mt-8">
                   <div className="flex items-center space-x-4">
                     <Link href="/">
-                      <Button variant="outline" className="h-12 border border-primary px-6">
+                      <Button
+                        variant="outline"
+                        className="h-12 border border-primary px-6"
+                      >
                         Talk to us
                       </Button>
                     </Link>

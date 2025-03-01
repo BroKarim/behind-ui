@@ -24,16 +24,6 @@ export const examples: Registry = [
   },
   /* ============= HERO ONE ============= */
   {
-    name: "saas-hero-one",
-    type: "registry:example",
-    files: ["example/saas-hero-one.tsx"],
-  },
-  {
-    name: "saas-hero-two",
-    type: "registry:example",
-    files: ["example/saas-hero-two.tsx"],
-  },
-  {
     name: "saas-hero-three",
     type: "registry:example",
     files: ["example/hero-one/hero-one.tsx"],

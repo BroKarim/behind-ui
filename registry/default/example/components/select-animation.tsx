@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { Globe } from "lucide-react";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function SelectAnimation() {
@@ -38,19 +46,34 @@ export function SelectAnimation() {
               style={{ transformOrigin: "center" }}
             >
               <SelectGroup>
-                <SelectItem className=" focus:bg-[#1a1a1a] focus:text-white" value="eng">
+                <SelectItem
+                  className=" focus:bg-[#1a1a1a] focus:text-white"
+                  value="eng"
+                >
                   English
                 </SelectItem>
-                <SelectItem className=" focus:bg-[#1a1a1a] focus:text-white" value="france">
+                <SelectItem
+                  className=" focus:bg-[#1a1a1a] focus:text-white"
+                  value="france"
+                >
                   Français
                 </SelectItem>
-                <SelectItem className=" focus:bg-[#1a1a1a] focus:text-white" value="spain">
+                <SelectItem
+                  className=" focus:bg-[#1a1a1a] focus:text-white"
+                  value="spain"
+                >
                   Español
                 </SelectItem>
-                <SelectItem className=" focus:bg-[#1a1a1a] focus:text-white" value="deutsch">
+                <SelectItem
+                  className=" focus:bg-[#1a1a1a] focus:text-white"
+                  value="deutsch"
+                >
                   Deutsch
                 </SelectItem>
-                <SelectItem className=" focus:bg-[#1a1a1a] focus:text-white" value="china">
+                <SelectItem
+                  className=" focus:bg-[#1a1a1a] focus:text-white"
+                  value="china"
+                >
                   中国
                 </SelectItem>
               </SelectGroup>
