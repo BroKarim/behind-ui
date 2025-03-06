@@ -19,9 +19,9 @@ export const registryItemTypeSchema = z.enum([
   "registry:example",
   "registry:block",
   "registry:component",
-  "registry:ui",
   "registry:hook",
   "registry:theme",
+  "registry:page",
   "registry:page",
 ]);
 
@@ -63,6 +63,7 @@ export const registryEntrySchema = z.object({
   subcategory: z.string().optional(),
   chunks: z.array(blockChunkSchema).optional(),
   docs: z.string().optional(),
+  categories: z.array(z.string()).optional(),
 });
 
 export const registrySchema = z.array(registryEntrySchema);

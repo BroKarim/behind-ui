@@ -1,5 +1,5 @@
 import { Registry } from "@/registry/schema";
-
+// Ww9x4eqD)?(e.t3
 export const examples: Registry = [
   /* ============= COMPONENTS ============= */
   {
@@ -44,95 +44,80 @@ export const examples: Registry = [
     files: ["example/hero-one/hero-one-navbar.tsx"],
   },
   {
-    name: "maria-and-co",
-    type: "registry:example",
-    files: ["example/maria-and-co/index.tsx"],
-  },
-  {
-    name: "maria-and-co-header",
-    type: "registry:example",
-    files: ["example/maria-and-co/header.tsx"],
-  },
-  {
-    name: "odama",
-    type: "registry:example",
-    files: ["example/odama.tsx"],
-  },
-  {
-    name: "fund",
-    type: "registry:example",
-    files: ["example/fund/fund.tsx"],
-  },
-  {
-    name: "tirana",
-    type: "registry:example",
-    files: ["example/tirana/tirana.tsx"],
-  },
-  {
-    name: "frankgoodman",
-    type: "registry:example",
-    files: ["example/frank-goodman/frank-goodman.tsx"],
-  },
-  {
     name: "nextint",
     type: "registry:example",
-    files: ["example/next-int/next-int.tsx"],
+    description: "A simple sidebar with navigation grouped by section.",
+    registryDependencies: ["nav", "lang-switch", "photos"],
+    files: [
+      {
+        path: "example/next-int/next-int.tsx",
+        type: "registry:page",
+        target: "app/page.tsx",
+      },
+      {
+        path: "example/next-int/navbar.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "example/next-int/lang-switch.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "example/next-int/photos.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["hero", "saas"],
   },
+
   {
-    name: "nextint-nav",
+    name: "productivity-card",
     type: "registry:example",
-    files: ["example/next-int/navbar.tsx"],
+    description: "A simple sidebar with navigation grouped by section.",
+    registryDependencies: ["stats", "calender", "activity-goal", "metric"],
+    files: [
+      {
+        path: "example/productivity-components/index.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "example/productivity-components/activity-goal.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "example/productivity-components/calender.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "example/productivity-components/metrics.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "example/productivity-components/activity-goal.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["card", "components"],
   },
-  {
-    name: "nextint-lang-switch",
-    type: "registry:example",
-    files: ["example/next-int/lang-switch.tsx"],
-  },
-  {
-    name: "nextint-photos",
-    type: "registry:example",
-    files: ["example/next-int/photos.tsx"],
-  },
-  /* ============= PROVIBE ============= */
-  {
-    name: "provibe",
-    type: "registry:example",
-    files: ["example/provibe/provibe.tsx"],
-  },
-  {
-    name: "provibe-product",
-    type: "registry:example",
-    files: ["example/provibe/product.tsx"],
-  },
-  {
-    name: "provibe-product-card",
-    type: "registry:example",
-    files: ["example/provibe/product-card.tsx"],
-  },
-  {
-    name: "provibe-nav",
-    type: "registry:example",
-    files: ["example/provibe/nav-overlay.tsx"],
-  },
-  {
-    name: "provibe-hashtag",
-    type: "registry:example",
-    files: ["example/provibe/hashtag-illustration.tsx"],
-  },
-  {
-    name: "provibe-email-button",
-    type: "registry:example",
-    files: ["example/provibe/compact-button.tsx"],
-  },
-  {
-    name: "provibe-waitlist-button",
-    type: "registry:example",
-    files: ["example/provibe/waitlist-button.tsx"],
-  },
-  /* ============= PEARL ============= */
-  {
-    name: "pearl",
-    type: "registry:example",
-    files: ["example/pearl/pearl.tsx"],
-  },
+
+  // {
+  //   name: "nextint",
+  //   type: "registry:example",
+  //   files: ["example/next-int/next-int.tsx"],
+  // },
+  // {
+  //   name: "nextint-nav",
+  //   type: "registry:example",
+  //   files: ["example/next-int/navbar.tsx"],
+  // },
+  // {
+  //   name: "nextint-lang-switch",
+  //   type: "registry:example",
+  //   files: ["example/next-int/lang-switch.tsx"],
+  // },
+  // {
+  //   name: "nextint-photos",
+  //   type: "registry:example",
+  //   files: ["example/next-int/photos.tsx"],
+  // },
 ];
