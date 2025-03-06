@@ -10,7 +10,7 @@ import { Mdx } from "../mdx-components";
 import { ThemeWrapper } from "../theme-wrapper";
 import { ThemeCustomizer } from "../theme-customizer";
 
-import "@/styles/mdx.css";
+import "/public/registry/theme.css";
 
 type Doc = {
   slug: string;
