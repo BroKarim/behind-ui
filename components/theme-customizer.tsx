@@ -28,7 +28,8 @@ export function ThemeCustomizer() {
   return (
     <>
       <div className="w-full">
-       <Customizer/>
+        <Customizer />
+        <CopyCodeButton variant="ghost" size="sm" className="mt-10 [&_svg]:hidden" />
       </div>
     </>
   );
@@ -192,7 +193,7 @@ function CopyCodeButton({ className, ...props }: React.ComponentProps<typeof But
             Copy code
           </Button>
         </DialogTrigger>
-        <DialogContent className="max-w-2xl outline-none">
+        <DialogContent className="flex max-w-2xl flex-col outline-none">
           <DialogHeader>
             <DialogTitle>Theme</DialogTitle>
             <DialogDescription>Copy and paste the following code into your CSS file.</DialogDescription>
