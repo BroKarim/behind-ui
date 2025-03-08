@@ -9,52 +9,32 @@ import { toast } from "sonner";
 import { Mdx } from "../mdx-components";
 import { ThemeWrapper } from "../theme-wrapper";
 import { ThemeCustomizer } from "../theme-customizer";
-
+import { getAllCategories, documentBelongsToCategory } from "@/lib/registry-utils";
 import "/public/registry/theme.css";
+import { examples } from "@/registry/registry-examples";
 
 type Doc = {
   slug: string;
   title?: string;
-  category?: string[];
+  // category?: string[];
   body: {
     code: string;
   };
 };
 
-const categories = [
-  "All",
-  "Portofolio",
-  "Startup",
-  "Agency",
-  "Branding",
-  "Tools",
-  "Finance",
-  "E-commerce",
-  "SaaS",
-  "Non-profit & charity",
-  "Food & Drink",
-  "Real estate",
-  "Photography",
-  "Product",
-  "App",
-  "Education",
-  "Blog",
-  "Personal",
-  "Production Studio",
-  "Architecture",
-];
 
 export function ClientFilterComponent({ initialDocs }: { initialDocs: Doc[] }) {
   const [activeCategory, setActiveCategory] = useState("All");
   const [filteredDocs, setFilteredDocs] = useState<Doc[]>(initialDocs);
+  const categories = getAllCategories();
+
+  // Keep track of which components belong to which category
+  const categoryToComponents = new Map<string, Set<string>>();
 
   useEffect(() => {
-    console.log("Initial Docs:", initialDocs);
-    console.log("Active Category:", activeCategory);
+    // Filter docs based on active category
+    const filtered = initialDocs.filter((doc) => documentBelongsToCategory(doc.body.code, activeCategory));
 
-    const filtered = initialDocs.filter((doc) => activeCategory === "All" || (doc.category && doc.category.includes(activeCategory)));
-
-    console.log("Filtered Docs:", filtered);
     setFilteredDocs(filtered);
   }, [activeCategory, initialDocs]);
 
