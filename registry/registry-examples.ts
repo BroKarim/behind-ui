@@ -27,6 +27,7 @@ export const examples: Registry = [
     name: "saas-hero-three",
     type: "registry:example",
     files: ["example/hero-one/hero-one.tsx"],
+    categories: ["Startup", "Blog"],
   },
   {
     name: "saas-hero-three-wrapper",
@@ -67,7 +68,7 @@ export const examples: Registry = [
         type: "registry:component",
       },
     ],
-    categories: ["hero", "saas"],
+    categories: ["Startup", "Finance", "Blog"],
   },
 
   {
