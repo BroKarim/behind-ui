@@ -184,14 +184,18 @@ function BlockViewerView() {
 
 function BlockViewerCode() {
   const { activeFile, highlightedFiles } = useBlockViewer();
-
+  console.log("Highlighted Files:", highlightedFiles); // Menampilkan highlightedFiles dalam format yang mudah dibaca
+  console.log("Active File:", activeFile);
   const file = React.useMemo(() => {
-    return highlightedFiles?.find((file) => file.target === activeFile);
+    return highlightedFiles?.find((file) => file.path === activeFile) || highlightedFiles?.[0];
   }, [highlightedFiles, activeFile]);
 
   if (!file) {
+    console.warn("No file found matching the activeFile:", activeFile); // Peringatan jika file tidak ditemukan
     return null;
   }
+
+  console.log("Found File:", file);
 
   return (
     <div className="mr-[14px] flex overflow-hidden rounded-xl bg-zinc-950 text-white group-data-[view=preview]/block-view-wrapper:hidden md:h-[--height]">
