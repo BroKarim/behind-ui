@@ -9,8 +9,7 @@ const nextConfig = {
     optimizeCss: true,
   },
   images: {
-    domains: ["localhost"],
-    domains: ["res.cloudinary.com"],
+    domains: ["localhost", "res.cloudinary.com", "images.unsplash.com"],
   },
   async redirects() {
     return [

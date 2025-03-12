@@ -1,6 +1,6 @@
-"use client";
+// "use client";
 
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -9,48 +9,46 @@ import { toast } from "sonner";
 import { Mdx } from "../mdx-components";
 import { ThemeWrapper } from "../theme-wrapper";
 import { ThemeCustomizer } from "../theme-customizer";
-import { getAllCategories, documentBelongsToCategory } from "@/lib/registry-utils";
+import { getAllCategories, documentBelongsToCategory } from "@/lib/registry-client";
+import { BlockDisplay } from "../registry/component-display";
 import "/public/registry/theme.css";
-import { examples } from "@/registry/registry-examples";
 
 type Doc = {
   slug: string;
   title?: string;
-  // category?: string[];
+  // category?: string[];regis
   body: {
     code: string;
   };
 };
 
+const FEATURED_BLOCKS = ["nextint", "productivity-card", "biophilic-01"];
 
 export function ClientFilterComponent({ initialDocs }: { initialDocs: Doc[] }) {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [filteredDocs, setFilteredDocs] = useState<Doc[]>(initialDocs);
+  // const [activeCategory, setActiveCategory] = useState("All");
+  // const [filteredDocs, setFilteredDocs] = useState<Doc[]>(initialDocs);
   const categories = getAllCategories();
 
   // Keep track of which components belong to which category
-  const categoryToComponents = new Map<string, Set<string>>();
 
-  useEffect(() => {
-    // Filter docs based on active category
-    const filtered = initialDocs.filter((doc) => documentBelongsToCategory(doc.body.code, activeCategory));
+  // useEffect(() => {
+  //   const filtered = initialDocs.filter((doc) => documentBelongsToCategory(doc.body.code, activeCategory));
 
-    setFilteredDocs(filtered);
-  }, [activeCategory, initialDocs]);
+  //   setFilteredDocs(filtered);
+  // }, [activeCategory, initialDocs]);
 
-  useEffect(() => {
-    // Wrap in setTimeout to ensure it runs after hydration
-    setTimeout(() => {
-      const hasShownToast = localStorage.getItem("hasShownToast");
-      if (!hasShownToast) {
-        toast("Website is under development.", {
-          description: "Enjoy exploring, updates coming soon!",
-          duration: 5000, // 5 seconds
-        });
-        localStorage.setItem("hasShownToast", "true");
-      }
-    }, 100);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     const hasShownToast = localStorage.getItem("hasShownToast");
+  //     if (!hasShownToast) {
+  //       toast("Website is under development.", {
+  //         description: "Enjoy exploring, updates coming soon!",
+  //         duration: 5000,
+  //       });
+  //       localStorage.setItem("hasShownToast", "true");
+  //     }
+  //   }, 100);
+  // }, []);
 
   return (
     <>
@@ -78,7 +76,7 @@ export function ClientFilterComponent({ initialDocs }: { initialDocs: Doc[] }) {
         <div className="relative flex w-full border-l px-4 md:w-[calc(100%-300px)] md:px-6 lg:w-[calc(100%-400px)]">
           <ScrollArea className="h-full w-full ">
             <div className=" flex w-full flex-col items-start gap-2 py-4 md:py-10 lg:py-0">
-              <div className="sticky top-0 z-10 w-full bg-white">
+              {/* <div className="sticky top-0 z-10 w-full bg-white">
                 {" "}
                 <Tabs defaultValue={categories[0]} className="w-full md:my-4">
                   <ScrollArea className="whitespace-nowrap">
@@ -92,12 +90,17 @@ export function ClientFilterComponent({ initialDocs }: { initialDocs: Doc[] }) {
                     <ScrollBar className="w-4 border-none bg-transparent opacity-0" orientation="horizontal" />
                   </ScrollArea>
                 </Tabs>{" "}
-              </div>
+              </div> */}
               <div className="grid h-full w-full grid-cols-1 md:items-center md:justify-center md:gap-8 ">
                 <ThemeWrapper>
-                  {filteredDocs.map((doc) => (
+                  {/* {filteredDocs.map((doc) => (
                     <div key={doc.slug} className="mt-4">
                       <Mdx code={doc.body.code} />
+                    </div>
+                  ))} */}
+                  {FEATURED_BLOCKS.map((block) => (
+                    <div key={block}>
+                      <BlockDisplay name={block} />
                     </div>
                   ))}
                 </ThemeWrapper>

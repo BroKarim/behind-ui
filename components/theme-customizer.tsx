@@ -29,7 +29,7 @@ export function ThemeCustomizer() {
     <>
       <div className="w-full">
         <Customizer />
-        <CopyCodeButton variant="ghost" size="sm" className="mt-10 [&_svg]:hidden" />
+        <CopyCodeButton variant="ghost" size="sm" className=" [&_svg]:hidden" />
       </div>
     </>
   );
@@ -51,21 +51,6 @@ function Customizer() {
           <div className="font-semibold leading-none tracking-tight">Theme Customizer</div>
           <div className="text-xs text-muted-foreground">Customize your components colors.</div>
         </div>
-        <Button
-          variant="ghost"
-          size="icon"
-          className="ml-auto rounded-[0.5rem]"
-          onClick={() => {
-            setConfig({
-              ...config,
-              theme: "zinc",
-              radius: 0.5,
-            });
-          }}
-        >
-          <Repeat />
-          <span className="sr-only">Reset</span>
-        </Button>
       </div>
       <div className="flex flex-1 flex-col space-y-4 md:space-y-6">
         {/* Mode opt */}
@@ -156,7 +141,7 @@ function Customizer() {
 }
 
 function CopyCodeButton({ className, ...props }: React.ComponentProps<typeof Button>) {
-  const [config] = useConfig();
+  const [config, setConfig] = useConfig();
   const activeTheme = baseColors.find((theme) => theme.name === config.theme);
   const [hasCopied, setHasCopied] = React.useState(false);
 
@@ -188,39 +173,57 @@ function CopyCodeButton({ className, ...props }: React.ComponentProps<typeof But
         </Button>
       )}
       <Dialog>
-        <DialogTrigger asChild>
-          <Button className={cn("hidden md:flex", className)} {...props}>
-            Copy code
+        <div className="mt-10 flex w-full  items-center space-x-2">
+          <DialogTrigger asChild className="flex items-center justify-center">
+            <Button className={cn(" w-full  bg-black text-white   ", className)} {...props}>
+              Copy code
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="flex max-w-2xl flex-col outline-none">
+            <DialogHeader>
+              <DialogTitle>Theme</DialogTitle>
+              <DialogDescription>Copy and paste the following code into your CSS file.</DialogDescription>
+            </DialogHeader>
+            <ThemeWrapper defaultTheme="zinc" className="relative">
+              <CustomizerCode />
+              {activeTheme && (
+                <Button
+                  size="sm"
+                  onClick={() => {
+                    copyToClipboardWithMeta(getThemeCode(activeTheme, config.radius), {
+                      name: "copy_theme_code",
+                      properties: {
+                        theme: activeTheme.name,
+                        radius: config.radius,
+                      },
+                    });
+                    setHasCopied(true);
+                  }}
+                  className="absolute right-4 top-4 bg-muted text-muted-foreground hover:bg-muted hover:text-muted-foreground"
+                >
+                  {hasCopied ? <Check /> : <Copy />}
+                  Copy
+                </Button>
+              )}
+            </ThemeWrapper>
+          </DialogContent>
+
+          <Button
+            size="icon"
+            variant="ghost"
+            className="rounded-md border-2 border-black"
+            onClick={() => {
+              setConfig({
+                ...config,
+                theme: "zinc",
+                radius: 0.5,
+              });
+            }}
+          >
+            <Repeat />
+            <span className="sr-only">Reset</span>
           </Button>
-        </DialogTrigger>
-        <DialogContent className="flex max-w-2xl flex-col outline-none">
-          <DialogHeader>
-            <DialogTitle>Theme</DialogTitle>
-            <DialogDescription>Copy and paste the following code into your CSS file.</DialogDescription>
-          </DialogHeader>
-          <ThemeWrapper defaultTheme="zinc" className="relative">
-            <CustomizerCode />
-            {activeTheme && (
-              <Button
-                size="sm"
-                onClick={() => {
-                  copyToClipboardWithMeta(getThemeCode(activeTheme, config.radius), {
-                    name: "copy_theme_code",
-                    properties: {
-                      theme: activeTheme.name,
-                      radius: config.radius,
-                    },
-                  });
-                  setHasCopied(true);
-                }}
-                className="absolute right-4 top-4 bg-muted text-muted-foreground hover:bg-muted hover:text-muted-foreground"
-              >
-                {hasCopied ? <Check /> : <Copy />}
-                Copy
-              </Button>
-            )}
-          </ThemeWrapper>
-        </DialogContent>
+        </div>
       </Dialog>
     </>
   );

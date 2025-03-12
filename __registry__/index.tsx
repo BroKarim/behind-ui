@@ -5,94 +5,6 @@ import * as React from "react"
 
 export const Index: Record<string, any> = {
   "default": {
-    "animated-group": {
-      name: "animated-group",
-      type: "registry:example",
-      registryDependencies: undefined,
-      files: ["registry/default/example/components/animated-group.tsx"],
-      component: React.lazy(() => import("@/registry/default/example/components/animated-group.tsx")),
-      source: "",
-      category: "undefined",
-      subcategory: "undefined",
-      chunks: []
-    },
-    "animated-bg-tab": {
-      name: "animated-bg-tab",
-      type: "registry:example",
-      registryDependencies: undefined,
-      files: ["registry/default/example/components/animated-bg-tab.tsx"],
-      component: React.lazy(() => import("@/registry/default/example/components/animated-bg-tab.tsx")),
-      source: "",
-      category: "undefined",
-      subcategory: "undefined",
-      chunks: []
-    },
-    "animated-video-tooltip": {
-      name: "animated-video-tooltip",
-      type: "registry:example",
-      registryDependencies: undefined,
-      files: ["registry/default/example/components/animated-video-tooltip.tsx"],
-      component: React.lazy(() => import("@/registry/default/example/components/animated-video-tooltip.tsx")),
-      source: "",
-      category: "undefined",
-      subcategory: "undefined",
-      chunks: []
-    },
-    "dynamic-tab-nav": {
-      name: "dynamic-tab-nav",
-      type: "registry:example",
-      registryDependencies: undefined,
-      files: ["registry/default/example/components/dynamic-tab-nav.tsx"],
-      component: React.lazy(() => import("@/registry/default/example/components/dynamic-tab-nav.tsx")),
-      source: "",
-      category: "undefined",
-      subcategory: "undefined",
-      chunks: []
-    },
-    "saas-hero-three": {
-      name: "saas-hero-three",
-      type: "registry:example",
-      registryDependencies: undefined,
-      files: ["registry/default/example/hero-one/hero-one.tsx"],
-      component: React.lazy(() => import("@/registry/default/example/hero-one/hero-one.tsx")),
-      source: "",
-      category: "undefined",
-      subcategory: "undefined",
-      chunks: []
-    },
-    "saas-hero-three-wrapper": {
-      name: "saas-hero-three-wrapper",
-      type: "registry:example",
-      registryDependencies: undefined,
-      files: ["registry/default/example/hero-one/hero-one-wrapper.tsx"],
-      component: React.lazy(() => import("@/registry/default/example/hero-one/hero-one-wrapper.tsx")),
-      source: "",
-      category: "undefined",
-      subcategory: "undefined",
-      chunks: []
-    },
-    "saas-hero-three-banner": {
-      name: "saas-hero-three-banner",
-      type: "registry:example",
-      registryDependencies: undefined,
-      files: ["registry/default/example/hero-one/hero-one-banner.tsx"],
-      component: React.lazy(() => import("@/registry/default/example/hero-one/hero-one-banner.tsx")),
-      source: "",
-      category: "undefined",
-      subcategory: "undefined",
-      chunks: []
-    },
-    "saas-hero-three-navbar": {
-      name: "saas-hero-three-navbar",
-      type: "registry:example",
-      registryDependencies: undefined,
-      files: ["registry/default/example/hero-one/hero-one-navbar.tsx"],
-      component: React.lazy(() => import("@/registry/default/example/hero-one/hero-one-navbar.tsx")),
-      source: "",
-      category: "undefined",
-      subcategory: "undefined",
-      chunks: []
-    },
     "nextint": {
       name: "nextint",
       type: "registry:example",
@@ -104,12 +16,12 @@ export const Index: Record<string, any> = {
       subcategory: "undefined",
       chunks: []
     },
-    "productivity-card": {
-      name: "productivity-card",
+    "biophilic-01": {
+      name: "biophilic-01",
       type: "registry:example",
-      registryDependencies: ["stats","calender","activity-goal","metric"],
-      files: ["registry/default/example/productivity-components/index.tsx","registry/default/example/productivity-components/stats.tsx","registry/default/example/productivity-components/calender.tsx","registry/default/example/productivity-components/metrics.tsx","registry/default/example/productivity-components/activity-goal.tsx"],
-      component: React.lazy(() => import("@/registry/default/example/productivity-components/index.tsx")),
+      registryDependencies: ["hero"],
+      files: ["registry/default/example/biophilic-01/page.tsx","registry/default/example/biophilic-01/components/hero.tsx"],
+      component: React.lazy(() => import("@/registry/default/example/biophilic-01/page.tsx")),
       source: "",
       category: "undefined",
       subcategory: "undefined",

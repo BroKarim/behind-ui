@@ -1,36 +1,32 @@
 import { z } from "zod";
 
-export const blockChunkSchema = z.object({
-  name: z.string(),
-  description: z.string(),
-  component: z.any(),
-  file: z.string(),
-  code: z.string().optional(),
-  container: z
-    .object({
-      className: z.string().nullish(),
-    })
-    .optional(),
-});
-
 export const registryItemTypeSchema = z.enum([
-  "registry:style",
   "registry:lib",
-  "registry:example",
   "registry:block",
   "registry:component",
+  "registry:ui",
   "registry:hook",
-  "registry:theme",
   "registry:page",
-  "registry:page",
-]);
+  "registry:file",
 
+  // Internal use only
+  "registry:theme",
+  "registry:example",
+  "registry:style",
+  "registry:internal",
+]);
 export const registryItemFileSchema = z.union([
-  z.string(),
+  // Target is required for registry:file and registry:page
   z.object({
     path: z.string(),
     content: z.string().optional(),
-    type: registryItemTypeSchema,
+    type: z.enum(["registry:file", "registry:page"]),
+    target: z.string(),
+  }),
+  z.object({
+    path: z.string(),
+    content: z.string().optional(),
+    type: registryItemTypeSchema.exclude(["registry:file", "registry:page"]),
     target: z.string().optional(),
   }),
 ]);
@@ -49,8 +45,11 @@ export const registryItemCssVarsSchema = z.object({
 });
 
 export const registryEntrySchema = z.object({
+  $schema: z.string().optional(),
   name: z.string(),
   type: registryItemTypeSchema,
+  title: z.string().optional(),
+  author: z.string().min(2).optional(),
   description: z.string().optional(),
   dependencies: z.array(z.string()).optional(),
   devDependencies: z.array(z.string()).optional(),
@@ -58,15 +57,17 @@ export const registryEntrySchema = z.object({
   files: z.array(registryItemFileSchema).optional(),
   tailwind: registryItemTailwindSchema.optional(),
   cssVars: registryItemCssVarsSchema.optional(),
-  source: z.string().optional(),
-  category: z.string().optional(),
-  subcategory: z.string().optional(),
-  chunks: z.array(blockChunkSchema).optional(),
+  meta: z.record(z.string(), z.any()).optional(),
   docs: z.string().optional(),
   categories: z.array(z.string()).optional(),
 });
 
-export const registrySchema = z.array(registryEntrySchema);
+// export const registrySchema = z.array(registryEntrySchema);
+export const registrySchema = z.object({
+  name: z.string(),
+  homepage: z.string(),
+  items: z.array(registryEntrySchema),
+});
 
 export type RegistryEntry = z.infer<typeof registryEntrySchema>;
 
@@ -87,5 +88,3 @@ export const blockSchema = registryEntrySchema.extend({
 });
 
 export type Block = z.infer<typeof blockSchema>;
-
-export type BlockChunk = z.infer<typeof blockChunkSchema>;
