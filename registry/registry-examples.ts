@@ -1,4 +1,4 @@
-import { Registry } from "@/registry/schema";
+import { type Registry } from "@/registry/schema";
 
 export const examples: Registry["items"] = [
   {
@@ -15,20 +15,17 @@ export const examples: Registry["items"] = [
       {
         path: "example/next-int/navbar.tsx",
         type: "registry:component",
-        target: undefined,
       },
       {
         path: "example/next-int/lang-switch.tsx",
         type: "registry:component",
-        target: undefined,
       },
       {
         path: "example/next-int/photos.tsx",
         type: "registry:component",
-        target: undefined,
       },
     ],
-    categories: ["Startup", "Finance", "Blog"],
+    categories: ["startup"],
   },
 
   {
@@ -45,9 +42,8 @@ export const examples: Registry["items"] = [
       {
         path: "example/biophilic-01/components/hero.tsx",
         type: "registry:component",
-        target: undefined,
       },
     ],
-    categories: ["card", "components"],
+    categories: ["components"],
   },
 ];

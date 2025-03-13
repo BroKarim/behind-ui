@@ -1,14 +1,10 @@
-import { blocks } from "./registry-blocks";
-import { examples } from "./registry-examples";
-import { hooks } from "./registry-hooks";
-import { lib } from "./registry-lib";
-import { themes } from "./registry-themes";
-import { Registry } from "./schema";
+import { type Registry } from "./schema";
+import { z } from "zod";
 
-export const registry: Registry = [
-  ...examples,
-  ...blocks,
-  ...lib,
-  ...hooks,
-  ...themes,
-];
+import { examples } from "./registry-examples";
+
+export const registry = {
+  name: "behindui",
+  homepage: "https://behindui.com",
+  items: [...examples],
+} satisfies Registry;

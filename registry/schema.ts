@@ -1,5 +1,6 @@
 import { z } from "zod";
 
+// define (enum) yg menntukan jenis item dalam regstry
 export const registryItemTypeSchema = z.enum([
   "registry:lib",
   "registry:block",
@@ -44,6 +45,7 @@ export const registryItemCssVarsSchema = z.object({
   dark: z.record(z.string(), z.string()).optional(),
 });
 
+// strukture item registry
 export const registryEntrySchema = z.object({
   $schema: z.string().optional(),
   name: z.string(),
@@ -63,6 +65,8 @@ export const registryEntrySchema = z.object({
 });
 
 // export const registrySchema = z.array(registryEntrySchema);
+
+// Struktur keseluruhan registry, yg include name dan items
 export const registrySchema = z.object({
   name: z.string(),
   homepage: z.string(),
@@ -71,6 +75,7 @@ export const registrySchema = z.object({
 
 export type RegistryEntry = z.infer<typeof registryEntrySchema>;
 
+// type yg dieskport untk validasi
 export type Registry = z.infer<typeof registrySchema>;
 
 export const blockSchema = registryEntrySchema.extend({

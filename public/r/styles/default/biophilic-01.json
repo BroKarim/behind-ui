@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "biophilic-01",
+  "type": "registry:example",
+  "author": "shadcn (https://ui.shadcn.com)",
+  "description": "A simple camping hero section.",
+  "registryDependencies": [
+    "hero"
+  ],
+  "files": [
+    {
+      "path": "example/biophilic-01/page.tsx",
+      "content": "import { Hero } from \"./components/hero\";\n\nexport default function Page() {\n  return (\n    <>\n      <Hero />\n    </>\n  );\n}\n",
+      "type": "registry:page",
+      "target": "app/page.tsx"
+    },
+    {
+      "path": "example/biophilic-01/components/hero.tsx",
+      "content": "import Image from \"next/image\";\nimport Link from \"next/link\";\nimport { ChevronRight } from \"lucide-react\";\nimport { Button } from \"@/components/ui/button\";\n\nexport function Hero() {\n  return (\n    <div className=\"relative h-screen w-full overflow-hidden\">\n      {/* Background Image */}\n      <div className=\"absolute inset-0 z-0\">\n        <Image\n          src=\"https://images.unsplash.com/photo-1524357157238-7d55300162dc?q=80&w=2570&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n          alt=\"Adventure background with people on a yellow off-road vehicle\"\n          fill\n          priority\n          className=\"object-cover\"\n        />\n      </div>\n\n      {/* Overlay for better text readability */}\n      <div className=\"absolute inset-0 z-10 bg-black/20\"></div>\n\n      {/* Content Container */}\n      <div className=\"relative z-20 h-full w-full\">\n        {/* Header/Navigation */}\n        <header className=\"flex items-center justify-between p-4 md:px-8 lg:px-16\">\n          <div className=\"flex items-center\">\n            <Image src=\"/placeholder.svg?height=50&width=120\" alt=\"Eiger Logo\" width={120} height={50} className=\"h-10 w-auto md:h-12\" />\n          </div>\n\n          <nav className=\"hidden items-center gap-8 md:flex\">\n            <div className=\"flex items-center rounded-full bg-white/90 px-6 py-2\">\n              <Link href=\"/\" className=\"px-3 py-1 font-medium text-gray-800\">\n                Home\n              </Link>\n              <Link href=\"/collections\" className=\"px-3 py-1 font-medium text-gray-800\">\n                Our Collections\n              </Link>\n              <Link href=\"/about\" className=\"px-3 py-1 font-medium text-gray-800\">\n                About\n              </Link>\n            </div>\n            <Link href=\"/pre-order\" className=\"rounded-full bg-black px-6 py-2 font-medium text-white\">\n              Pre-Order Now\n            </Link>\n          </nav>\n\n          <button className=\"text-white md:hidden\">\n            <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" className=\"h-6 w-6\">\n              <path strokeLinecap=\"round\" strokeLinejoin=\"round\" strokeWidth={2} d=\"M4 6h16M4 12h16M4 18h16\" />\n            </svg>\n          </button>\n        </header>\n\n        {/* Main Hero Content */}\n        <div className=\"flex h-[calc(100%-80px)] flex-col px-4 md:flex-row md:px-8 lg:px-16\">\n          {/* Left Side - Main Heading */}\n          <div className=\"flex flex-1 items-center\">\n            <h1 className=\"text-5xl font-bold leading-tight text-[#f5b47b] md:text-6xl lg:text-7xl xl:text-8xl\">\n              You Are\n              <br />\n              Meant To\n              <br />\n              Travel\n            </h1>\n          </div>\n\n          {/* Right Side - Collection Card & CTA */}\n          <div className=\"flex flex-1 flex-col items-end justify-center gap-8 pb-12 md:pb-0\">\n            {/* Collection Card */}\n            <div className=\"w-full max-w-xs rounded-lg bg-gray-100/90 p-4\">\n              <div className=\"flex gap-4\">\n                <div className=\"h-20 w-20 overflow-hidden rounded-lg bg-gray-800\">\n                  <Image src=\"/placeholder.svg?height=80&width=80\" alt=\"Riding Collection\" width={80} height={80} className=\"h-full w-full object-cover\" />\n                </div>\n                <div>\n                  <h3 className=\"font-semibold text-gray-900\">Riding Series Collections</h3>\n                  <p className=\"text-sm text-gray-600\">new style for you</p>\n                  <Link href=\"/collections\" className=\"text-sm text-gray-900 hover:underline\">\n                    View Collections\n                  </Link>\n                </div>\n              </div>\n            </div>\n\n            {/* Description Text */}\n            <div className=\"max-w-md text-white\">\n              <p className=\"text-lg\">Adventure awaits. Explore, wander, and embrace the journey—because the world is yours to discover</p>\n            </div>\n\n            {/* CTA Button */}\n            <Button variant=\"ghost\" className=\"flex items-center gap-2  px-6 py-3 font-medium text-white\">\n              Discover More\n              <ChevronRight size={18} />\n            </Button>\n          </div>\n        </div>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": ""
+    }
+  ],
+  "categories": [
+    "components"
+  ]
+}
