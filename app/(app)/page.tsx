@@ -31,13 +31,13 @@ export default async function IndexPage() {
           <ScrollArea className="h-full w-full ">
             <div className=" flex w-full flex-col items-start gap-2 py-4 md:py-10 lg:py-0">
               <div className="grid h-full w-full grid-cols-1 md:items-center md:justify-center md:gap-8 ">
-                <ThemeWrapper>
                   {FEATURED_BLOCKS.map((block) => (
                     <div key={block} >
                       <BlockDisplay name={block} />
                     </div>
                   ))}
-                </ThemeWrapper>
+                {/* <ThemeWrapper>
+                </ThemeWrapper> */}
               </div>
             </div>
           </ScrollArea>

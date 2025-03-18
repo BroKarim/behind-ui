@@ -25,6 +25,8 @@ export function ThemeCustomizer() {
   React.useEffect(() => {
     setMounted(true);
   }, []);
+
+
   return (
     <>
       <div className="w-full">

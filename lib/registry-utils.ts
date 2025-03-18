@@ -14,6 +14,16 @@ export const DEFAULT_REGISTRY_STYLE = "default" satisfies Style["name"];
 const memoizedIndex: typeof Index = Object.fromEntries(Object.entries(Index).map(([style, items]) => [style, { ...items }]));
 
 export function getRegistryComponent(name: string, style: Style["name"] = DEFAULT_REGISTRY_STYLE) {
+  // console.log("Searching for component with name:", name, "and style:", style);
+  // console.log("Available styles:", Object.keys(memoizedIndex));
+  // console.log("Available components in style:", Object.keys(memoizedIndex[style] || {}));
+  const component = memoizedIndex[style][name]?.component;
+
+  if (!component) {
+    console.error(`Component "${name}" not found in registry`);
+    return null;
+  }
+  console.log("Component found:", component);
   return memoizedIndex[style][name]?.component;
 }
 
@@ -29,7 +39,6 @@ export async function getRegistryItem(name: string, style: Style["name"] = DEFAU
   // TODO: remove when we migrate to new registry.
   item.files = item.files.map((file: unknown) => (typeof file === "string" ? { path: file } : file));
 
-  
   // Fail early before doing expensive file operations.
   const result = registryEntrySchema.safeParse(item);
   if (!result.success) {
@@ -48,7 +57,7 @@ export async function getRegistryItem(name: string, style: Style["name"] = DEFAU
       content,
     });
   }
- 
+
   // Get meta.
   // Assume the first file is the main file.
   // const meta = await getFileMeta(files[0].path)

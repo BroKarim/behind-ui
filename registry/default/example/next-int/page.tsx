@@ -55,7 +55,7 @@ const NextInt = () => {
                 <Icons.nextint />
                 Broadway St., 123, New York, NY 10007 USA
               </div>
-              <h1 className="font-heading xs:text-2xl text-pretty text-center text-xl tracking-tighter sm:text-3xl md:max-w-6xl  md:text-7xl">
+              <h1 className="font-heading xs:text-2xl text-pretty text-center text-xl tracking-tighter text-primary sm:text-3xl  md:max-w-6xl md:text-7xl">
                 Building visions & creating reality <br />
                 with NextInt
               </h1>

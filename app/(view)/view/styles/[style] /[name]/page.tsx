@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { ThemeWrapper } from "@/components/theme-wrapper";
 
 import { siteConfig } from "@/config/site";
 import { getAllBlockIds } from "@/lib/block";
@@ -93,7 +94,9 @@ export default async function BlockPage({
   return (
     <>
       <div className={cn("themes-wrapper bg-background", item.meta?.container)}>
-        <Component />
+        <ThemeWrapper>
+          <Component />
+        </ThemeWrapper>
       </div>
     </>
   );
