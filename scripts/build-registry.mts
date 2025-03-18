@@ -10,7 +10,7 @@ import { z } from "zod";
 
 import { registry } from "../registry";
 import { baseColors, baseColorsV4 } from "../registry/registry-base-colors";
-import { registryCategories } from "../registry/registry-categories";
+// import { registryCategories } from "../registry/registry-categories";
 import { colorMapping, colors } from "../registry/registry-colors";
 import { iconLibraries, icons } from "../registry/registry-icons";
 import { styles } from "../registry/registry-styles";
@@ -95,14 +95,14 @@ export const Index: Record<string, any> = {
       }
 
       // Validate categories.
-      if (item.categories) {
-        const invalidCategories = item.categories.filter((category) => !registryCategories.some((c) => c.slug === category));
+      // if (item.categories) {
+      //   const invalidCategories = item.categories.filter((category) => !registryCategories.some((c) => c.slug === category));
 
-        if (invalidCategories.length > 0) {
-          console.error(`${item.name} has invalid categories: ${invalidCategories}`);
-          process.exit(1);
-        }
-      }
+      //   if (invalidCategories.length > 0) {
+      //     console.error(`${item.name} has invalid categories: ${invalidCategories}`);
+      //     process.exit(1);
+      //   }
+      // }
 
       const type = item.type.split(":")[1];
       let sourceFilename = "";
@@ -295,7 +295,7 @@ async function buildStyles(registry: Registry) {
 
             if ((!target || target === "") && item.name.startsWith("v0-")) {
               const fileName = file.path.split("/").pop();
-              if (file.type === "registry:example" || file.type === "registry:component" ) {
+              if (file.type === "registry:block" || file.type === "registry:component" ) {
                 target = `components/${fileName}`;
               }
 

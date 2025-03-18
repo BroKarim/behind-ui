@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Marquee } from "../components/marquee";
+import { Marquee } from "../../components/marquee";
+import { cn } from "@/lib/utils";
 
 import React from "react";
 
@@ -42,7 +43,7 @@ export function Photos({ photos }: { photos: string[] }) {
           {photos.map((image, idx) => (
             <motion.div
               key={idx}
-              className="relative h-40 flex-none shrink-0 snap-start overflow-hidden rounded-xl bg-zinc-100 ring-2 ring-lime-800/20 dark:bg-zinc-800 dark:ring-lime-300/10 md:h-72 md:rounded-3xl"
+              className={cn("relative h-40 flex-none shrink-0 snap-start overflow-hidden rounded-xl bg-zinc-100 ring-2 ring-lime-800/20 dark:bg-zinc-800 dark:ring-lime-300/10 md:h-72 md:rounded-3xl")}
               animate={{
                 width,
                 opacity: isCompact ? 1 : 0.85,
@@ -60,14 +61,7 @@ export function Photos({ photos }: { photos: string[] }) {
               }
               layout
             >
-              <img
-                src={image}
-                alt=""
-                width={500}
-                height={500}
-                sizes="(min-width: 640px) 18rem, 11rem"
-                className="pointer-events-none absolute inset-0 h-full w-full select-none object-cover"
-              />
+              <img src={image} alt="" width={500} height={500} sizes="(min-width: 640px) 18rem, 11rem" className="pointer-events-none absolute inset-0 h-full w-full select-none object-cover" />
             </motion.div>
           ))}
         </div>

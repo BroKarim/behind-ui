@@ -20,7 +20,6 @@ export function getRegistryComponent(name: string, style: Style["name"] = DEFAUL
 export async function getRegistryItem(name: string, style: Style["name"] = DEFAULT_REGISTRY_STYLE) {
   const item = memoizedIndex[style][name];
   console.log("Fetching Registry Item for:", name);
-  console.log("Available styles:", Object.keys(memoizedIndex));
 
   if (!item) {
     return null;
@@ -28,26 +27,16 @@ export async function getRegistryItem(name: string, style: Style["name"] = DEFAU
 
   // Convert all file paths to object.
   // TODO: remove when we migrate to new registry.
-  item.files = item.files.map((file: unknown) =>
-    typeof file === "string"
-      ? { path: file, type: "registry:component", target: "" } // Tambahkan type dan target
-      : { ...file, type: file.type || "registry:component", target: file.target || "" }
-  );
+  item.files = item.files.map((file: unknown) => (typeof file === "string" ? { path: file } : file));
 
-  console.log("Processed Files (Before Validation):", JSON.stringify(item.files, null, 2));
-
-  console.log("Before Validation:", JSON.stringify(item, null, 2));
-  console.log("File Type:", typeof item.files[0].type);
-  console.log("File Target:", typeof item.files[0].target);
+  
   // Fail early before doing expensive file operations.
   const result = registryEntrySchema.safeParse(item);
   if (!result.success) {
-    console.error("Zod Validation Error:", result.error.format());
     return null;
   }
 
   let files: typeof result.data.files = [];
-  console.log("Registry Data:", result.data);
 
   for (const file of item.files) {
     const content = await getFileContent(file);
@@ -59,14 +48,13 @@ export async function getRegistryItem(name: string, style: Style["name"] = DEFAU
       content,
     });
   }
-  console.log("Processed Files:", JSON.stringify(files, null, 2));
-
+ 
   // Get meta.
   // Assume the first file is the main file.
   // const meta = await getFileMeta(files[0].path)
 
   // Fix file paths.
-  files = fixFilePaths(files) || "";
+  files = fixFilePaths(files);
 
   const parsed = registryEntrySchema.safeParse({
     ...result.data,

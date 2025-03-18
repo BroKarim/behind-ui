@@ -11,25 +11,25 @@ export const Index: Record<string, any> = {
       type: "registry:example",
       registryDependencies: ["nav","lang-switch","photos"],
       files: [{
-        path: "registry/default/example/next-int/next-int.tsx",
+        path: "registry/default/example/next-int/page.tsx",
         type: "registry:page",
         target: "app/page.tsx"
       },{
-        path: "registry/default/example/next-int/navbar.tsx",
+        path: "registry/default/example/next-int/components/navbar.tsx",
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/example/next-int/lang-switch.tsx",
+        path: "registry/default/example/next-int/components/lang-switch.tsx",
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/example/next-int/photos.tsx",
+        path: "registry/default/example/next-int/components/photos.tsx",
         type: "registry:component",
         target: ""
       }],
-      categories: ["startup"],
-      component: React.lazy(() => import("@/registry/default/example/next-int/next-int.tsx")),
-      source: "__registry__/default/example/next-int/next-int.tsx",
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/example/next-int/page.tsx")),
+      source: "__registry__/default/example/next-int/page.tsx",
       meta: undefined,
     },
     "biophilic-01": {
@@ -46,7 +46,7 @@ export const Index: Record<string, any> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["components"],
+      categories: undefined,
       component: React.lazy(() => import("@/registry/default/example/biophilic-01/page.tsx")),
       source: "__registry__/default/example/biophilic-01/page.tsx",
       meta: undefined,

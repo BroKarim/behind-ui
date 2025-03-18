@@ -8,24 +8,24 @@ export const examples: Registry["items"] = [
     registryDependencies: ["nav", "lang-switch", "photos"],
     files: [
       {
-        path: "example/next-int/next-int.tsx",
+        path: "example/next-int/page.tsx",
         type: "registry:page",
         target: "app/page.tsx",
       },
       {
-        path: "example/next-int/navbar.tsx",
+        path: "example/next-int/components/navbar.tsx",
         type: "registry:component",
       },
       {
-        path: "example/next-int/lang-switch.tsx",
+        path: "example/next-int/components/lang-switch.tsx",
         type: "registry:component",
       },
       {
-        path: "example/next-int/photos.tsx",
+        path: "example/next-int/components/photos.tsx",
         type: "registry:component",
       },
     ],
-    categories: ["startup"],
+    // categories: ["startup"],
   },
 
   {
@@ -44,6 +44,6 @@ export const examples: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["components"],
+    // categories: ["components"],
   },
 ];

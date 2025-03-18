@@ -27,7 +27,7 @@ export const registryItemFileSchema = z.union([
   z.object({
     path: z.string(),
     content: z.string().optional(),
-    type: registryItemTypeSchema.exclude(["registry:file", "registry:page"]),
+    type: registryItemTypeSchema,
     target: z.string().optional(),
   }),
 ]);

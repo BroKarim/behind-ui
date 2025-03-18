@@ -1,24 +1,17 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import {
-  Drawer,
-  DrawerTrigger,
-  DrawerContent,
-  DrawerClose,
-} from "../components/drawer";
+import { Drawer, DrawerTrigger, DrawerContent, DrawerClose } from "../../components/drawer";
 import React from "react";
 import { X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default function LangSwitch() {
   return (
     <React.Fragment>
       <Drawer>
         <DrawerTrigger asChild>
-          <Button
-            variant="outline"
-            className=" flex items-center gap-2 text-black"
-          >
+          <Button variant="outline" size="sm" className={cn("flex items-center rounded ")}>
             <span>EN</span>
           </Button>
         </DrawerTrigger>
