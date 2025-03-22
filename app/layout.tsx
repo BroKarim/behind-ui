@@ -53,7 +53,6 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  colorScheme: "dark",
   themeColor: [
     // { media: "(prefers-color-scheme: light)", color: "black" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
@@ -66,7 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head />
       <body className={cn("relative flex h-screen w-full flex-col justify-center overflow-hidden scroll-smooth  bg-background font-sans antialiased", fontSans.variable)}>
         <PHProvider>
-          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange enableColorScheme>
+          <ThemeProvider attribute="class"  enableSystem disableTransitionOnChange enableColorScheme>
             <TooltipProvider>
               <Toaster />
               {children}

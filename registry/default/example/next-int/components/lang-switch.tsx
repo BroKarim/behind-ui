@@ -11,7 +11,7 @@ export default function LangSwitch() {
     <React.Fragment>
       <Drawer>
         <DrawerTrigger asChild>
-          <Button variant="outline" size="sm" className={cn("flex items-center rounded ")}>
+          <Button variant="outline" size="sm" className={cn("flex items-center rounded-sm")}>
             <span>EN</span>
           </Button>
         </DrawerTrigger>
@@ -20,7 +20,7 @@ export default function LangSwitch() {
             <div className="flex items-center justify-between">
               <h3 className="text-lg font-medium">Select Language</h3>
               <DrawerClose asChild>
-                <Button variant="ghost" size="icon" className="h-8 w-8">
+                <Button variant="ghost" size="icon" className="rou h-8 w-8">
                   <X className="h-5 w-5" />
                 </Button>
               </DrawerClose>

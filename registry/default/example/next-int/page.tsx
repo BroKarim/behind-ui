@@ -37,9 +37,9 @@ const NextInt = () => {
   const photos = projects.map((project) => project.media);
   return (
     <>
-      <div className="z-50 flex h-full flex-col items-center justify-between overflow-hidden bg-background px-4 md:h-screen ">
+      <div className="bg-backgroud z-50 flex h-full flex-col items-center justify-between overflow-hidden px-4 md:h-screen ">
         <div className="flex w-full items-center justify-between p-6 px-10">
-          <div className="flex flex-1 text-lg font-medium text-primary  md:text-2xl">NexInt</div>
+          <div className="flex flex-1 text-lg font-medium text-primary md:text-2xl">NexInt</div>
           <div className="hidden w-full flex-1 justify-end md:flex md:justify-center">
             <NavigationBar.Desktop />
           </div>
@@ -50,12 +50,12 @@ const NextInt = () => {
 
         <div className=" flex-1  md:mt-10">
           <div className="container flex-col items-center md:flex md:h-full md:justify-between">
-            <div className="text-primary md:translate-y-32">
-              <div className="mb-2 flex w-full items-center justify-center gap-2">
+            <div className="md:translate-y-32">
+              <div className="mb-2 flex w-full items-center justify-center gap-2 text-primary">
                 <Icons.nextint />
                 Broadway St., 123, New York, NY 10007 USA
               </div>
-              <h1 className="font-heading xs:text-2xl text-pretty text-center text-xl tracking-tighter text-primary sm:text-3xl  md:max-w-6xl md:text-7xl">
+              <h1 className="text-primary font-heading xs:text-2xl text-pretty text-center text-xl tracking-tighter  sm:text-3xl  md:max-w-6xl md:text-7xl">
                 Building visions & creating reality <br />
                 with NextInt
               </h1>
