@@ -1,12 +1,11 @@
-import { examples } from "@/registry/registry-examples";
-
+import { blocks } from "@/registry/registry-blocks";
 // Function to get all unique categories from registry
 export function getAllCategories(): string[] {
   // Add 'All' as the default category
   const categories = new Set<string>(["All"]);
 
   // Extract categories from registry entries
-  examples.forEach((entry) => {
+  blocks.forEach((entry) => {
     if (entry.categories && Array.isArray(entry.categories)) {
       entry.categories.forEach((category) => categories.add(category));
     }
@@ -18,7 +17,7 @@ export function getAllCategories(): string[] {
 export function getCategoryToComponentsMap(): Map<string, Set<string>> {
   const categoryToComponents = new Map<string, Set<string>>();
 
-  examples.forEach((entry) => {
+  blocks.forEach((entry) => {
     if (entry.categories && entry.categories.length > 0) {
       entry.categories.forEach((category) => {
         if (!categoryToComponents.has(category)) {
