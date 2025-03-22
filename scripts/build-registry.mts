@@ -18,7 +18,7 @@ import { fixImport } from "./fix-import.mts";
 
 const REGISTRY_PATH = path.join(process.cwd(), "public/r");
 
-const REGISTRY_INDEX_WHITELIST: z.infer<typeof registryItemTypeSchema>[] = ["registry:ui", "registry:lib", "registry:hook", "registry:theme", "registry:block", "registry:example", "registry:internal"];
+const REGISTRY_INDEX_WHITELIST: z.infer<typeof registryItemTypeSchema>[] = ["registry:ui", "registry:lib", "registry:hook", "registry:theme", "registry:block", "registry:internal"];
 
 const project = new Project({
   compilerOptions: {},
@@ -107,7 +107,7 @@ export const Index: Record<string, any> = {
       const type = item.type.split(":")[1];
       let sourceFilename = "";
 
-      if (item.type === "registry:example") {
+      if (item.type === "registry:block") {
         const file = resolveFiles[0];
         const filename = path.basename(file);
         let raw: string;
@@ -295,7 +295,7 @@ async function buildStyles(registry: Registry) {
 
             if ((!target || target === "") && item.name.startsWith("v0-")) {
               const fileName = file.path.split("/").pop();
-              if (file.type === "registry:block" || file.type === "registry:component" ) {
+              if (file.type === "registry:block" || file.type === "registry:component") {
                 target = `components/${fileName}`;
               }
 
@@ -701,7 +701,7 @@ try {
     process.exit(1);
   }
 
-  await syncStyles();
+  // await syncStyles();
   await buildRegistry(result.data);
   await buildStyles(result.data);
   await buildStylesIndex();
