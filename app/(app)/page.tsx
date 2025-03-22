@@ -5,7 +5,7 @@ import { ThemeCustomizer } from "@/components/theme-customizer";
 import { getAllCategories, documentBelongsToCategory } from "@/lib/registry-client";
 import { BlockDisplay } from "@/components/registry/component-display";
 import "/public/registry/theme.css";
-import NextInt from "@/registry/default/example/next-int/page";
+import NextInt from "@/registry/default/blocks/next-int/page";
 
 const FEATURED_BLOCKS = ["nextint", "biophilic-01"];
 

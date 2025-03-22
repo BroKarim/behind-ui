@@ -14,11 +14,6 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/components/:path*",
-        destination: "/shots/components/:path*",
-        permanent: true,
-      },
-      {
         source: "/r/:name",
         destination: "/r/styles/default/:name.json",
         permanent: true,
