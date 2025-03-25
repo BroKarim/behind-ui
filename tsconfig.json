@@ -23,7 +23,7 @@
     "paths": {
       "@/*": ["./*"],
       "@/components/magicui/*": ["./registry/default/magicui/*"],
-      "@/components/example/*": ["./registry/default/example/*"],
+      "@/components/example/*": ["registry/default/blocks/*"],
       "content-collections": ["./.content-collections/generated"]
     }
   },

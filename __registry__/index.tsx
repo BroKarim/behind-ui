@@ -8,47 +8,43 @@ export const Index: Record<string, any> = {
     "nextint": {
       name: "nextint",
       description: "A simple sidebar with navigation grouped by section.",
-      type: "registry:example",
+      type: "registry:block",
       registryDependencies: ["nav","lang-switch","photos"],
       files: [{
-        path: "registry/default/example/next-int/page.tsx",
+        path: "registry/default/blocks/next-int/main.tsx",
         type: "registry:page",
-        target: "app/page.tsx"
+        target: "app/main.tsx"
       },{
-        path: "registry/default/example/next-int/components/navbar.tsx",
+        path: "registry/default/blocks/next-int/components/navbar.tsx",
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/example/next-int/components/lang-switch.tsx",
+        path: "registry/default/blocks/next-int/components/lang-switch.tsx",
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/example/next-int/components/photos.tsx",
+        path: "registry/default/blocks/next-int/components/photos.tsx",
         type: "registry:component",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/example/next-int/page.tsx")),
-      source: "__registry__/default/example/next-int/page.tsx",
+      component: React.lazy(() => import("@/registry/default/blocks/next-int/main.tsx")),
+      source: "__registry__/default/blocks/next-int/main.tsx",
       meta: undefined,
     },
-    "biophilic-01": {
-      name: "biophilic-01",
-      description: "A simple camping hero section.",
-      type: "registry:example",
-      registryDependencies: ["hero"],
+    "utils": {
+      name: "utils",
+      description: "",
+      type: "registry:lib",
+      registryDependencies: undefined,
       files: [{
-        path: "registry/default/example/biophilic-01/page.tsx",
-        type: "registry:page",
-        target: "app/page.tsx"
-      },{
-        path: "registry/default/example/biophilic-01/components/hero.tsx",
-        type: "registry:component",
+        path: "registry/default/lib/utils.ts",
+        type: "registry:lib",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/example/biophilic-01/page.tsx")),
-      source: "__registry__/default/example/biophilic-01/page.tsx",
+      component: React.lazy(() => import("@/registry/default/lib/utils.ts")),
+      source: "",
       meta: undefined,
     },
   },

@@ -1,6 +1,5 @@
 import { fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-// import { Toaster } from "sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Analytics } from "@/components/analytics";
