@@ -8,7 +8,6 @@ import { ImperativePanelHandle } from "react-resizable-panels";
 
 import { registryItemFileSchema, registryEntrySchema } from "@/registry/schema";
 import { z } from "zod";
-import { ComponentRenderer } from "./component-render";
 
 import { trackEvent } from "@/lib/events";
 import { FileTree, createFileTreeForRegistryItemFiles } from "@/lib/registry-utils";
@@ -142,22 +141,6 @@ function BlockViewerToolbar() {
             </Button>
           </ToggleGroup>
         </div>
-        <Separator orientation="vertical" className="mx-1 hidden h-4 md:flex" />
-        <div className="flex h-7 items-center gap-1 rounded-md border p-[2px]">
-          <Button
-            variant="ghost"
-            className="hidden h-[22px] w-auto gap-1 rounded-sm px-2 md:flex lg:w-auto"
-            size="sm"
-            onClick={() => {
-              copyToClipboard(`npx shadcn@latest add ${item.name}`);
-            }}
-          >
-            {isCopied ? <Check /> : <Terminal />}
-            <span className="hidden lg:inline">npx shadcn add {item.name}</span>
-          </Button>
-        </div>
-        <Separator orientation="vertical" className="mx-1 hidden h-4 xl:flex" />
-        {/* <V0Button className="hidden shadow-none sm:flex" id={`v0-button-${item.name}`} name={`${item.name}`} /> */}
       </div>
     </div>
   );
@@ -168,18 +151,13 @@ function BlockViewerView() {
 
   if (!item || !item.files) return null;
 
-  // console.log("File Sent to ComponentRenderer:", item.files);
+  
 
   return (
     <div className="group-data-[view=code]/block-view-wrapper:hidden md:h-[--height]">
       <div className="grid w-full gap-4">
         <ResizablePanelGroup direction="horizontal" className="relative z-10">
           <ResizablePanel ref={resizablePanelRef} className="relative aspect-[4/2.5] rounded-xl border bg-background md:aspect-auto" defaultSize={100} minSize={30}>
-            {/* {item.files
-              .filter((file) => file.type === "registry:component" || file.type === "registry:page")
-              .map((file) => (
-                <ComponentRenderer key={file.path} file={file} />
-              ))} */}
             <iframe src={`/view/styles/${style}/${item.name}`} height={item.meta?.iframeHeight ?? 930} className="relative z-20 hidden w-full bg-background md:block" />
           </ResizablePanel>
           <ResizableHandle className="relative hidden w-3 bg-transparent p-0 after:absolute after:right-0 after:top-1/2 after:h-8 after:w-[6px] after:-translate-y-1/2 after:translate-x-[-1px] after:rounded-full after:bg-border after:transition-all after:hover:h-10 md:block" />
@@ -203,18 +181,16 @@ function BlockViewerCode() {
     return null;
   }
 
-  // console.log("Found File:", file);
-
   return (
     <div className="mr-[14px] flex overflow-hidden rounded-xl bg-zinc-950 text-white group-data-[view=preview]/block-view-wrapper:hidden md:h-[--height]">
       <div className="w-[280px]">
         <BlockViewerFileTree />
       </div>
       <div className="flex min-w-0 flex-1 flex-col">
-        <div className="flex h-12 items-center gap-2 border-b border-zinc-700 bg-zinc-900 px-4 text-sm font-medium">
+        <div className="flex h-12 w-full items-center justify-between gap-2 border-b border-zinc-700 bg-zinc-900 px-4 text-sm font-medium">
           <File className="size-4" />
-          {file.target}
-          <div className="ml-auto flex items-center gap-2">
+          {file.path}
+          <div className="ml-auto flex items-center gap-2 ">
             <BlockCopyCodeButton />
           </div>
         </div>
@@ -313,10 +289,14 @@ function BlockCopyCodeButton() {
   const { copyToClipboard, isCopied } = useCopyToClipboard();
 
   const file = React.useMemo(() => {
-    return item.files?.find((file) => file.target === activeFile);
+    return item.files?.find((file) => file.path === activeFile);
   }, [activeFile, item.files]);
 
   const content = file?.content;
+
+  console.log("Active File:", activeFile);
+  console.log("Matched File:", file);
+  console.log("Content:", content);
 
   if (!content) {
     return null;
@@ -327,14 +307,14 @@ function BlockCopyCodeButton() {
       onClick={() => {
         copyToClipboard(content);
         trackEvent({
-          name: "copy_block_code",
+          name: "copy_source_code",
           properties: {
             name: item.name,
             file: file.path,
           },
         });
       }}
-      className="h-7 w-7 shrink-0 rounded-lg p-0 hover:bg-zinc-700 hover:text-white focus:bg-zinc-700 focus:text-white focus-visible:bg-zinc-700 focus-visible:text-white active:bg-zinc-700 active:text-white data-[active=true]:bg-zinc-700 data-[active=true]:text-white [&>svg]:size-3"
+      className="h-7 w-7 rounded-lg p-0 hover:bg-zinc-700 hover:text-white focus:bg-zinc-700 focus:text-white focus-visible:bg-zinc-700 focus-visible:text-white active:bg-zinc-700 active:text-white data-[active=true]:bg-zinc-700 data-[active=true]:text-white [&>svg]:size-3"
       variant="ghost"
     >
       {isCopied ? <Check /> : <Clipboard />}
