@@ -50,6 +50,14 @@ export const blocks: Registry["items"] = [
         path: "blocks/next-int/components/photos.tsx",
         type: "registry:component",
       },
+      {
+        path: "blocks/next-int/components/drawer.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/next-int/components/marquee.tsx",
+        type: "registry:component",
+      },
     ],
     // categories: ["startup"],
   },
