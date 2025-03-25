@@ -32,6 +32,60 @@ export const Index: Record<string, any> = {
       source: "__registry__/default/blocks/next-int/main.tsx",
       meta: undefined,
     },
+    "nextint-02": {
+      name: "nextint-02",
+      description: "A simple sidebar with navigation grouped by section.",
+      type: "registry:block",
+      registryDependencies: ["nav","lang-switch","photos"],
+      files: [{
+        path: "registry/default/blocks/next-int/main.tsx",
+        type: "registry:page",
+        target: "app/main.tsx"
+      },{
+        path: "registry/default/blocks/next-int/components/navbar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/next-int/components/lang-switch.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/next-int/components/photos.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/blocks/next-int/main.tsx")),
+      source: "__registry__/default/blocks/next-int/main.tsx",
+      meta: undefined,
+    },
+    "portofolio-01": {
+      name: "portofolio-01",
+      description: "A simple sidebar with navigation grouped by section.",
+      type: "registry:block",
+      registryDependencies: ["fade-in","footer","list"],
+      files: [{
+        path: "registry/default/blocks/portofolio-01/main.tsx",
+        type: "registry:page",
+        target: "app/main.tsx"
+      },{
+        path: "registry/default/blocks/portofolio-01/components/fade-in.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/portofolio-01/components/footer.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/portofolio-01/components/list.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/blocks/portofolio-01/main.tsx")),
+      source: "__registry__/default/blocks/portofolio-01/main.tsx",
+      meta: undefined,
+    },
     "utils": {
       name: "utils",
       description: "",

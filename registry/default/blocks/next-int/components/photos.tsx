@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Marquee } from "../../components/marquee";
+import { Marquee } from "./marquee";
 import { cn } from "@/lib/utils";
 
 import React from "react";

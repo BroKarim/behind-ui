@@ -4,12 +4,12 @@ import { ThemeCustomizer } from "@/components/theme-customizer";
 import { BlockDisplay } from "@/components/registry/component-display";
 import "/public/registry/theme.css";
 
-const FEATURED_BLOCKS = ["nextint", "biophilic-01"];
+const FEATURED_BLOCKS = ["nextint", "portofolio-01"];
 
 export default async function IndexPage() {
   return (
     <>
-      <main className="relative flex h-screen overflow-hidden p-0">
+      <main className="relative flex h-screen  py-10">
         <div className="hidden h-screen shrink-0 flex-col gap-2 overflow-y-auto md:flex md:w-[300px] lg:w-[400px]">
           <div className="sticky top-0 z-30 flex h-fit w-full flex-col items-center gap-2 border-b bg-background p-2 sm:static ">
             <h1 className="w-full font-bold">UI Customizer</h1>

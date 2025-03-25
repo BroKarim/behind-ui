@@ -1,12 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import {
-  Drawer,
-  DrawerTrigger,
-  DrawerContent,
-  DrawerClose,
-} from "../../components/drawer";
+import { Drawer, DrawerTrigger, DrawerContent, DrawerClose } from "./drawer";
 import React from "react";
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
