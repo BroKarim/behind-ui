@@ -27,34 +27,7 @@ export const Index: Record<string, any> = {
         type: "registry:component",
         target: ""
       }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/blocks/next-int/main.tsx")),
-      source: "__registry__/default/blocks/next-int/main.tsx",
-      meta: undefined,
-    },
-    "nextint-02": {
-      name: "nextint-02",
-      description: "A simple sidebar with navigation grouped by section.",
-      type: "registry:block",
-      registryDependencies: ["nav","lang-switch","photos"],
-      files: [{
-        path: "registry/default/blocks/next-int/main.tsx",
-        type: "registry:page",
-        target: "app/main.tsx"
-      },{
-        path: "registry/default/blocks/next-int/components/navbar.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/default/blocks/next-int/components/lang-switch.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/default/blocks/next-int/components/photos.tsx",
-        type: "registry:component",
-        target: ""
-      }],
-      categories: undefined,
+      categories: ["startup"],
       component: React.lazy(() => import("@/registry/default/blocks/next-int/main.tsx")),
       source: "__registry__/default/blocks/next-int/main.tsx",
       meta: undefined,
@@ -81,7 +54,7 @@ export const Index: Record<string, any> = {
         type: "registry:component",
         target: ""
       }],
-      categories: undefined,
+      categories: ["portofolio"],
       component: React.lazy(() => import("@/registry/default/blocks/portofolio-01/main.tsx")),
       source: "__registry__/default/blocks/portofolio-01/main.tsx",
       meta: undefined,

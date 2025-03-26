@@ -9,4 +9,9 @@ export const registryCategories = [
     slug: "components",
     hidden: true,
   },
+  {
+    name: "Portofolio",
+    slug: "portofolio",
+    hidden: true,
+  },
 ];
