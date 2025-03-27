@@ -12,7 +12,7 @@ export default async function AppLayout({ children }: AppLayoutProps) {
   return (
     <>
       <SiteHeader />
-      <main className="no-scrollbar relative flex h-screen overflow-x-hidden ">
+      <main className="no-scrollbar relative flex h-screen overflow-hidden ">
         <div className="hidden h-screen shrink-0 flex-col gap-2 overflow-y-auto md:flex md:w-[300px] lg:w-[400px]">
           <div className="sticky top-0 z-30 flex h-fit w-full flex-col items-center gap-2 border-b bg-background p-2 sm:static ">
             <h1 className="w-full font-bold">UI Customizer</h1>
@@ -25,9 +25,9 @@ export default async function AppLayout({ children }: AppLayoutProps) {
         {/* Main Content */}
         <div className="relative flex w-full flex-col border-l px-4 md:w-[calc(100%-300px)] md:px-6 lg:w-[calc(100%-400px)]">
           {" "}
-          <div id="blocks" className="border-grid scroll-mt-24 border-b">
+          <div id="blocks" className="border-grid mb-2 scroll-mt-24 border-b">
             <div className="container-wrapper">
-              <div className="container flex items-center py-4">
+              <div className=" flex items-center px-0 py-4">
                 <BlocksNav />
               </div>
             </div>

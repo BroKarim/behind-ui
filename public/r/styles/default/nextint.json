@@ -34,5 +34,8 @@
       "type": "registry:component",
       "target": ""
     }
+  ],
+  "categories": [
+    "startup"
   ]
 }

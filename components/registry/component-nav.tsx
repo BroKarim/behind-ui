@@ -13,9 +13,9 @@ export function BlocksNav() {
     <div className="relative overflow-hidden">
       <ScrollArea className="max-w-none">
         <div className="flex items-center">
-          <BlocksNavLink category={{ name: "Featured", slug: "", hidden: false }} isActive={pathname === "/blocks"} />
+          <BlocksNavLink category={{ name: "Featured", slug: "", hidden: false }} isActive={pathname === "/"} />
           {registryCategories.map((category) => (
-            <BlocksNavLink key={category.slug} category={category} isActive={pathname === `/blocks/${category.slug}`} />
+            <BlocksNavLink key={category.slug} category={category} isActive={pathname === `/${category.slug}`} />
           ))}
         </div>
         <ScrollBar orientation="horizontal" className="invisible" />
