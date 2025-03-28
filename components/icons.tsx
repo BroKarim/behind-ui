@@ -116,6 +116,16 @@ export const Icons = {
       ></path>
     </svg>
   ),
+  Xicon: (props: IconProps) => (
+    <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path
+        clip-rule="evenodd"
+        d="m15.9455 23-5.5495-7.9099-6.94714 7.9099h-2.939094l8.582324-9.7689-8.582324-12.2311h7.545944l5.23029 7.45502 6.5533-7.45502h2.9391l-8.1841 9.3165 8.8971 12.6835zm3.273-2.23h-1.9787l-12.52169-17.54h1.97899l5.015 7.0232.8672 1.2187z"
+        fill="#242e36"
+        fill-rule="evenodd"
+      />
+    </svg>
+  ),
   radix: (props: IconProps) => (
     <svg viewBox="0 0 25 25" fill="none" {...props}>
       <path d="M12 25C7.58173 25 4 21.4183 4 17C4 12.5817 7.58173 9 12 9V25Z" fill="currentcolor"></path>

@@ -26,7 +26,6 @@ export function ThemeCustomizer() {
     setMounted(true);
   }, []);
 
-
   return (
     <>
       <div className="w-full">
@@ -48,12 +47,6 @@ function Customizer() {
 
   return (
     <ThemeWrapper defaultTheme="zinc" className="flex flex-col space-y-4 md:space-y-6">
-      <div className="flex items-start pt-4 md:pt-0">
-        <div className="space-y-1 pr-2">
-          <div className="font-semibold leading-none tracking-tight">Theme Customizer</div>
-          <div className="text-xs text-muted-foreground">Customize your components colors.</div>
-        </div>
-      </div>
       <div className="flex flex-1 flex-col space-y-4 md:space-y-6">
         {/* Mode opt */}
         <div className="space-y-4">

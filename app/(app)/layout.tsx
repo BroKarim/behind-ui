@@ -14,9 +14,9 @@ export default async function AppLayout({ children }: AppLayoutProps) {
       <SiteHeader />
       <main className="no-scrollbar relative flex h-screen overflow-hidden ">
         <div className="hidden h-screen shrink-0 flex-col gap-2 overflow-y-auto md:flex md:w-[300px] lg:w-[400px]">
-          <div className="sticky top-0 z-30 flex h-fit w-full flex-col items-center gap-2 border-b bg-background p-2 sm:static ">
-            <h1 className="w-full font-bold">UI Customizer</h1>
-            <p className="w-full ">Hit the spacebar, enter a hex code, or tweak the HSL or OKLCH values to create your custom color scale.</p>
+          <div className="sticky top-0 z-30 flex h-fit w-full flex-col items-center gap-2 border-b bg-background p-2 px-4 sm:static ">
+            <h1 className="w-full font-bold">Customizer</h1>
+            <p className="w-full ">Designed for effortless use—just copy and paste! Make your work with ShadCN and Tailwind faster, cleaner, and visually stunning.</p>
           </div>
           <ScrollArea className="h-full w-full flex-1 p-4">
             <ThemeCustomizer />
@@ -25,12 +25,8 @@ export default async function AppLayout({ children }: AppLayoutProps) {
         {/* Main Content */}
         <div className="relative flex w-full flex-col border-l px-4 md:w-[calc(100%-300px)] md:px-6 lg:w-[calc(100%-400px)]">
           {" "}
-          <div id="blocks" className="border-grid mb-2 scroll-mt-24 border-b">
-            <div className="container-wrapper">
-              <div className=" flex items-center px-0 py-4">
-                <BlocksNav />
-              </div>
-            </div>
+          <div className=" flex w-full items-center justify-center px-0 py-4">
+            <BlocksNav />
           </div>
           <ScrollArea className="h-full w-full ">
             <div className=" flex w-full flex-col items-start gap-2 py-4 md:py-10 lg:py-0">

@@ -116,6 +116,10 @@
   .step {
     counter-increment: step;
   }
+  .bg-dashed {
+    background-image: linear-gradient(45deg, #e5e5e5 12.5%, transparent 12.5%, transparent 50%, #e5e5e5 50%, #e5e5e5 62.5%, transparent 62.5%, transparent 100%);
+    background-size: 0.25rem 0.25rem;
+  }
 
   .step:before {
     @apply md:absolute w-8 h-8 md:w-9 md:h-9 bg-muted rounded-full font-mono font-medium text-center text-base inline-flex items-center justify-center -indent-px border-4 mr-2 border-background;

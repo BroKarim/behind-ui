@@ -1,0 +1,72 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tool-01",
+  "type": "registry:block",
+  "author": "shadcn (https://ui.shadcn.com)",
+  "description": "A simple sidebar with navigation grouped by section.",
+  "registryDependencies": [
+    "banner",
+    "colorfulButton",
+    "githubButton",
+    "openSource"
+  ],
+  "files": [
+    {
+      "path": "blocks/tool-01/main.tsx",
+      "content": "import { Header } from \"./components/header\";\nimport { Banner } from \"./components/banner\";\nimport { Review } from \"./components/review\";\nimport { OpenSource } from \"./components/open-source\";\n\nexport default function HomeLayout() {\n  return (\n    <div className=\"flex flex-col \">\n      <div className=\"container mx-auto border-x\">\n        <Header />\n        <div className=\"divide-y\">\n          <Banner />\n          <div className=\"grid divide-y sm:grid-cols-3 sm:divide-x sm:divide-y-0\">\n            <div className=\"sm:col-span-2\">\n              <Review />\n            </div>\n            <div className=\"sm:col-span-1\">\n              <OpenSource />\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:page",
+      "target": "app/main.tsx"
+    },
+    {
+      "path": "blocks/tool-01/components/header.tsx",
+      "content": "import Link from \"next/link\";\nimport { GitHubButton } from \"./github-button\";\nimport { ButtonColorful } from \"./colorful-button\";\nimport Logo from \"./logo.svg\";\nimport { Icons } from \"@/components/icons\";\n\nconst links = [\n  {\n    label: \"Home\",\n    href: \"/#\",\n  },\n  {\n    label: \"Apps\",\n    href: \"/#apps\",\n  },\n  {\n    label: \"Features\",\n    href: \"/#features\",\n  },\n  {\n    label: \"Community\",\n    href: \"/#community\",\n  },\n];\n\nexport const Header = () => (\n  <div className=\"sticky top-0 z-50 w-full border-b  backdrop-blur-sm\">\n    <div className=\"container mx-auto flex items-center justify-between px-8 py-2\">\n      <div className=\"flex items-center gap-8\">\n        <Link href=\"/\" className=\"flex py-1 items-center gap-2\">\n          <Icons.logo />\n          <p className=\"hidden text-lg font-semibold tracking-tight sm:block\">next-forge</p>\n        </Link>\n        <div className=\"hidden items-center gap-4 text-sm font-medium text-neutral-500 lg:flex\">\n          {links.map((link) => (\n            <Link key={link.href} href={link.href}>\n              {link.label}\n            </Link>\n          ))}\n        </div>\n      </div>\n      <div className=\"flex items-center gap-4\">\n        <GitHubButton />\n        <ButtonColorful />\n      </div>\n    </div>\n  </div>\n);\n",
+      "type": "registry:component",
+      "target": ""
+    },
+    {
+      "path": "blocks/tool-01/components/banner.tsx",
+      "content": "import { ButtonColorful } from \"./colorful-button\";\nimport { Installer } from \"./installer\";\nimport { Button } from \"@/components/ui/button\";\n\nexport const Banner = () => (\n  <section className=\"bg-dashed flex flex-col items-center justify-center gap-6 px-4 py-16 sm:px-16 sm:py-24\">\n    <h1 className=\"max-w-3xl text-center text-4xl font-bold leading-tight tracking-tighter sm:text-5xl md:max-w-4xl md:text-6xl lg:leading-[1.1]\">\n      Production-grade Turborepo template for Next.js apps\n    </h1>\n    <p className=\"max-w-xl text-center text-neutral-600 dark:text-neutral-400 md:max-w-2xl md:text-lg\">\n      A monorepo template designed to have everything you need to build your new\n      SaaS app as thoroughly as possible. Free and open source, forever.\n    </p>\n    <div className=\"mx-auto flex w-full max-w-xl flex-col items-center gap-4 sm:flex-row\">\n      <Installer />\n      <Button>Get started</Button>\n    </div>\n  </section>\n);\n",
+      "type": "registry:component",
+      "target": ""
+    },
+    {
+      "path": "blocks/tool-01/components/colorful-button.tsx",
+      "content": "import { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\nimport { ArrowUpRight } from \"lucide-react\";\n\ninterface ButtonColorfulProps\n  extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  label?: string;\n}\n\nexport function ButtonColorful({\n  className,\n  label = \"Explore Components\",\n  ...props\n}: ButtonColorfulProps) {\n  return (\n    <Button\n      className={cn(\n        \"relative h-10 overflow-hidden px-4\",\n        \"bg-zinc-900 dark:bg-zinc-100\",\n        \"transition-all duration-200\",\n        \"group\",\n        className,\n      )}\n      {...props}\n    >\n      {/* Gradient background effect */}\n      <div\n        className={cn(\n          \"absolute inset-0\",\n          \"bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500\",\n          \"opacity-40 group-hover:opacity-80\",\n          \"blur transition-opacity duration-500\",\n        )}\n      />\n\n      {/* Content */}\n      <div className=\"relative flex items-center justify-center gap-2\">\n        <span className=\"text-white dark:text-zinc-900\">{label}</span>\n        <ArrowUpRight className=\"h-3.5 w-3.5 text-white/90 dark:text-zinc-900/90\" />\n      </div>\n    </Button>\n  );\n}\n",
+      "type": "registry:component",
+      "target": ""
+    },
+    {
+      "path": "blocks/tool-01/components/github-button.tsx",
+      "content": "import { Button } from \"@/components/ui/button\";\nimport { Star } from \"lucide-react\";\n\nfunction GitHubButton() {\n  return (\n    <Button>\n      <Star className=\"-ms-1 me-2 opacity-60\" size={16} strokeWidth={2} aria-hidden=\"true\" />\n      <span className=\"flex items-baseline gap-2\">\n        Star\n        <span className=\"text-xs text-primary-foreground/60\">729</span>\n      </span>\n    </Button>\n  );\n}\n\nexport { GitHubButton };\n",
+      "type": "registry:component",
+      "target": ""
+    },
+    {
+      "path": "blocks/tool-01/components/installer.tsx",
+      "content": "\"use client\";\n\nimport { CopyIcon } from \"lucide-react\";\nimport { toast } from \"sonner\";\n\nconst command = \"npx next-forge@latest init\";\n\nexport const Installer = () => {\n  const handleCopy = () => {\n    navigator.clipboard.writeText(command);\n    toast.success(\"Copied to clipboard\");\n  };\n\n  return (\n    <div className=\"flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded-md border bg-white px-4 py-2 text-sm text-neutral-950 shadow-sm dark:bg-neutral-950 dark:text-white\">\n      <p className=\"pointer-events-none shrink-0 select-none text-neutral-500 dark:text-neutral-400\">\n        $\n      </p>\n      <div className=\"flex-1 truncate text-left font-mono\">{command}</div>\n      <div className=\"flex shrink-0 items-center gap-2\">\n        <button type=\"button\" aria-label=\"Copy\" onClick={handleCopy}>\n          <CopyIcon\n            size={14}\n            className=\"text-neutral-500 dark:text-neutral-400\"\n          />\n        </button>\n      </div>\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": ""
+    },
+    {
+      "path": "blocks/tool-01/components/open-source.tsx",
+      "content": "import { StarIcon } from \"lucide-react\";\nimport { Avatar, AvatarImage } from \"@/components/ui/avatar\";\n\nexport const OpenSource = async () => {\n  return (\n    <div className=\"flex h-full flex-col items-start justify-between gap-4 p-8\">\n      <div className=\"flex flex-col gap-4\">\n        <div className=\"flex items-center gap-2 text-neutral-500\">\n          <StarIcon size={14} />\n          <small>Open source</small>\n        </div>\n        <p className=\"text-xl font-semibold tracking-tight\">\n          next-forge currently has <span className=\"text-orange-600\">4000</span>{\" \"}\n          stars, <span className=\"text-orange-600\">1200</span> forks, and{\" \"}\n          <span className=\"text-orange-600\">40</span> open issues and{\" \"}\n          <span className=\"text-orange-600\">20</span> contributors.\n        </p>\n        <div className=\"flex -space-x-3 *:ring *:ring-background\">\n          <Avatar>\n            <AvatarImage src=\"https://mynaui.com/avatars/avatar-01.jpg\" />\n          </Avatar>\n          <Avatar>\n            <AvatarImage src=\"https://mynaui.com//avatars/avatar-02.jpg\" />\n          </Avatar>\n          <Avatar>\n            <AvatarImage src=\"https://mynaui.com//avatars/avatar-03.jpg\" />\n          </Avatar>\n        </div>\n      </div>\n      <a\n        href=\"https://github.com/haydenbleasel/next-forge\"\n        className=\"inline-flex rounded-md border bg-white px-4 py-2 text-sm font-medium shadow-sm\"\n      >\n        Browse the source code\n      </a>\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": ""
+    },
+    {
+      "path": "blocks/tool-01/components/review.tsx",
+      "content": "import { MessageCircleIcon } from \"lucide-react\";\nimport Image from \"next/image\";\n\nimport { Icons } from \"@/components/icons\";\n\nexport const Review = () => (\n  <section className=\"flex flex-col gap-8 p-8\">\n    <div className=\"flex items-center gap-2 text-neutral-500\">\n      <MessageCircleIcon size={14} />\n      <small>Nice words</small>\n    </div>\n    <p className=\"text-xl font-semibold tracking-tight sm:text-2xl\">\n      &ldquo;A production-grade, monorepo-first, full stack Next.js template. Very thoughtfully engineered and documented. Covers auth, DB & ORM, payments, docs, blog, o11y, analytics, emails, and even feature flags & dark mode.&rdquo;\n    </p>\n    <div className=\"space-between flex items-center justify-between gap-4\">\n      <div className=\"flex items-center gap-2\">\n        <div className=\"flex items-center -space-x-1\">\n          <Image className=\"rounded-full ring-1 ring-background\" src=\"https://github.com/shadcn.png\" width={24} height={24} alt=\"Avatar 01\" />\n        </div>\n        <p className=\"text-sm text-neutral-500\">\n          <span className=\"font-medium\">Max Bosh</span>, CEO of Nothing\n        </p>\n      </div>\n      <a href=\"https://x.com/rauchg/status/1853171412766466119\" target=\"_blank\" rel=\"noopener noreferrer\">\n        <Icons.Xicon />\n      </a>\n    </div>\n  </section>\n);\n",
+      "type": "registry:component",
+      "target": ""
+    },
+    {
+      "path": "blocks/tool-01/style/style.css",
+      "content": ".bg-dashed {\n  background-image: linear-gradient(45deg, #e5e5e5 12.5%, transparent 12.5%, transparent 50%, #e5e5e5 50%, #e5e5e5 62.5%, transparent 62.5%, transparent 100%);\n  background-size: 0.25rem 0.25rem;\n}\n",
+      "type": "registry:component",
+      "target": ""
+    }
+  ],
+  "categories": [
+    "tool"
+  ]
+}
