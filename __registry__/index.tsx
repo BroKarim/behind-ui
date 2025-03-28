@@ -53,10 +53,61 @@ export const Index: Record<string, any> = {
         path: "registry/default/blocks/portofolio-01/components/list.tsx",
         type: "registry:component",
         target: ""
+      },{
+        path: "registry/default/blocks/portofolio-01/contents/projects.ts",
+        type: "registry:component",
+        target: ""
       }],
       categories: ["portofolio"],
       component: React.lazy(() => import("@/registry/default/blocks/portofolio-01/main.tsx")),
       source: "__registry__/default/blocks/portofolio-01/main.tsx",
+      meta: undefined,
+    },
+    "tool-01": {
+      name: "tool-01",
+      description: "A simple sidebar with navigation grouped by section.",
+      type: "registry:block",
+      registryDependencies: ["banner","colorfulButton","githubButton","openSource"],
+      files: [{
+        path: "registry/default/blocks/tool-01/main.tsx",
+        type: "registry:page",
+        target: "app/main.tsx"
+      },{
+        path: "registry/default/blocks/tool-01/components/header.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/tool-01/components/banner.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/tool-01/components/colorful-button.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/tool-01/components/github-button.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/tool-01/components/installer.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/tool-01/components/open-source.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/tool-01/components/review.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/tool-01/style/style.css",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["tool"],
+      component: React.lazy(() => import("@/registry/default/blocks/tool-01/main.tsx")),
+      source: "__registry__/default/blocks/tool-01/main.tsx",
       meta: undefined,
     },
     "utils": {
