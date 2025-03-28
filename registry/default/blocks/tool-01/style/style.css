@@ -1,0 +1,4 @@
+.bg-dashed {
+  background-image: linear-gradient(45deg, #e5e5e5 12.5%, transparent 12.5%, transparent 50%, #e5e5e5 50%, #e5e5e5 62.5%, transparent 62.5%, transparent 100%);
+  background-size: 0.25rem 0.25rem;
+}

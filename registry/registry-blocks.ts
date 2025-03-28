@@ -51,7 +51,62 @@ export const blocks: Registry["items"] = [
         path: "blocks/portofolio-01/components/list.tsx",
         type: "registry:component",
       },
+      {
+        path: "blocks/portofolio-01/contents/projects.ts",
+        type: "registry:component",
+      },
     ],
     categories: ["portofolio"],
+  },
+  {
+    name: "tool-01",
+    type: "registry:block",
+    description: "A simple sidebar with navigation grouped by section.",
+    registryDependencies: [
+      "banner",
+      "colorfulButton",
+      "githubButton",
+      "openSource",
+    ],
+    files: [
+      {
+        path: "blocks/tool-01/main.tsx",
+        type: "registry:page",
+        target: "app/main.tsx",
+      },
+      {
+        path: "blocks/tool-01/components/header.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/tool-01/components/banner.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/tool-01/components/colorful-button.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/tool-01/components/github-button.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/tool-01/components/installer.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/tool-01/components/open-source.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/tool-01/components/review.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/tool-01/style/style.css",
+        type: "registry:component",
+      },
+    ],
+    categories: ["tool"],
   },
 ];

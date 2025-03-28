@@ -9,7 +9,8 @@ export const projects: Project[] = [
   {
     title: "dotUI",
     hint: "creator, maintainer",
-    description: "Collection of accessible, mobile-friendly, modern components.",
+    description:
+      "Collection of accessible, mobile-friendly, modern components.",
     href: "https://dotui.org",
   },
   {

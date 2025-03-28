@@ -22,7 +22,8 @@ export default function HomeLayout() {
               <Link href="https://dotui.org" target="_blank">
                 dotUI
               </Link>
-              .<br />I like building accessible, polished, and modern user interfaces.
+              .<br />I like building accessible, polished, and modern user
+              interfaces.
             </p>
           </Item>
           <Item>
