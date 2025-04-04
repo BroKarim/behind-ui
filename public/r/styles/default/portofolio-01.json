@@ -37,8 +37,8 @@
     {
       "path": "blocks/portofolio-01/contents/projects.ts",
       "content": "type Project = {\n  title: string;\n  hint: string;\n  description: string;\n  href: string;\n};\n\nexport const projects: Project[] = [\n  {\n    title: \"dotUI\",\n    hint: \"creator, maintainer\",\n    description:\n      \"Collection of accessible, mobile-friendly, modern components.\",\n    href: \"https://dotui.org\",\n  },\n  {\n    title: \"Notionfolio\",\n    hint: \"creator\",\n    description: \"SaaS to create blogs with Notion.\",\n    href: \"https://notionfol.io\",\n  },\n  {\n    title: \"Palettify\",\n    hint: \"creator\",\n    description: \"Platform to create and share color themes.\",\n    href: \"https://palettify.co\",\n  },\n  {\n    title: \"Vapi\",\n    hint: \"creator\",\n    description: \"Marketplace for vape related products.\",\n    href: \"https://vapi.tn\",\n  },\n];\n",
-      "type": "registry:component",
-      "target": ""
+      "type": "registry:file",
+      "target": "app/data.ts"
     }
   ],
   "categories": [

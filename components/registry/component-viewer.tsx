@@ -151,8 +151,6 @@ function BlockViewerView() {
 
   if (!item || !item.files) return null;
 
-  
-
   return (
     <div className="group-data-[view=code]/block-view-wrapper:hidden md:h-[--height]">
       <div className="grid w-full gap-4">
@@ -173,7 +171,7 @@ function BlockViewerCode() {
   // console.log("Highlighted Files:", highlightedFiles);
   // console.log("Active File:", activeFile);
   const file = React.useMemo(() => {
-    return highlightedFiles?.find((file) => file.path === activeFile) || highlightedFiles?.[0];
+    return highlightedFiles?.find((file) => file.target === activeFile) || highlightedFiles?.[0];
   }, [highlightedFiles, activeFile]);
 
   if (!file) {
@@ -189,7 +187,7 @@ function BlockViewerCode() {
       <div className="flex min-w-0 flex-1 flex-col">
         <div className="flex h-12 w-full items-center justify-between gap-2 border-b border-zinc-700 bg-zinc-900 px-4 text-sm font-medium">
           <File className="size-4" />
-          {file.path}
+          {file.target}
           <div className="ml-auto flex items-center gap-2 ">
             <BlockCopyCodeButton />
           </div>
@@ -289,7 +287,7 @@ function BlockCopyCodeButton() {
   const { copyToClipboard, isCopied } = useCopyToClipboard();
 
   const file = React.useMemo(() => {
-    return item.files?.find((file) => file.path === activeFile);
+    return item.files?.find((file) => file.target === activeFile);
   }, [activeFile, item.files]);
 
   const content = file?.content;
@@ -307,7 +305,7 @@ function BlockCopyCodeButton() {
       onClick={() => {
         copyToClipboard(content);
         trackEvent({
-          name: "copy_source_code",
+          name: "copy_block_code",
           properties: {
             name: item.name,
             file: file.path,

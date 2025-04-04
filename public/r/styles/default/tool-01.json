@@ -18,8 +18,14 @@
       "target": "app/main.tsx"
     },
     {
+      "path": "blocks/tool-01/style/style.css",
+      "content": ".bg-dashed {\n  background-image: linear-gradient(45deg, #e5e5e5 12.5%, transparent 12.5%, transparent 50%, #e5e5e5 50%, #e5e5e5 62.5%, transparent 62.5%, transparent 100%);\n  background-size: 0.25rem 0.25rem;\n}\n",
+      "type": "registry:page",
+      "target": "app/style.css"
+    },
+    {
       "path": "blocks/tool-01/components/header.tsx",
-      "content": "import Link from \"next/link\";\nimport { GitHubButton } from \"./github-button\";\nimport { ButtonColorful } from \"./colorful-button\";\nimport Logo from \"./logo.svg\";\nimport { Icons } from \"@/components/icons\";\n\nconst links = [\n  {\n    label: \"Home\",\n    href: \"/#\",\n  },\n  {\n    label: \"Apps\",\n    href: \"/#apps\",\n  },\n  {\n    label: \"Features\",\n    href: \"/#features\",\n  },\n  {\n    label: \"Community\",\n    href: \"/#community\",\n  },\n];\n\nexport const Header = () => (\n  <div className=\"sticky top-0 z-50 w-full border-b  backdrop-blur-sm\">\n    <div className=\"container mx-auto flex items-center justify-between px-8 py-2\">\n      <div className=\"flex items-center gap-8\">\n        <Link href=\"/\" className=\"flex py-1 items-center gap-2\">\n          <Icons.logo />\n          <p className=\"hidden text-lg font-semibold tracking-tight sm:block\">next-forge</p>\n        </Link>\n        <div className=\"hidden items-center gap-4 text-sm font-medium text-neutral-500 lg:flex\">\n          {links.map((link) => (\n            <Link key={link.href} href={link.href}>\n              {link.label}\n            </Link>\n          ))}\n        </div>\n      </div>\n      <div className=\"flex items-center gap-4\">\n        <GitHubButton />\n        <ButtonColorful />\n      </div>\n    </div>\n  </div>\n);\n",
+      "content": "import Link from \"next/link\";\nimport { GitHubButton } from \"./github-button\";\nimport { ButtonColorful } from \"./colorful-button\";\nimport Logo from \"./logo.svg\";\nimport { Icons } from \"@/components/icons\";\n\nconst links = [\n  {\n    label: \"Home\",\n    href: \"/#\",\n  },\n  {\n    label: \"Apps\",\n    href: \"/#apps\",\n  },\n  {\n    label: \"Features\",\n    href: \"/#features\",\n  },\n  {\n    label: \"Community\",\n    href: \"/#community\",\n  },\n];\n\nexport const Header = () => (\n  <div className=\"sticky top-0 z-50 w-full border-b  backdrop-blur-sm\">\n    <div className=\"container mx-auto flex items-center justify-between px-8 py-2\">\n      <div className=\"flex items-center gap-8\">\n        <Link href=\"/\" className=\"flex py-1 items-center gap-2\">\n          <Icons.logo />\n          <p className=\"hidden text-lg font-semibold tracking-tight sm:block\">\n            next-forge\n          </p>\n        </Link>\n        <div className=\"hidden items-center gap-4 text-sm font-medium text-neutral-500 lg:flex\">\n          {links.map((link) => (\n            <Link key={link.href} href={link.href}>\n              {link.label}\n            </Link>\n          ))}\n        </div>\n      </div>\n      <div className=\"flex items-center gap-4\">\n        <GitHubButton />\n        <ButtonColorful />\n      </div>\n    </div>\n  </div>\n);\n",
       "type": "registry:component",
       "target": ""
     },
@@ -37,7 +43,7 @@
     },
     {
       "path": "blocks/tool-01/components/github-button.tsx",
-      "content": "import { Button } from \"@/components/ui/button\";\nimport { Star } from \"lucide-react\";\n\nfunction GitHubButton() {\n  return (\n    <Button>\n      <Star className=\"-ms-1 me-2 opacity-60\" size={16} strokeWidth={2} aria-hidden=\"true\" />\n      <span className=\"flex items-baseline gap-2\">\n        Star\n        <span className=\"text-xs text-primary-foreground/60\">729</span>\n      </span>\n    </Button>\n  );\n}\n\nexport { GitHubButton };\n",
+      "content": "import { Button } from \"@/components/ui/button\";\nimport { Star } from \"lucide-react\";\n\nfunction GitHubButton() {\n  return (\n    <Button>\n      <Star\n        className=\"-ms-1 me-2 opacity-60\"\n        size={16}\n        strokeWidth={2}\n        aria-hidden=\"true\"\n      />\n      <span className=\"flex items-baseline gap-2\">\n        Star\n        <span className=\"text-xs text-primary-foreground/60\">729</span>\n      </span>\n    </Button>\n  );\n}\n\nexport { GitHubButton };\n",
       "type": "registry:component",
       "target": ""
     },
@@ -55,13 +61,7 @@
     },
     {
       "path": "blocks/tool-01/components/review.tsx",
-      "content": "import { MessageCircleIcon } from \"lucide-react\";\nimport Image from \"next/image\";\n\nimport { Icons } from \"@/components/icons\";\n\nexport const Review = () => (\n  <section className=\"flex flex-col gap-8 p-8\">\n    <div className=\"flex items-center gap-2 text-neutral-500\">\n      <MessageCircleIcon size={14} />\n      <small>Nice words</small>\n    </div>\n    <p className=\"text-xl font-semibold tracking-tight sm:text-2xl\">\n      &ldquo;A production-grade, monorepo-first, full stack Next.js template. Very thoughtfully engineered and documented. Covers auth, DB & ORM, payments, docs, blog, o11y, analytics, emails, and even feature flags & dark mode.&rdquo;\n    </p>\n    <div className=\"space-between flex items-center justify-between gap-4\">\n      <div className=\"flex items-center gap-2\">\n        <div className=\"flex items-center -space-x-1\">\n          <Image className=\"rounded-full ring-1 ring-background\" src=\"https://github.com/shadcn.png\" width={24} height={24} alt=\"Avatar 01\" />\n        </div>\n        <p className=\"text-sm text-neutral-500\">\n          <span className=\"font-medium\">Max Bosh</span>, CEO of Nothing\n        </p>\n      </div>\n      <a href=\"https://x.com/rauchg/status/1853171412766466119\" target=\"_blank\" rel=\"noopener noreferrer\">\n        <Icons.Xicon />\n      </a>\n    </div>\n  </section>\n);\n",
-      "type": "registry:component",
-      "target": ""
-    },
-    {
-      "path": "blocks/tool-01/style/style.css",
-      "content": ".bg-dashed {\n  background-image: linear-gradient(45deg, #e5e5e5 12.5%, transparent 12.5%, transparent 50%, #e5e5e5 50%, #e5e5e5 62.5%, transparent 62.5%, transparent 100%);\n  background-size: 0.25rem 0.25rem;\n}\n",
+      "content": "import { MessageCircleIcon } from \"lucide-react\";\nimport Image from \"next/image\";\n\nimport { Icons } from \"@/components/icons\";\n\nexport const Review = () => (\n  <section className=\"flex flex-col gap-8 p-8\">\n    <div className=\"flex items-center gap-2 text-neutral-500\">\n      <MessageCircleIcon size={14} />\n      <small>Nice words</small>\n    </div>\n    <p className=\"text-xl font-semibold tracking-tight sm:text-2xl\">\n      &ldquo;A production-grade, monorepo-first, full stack Next.js template.\n      Very thoughtfully engineered and documented. Covers auth, DB & ORM,\n      payments, docs, blog, o11y, analytics, emails, and even feature flags &\n      dark mode.&rdquo;\n    </p>\n    <div className=\"space-between flex items-center justify-between gap-4\">\n      <div className=\"flex items-center gap-2\">\n        <div className=\"flex items-center -space-x-1\">\n          <Image\n            className=\"rounded-full ring-1 ring-background\"\n            src=\"https://github.com/shadcn.png\"\n            width={24}\n            height={24}\n            alt=\"Avatar 01\"\n          />\n        </div>\n        <p className=\"text-sm text-neutral-500\">\n          <span className=\"font-medium\">Max Bosh</span>, CEO of Nothing\n        </p>\n      </div>\n      <a\n        href=\"https://x.com/rauchg/status/1853171412766466119\"\n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n      >\n        <Icons.Xicon />\n      </a>\n    </div>\n  </section>\n);\n",
       "type": "registry:component",
       "target": ""
     }

@@ -1,5 +1,4 @@
 // utils/registry-utils.ts
-import { examples } from "@/registry/registry-examples";
 import { promises as fs } from "fs";
 import { tmpdir } from "os";
 import path from "path";
@@ -158,7 +157,51 @@ export function fixImport(content: string) {
   return content.replace(regex, replacement);
 }
 
-function getFileTarget(file: z.infer<typeof registryItemFileSchema>) {}
+// function getFileTarget(file: z.infer<typeof registryItemFileSchema>) {
+//   let target = file.target;
+
+//   if (!target || target === "") {
+//     const fileName = file.path.split("/").pop();
+//     if (file.type === "registry:page" || file.type === "registry:file") {
+//       target = `app/${fileName}`;
+//     }
+//     // Penanganan untuk tipe lainnya
+//     else if (file.type === "registry:block" || file.type === "registry:component") {
+//       target = `components/${fileName}`;
+//     }
+//   }
+
+//   return target ?? "";
+// }
+
+function getFileTarget(file: z.infer<typeof registryItemFileSchema>) {
+  let target = file.target;
+
+  if (!target || target === "") {
+    const fileName = file.path.split("/").pop();
+    if (file.type === "registry:page" || file.type === "registry:file") {
+      target = `app/${fileName}`;
+    }
+    // Penanganan untuk tipe lainnya
+    else if (file.type === "registry:block" || file.type === "registry:component") {
+      target = `components/${fileName}`;
+    }
+
+    if (file.type === "registry:ui") {
+      target = `components/ui/${fileName}`;
+    }
+
+    if (file.type === "registry:hook") {
+      target = `hooks/${fileName}`;
+    }
+
+    if (file.type === "registry:lib") {
+      target = `lib/${fileName}`;
+    }
+  }
+
+  return target ?? "";
+}
 
 export type FileTree = {
   name: string;

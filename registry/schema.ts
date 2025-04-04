@@ -15,7 +15,7 @@ export const registryItemTypeSchema = z.enum([
   "registry:style",
   "registry:internal",
 ]);
-export const registryItemFileSchema = z.union([
+export const registryItemFileSchema = z.discriminatedUnion("type", [
   // Target is required for registry:file and registry:page
   z.object({
     path: z.string(),
@@ -26,7 +26,7 @@ export const registryItemFileSchema = z.union([
   z.object({
     path: z.string(),
     content: z.string().optional(),
-    type: registryItemTypeSchema,
+    type: registryItemTypeSchema.exclude(["registry:file", "registry:page"]),
     target: z.string().optional(),
   }),
 ]);
