@@ -7,7 +7,6 @@ import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { MainNav } from "./main-nav";
-import EmailCopy from "./email-copy";
 
 export function SiteHeader() {
   return (
@@ -16,7 +15,6 @@ export function SiteHeader() {
         <MainNav />
         <MobileNav />
         <div className="flex items-center justify-between gap-2 md:flex-1 md:justify-end">
-          <EmailCopy />
           <nav className="flex items-center gap-1">
             <Link href={siteConfig.links.instagram} target="_blank" rel="noreferrer">
               <div
