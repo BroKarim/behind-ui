@@ -11,9 +11,9 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["nav","lang-switch","photos"],
       files: [{
-        path: "registry/default/blocks/next-int/main.tsx",
+        path: "registry/default/blocks/next-int/page.tsx",
         type: "registry:page",
-        target: "app/main.tsx"
+        target: "app/page.tsx"
       },{
         path: "registry/default/blocks/next-int/components/navbar.tsx",
         type: "registry:component",
@@ -28,8 +28,8 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       categories: ["startup"],
-      component: React.lazy(() => import("@/registry/default/blocks/next-int/main.tsx")),
-      source: "__registry__/default/blocks/next-int/main.tsx",
+      component: React.lazy(() => import("@/registry/default/blocks/next-int/page.tsx")),
+      source: "__registry__/default/blocks/next-int/page.tsx",
       meta: undefined,
     },
     "portofolio-01": {
@@ -55,8 +55,8 @@ export const Index: Record<string, any> = {
         target: ""
       },{
         path: "registry/default/blocks/portofolio-01/contents/projects.ts",
-        type: "registry:component",
-        target: ""
+        type: "registry:file",
+        target: "app/data.ts"
       }],
       categories: ["portofolio"],
       component: React.lazy(() => import("@/registry/default/blocks/portofolio-01/main.tsx")),
@@ -72,6 +72,10 @@ export const Index: Record<string, any> = {
         path: "registry/default/blocks/tool-01/main.tsx",
         type: "registry:page",
         target: "app/main.tsx"
+      },{
+        path: "registry/default/blocks/tool-01/style/style.css",
+        type: "registry:page",
+        target: "app/style.css"
       },{
         path: "registry/default/blocks/tool-01/components/header.tsx",
         type: "registry:component",
@@ -98,10 +102,6 @@ export const Index: Record<string, any> = {
         target: ""
       },{
         path: "registry/default/blocks/tool-01/components/review.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/default/blocks/tool-01/style/style.css",
         type: "registry:component",
         target: ""
       }],

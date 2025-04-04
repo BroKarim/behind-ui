@@ -29,9 +29,7 @@ export const Header = () => (
       <div className="flex items-center gap-8">
         <Link href="/" className="flex py-1 items-center gap-2">
           <Icons.logo />
-          <p className="hidden text-lg font-semibold tracking-tight sm:block">
-            next-forge
-          </p>
+          <p className="hidden text-lg font-semibold tracking-tight sm:block">next-forge</p>
         </Link>
         <div className="hidden items-center gap-4 text-sm font-medium text-neutral-500 lg:flex">
           {links.map((link) => (
