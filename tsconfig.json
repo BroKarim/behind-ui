@@ -21,12 +21,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"],
-      "@/components/magicui/*": ["./registry/default/magicui/*"],
-      "@/components/example/*": ["registry/default/blocks/*"],
-      "content-collections": ["./.content-collections/generated"]
+      "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".content-colletions/generated", "content/docs/components/tirana.mdx", "content/docs/components/next-int.mdx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules", "scripts/**/*", "scripts/build-registry.ts", "__registry__"]
 }
