@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Link } from "next-view-transitions";
 import { cn } from "@/lib/utils";
-import { Item } from "./fade-in";
 
 export const List = ({
   items,
@@ -15,13 +14,7 @@ export const List = ({
   return (
     <div className="text-sm">
       {items.map((item, index) => (
-        <Item
-          key={index}
-          onHoverStart={() => {
-            setHoveredIndex(index);
-          }}
-          onHoverEnd={() => setHoveredIndex(null)}
-        >
+        <div key={index}>
           <Link
             href={item.href}
             target={item.href.startsWith("http") ? "_blank" : undefined}
@@ -46,7 +39,7 @@ export const List = ({
               )}
             </div>
           </Link>
-        </Item>
+        </div>
       ))}
     </div>
   );

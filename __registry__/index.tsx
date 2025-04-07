@@ -36,15 +36,11 @@ export const Index: Record<string, any> = {
       name: "portofolio-01",
       description: "A simple sidebar with navigation grouped by section.",
       type: "registry:block",
-      registryDependencies: ["fade-in","footer","list"],
+      registryDependencies: ["footer","list"],
       files: [{
         path: "registry/default/blocks/portofolio-01/main.tsx",
         type: "registry:page",
         target: "app/main.tsx"
-      },{
-        path: "registry/default/blocks/portofolio-01/components/fade-in.tsx",
-        type: "registry:component",
-        target: ""
       },{
         path: "registry/default/blocks/portofolio-01/components/footer.tsx",
         type: "registry:component",

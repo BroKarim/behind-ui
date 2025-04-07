@@ -32,16 +32,12 @@ export const blocks: Registry["items"] = [
     name: "portofolio-01",
     type: "registry:block",
     description: "A simple sidebar with navigation grouped by section.",
-    registryDependencies: ["fade-in", "footer", "list"],
+    registryDependencies: ["footer", "list"],
     files: [
       {
         path: "blocks/portofolio-01/main.tsx",
         type: "registry:page",
         target: "app/main.tsx",
-      },
-      {
-        path: "blocks/portofolio-01/components/fade-in.tsx",
-        type: "registry:component",
       },
       {
         path: "blocks/portofolio-01/components/footer.tsx",
