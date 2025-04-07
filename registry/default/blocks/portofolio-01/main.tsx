@@ -2,6 +2,7 @@ import { List } from "./components/list";
 import Link from "next/link";
 import { Footer } from "./components/footer";
 import { projects } from "./contents/projects";
+import AnimatedBackground from "./components/animated-background";
 
 export default function HomeLayout() {
   return (

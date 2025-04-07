@@ -48,6 +48,10 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
       {
+        path: "blocks/portofolio-01/components/animated-background.tsx",
+        type: "registry:component",
+      },
+      {
         path: "blocks/portofolio-01/contents/projects.ts",
         type: "registry:file",
         target: "app/data.ts",
