@@ -34,7 +34,7 @@ export default function AnimatedBackground({
 
   const handleSetActiveId = (id: string | null) => {
     setActiveId(id);
-
+ 
     if (onValueChange) {
       onValueChange(id);
     }
@@ -62,7 +62,7 @@ export default function AnimatedBackground({
       child,
       {
         key: index,
-        className: cn("relative inline-flex", child.props.className),
+        className: cn("relative ", child.props.className),
         "aria-selected": activeId === id,
         "data-checked": activeId === id ? "true" : "false",
         ...interactionProps,
