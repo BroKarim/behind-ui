@@ -5,9 +5,9 @@ export const siteConfig = {
   description: "Beautiful UI components and templates to make your landing page look stunning.",
   links: {
     twitter: "https://x.com/BroKariim",
-    discord: "https://discord.gg/87p2vpsat5",
     github: "https://github.com/BroKarim",
     instagram: "https://www.instagram.com/brokariim/",
+    threads: "https://www.threads.net/@brokariim",
   },
   keywords: ["React", "Tailwind CSS", "Framer Motion", "Landing Page", "Components", "Next.js"],
 };

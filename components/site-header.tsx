@@ -1,4 +1,3 @@
-import { StarIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 
 import { Icons } from "@/components/icons";
@@ -16,7 +15,7 @@ export function SiteHeader() {
         <MobileNav />
         <div className="flex items-center justify-between gap-2 md:flex-1 md:justify-end">
           <nav className="flex items-center gap-1">
-            <Link href={siteConfig.links.instagram} target="_blank" rel="noreferrer">
+            <Link href={siteConfig.links.threads} target="_blank" rel="noreferrer">
               <div
                 className={cn(
                   buttonVariants({
@@ -25,8 +24,21 @@ export function SiteHeader() {
                   "w-9 px-0"
                 )}
               >
-                <Icons.instagram className="size-4" />
-                <span className="sr-only">Instagram</span>
+                <Icons.thread className="size-4" />
+                <span className="sr-only">Threads</span>
+              </div>
+            </Link>
+            <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
+              <div
+                className={cn(
+                  buttonVariants({
+                    variant: "ghost",
+                  }),
+                  "w-9 px-0"
+                )}
+              >
+                <Icons.gitHub className="size-4" />
+                <span className="sr-only">Github</span>
               </div>
             </Link>
 
@@ -40,7 +52,7 @@ export function SiteHeader() {
                 )}
               >
                 <Icons.twitter className="size-4 fill-current" />
-                <span className="sr-only">Twitter</span>
+                <span className="sr-only">X</span>
               </div>
             </Link>
           </nav>
