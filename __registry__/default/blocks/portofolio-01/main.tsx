@@ -2,6 +2,7 @@ import { List } from "./components/list";
 import Link from "next/link";
 import { Footer } from "./components/footer";
 import { projects } from "./contents/projects";
+import AnimatedBackground from "./components/animated-background";
 
 export default function HomeLayout() {
   return (
@@ -21,7 +22,8 @@ export default function HomeLayout() {
               <Link href="https://dotui.org" target="_blank">
                 dotUI
               </Link>
-              .<br />I like building accessible, polished, and modern user interfaces.
+              .<br />I like building accessible, polished, and modern user
+              interfaces.
             </p>
           </div>
           <div>

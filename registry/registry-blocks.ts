@@ -2,9 +2,9 @@ import { type Registry } from "@/registry/schema";
 
 export const blocks: Registry["items"] = [
   {
-    name: "nextint",
+    name: "hero-01",
     type: "registry:block",
-    description: "A simple sidebar with navigation grouped by section.",
+    description: "Ideal for product designers.",
     registryDependencies: ["nav", "lang-switch", "photos"],
     files: [
       {
@@ -31,7 +31,7 @@ export const blocks: Registry["items"] = [
   {
     name: "portofolio-01",
     type: "registry:block",
-    description: "A simple sidebar with navigation grouped by section.",
+    description: "minimal portfolio template design for professionals.",
     registryDependencies: ["footer", "list"],
     files: [
       {
@@ -60,9 +60,9 @@ export const blocks: Registry["items"] = [
     categories: ["portofolio"],
   },
   {
-    name: "tool-01",
+    name: "hero-02",
     type: "registry:block",
-    description: "A simple sidebar with navigation grouped by section.",
+    description: "Designed for library applications.",
     registryDependencies: [
       "banner",
       "colorfulButton",

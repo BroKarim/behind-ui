@@ -5,9 +5,9 @@ import * as React from "react"
 
 export const Index: Record<string, any> = {
   "default": {
-    "nextint": {
-      name: "nextint",
-      description: "A simple sidebar with navigation grouped by section.",
+    "hero-01": {
+      name: "hero-01",
+      description: "Ideal for product designers.",
       type: "registry:block",
       registryDependencies: ["nav","lang-switch","photos"],
       files: [{
@@ -34,7 +34,7 @@ export const Index: Record<string, any> = {
     },
     "portofolio-01": {
       name: "portofolio-01",
-      description: "A simple sidebar with navigation grouped by section.",
+      description: "minimal portfolio template design for professionals.",
       type: "registry:block",
       registryDependencies: ["footer","list"],
       files: [{
@@ -50,6 +50,10 @@ export const Index: Record<string, any> = {
         type: "registry:component",
         target: ""
       },{
+        path: "registry/default/blocks/portofolio-01/components/animated-background.tsx",
+        type: "registry:component",
+        target: ""
+      },{
         path: "registry/default/blocks/portofolio-01/contents/projects.ts",
         type: "registry:file",
         target: "app/data.ts"
@@ -59,9 +63,9 @@ export const Index: Record<string, any> = {
       source: "__registry__/default/blocks/portofolio-01/main.tsx",
       meta: undefined,
     },
-    "tool-01": {
-      name: "tool-01",
-      description: "A simple sidebar with navigation grouped by section.",
+    "hero-02": {
+      name: "hero-02",
+      description: "Designed for library applications.",
       type: "registry:block",
       registryDependencies: ["banner","colorfulButton","githubButton","openSource"],
       files: [{

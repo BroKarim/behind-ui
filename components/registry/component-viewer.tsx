@@ -156,6 +156,8 @@ function BlockViewerView() {
       <div className="grid w-full gap-4">
         <ResizablePanelGroup direction="horizontal" className="relative z-10">
           <ResizablePanel ref={resizablePanelRef} className="relative aspect-[4/2.5] rounded-xl border bg-background md:aspect-auto" defaultSize={100} minSize={30}>
+            <Image src={`/r/styles/${style}/${item.name}-light.png`} alt={item.name} data-block={item.name} width={1440} height={900} className="object-cover dark:hidden md:hidden md:dark:hidden" />
+            <Image src={`/r/styles/${style}/${item.name}-dark.png`} alt={item.name} data-block={item.name} width={1440} height={900} className="hidden object-cover dark:block md:hidden md:dark:hidden" />
             <iframe src={`/view/styles/${style}/${item.name}`} height={item.meta?.iframeHeight ?? 930} className="relative z-20 hidden w-full bg-background md:block" />
           </ResizablePanel>
           <ResizableHandle className="relative hidden w-3 bg-transparent p-0 after:absolute after:right-0 after:top-1/2 after:h-8 after:w-[6px] after:-translate-y-1/2 after:translate-x-[-1px] after:rounded-full after:bg-border after:transition-all after:hover:h-10 md:block" />
