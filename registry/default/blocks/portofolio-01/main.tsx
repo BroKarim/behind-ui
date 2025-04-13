@@ -4,7 +4,7 @@ import { Footer } from "./components/footer";
 import { projects } from "./contents/projects";
 import AnimatedBackground from "./components/animated-background";
 
-export default function HomeLayout() {
+export default function Layout() {
   return (
     <>
       <div className=" relative z-50 mx-auto flex h-full w-full justify-center px-4 pt-20 text-primary md:h-screen">
