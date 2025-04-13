@@ -13,22 +13,18 @@ export const DEFAULT_REGISTRY_STYLE = "default" satisfies Style["name"];
 const memoizedIndex: typeof Index = Object.fromEntries(Object.entries(Index).map(([style, items]) => [style, { ...items }]));
 
 export function getRegistryComponent(name: string, style: Style["name"] = DEFAULT_REGISTRY_STYLE) {
-  // console.log("Searching for component with name:", name, "and style:", style);
-  // console.log("Available styles:", Object.keys(memoizedIndex));
-  // console.log("Available components in style:", Object.keys(memoizedIndex[style] || {}));
   const component = memoizedIndex[style][name]?.component;
 
   if (!component) {
     console.error(`Component "${name}" not found in registry`);
     return null;
   }
-  console.log("Component found:", component);
+
   return memoizedIndex[style][name]?.component;
 }
 
 export async function getRegistryItem(name: string, style: Style["name"] = DEFAULT_REGISTRY_STYLE) {
   const item = memoizedIndex[style][name];
-  console.log("Fetching Registry Item for:", name);
 
   if (!item) {
     return null;

@@ -170,8 +170,7 @@ function BlockViewerView() {
 
 function BlockViewerCode() {
   const { activeFile, highlightedFiles } = useBlockViewer();
-  // console.log("Highlighted Files:", highlightedFiles);
-  // console.log("Active File:", activeFile);
+
   const file = React.useMemo(() => {
     return highlightedFiles?.find((file) => file.target === activeFile) || highlightedFiles?.[0];
   }, [highlightedFiles, activeFile]);
@@ -293,10 +292,6 @@ function BlockCopyCodeButton() {
   }, [activeFile, item.files]);
 
   const content = file?.content;
-
-  console.log("Active File:", activeFile);
-  console.log("Matched File:", file);
-  console.log("Content:", content);
 
   if (!content) {
     return null;

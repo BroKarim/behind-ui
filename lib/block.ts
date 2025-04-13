@@ -7,10 +7,8 @@ import { Style } from "@/registry/registry-styles";
 
 export async function getAllBlockIds(types: z.infer<typeof registryEntrySchema>["type"][] = ["registry:block", "registry:internal"], categories: string[] = [], style: Style["name"] = "default"): Promise<string[]> {
   const { Index } = await import("@/__registry__");
-  console.log("Before Parsing Index[style]:", Index[style]);
 
   if (!Index[style] || typeof Index[style] !== "object" || Array.isArray(Index[style])) {
-    console.error(`Invalid Index structure for style "${style}"`, Index[style]);
     return []; // Return empty array instead of throwing error
   }
 

@@ -8,7 +8,6 @@ import { BlockViewer } from "./component-viewer";
 
 export async function BlockDisplay({ name }: { name: string }) {
   const item = await getCachedRegistryItem(name);
-  console.log("BlockDisplay received:", name);
 
   if (!item?.files) {
     return null;
