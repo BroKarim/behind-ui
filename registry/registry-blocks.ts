@@ -25,7 +25,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["startup"],
+    categories: ["hero"],
   },
 
   {
@@ -109,6 +109,6 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["tool"],
+    categories: ["hero"],
   },
 ];
