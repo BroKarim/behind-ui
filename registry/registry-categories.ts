@@ -1,7 +1,7 @@
 export const registryCategories = [
   {
-    name: "Startup",
-    slug: "startup",
+    name: "Hero",
+    slug: "hero",
     hidden: false,
   },
   {
@@ -15,8 +15,13 @@ export const registryCategories = [
     hidden: false,
   },
   {
-    name: "Tool",
-    slug: "tool",
+    name: "Bento",
+    slug: "bento",
+    hidden: false,
+  },
+  {
+    name: "Login",
+    slug: "login",
     hidden: false,
   },
 ];
