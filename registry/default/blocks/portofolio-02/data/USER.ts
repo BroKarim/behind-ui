@@ -1,16 +1,14 @@
 export const USER = {
-  firstName: "Chánh Đại",
-  lastName: "Nguyễn",
-  displayName: "Chánh Đại",
-  username: "ncdai",
+  displayName: "BroKarim",
+  username: "BroKarim",
   gender: "male",
   bio: "Creating with code, driven by passion.",
 
-  address: "Ho Chi Minh City, Viet Nam",
+  address: "Banda Aceh, Indonesia",
   phoneNumber: "+62 8222 1111 222", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
-  email: "ZGFpQGNoYW5oZGFpLmNvbQ==", // base64 encoded
+  email: "brokariim@gmail.com", // base64 encoded
   // email: "dai[at]chanhdai[dot]com",
-  website: "https://nothung.com",
+  website: "https://nothing.com",
   dateOfBirth: "2002-01-10",
   jobTitle: "Software Developer & UI/UX Designer",
   jobs: [
@@ -32,7 +30,6 @@ With a strong foundation in web and mobile development, I excel at creating mode
   `,
   avatar: "/images/chanhdai-avatar-ghibli.jpeg",
   ogImage: "/images/chanhdai-og-image.png",
-  keywords:
-    "ncdai, nguyenchanhdai, nguyen chanh dai, chanhdai, chanh dai, iamncdai, quaric, zadark, nguyễn chánh đại, chánh đại",
+  keywords: "ncdai, nguyenchanhdai, nguyen chanh dai, chanhdai, chanh dai, iamncdai, quaric, zadark, nguyễn chánh đại, chánh đại",
   dateCreated: "2023-10-20", // YYYY-MM-DD
 };
