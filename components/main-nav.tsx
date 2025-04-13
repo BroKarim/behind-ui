@@ -8,19 +8,24 @@ import posthog from "posthog-js";
 import { docsConfig } from "@/config/docs";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
+
 import { Icons } from "@/components/icons";
 
 export function MainNav() {
   const pathname = usePathname();
 
   return (
-    <div className="mr-4 hidden gap-x-8 md:flex">
-      <Link href="/" className="relative mr-6 flex items-center justify-center text-center">
-        <Icons.logo1 className="size-12  md:size-8" />
-        <span className="hidden text-center font-mono  font-bold md:inline-block">{siteConfig.name}</span>
+    <div className="flex  gap-x-8 md:mr-4">
+      <Link href="/" className="relative flex items-center justify-center text-center md:mr-6">
+        <Icons.logo1 className="size-0  md:size-8" />
+        <span className=" inline-block text-center  font-mono font-bold">{siteConfig.name}</span>
       </Link>
-      <nav className=" items-center space-x-6  font-medium md:flex">
+      {/* 
+
+      NOTE: Navigation component prepared for future main navigation bar.
+            Currently not displayed, but retained for upcoming features or layout updates.
+
+      <nav className=" items-center font-medium  md:flex md:space-x-6">
         {docsConfig.mainNav.map((item) => (
           <Link
             key={item.href}
@@ -35,7 +40,9 @@ export function MainNav() {
             {item.external && <ExternalLinkIcon className="ml-2 size-4" />}
           </Link>
         ))}
-      </nav>
+      </nav> 
+      
+      */}
     </div>
   );
 }

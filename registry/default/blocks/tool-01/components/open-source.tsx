@@ -10,8 +10,9 @@ export const OpenSource = async () => {
           <small>Open source</small>
         </div>
         <p className="text-xl font-semibold tracking-tight">
-          next-forge currently has <span className="text-orange-600">4000</span>{" "}
-          stars, <span className="text-orange-600">1200</span> forks, and{" "}
+          Active as earned recognition from the developer community with{" "}
+          <span className="text-orange-600">4000</span> stars,{" "}
+          <span className="text-orange-600">1200</span> forks, and{" "}
           <span className="text-orange-600">40</span> open issues and{" "}
           <span className="text-orange-600">20</span> contributors.
         </p>

@@ -12,7 +12,7 @@ export function SiteHeader() {
     <header className={cn("supports-backdrop-blur:bg-background/90 sticky top-0 z-[999] w-full bg-background/40 backdrop-blur-lg")}>
       <div className="container flex h-16 items-center justify-between md:justify-center">
         <MainNav />
-        <MobileNav />
+        {/* <MobileNav /> */}
         <div className="flex items-center justify-between gap-2 md:flex-1 md:justify-end">
           <nav className="flex items-center gap-1">
             <Link href={siteConfig.links.threads} target="_blank" rel="noreferrer">

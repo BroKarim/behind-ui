@@ -1,10 +1,9 @@
 import Link from "next/link";
 
 const links = [
-  { label: "GitHub", href: "https://github.com/mehdibha" },
-  { label: "X", href: "https://x.com/mehdibha_" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/mehdibha/" },
-  { label: "Cal", href: "https://cal.com/mehdibha" },
+  { label: "GitHub", href: "https://github.com/BroKarim" },
+  { label: "X", href: "https://x.com/BroKariim" },
+  { label: "Thread", href: "https://www.threads.net/@brokariim" },
 ];
 
 export const Footer = () => {
@@ -19,7 +18,7 @@ export const Footer = () => {
             </Link>
           ))}
         </div>
-        <div>Or mail me at hello@mehdibha.com</div>
+        <div>Or mail me at brokariim@gmail.com</div>
       </div>
     </div>
   );

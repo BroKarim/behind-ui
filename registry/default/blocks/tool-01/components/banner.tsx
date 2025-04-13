@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 export const Banner = () => (
   <section className="bg-dashed flex flex-col items-center justify-center gap-6 px-4 py-16 sm:px-16 sm:py-24">
     <h1 className="max-w-3xl text-center text-4xl font-bold leading-tight tracking-tighter sm:text-5xl md:max-w-4xl md:text-6xl lg:leading-[1.1]">
-      Production-grade Turborepo template for Next.js apps
+      Build Your SaaS App Faster and Smarter
     </h1>
     <p className="max-w-xl text-center text-neutral-600 dark:text-neutral-400 md:max-w-2xl md:text-lg">
       A monorepo template designed to have everything you need to build your new
