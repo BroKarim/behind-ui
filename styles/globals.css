@@ -110,6 +110,9 @@
     scrollbar-width: thin;
     scrollbar-color: hsl(var(--border)) transparent;
   }
+  .border-grid {
+    @apply border-border/50 dark:border-border border-dashed;
+  }
 }
 
 @layer utilities {
@@ -130,6 +133,7 @@
   .chunk-container {
     @apply shadow-none;
   }
+  
 
   .chunk-container::after {
     content: "";
@@ -144,14 +148,6 @@
   .no-scrollbar {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
-  }
-
-  .border-grid {
-    @apply border-border/50 dark:border-border border-dashed;
-  }
-
-  .border-grid {
-    @apply border-border/50 dark:border-border border-dashed;
   }
 
   .container-wrapper {

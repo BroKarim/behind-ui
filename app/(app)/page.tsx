@@ -7,7 +7,7 @@ export default async function IndexPage() {
   return (
     <>
       {FEATURED_BLOCKS.map((block) => (
-        <div key={block}>
+        <div key={block} className="border-dashed  border-border/50 dark:border-border container border-b py-8 first:pt-6 last:border-b-2   md:py-12">
           <BlockDisplay name={block} />
         </div>
       ))}
