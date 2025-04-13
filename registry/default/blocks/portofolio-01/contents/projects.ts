@@ -7,28 +7,31 @@ type Project = {
 
 export const projects: Project[] = [
   {
-    title: "dotUI",
-    hint: "creator, maintainer",
+    title: "CodeSnap",
+    hint: "developer, contributor",
     description:
-      "Collection of accessible, mobile-friendly, modern components.",
-    href: "https://dotui.org",
+      "A tool for capturing and sharing beautifully styled code snippets.",
+    href: "#",
   },
   {
-    title: "Notionfolio",
-    hint: "creator",
-    description: "SaaS to create blogs with Notion.",
-    href: "https://notionfol.io",
+    title: "DevQuest",
+    hint: "founder, architect",
+    description:
+      "An interactive platform for developers to learn, grow, and solve coding challenges together.",
+    href: "#",
   },
   {
-    title: "Palettify",
-    hint: "creator",
-    description: "Platform to create and share color themes.",
-    href: "https://palettify.co",
+    title: "BugTrackr",
+    hint: "maintainer, engineer",
+    description:
+      "Streamlined issue tracking and task management for agile teams.",
+    href: "#",
   },
   {
-    title: "Vapi",
-    hint: "creator",
-    description: "Marketplace for vape related products.",
-    href: "https://vapi.tn",
+    title: "PixelCraft",
+    hint: "UI/UX enthusiast",
+    description:
+      "A design framework for creating visually stunning, pixel-perfect user interfaces.",
+    href: "#",
   },
 ];

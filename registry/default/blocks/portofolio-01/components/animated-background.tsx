@@ -34,7 +34,7 @@ export default function AnimatedBackground({
 
   const handleSetActiveId = (id: string | null) => {
     setActiveId(id);
- 
+
     if (onValueChange) {
       onValueChange(id);
     }
