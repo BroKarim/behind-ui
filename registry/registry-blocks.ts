@@ -27,7 +27,6 @@ export const blocks: Registry["items"] = [
     ],
     categories: ["hero"],
   },
-
   {
     name: "portofolio-01",
     type: "registry:block",
@@ -55,6 +54,63 @@ export const blocks: Registry["items"] = [
         path: "blocks/portofolio-01/contents/projects.ts",
         type: "registry:file",
         target: "app/data.ts",
+      },
+    ],
+    categories: ["portofolio"],
+  },
+  {
+    name: "portofolio-02",
+    type: "registry:block",
+    description: "minimal portfolio template design for professionals.",
+    registryDependencies: ["footer", "list"],
+    files: [
+      {
+        path: "blocks/portofolio-02/main.tsx",
+        type: "registry:page",
+        target: "app/main.tsx",
+      },
+      {
+        path: "blocks/portofolio-02/components/bio-detail.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/portofolio-02/components/bio.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/portofolio-02/components/career-path.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/portofolio-02/components/highlight.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/portofolio-02/components/intro-item.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/portofolio-02/components/panel.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/portofolio-02/components/typhography.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/portofolio-02/data/career-path.ts",
+        type: "registry:file",
+        target: "data/career-path.ts",
+      },
+      {
+        path: "blocks/portofolio-02/data/USER.ts",
+        type: "registry:file",
+        target: "data/USER.ts",
+      },
+      {
+        path: "blocks/portofolio-02/type/career-path.ts",
+        type: "registry:file",
+        target: "type/career-pat.ts",
       },
     ],
     categories: ["portofolio"],

@@ -1,32 +1,15 @@
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import React from "react";
 
-import Image from "next/image";
-
 import { EXPERIENCES } from "../data/career-path";
 import { Prose } from "./typhography";
 import { Panel, PanelHeader, PanelTitle } from "./panel";
-import {
-  CareerPath,
-  CareerPathPositionIcon,
-  CareerPathPosition,
-} from "../type/career-path";
-import {
-  ChevronDownIcon,
-  BriefcaseBusinessIcon,
-  CodeXmlIcon,
-  DraftingCompassIcon,
-  GraduationCapIcon,
-  LightbulbIcon,
-  LucideProps,
-  SchoolIcon,
-} from "lucide-react";
+import { CareerPath, CareerPathPositionIcon, CareerPathPosition } from "../type/career-path";
+import { ChevronDownIcon, BriefcaseBusinessIcon, CodeXmlIcon, DraftingCompassIcon, GraduationCapIcon, LightbulbIcon, LucideProps, SchoolIcon } from "lucide-react";
 import { Tag } from "./ui/tag";
 
 export function CareerPaths() {
-  const defaultValue = EXPERIENCES.flatMap((exp) =>
-    exp.positions.filter((pos) => pos.expanded).map((pos) => pos.id),
-  );
+  const defaultValue = EXPERIENCES.flatMap((exp) => exp.positions.filter((pos) => pos.expanded).map((pos) => pos.id));
 
   return (
     <Panel id="experience" className="scroll-mt-[4.75rem]">
@@ -34,11 +17,7 @@ export function CareerPaths() {
         <PanelTitle>Experience</PanelTitle>
       </PanelHeader>
 
-      <AccordionPrimitive.Root
-        type="multiple"
-        defaultValue={defaultValue}
-        asChild
-      >
+      <AccordionPrimitive.Root type="multiple" defaultValue={defaultValue} asChild>
         <div className="px-4">
           {EXPERIENCES.map((experience, index) => {
             return <ExperienceItem key={index} experience={experience} />;
@@ -53,23 +32,7 @@ function ExperienceItem({ experience }: { experience: CareerPath }) {
   return (
     <div className="screen-line-after space-y-4 py-4">
       <div className="flex items-center gap-3">
-        <span className="flex size-6 shrink-0 items-center justify-center">
-          {experience.companyLogo ? (
-            <Image
-              src={experience.companyLogo}
-              alt={experience.company}
-              width={24}
-              height={24}
-              className="rounded-full"
-            />
-          ) : (
-            <span className="flex size-2 rounded-full bg-zinc-300 dark:bg-zinc-600" />
-          )}
-        </span>
-
-        <h3 className="font-heading text-lg font-medium leading-snug">
-          {experience.company}
-        </h3>
+        <h3 className="font-heading text-lg font-medium leading-snug">{experience.company}</h3>
 
         {experience?.current && (
           <span className="relative flex items-center justify-center">
@@ -88,11 +51,7 @@ function ExperienceItem({ experience }: { experience: CareerPath }) {
   );
 }
 
-function CareerPathPositionItem({
-  position,
-}: {
-  position: CareerPathPosition;
-}) {
+function CareerPathPositionItem({ position }: { position: CareerPathPosition }) {
   return (
     <AccordionPrimitive.Item value={position.id} asChild>
       <div className="relative last:before:absolute last:before:h-full last:before:w-4 last:before:bg-background">
@@ -102,14 +61,12 @@ function CareerPathPositionItem({
               <ExperienceIcon className="size-4" icon={position.icon} />
             </div>
 
-            <h4 className="font-heading flex-1 text-balance font-medium underline-offset-4 group-hover/experience:underline">
-              {position.title}
-            </h4>
+            <h4 className="font-heading flex-1 text-balance font-medium underline-offset-4 group-hover/experience:underline">{position.title}</h4>
 
             <ChevronDownIcon className="size-4 shrink-0 text-muted-foreground transition-transform duration-300" />
           </div>
 
-          <p className="flex items-center gap-2 pl-9 font-mono text-xs text-muted-foreground">
+          <p className="flex items-center gap-2 pl-9 font-mono text-xs text-primary/70">
             {position.employmentType && (
               <>
                 <span>{position.employmentType}</span>
@@ -122,9 +79,7 @@ function CareerPathPositionItem({
         </AccordionPrimitive.Trigger>
 
         <AccordionPrimitive.Content className="overflow-hidden transition-all duration-300 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-          {position?.description && (
-            <Prose className="pl-9 pt-2">{position?.description}</Prose>
-          )}
+          {position?.description && <Prose className="pl-9 pt-2 text-primary ">{position?.description}</Prose>}
 
           {Array.isArray(position.skills) && position.skills.length > 0 && (
             <div className="flex flex-wrap gap-1.5 pl-9 pt-2">
@@ -139,10 +94,7 @@ function CareerPathPositionItem({
   );
 }
 
-const iconMap: Record<
-  CareerPathPositionIcon,
-  React.ComponentType<LucideProps>
-> = {
+const iconMap: Record<CareerPathPositionIcon, React.ComponentType<LucideProps>> = {
   code: CodeXmlIcon,
   design: DraftingCompassIcon,
   education: GraduationCapIcon,

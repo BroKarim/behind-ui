@@ -1,16 +1,12 @@
 export const USER = {
-  firstName: "Chánh Đại",
-  lastName: "Nguyễn",
-  displayName: "Chánh Đại",
-  username: "ncdai",
+  displayName: "Brokarim",
+  username: "Brokarim",
   gender: "male",
-  bio: "Creating with code, driven by passion.",
-
-  address: "Ho Chi Minh City, Viet Nam",
-  phoneNumber: "+62 8222 1111 222", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
-  email: "ZGFpQGNoYW5oZGFpLmNvbQ==", // base64 encoded
-  // email: "dai[at]chanhdai[dot]com",
-  website: "https://nothung.com",
+  bio: "Crafting with code, fueled by enthusiasm.",
+  address: "Banda Aceh, Indonesia",
+  phoneNumber: "+62 8222 1111 222",
+  email: "brokariim@gmail.com",
+  website: "https://nothing.com",
   dateOfBirth: "2002-01-10",
   jobTitle: "Software Developer & UI/UX Designer",
   jobs: [
@@ -28,11 +24,7 @@ export const USER = {
   about: `
 Hello, World! I am Brokarim, a Software Developer & UI/UX Designer with a passion for crafting seamless, user-focused digital experiences and innovative solutions.
 
-With a strong foundation in web and mobile development, I excel at creating modern, high-quality applications using technologies like Next.js, React, TypeScript, and beyond. My journey includes collaborating on impactful projects like scalable dashboards, real-time collaborative tools, and visually polished user interfaces. I'm driven by the challenge of solving complex problems and bringing creative ideas to life.
+With a strong foundation in web and mobile development, I excel at creating modern, high-quality applications using technologies like Next.js, React, TypeScript, and beyond. 
   `,
-  avatar: "/images/chanhdai-avatar-ghibli.jpeg",
-  ogImage: "/images/chanhdai-og-image.png",
-  keywords:
-    "ncdai, nguyenchanhdai, nguyen chanh dai, chanhdai, chanh dai, iamncdai, quaric, zadark, nguyễn chánh đại, chánh đại",
   dateCreated: "2023-10-20", // YYYY-MM-DD
 };
