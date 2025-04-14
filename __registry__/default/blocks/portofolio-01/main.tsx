@@ -17,7 +17,10 @@ export default function HomeLayout() {
           </div>
 
           <div>
-            <p className="mt-10 text-sm">Designing sleek, accessible, and modern UIs that set a new standard in functionality and aesthetics</p>
+            <p className="mt-10 text-sm">
+              Designing sleek, accessible, and modern UIs that set a new
+              standard in functionality and aesthetics
+            </p>
           </div>
           <div>
             <h2 className="text-fg-muted mb-2 mt-10 text-sm">Projects</h2>
