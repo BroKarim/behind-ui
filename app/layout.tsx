@@ -69,7 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Toaster />
               {children}
               <Analytics />
-              <TemplateToaster />
+              {/* <TemplateToaster /> */}
             </TooltipProvider>
           </ThemeProvider>
         </PHProvider>
