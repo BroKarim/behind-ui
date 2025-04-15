@@ -42,7 +42,7 @@ function AvatarBio({
     <Image
       className={className}
       alt={`${USER.displayName}'s avatar`}
-      src="https://github.com/shadcn.png"
+      src="https://github.com/BroKarim.png"
       width={size}
       height={size}
       quality={100}

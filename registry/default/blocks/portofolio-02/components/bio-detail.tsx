@@ -11,7 +11,7 @@ export function BioDetails() {
       </PanelHeader>
 
       <PanelContent>
-        <Prose>{USER.about}</Prose>
+        <Prose className="text-primary">{USER.about}</Prose>
       </PanelContent>
     </Panel>
   );

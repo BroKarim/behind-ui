@@ -3,7 +3,6 @@ import { CareerPath } from "../type/career-path";
 export const EXPERIENCES: CareerPath[] = [
   {
     company: "TechNova Solutions",
-    companyLogo: "/images/companies/technova.webp",
     positions: [
       {
         id: "1a2b3c4d-1234-5678-9abc-def123456789",
@@ -48,7 +47,6 @@ export const EXPERIENCES: CareerPath[] = [
   },
   {
     company: "PixelForge Studios",
-    companyLogo: "/images/companies/pixelforge.webp",
     positions: [
       {
         id: "abcd1234-ef56-7890-ghij-klmnopqrstuv",
@@ -88,7 +86,6 @@ export const EXPERIENCES: CareerPath[] = [
   },
   {
     company: "Innov8 AI Labs",
-    companyLogo: "/images/companies/innov8.webp",
     positions: [
       {
         id: "a1b2c3d4-e5f6-7890-ghij-klmnopqrstuv",

@@ -27,7 +27,7 @@ export const Index: Record<string, any> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["startup"],
+      categories: ["hero"],
       component: React.lazy(() => import("@/registry/default/blocks/next-int/page.tsx")),
       source: "__registry__/default/blocks/next-int/page.tsx",
       meta: undefined,
@@ -61,6 +61,61 @@ export const Index: Record<string, any> = {
       categories: ["portofolio"],
       component: React.lazy(() => import("@/registry/default/blocks/portofolio-01/main.tsx")),
       source: "__registry__/default/blocks/portofolio-01/main.tsx",
+      meta: undefined,
+    },
+    "portofolio-02": {
+      name: "portofolio-02",
+      description: "minimal portfolio template design for professionals.",
+      type: "registry:block",
+      registryDependencies: ["footer","list"],
+      files: [{
+        path: "registry/default/blocks/portofolio-02/main.tsx",
+        type: "registry:page",
+        target: "app/main.tsx"
+      },{
+        path: "registry/default/blocks/portofolio-02/components/bio-detail.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/portofolio-02/components/bio.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/portofolio-02/components/career-path.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/portofolio-02/components/highlight.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/portofolio-02/components/intro-item.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/portofolio-02/components/panel.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/portofolio-02/components/typhography.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/portofolio-02/data/career-path.ts",
+        type: "registry:file",
+        target: "data/career-path.ts"
+      },{
+        path: "registry/default/blocks/portofolio-02/data/USER.ts",
+        type: "registry:file",
+        target: "data/USER.ts"
+      },{
+        path: "registry/default/blocks/portofolio-02/type/career-path.ts",
+        type: "registry:file",
+        target: "type/career-pat.ts"
+      }],
+      categories: ["portofolio"],
+      component: React.lazy(() => import("@/registry/default/blocks/portofolio-02/main.tsx")),
+      source: "__registry__/default/blocks/portofolio-02/main.tsx",
       meta: undefined,
     },
     "hero-02": {
@@ -105,7 +160,7 @@ export const Index: Record<string, any> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["tool"],
+      categories: ["hero"],
       component: React.lazy(() => import("@/registry/default/blocks/tool-01/main.tsx")),
       source: "__registry__/default/blocks/tool-01/main.tsx",
       meta: undefined,

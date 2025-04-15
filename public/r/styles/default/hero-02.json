@@ -25,7 +25,7 @@
     },
     {
       "path": "blocks/tool-01/components/header.tsx",
-      "content": "import Link from \"next/link\";\nimport { GitHubButton } from \"./github-button\";\nimport { ButtonColorful } from \"./colorful-button\";\nimport Logo from \"./logo.svg\";\nimport { Icons } from \"@/components/icons\";\n\nconst links = [\n  {\n    label: \"Home\",\n    href: \"/#\",\n  },\n  {\n    label: \"Apps\",\n    href: \"/#apps\",\n  },\n  {\n    label: \"Features\",\n    href: \"/#features\",\n  },\n  {\n    label: \"Community\",\n    href: \"/#community\",\n  },\n];\n\nexport const Header = () => (\n  <div className=\"sticky top-0 z-50 w-full border-b  backdrop-blur-sm\">\n    <div className=\"container mx-auto flex items-center justify-between px-8 py-2\">\n      <div className=\"flex items-center gap-8\">\n        <Link href=\"/\" className=\"flex items-center gap-2 py-1\">\n          <Icons.logo />\n          <p className=\"hidden text-lg font-semibold tracking-tight sm:block\">active</p>\n        </Link>\n        <div className=\"hidden items-center gap-4 text-sm font-medium text-neutral-500 lg:flex\">\n          {links.map((link) => (\n            <Link key={link.href} href={link.href}>\n              {link.label}\n            </Link>\n          ))}\n        </div>\n      </div>\n      <div className=\"flex items-center gap-4\">\n        <GitHubButton />\n        <ButtonColorful />\n      </div>\n    </div>\n  </div>\n);\n",
+      "content": "import Link from \"next/link\";\nimport { GitHubButton } from \"./github-button\";\nimport { ButtonColorful } from \"./colorful-button\";\nimport Logo from \"./logo.svg\";\nimport { Icons } from \"@/components/icons\";\n\nconst links = [\n  {\n    label: \"Home\",\n    href: \"/#\",\n  },\n  {\n    label: \"Apps\",\n    href: \"/#apps\",\n  },\n  {\n    label: \"Features\",\n    href: \"/#features\",\n  },\n  {\n    label: \"Community\",\n    href: \"/#community\",\n  },\n];\n\nexport const Header = () => (\n  <div className=\"sticky top-0 z-50 w-full border-b  backdrop-blur-sm\">\n    <div className=\"container mx-auto flex items-center justify-between px-8 py-2\">\n      <div className=\"flex items-center gap-8\">\n        <Link href=\"/\" className=\"flex items-center gap-2 py-1\">\n          <Icons.logo />\n          <p className=\"hidden text-lg font-semibold tracking-tight sm:block\">\n            active\n          </p>\n        </Link>\n        <div className=\"hidden items-center gap-4 text-sm font-medium text-neutral-500 lg:flex\">\n          {links.map((link) => (\n            <Link key={link.href} href={link.href}>\n              {link.label}\n            </Link>\n          ))}\n        </div>\n      </div>\n      <div className=\"flex items-center gap-4\">\n        <GitHubButton />\n        <ButtonColorful />\n      </div>\n    </div>\n  </div>\n);\n",
       "type": "registry:component",
       "target": ""
     },
@@ -67,6 +67,6 @@
     }
   ],
   "categories": [
-    "tool"
+    "hero"
   ]
 }
