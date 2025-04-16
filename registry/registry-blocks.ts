@@ -98,6 +98,14 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
       {
+        path: "blocks/portofolio-02/components/typhography.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/portofolio-02/components/tag.tsx",
+        type: "registry:component",
+      },
+      {
         path: "blocks/portofolio-02/data/career-path.ts",
         type: "registry:file",
         target: "data/career-path.ts",

@@ -4,9 +4,10 @@ import { z } from "zod";
 import { blocks } from "./registry-blocks";
 import { lib } from "./registry-lib";
 import { themes } from "./registry-themes";
+import { ui } from "./registry-ui";
 
 export const registry = {
   name: "behindui",
-  homepage: "https://behindui.com",
-  items: [...blocks, ...lib, ...themes],
+  homepage: "https://behindui.xyz",
+  items: [...blocks, ...lib, ...themes, ...ui],
 } satisfies Registry;

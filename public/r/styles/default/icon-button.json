@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "icon-button",
+  "type": "registry:ui",
+  "author": "shadcn (https://ui.shadcn.com)",
+  "dependencies": [
+    "@radix-ui/react-icon-button"
+  ],
+  "files": [
+    {
+      "path": "ui/icon-button.tsx",
+      "content": "import React, { memo } from \"react\";\nimport { cn } from \"@/lib/utils\";\n\ntype IconSize = \"sm\" | \"md\" | \"lg\" | \"xl\" | \"xxl\";\n\ninterface BaseIconButtonProps {\n  size?: IconSize;\n  className?: string;\n  iconClassName?: string;\n  disabledClassName?: string;\n  title?: string;\n  disabled?: boolean;\n  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;\n}\n\ntype IconButtonWithoutChildrenProps = {\n  icon: string;\n  children?: undefined;\n} & BaseIconButtonProps;\n\ntype IconButtonWithChildrenProps = {\n  icon?: undefined;\n  children: string | JSX.Element | JSX.Element[];\n} & BaseIconButtonProps;\n\ntype IconButtonProps =\n  | IconButtonWithoutChildrenProps\n  | IconButtonWithChildrenProps;\n\nconst IconButton = memo(\n  ({\n    icon,\n    size = \"xl\",\n    className,\n    iconClassName,\n    disabledClassName,\n    disabled = false,\n    title,\n    onClick,\n    children,\n  }: IconButtonProps) => {\n    return (\n      <button\n        className={cn(\n          \"text-bolt-elements-item-contentDefault enabled:hover:text-bolt-elements-item-contentActive enabled:hover:bg-bolt-elements-item-backgroundActive flex items-center rounded-md bg-transparent p-1 disabled:cursor-not-allowed\",\n          { [cn(\"opacity-30\", disabledClassName)]: disabled },\n          className,\n        )}\n        title={title}\n        disabled={disabled}\n        onClick={(event) => {\n          if (disabled) {\n            return;\n          }\n          onClick?.(event);\n        }}\n      >\n        {children ? (\n          children\n        ) : (\n          <div className={cn(icon, getIconSize(size), iconClassName)}></div>\n        )}\n      </button>\n    );\n  },\n);\n\nIconButton.displayName = \"IconButton\";\n\nexport default IconButton;\n\nfunction getIconSize(size: IconSize) {\n  if (size === \"sm\") {\n    return \"text-sm\";\n  } else if (size === \"md\") {\n    return \"text-md\";\n  } else if (size === \"lg\") {\n    return \"text-lg\";\n  } else if (size === \"xl\") {\n    return \"text-xl\";\n  } else {\n    return \"text-2xl\";\n  }\n}\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}
