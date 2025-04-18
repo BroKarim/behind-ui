@@ -173,6 +173,37 @@ export const Index: Record<string, any> = {
       source: "__registry__/default/blocks/tool-01/main.tsx",
       meta: undefined,
     },
+    "bento-01": {
+      name: "bento-01",
+      description: "Ideal for product designers.",
+      type: "registry:block",
+      registryDependencies: ["nav","lang-switch","photos"],
+      files: [{
+        path: "registry/default/blocks/bento-01/page.tsx",
+        type: "registry:page",
+        target: "app/page.tsx"
+      },{
+        path: "registry/default/blocks/bento-01/components/animated-emoji.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/bento-01/components/logo.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/ui/card.tsx",
+        type: "registry:component",
+        target: "components/ui/card.tsx"
+      },{
+        path: "registry/default/blocks/bento-01/hooks/useAnimation.tsx",
+        type: "registry:file",
+        target: "hooks/use-animation.ts"
+      }],
+      categories: ["bento"],
+      component: React.lazy(() => import("@/registry/default/blocks/bento-01/page.tsx")),
+      source: "__registry__/default/blocks/bento-01/page.tsx",
+      meta: undefined,
+    },
     "utils": {
       name: "utils",
       description: "",
