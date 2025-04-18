@@ -175,4 +175,36 @@ export const blocks: Registry["items"] = [
     ],
     categories: ["hero"],
   },
+  {
+    name: "bento-01",
+    type: "registry:block",
+    description: "Ideal for product designers.",
+    registryDependencies: ["nav", "lang-switch", "photos"],
+    files: [
+      {
+        path: "blocks/bento-01/page.tsx",
+        type: "registry:page",
+        target: "app/page.tsx",
+      },
+      {
+        path: "blocks/bento-01/components/animated-emoji.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/bento-01/components/logo.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "ui/card.tsx",
+        type: "registry:component",
+        target: "components/ui/card.tsx",
+      },
+      {
+        path: "blocks/bento-01/hooks/useAnimation.tsx",
+        type: "registry:file",
+        target: "hooks/use-animation.ts",
+      },
+    ],
+    categories: ["bento"],
+  },
 ];
