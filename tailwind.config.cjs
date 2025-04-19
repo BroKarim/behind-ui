@@ -17,6 +17,8 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+        serif: ["var(--font-geist-serif)", ...fontFamily.serif],
+        mono: ["var(--font-mono)", ...fontFamily.mono],
       },
       colors: {
         border: "hsl(var(--border))",
