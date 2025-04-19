@@ -140,9 +140,15 @@ function Customizer() {
               <SelectValue placeholder="Select font" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="sans">Sans</SelectItem>
+              <SelectItem value="sans">Geist</SelectItem>
               <SelectItem value="serif">Serif</SelectItem>
-              <SelectItem value="mono">Mono</SelectItem>
+              <SelectItem value="geist-mono">GeistMono</SelectItem>
+              <SelectItem value="roboto">Roboto</SelectItem>
+              <SelectItem value="robotoMono">Roboto Mono</SelectItem>
+              <SelectItem value="anonymous_pro">Anonymous Pro</SelectItem>
+              <SelectItem value="inter">Inter</SelectItem>
+              <SelectItem value="mono">Ubuntu</SelectItem>
+              <SelectItem value="mono">Ubuntu Mono</SelectItem>
             </SelectContent>
           </Select>
         </div>

@@ -1,4 +1,4 @@
-import { fontSans, fontMono } from "@/lib/fonts";
+import { geist, geistMono } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={cn("relative flex h-screen w-full flex-col justify-center overflow-hidden scroll-smooth  bg-background  antialiased", fontSans.variable, fontMono.variable)}>
+      <body className={cn("relative flex h-screen w-full flex-col justify-center overflow-hidden scroll-smooth  bg-background  antialiased", geist.variable, geistMono.variable)}>
         <PHProvider>
           <ThemeProvider attribute="class" enableSystem disableTransitionOnChange enableColorScheme>
             <TooltipProvider>
