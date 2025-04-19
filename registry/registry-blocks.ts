@@ -2,6 +2,24 @@ import { type Registry } from "@/registry/schema";
 
 export const blocks: Registry["items"] = [
   {
+    name: "cta-01",
+    type: "registry:block",
+    description: "Ideal for product designers.",
+    registryDependencies: ["nav", "lang-switch", "photos"],
+    files: [
+      {
+        path: "blocks/cta-01/page.tsx",
+        type: "registry:page",
+        target: "app/page.tsx",
+      },
+      {
+        path: "blocks/cta-01/components/post.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["cta"],
+  },
+  {
     name: "hero-01",
     type: "registry:block",
     description: "Ideal for product designers.",
