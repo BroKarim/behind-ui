@@ -1,8 +1,3 @@
-// ref :
-// https://github.com/leoMirandaa/portfolio/blob/main/app/page.tsx
-// https://dribbble.com/shots/23928700-Interact-Logo-Design
-// https://www.ericwu.me/
-// https://www.logotouse.com/
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
