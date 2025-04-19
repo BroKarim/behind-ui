@@ -13,7 +13,7 @@ export default async function AppLayout({ children }: AppLayoutProps) {
     <>
       <SiteHeader />
       <main className="no-scrollbar relative flex h-screen overflow-hidden ">
-        <div className="hidden h-screen shrink-0 flex-col gap-2 overflow-y-auto md:flex md:w-[300px] lg:w-[400px]">
+        <div className="hidden h-screen shrink-0 flex-col gap-2 overflow-y-auto font-sans md:flex md:w-[300px] lg:w-[400px]">
           <div className="sticky top-0 z-30 flex h-fit w-full flex-col items-center gap-2 border-b bg-background p-2 px-4 sm:static ">
             <h1 className="w-full font-bold">Customizer</h1>
             <p className="w-full ">Designed for effortless use—just copy and paste! Make your work with ShadCN and Tailwind faster, cleaner, and visually stunning.</p>

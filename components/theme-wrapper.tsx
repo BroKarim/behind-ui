@@ -17,10 +17,11 @@ export function ThemeWrapper({ defaultTheme, children, className }: ThemeWrapper
 
   return (
     <div
-      className={cn(`theme-${defaultTheme || config.theme}`, "w-full", className)}
+      className={cn(`theme-${defaultTheme || config.theme}`, "w-full", className, `font-${config.font}`)}
       style={
         {
           "--radius": `${defaultTheme ? 0.5 : config.radius}rem`,
+          "--font-family": config.font || "sans",
           ...(activeTheme
             ? {
                 "--primary": activeTheme.cssVars[mode === "dark" ? "dark" : "light"].primary,
