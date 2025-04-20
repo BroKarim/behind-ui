@@ -136,19 +136,14 @@ function Customizer() {
         <div className="space-y-4">
           <h3 className="text-sm font-medium">Font</h3>
           <Select value={config.font} onValueChange={(value) => setConfig({ ...config, font: value as "sans" | "mono" | "serif" })}>
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-full">
               <SelectValue placeholder="Select font" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="sans">Geist</SelectItem>
+              <SelectItem value="sans">Sans</SelectItem>
               <SelectItem value="serif">Serif</SelectItem>
-              <SelectItem value="geist-mono">GeistMono</SelectItem>
-              <SelectItem value="roboto">Roboto</SelectItem>
-              <SelectItem value="robotoMono">Roboto Mono</SelectItem>
-              <SelectItem value="anonymous_pro">Anonymous Pro</SelectItem>
-              <SelectItem value="inter">Inter</SelectItem>
-              <SelectItem value="mono">Ubuntu</SelectItem>
-              <SelectItem value="mono">Ubuntu Mono</SelectItem>
+              <SelectItem value="mono">Mono</SelectItem>
+              {/* <SelectItem value="roboto">Roboto</SelectItem> */}
             </SelectContent>
           </Select>
         </div>
