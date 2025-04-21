@@ -1,5 +1,6 @@
 "use client";
 
+import { fontSans, fontMono, fontRoboto, fontSerif } from "@/lib/font";
 import { cn } from "@/lib/utils";
 import { useConfig } from "@/lib/use-config";
 import { BaseColor } from "@/registry/registry-base-colors";
@@ -17,11 +18,15 @@ export function ThemeWrapper({ defaultTheme, children, className }: ThemeWrapper
 
   return (
     <div
-      className={cn(`theme-${defaultTheme || config.theme}`, "w-full", className, `font-${config.font}`)}
+      className={cn(
+        `theme-${defaultTheme || config.theme}`,
+        "w-full",
+        className,
+        config.font === "roboto" ? fontRoboto.className : config.font === "mono" ? fontMono.className : config.font === "serif" ? fontSerif.className : fontSans.className // default
+      )}
       style={
         {
           "--radius": `${defaultTheme ? 0.5 : config.radius}rem`,
-          "--font-family": config.font || "sans",
           ...(activeTheme
             ? {
                 "--primary": activeTheme.cssVars[mode === "dark" ? "dark" : "light"].primary,

@@ -8,7 +8,7 @@ type Config = {
   style: Style["name"];
   theme: BaseColor["name"];
   radius: number;
-  font: "sans" | "serif" | "mono";
+  font: "sans" | "serif" | "mono" | "roboto";
 };
 
 const configAtom = atomWithStorage<Config>("config", {

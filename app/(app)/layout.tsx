@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/site-header";
 import { ThemeCustomizer } from "@/components/theme-customizer";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { BlocksNav } from "@/components/registry/component-nav";
+import { ThemeWrapper } from "@/components/theme-wrapper";
 
 interface AppLayoutProps {
   children: React.ReactNode;
