@@ -14,6 +14,7 @@ import { Label } from "./ui/label";
 import { baseColors, BaseColor } from "@/registry/registry-base-colors";
 import { Skeleton } from "./ui/skeleton";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 import "@/styles/mdx.css";
 
@@ -46,8 +47,8 @@ function Customizer() {
   }, []);
 
   return (
-    <ThemeWrapper defaultTheme="zinc" className="flex flex-col space-y-4 md:space-y-6">
-      <div className="flex flex-1 flex-col space-y-4 md:space-y-6">
+    <ThemeWrapper defaultTheme="zinc" className="flex flex-col space-y-4  md:space-y-6">
+      <div className="flex flex-1 flex-col space-y-4 font-sans md:space-y-6">
         {/* Mode opt */}
         <div className="space-y-4">
           <h3 className="text-xl font-medium">Mode</h3>
@@ -107,6 +108,7 @@ function Customizer() {
               })}
           </div>
         </div>
+        {/* radius */}
         <div className="space-y-4">
           <Label className="text-xs">Radius</Label>
           <div className="grid grid-cols-5 gap-2">
@@ -129,6 +131,22 @@ function Customizer() {
               );
             })}
           </div>
+        </div>
+        {/* font */}
+        <div className="space-y-4">
+          <h3 className="text-sm font-medium">Font</h3>
+          <Select value={config.font} onValueChange={(value) => setConfig({ ...config, font: value as "sans" | "mono" | "serif" | "roboto" })}>
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Select font" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="sans">Sans</SelectItem>
+              <SelectItem value="serif">Serif</SelectItem>
+              <SelectItem value="mono">Mono</SelectItem>
+              <SelectItem value="roboto">Roboto</SelectItem>
+              {/* <SelectItem value="roboto">Roboto</SelectItem> */}
+            </SelectContent>
+          </Select>
         </div>
       </div>
     </ThemeWrapper>
