@@ -43,7 +43,7 @@ const NextInt = () => {
   const photos = projects.map((project) => project.media);
   return (
     <>
-      <div className="bg-backgroud z-50 flex h-full flex-col items-center justify-between overflow-hidden px-4 md:h-screen ">
+      <div className="bg-backgroud z-50 flex h-full flex-col items-center justify-between overflow-hidden px-4 md:h-screen">
         <div className="flex w-full items-center justify-between p-6 px-10">
           <div className="flex flex-1 text-lg font-medium text-primary md:text-2xl">
             NexInt
