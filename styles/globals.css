@@ -31,6 +31,7 @@
     --chart-5: 27 87% 67%;
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
+
     --sidebar-primary: 240 5.9% 10%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 240 4.8% 95.9%;
@@ -129,11 +130,17 @@
     @apply md:ml-[-50px] md:mt-[-4px];
     content: counter(step);
   }
+  .bg-elevated {
+    --base-shadow-color: rgb(0 0 0 / 0.045);
+
+    .bg-primary {
+      --base-shadow-color: rgb(0 0 0 / 0.05);
+    }
+  }
 
   .chunk-container {
     @apply shadow-none;
   }
-  
 
   .chunk-container::after {
     content: "";
