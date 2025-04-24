@@ -13,7 +13,7 @@ export const blocks: Registry["items"] = [
         target: "app/page.tsx",
       },
       {
-        path: "blocks/cta-01/components/post.tsx",
+        path: "blocks/cta-01/components/post-card.tsx",
         type: "registry:component",
       },
     ],
@@ -44,23 +44,6 @@ export const blocks: Registry["items"] = [
       },
     ],
     categories: ["hero"],
-  },
-  {
-    name: "cta-01",
-    type: "registry:block",
-    description: "Simple Magazine Call to Action.",
-    registryDependencies: ["Post", "Card"],
-    files: [
-      {
-        path: "blocks/cta-01/page.tsx",
-        type: "registry:page",
-        target: "app/page.tsx",
-      },
-      {
-        path: "blocks/cta-01/components/post-card.tsx",
-        type: "registry:component",
-      },
-    ],
   },
   {
     name: "portofolio-01",
