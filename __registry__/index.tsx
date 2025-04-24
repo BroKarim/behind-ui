@@ -51,6 +51,25 @@ export const Index: Record<string, any> = {
       source: "__registry__/default/blocks/next-int/page.tsx",
       meta: undefined,
     },
+    "cta-01": {
+      name: "cta-01",
+      description: "Simple Magazine Call to Action.",
+      type: "registry:block",
+      registryDependencies: ["Post","Card"],
+      files: [{
+        path: "registry/default/blocks/cta-01/page.tsx",
+        type: "registry:page",
+        target: "app/page.tsx"
+      },{
+        path: "registry/default/blocks/cta-01/components/post-card.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/blocks/cta-01/page.tsx")),
+      source: "__registry__/default/blocks/cta-01/page.tsx",
+      meta: undefined,
+    },
     "portofolio-01": {
       name: "portofolio-01",
       description: "minimal portfolio template design for professionals.",

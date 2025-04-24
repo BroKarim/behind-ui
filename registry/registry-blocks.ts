@@ -162,7 +162,12 @@ export const blocks: Registry["items"] = [
     name: "hero-02",
     type: "registry:block",
     description: "Designed for library applications.",
-    registryDependencies: ["banner", "colorfulButton", "githubButton", "openSource"],
+    registryDependencies: [
+      "banner",
+      "colorfulButton",
+      "githubButton",
+      "openSource",
+    ],
     files: [
       {
         path: "blocks/tool-01/main.tsx",

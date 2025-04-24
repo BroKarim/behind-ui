@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { PostsGraphic } from "./components/post";
+import { PostCard } from "./components/post-card";
 
 export default function Page() {
   return (
@@ -8,7 +8,7 @@ export default function Page() {
         <div className="3xl:gap-36 4xl:gap-40 xl:gap-18 3xl:py-32 4xl:py-36 isolate mx-auto flex w-full max-w-2xl flex-col gap-20 px-4 py-12 md:gap-24 md:px-6 md:py-16 lg:gap-28 lg:px-8 lg:py-20 xl:py-24 2xl:gap-32 2xl:py-28">
           <Section>
             <SectionHeading className="lg:text-center">Posts are the sweet spots between chat and docs</SectionHeading>
-            <PostsGraphic />
+            <PostCard />
           </Section>
         </div>
       </div>
