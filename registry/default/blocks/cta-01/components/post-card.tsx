@@ -10,30 +10,21 @@ interface Post {
   comments: number;
 }
 
-export function PostsGraphic() {
+export function PostCard() {
   return (
     <div className="my-4 flex flex-col gap-6 lg:-mx-4 xl:-mx-6 2xl:-mx-8">
       <div className="group/posts relative flex items-center justify-center">
-        <CompactPost
-          className="group-hover/posts:delay-[150ms] absolute left-[1rem] top-3.5 z-[1] max-w-[calc(100%-2rem)] opacity-50 transition-all delay-100 group-hover/posts:-translate-y-4 group-hover/posts:opacity-0"
-          post={null}
-        />
-        <CompactPost
-          className="delay-[150ms] absolute left-[0.5rem] top-2 z-[2] max-w-[calc(100%-1rem)] bg-white/80 opacity-80 backdrop-blur-lg transition-all group-hover/posts:-translate-y-2.5 group-hover/posts:opacity-0 group-hover/posts:delay-100 dark:bg-gray-900/80"
-          post={null}
-        />
-        <Link
-          href="https://app.campsite.com/campsite/posts/edf4uyexwd84"
-          target="_blank"
-        >
-          <CompactPost
-            className="z-[3] transition-all group-hover/posts:shadow"
+        <PostItem className="group-hover/posts:delay-[150ms] absolute  top-3.5 z-[1] max-w-[calc(100%-1rem)] opacity-50 transition-all delay-100 group-hover/posts:-translate-y-4 group-hover/posts:opacity-0" post={null} />
+        <PostItem className="group-hover/posts:delay-[250ms] absolute left-[1rem] top-5 z-[1] max-w-[calc(100%-2rem)] opacity-50 transition-all delay-100 group-hover/posts:-translate-y-4 group-hover/posts:opacity-0" post={null} />
+
+        <Link href="https://www.behindui.xyz/" target="_blank">
+          <PostItem
+            className="z-[3] bg-primary transition-all group-hover/posts:shadow"
             post={{
-              author: "/img/team/brian.jpeg",
-              title: "What we’re working on · September 2024",
-              description:
-                "Brian: Hey everyone, thanks for joining this space and sharing feedback!",
-              channel: "🧪 Product",
+              author: "https://github.com/BroKarim.png",
+              title: "Inside Our Work · August 2028",
+              description: "Hey chat Appreciate you being here and giving us your thoughts",
+              channel: "Read More",
               comments: 34,
             }}
           />
@@ -46,47 +37,31 @@ export function PostsGraphic() {
   );
 }
 
-function CompactPost({
-  post,
-  className,
-}: {
-  post: Post | null;
-  className?: string;
-}) {
+function PostItem({ post, className }: { post: Post | null; className?: string }) {
   return (
     <div
       className={cn(
-        "bg-elevated min-h-17 group relative flex w-full select-none scroll-m-1 gap-3 rounded-xl border-[0.5px] px-4 py-3 shadow-sm",
-        className,
+        "group relative flex min-h-16 w-full select-none scroll-m-1 gap-3 rounded-xl border-[0.5px] bg-primary/20 px-4 py-3 text-white shadow-[1px_1px_1px_rgba(255,255,255,0.6)]",
+        "[--shadow-light:theme(colors.orange.300)]", // Variabel warna shadow light
+        "[--dark:theme(colors.orange.700)]",
+        className
       )}
     >
       {post && (
         <>
           <div className="mt-0.5 flex items-start self-start">
-            <Image
-              alt={post.title}
-              src={post.author}
-              width={80}
-              height={80}
-              className="h-10 w-10 rounded-full"
-            />
+            <Image alt={post.title} src={post.author} width={80} height={80} className="h-10 w-10 rounded-full" />
           </div>
 
           <div className="flex flex-1 flex-row items-center gap-3">
             <div className="flex flex-1 items-center">
               <div className="flex flex-1 flex-col gap-0.5">
-                <p className="break-anywhere mr-2 line-clamp-1 text-[15px]">
-                  {post.title}
-                </p>
+                <p className="break-anywhere mr-2 line-clamp-1 text-[15px]">{post.title}</p>
 
                 <div className="flex items-center">
-                  <span className="h-4.5 text-tertiary mr-2 mt-px flex items-center justify-center self-start rounded bg-black/[0.04] px-1.5 text-[10px] font-semibold uppercase dark:bg-white/10">
-                    {post.comments}
-                  </span>
+                  <span className="h-4.5 mr-2 mt-px flex items-center justify-center self-start rounded bg-black/[0.04] px-1.5 text-[10px] font-semibold uppercase  dark:bg-white/10">{post.comments}</span>
 
-                  <p className="break-anywhere line-clamp-1 flex-1">
-                    {post.description}
-                  </p>
+                  <p className="break-anywhere line-clamp-1 flex-1">{post.description}</p>
                 </div>
               </div>
             </div>
@@ -111,14 +86,7 @@ function ProjectTag({ channel }: { channel: string }) {
 
 function ClickToSee() {
   return (
-    <svg
-      className="text-quaternary"
-      width="285"
-      height="33"
-      viewBox="0 0 285 33"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg className="text-quaternary" width="285" height="33" viewBox="0 0 285 33" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         className="opacity-50"
         d="M185.86 6.57894C184.978 6.48893 184.525 7.01378 183.949 7.24244C183.556 7.40204 183.125 7.55315 182.72 7.5574C181.852 7.56508 181.322 6.53102 181.821 5.85164C182.078 5.51503 182.4 5.19924 182.752 4.96346C184.972 3.48659 187.206 2.0159 189.461 0.571366C189.871 0.30257 190.377 0.134598 190.871 0.0281462C191.621 -0.140368 192.328 0.472433 192.315 1.20839C192.312 1.41526 192.278 1.63363 192.24 1.84201C191.846 3.87576 191.475 5.91185 191.042 7.93711C190.941 8.40921 190.742 8.89583 190.467 9.30779C189.941 10.1002 189.07 10.0402 188.582 9.20766C188.447 8.97298 188.376 8.69145 188.214 8.26141C187.863 8.56486 187.609 8.75228 187.387 8.99586C185.969 10.5357 184.562 12.0718 183.158 13.6178C180.026 17.0495 176.089 19.3001 171.828 21.0327C170.496 21.5691 169.057 21.9408 167.637 22.0879C165.413 22.3212 163.169 22.3792 160.943 22.3618C158.436 22.3365 156.369 21.2311 154.652 19.4799C154.367 19.1875 154.103 18.7958 154.014 18.4066C153.953 18.1212 154.092 17.6576 154.312 17.4717C154.533 17.2858 155.026 17.237 155.294 17.3641C155.737 17.5514 156.126 17.907 156.511 18.2189C158.089 19.4746 159.874 20.0807 161.911 19.9979C164.002 19.906 166.103 19.9932 168.16 19.5029C172.697 18.4088 176.636 16.1921 180.015 13.0444C181.855 11.3334 183.479 9.38456 185.198 7.53656C185.437 7.2753 185.598 6.96322 185.86 6.57894Z"
