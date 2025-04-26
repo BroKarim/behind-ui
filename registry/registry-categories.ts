@@ -15,4 +15,9 @@ export const registryCategories = [
     slug: "bento",
     hidden: false,
   },
+  {
+    name: "Card",
+    slug: "card",
+    hidden: false,
+  },
 ];

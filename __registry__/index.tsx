@@ -5,6 +5,25 @@ import * as React from "react"
 
 export const Index: Record<string, any> = {
   "default": {
+    "card-01": {
+      name: "card-01",
+      description: "Ideal for product designers.",
+      type: "registry:block",
+      registryDependencies: ["nav","lang-switch","photos"],
+      files: [{
+        path: "registry/default/blocks/card-01/page.tsx",
+        type: "registry:page",
+        target: "app/page.tsx"
+      },{
+        path: "registry/default/blocks/card-01/components/post-card.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["card"],
+      component: React.lazy(() => import("@/registry/default/blocks/card-01/page.tsx")),
+      source: "__registry__/default/blocks/card-01/page.tsx",
+      meta: undefined,
+    },
     "hero-01": {
       name: "hero-01",
       description: "Ideal for product designers.",
