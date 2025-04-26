@@ -1,5 +1,3 @@
-// design : https://www.campsite.com/
-// code. : https://github.com/campsite/campsite/blob/cc14551df7264c4adfdf6d0f6a549c713e0da7a8/apps/site/components/Home/Manifesto.tsx#L297
 
 import { cn } from "@/lib/utils";
 import { PostCard } from "./components/post-card";
