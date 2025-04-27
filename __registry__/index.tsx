@@ -24,6 +24,41 @@ export const Index: Record<string, any> = {
       source: "__registry__/default/blocks/card-01/page.tsx",
       meta: undefined,
     },
+    "card-02": {
+      name: "card-02",
+      description: "Ideal for product designers.",
+      type: "registry:block",
+      registryDependencies: ["pricing","shades","currency"],
+      files: [{
+        path: "registry/default/blocks/card-02/page.tsx",
+        type: "registry:page",
+        target: "app/page.tsx"
+      },{
+        path: "registry/default/blocks/card-02/components/pricing-card.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/ui/card.tsx",
+        type: "registry:ui",
+        target: "components/ui/card.tsx"
+      },{
+        path: "registry/default/ui/badge.tsx",
+        type: "registry:ui",
+        target: "components/ui/badge.tsx"
+      },{
+        path: "registry/default/ui/texture-button.tsx",
+        type: "registry:ui",
+        target: "components/ui/texture-button.tsx"
+      },{
+        path: "registry/default/lib/utils.ts",
+        type: "registry:ui",
+        target: "lib/utils.ts"
+      }],
+      categories: ["card"],
+      component: React.lazy(() => import("@/registry/default/blocks/card-02/page.tsx")),
+      source: "__registry__/default/blocks/card-02/page.tsx",
+      meta: undefined,
+    },
     "hero-01": {
       name: "hero-01",
       description: "Ideal for product designers.",
@@ -211,7 +246,7 @@ export const Index: Record<string, any> = {
         target: ""
       },{
         path: "registry/default/ui/card.tsx",
-        type: "registry:component",
+        type: "registry:ui",
         target: "components/ui/card.tsx"
       },{
         path: "registry/default/blocks/bento-01/hooks/useAnimation.tsx",
@@ -325,6 +360,21 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/ui/button.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "texture-button": {
+      name: "texture-button",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/texture-button.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/texture-button.tsx")),
       source: "",
       meta: undefined,
     },

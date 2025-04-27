@@ -20,6 +20,44 @@ export const blocks: Registry["items"] = [
     categories: ["card"],
   },
   {
+    name: "card-02",
+    type: "registry:block",
+    description: "Ideal for product designers.",
+    registryDependencies: ["pricing", "shades", "currency"],
+    files: [
+      {
+        path: "blocks/card-02/page.tsx",
+        type: "registry:page",
+        target: "app/page.tsx",
+      },
+      {
+        path: "blocks/card-02/components/pricing-card.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "ui/card.tsx",
+        type: "registry:ui",
+        target: "components/ui/card.tsx",
+      },
+      {
+        path: "ui/badge.tsx",
+        type: "registry:ui",
+        target: "components/ui/badge.tsx",
+      },
+      {
+        path: "ui/texture-button.tsx",
+        type: "registry:ui",
+        target: "components/ui/texture-button.tsx",
+      },
+      {
+        path: "lib/utils.ts",
+        type: "registry:ui",
+        target: "lib/utils.ts",
+      },
+    ],
+    categories: ["card"],
+  },
+  {
     name: "hero-01",
     type: "registry:block",
     description: "Ideal for product designers.",
@@ -214,7 +252,7 @@ export const blocks: Registry["items"] = [
       },
       {
         path: "ui/card.tsx",
-        type: "registry:component",
+        type: "registry:ui",
         target: "components/ui/card.tsx",
       },
       {

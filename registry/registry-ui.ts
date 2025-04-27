@@ -90,6 +90,17 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "texture-button",
+    type: "registry:ui",
+    dependencies: ["@radix-ui/react-slot"],
+    files: [
+      {
+        path: "ui/texture-button.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "calendar",
     type: "registry:ui",
     dependencies: ["react-day-picker@8.10.1", "date-fns"],

@@ -32,6 +32,8 @@ export function ThemeWrapper({ defaultTheme, children, className }: ThemeWrapper
                 "--primary": activeTheme.cssVars[mode === "dark" ? "dark" : "light"].primary,
                 "--primary-foreground": activeTheme.cssVars[mode === "dark" ? "dark" : "light"]["primary-foreground"],
                 "--secondary": activeTheme.cssVars[mode === "dark" ? "dark" : "light"].secondary,
+                "--accent-from": activeTheme?.cssVars?.[mode === "dark" ? "dark" : "light"]?.primary ?? "#818cf8", // fallback indigo-400
+                "--accent-to": activeTheme?.cssVars?.[mode === "dark" ? "dark" : "light"]?.["primary-foreground"] ?? "#6366f1", // fallback indigo-500
                 // Add all other color variables here
               }
             : {}),
