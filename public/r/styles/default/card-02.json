@@ -12,7 +12,7 @@
   "files": [
     {
       "path": "blocks/card-02/page.tsx",
-      "content": "import { PricingCard } from \"./components/pricing-card\";\n\nconst DEMO_TIERS = [\n  {\n    name: \"Teams\",\n    price: 12,\n    description:\n      \"Highly recommended for small teams who seek to upgrade their time & perform\",\n    features: [\n      \"1 team\",\n      \"Schedule meeting as team\",\n      \"Collective events\",\n      \"Team workflow\",\n    ],\n    cta: \"Get Started\",\n    linear: true,\n    default: true,\n  },\n];\n\nexport default function Page() {\n  return (\n    <>\n      <div className=\" z-50  flex flex-1 justify-center gap-6 bg-background p-6 \">\n        {DEMO_TIERS.map((tier) => (\n          <PricingCard key={tier.name} tier={tier} paymentFrequency=\"monthly\" />\n        ))}\n      </div>\n    </>\n  );\n}\n",
+      "content": "import { PricingCard } from \"./components/pricing-card\";\n\nconst TIERS = [\n  {\n    name: \"Teams\",\n    price: 12,\n    description:\n      \"Highly recommended for small teams who seek to upgrade their time & perform\",\n    features: [\n      \"1 team\",\n      \"Schedule meeting as team\",\n      \"Collective events\",\n      \"Team workflow\",\n    ],\n    cta: \"Get Started\",\n    linear: true,\n    default: true,\n  },\n];\n\nexport default function Page() {\n  return (\n    <>\n      <div className=\" z-50  flex flex-1 justify-center gap-6 bg-background p-6 \">\n        {TIERS.map((tier) => (\n          <PricingCard key={tier.name} tier={tier} paymentFrequency=\"monthly\" />\n        ))}\n      </div>\n    </>\n  );\n}\n",
       "type": "registry:page",
       "target": "app/page.tsx"
     },

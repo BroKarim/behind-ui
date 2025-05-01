@@ -117,6 +117,33 @@ export const Index: Record<string, any> = {
       source: "__registry__/default/blocks/portofolio-01/main.tsx",
       meta: undefined,
     },
+    "portofolio-03": {
+      name: "portofolio-03",
+      description: "minimal portfolio template design for professionals.",
+      type: "registry:block",
+      registryDependencies: ["footer","list"],
+      files: [{
+        path: "registry/default/blocks/portofolio-03/page.tsx",
+        type: "registry:page",
+        target: "app/page.tsx"
+      },{
+        path: "registry/default/blocks/portofolio-03/components/work-experiences.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/portofolio-03/components/expandable-tab.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/portofolio-03/components/logos.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["portofolio"],
+      component: React.lazy(() => import("@/registry/default/blocks/portofolio-03/page.tsx")),
+      source: "__registry__/default/blocks/portofolio-03/page.tsx",
+      meta: undefined,
+    },
     "portofolio-02": {
       name: "portofolio-02",
       description: "minimal portfolio template design for professionals.",

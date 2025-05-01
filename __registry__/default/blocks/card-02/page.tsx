@@ -1,6 +1,6 @@
 import { PricingCard } from "./components/pricing-card";
 
-const DEMO_TIERS = [
+const TIERS = [
   {
     name: "Teams",
     price: 12,
@@ -22,7 +22,7 @@ export default function Page() {
   return (
     <>
       <div className=" z-50  flex flex-1 justify-center gap-6 bg-background p-6 ">
-        {DEMO_TIERS.map((tier) => (
+        {TIERS.map((tier) => (
           <PricingCard key={tier.name} tier={tier} paymentFrequency="monthly" />
         ))}
       </div>

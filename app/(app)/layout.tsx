@@ -23,7 +23,7 @@ export default async function AppLayout({ children }: AppLayoutProps) {
           </ScrollArea>
         </div>
         {/* Main Content */}
-        <div className="relative flex w-full flex-col border-l px-4 md:w-[calc(100%-300px)] md:px-6 lg:w-[calc(100%-400px)]">
+        <div className="relative flex w-full flex-col border-l  md:w-[calc(100%-300px)]  lg:w-[calc(100%-400px)]">
           {" "}
           <div className=" flex w-full items-center justify-center px-0 py-4">
             <BlocksNav />

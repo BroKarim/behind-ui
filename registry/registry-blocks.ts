@@ -115,6 +115,32 @@ export const blocks: Registry["items"] = [
     categories: ["portofolio"],
   },
   {
+    name: "portofolio-03",
+    type: "registry:block",
+    description: "minimal portfolio template design for professionals.",
+    registryDependencies: ["footer", "list"],
+    files: [
+      {
+        path: "blocks/portofolio-03/page.tsx",
+        type: "registry:page",
+        target: "app/page.tsx",
+      },
+      {
+        path: "blocks/portofolio-03/components/work-experiences.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/portofolio-03/components/expandable-tab.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/portofolio-03/components/logos.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["portofolio"],
+  },
+  {
     name: "portofolio-02",
     type: "registry:block",
     description: "minimal portfolio template design for professionals.",
