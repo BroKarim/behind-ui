@@ -14,7 +14,7 @@ export default async function BlocksPage({ params }: { params: { categories?: st
   const blocks = await getAllBlockIds(["registry:block"], params.categories ?? []);
 
   return blocks.map((name) => (
-    <div key={name} className="container border-dashed border-b-black py-8 first:pt-6 last:border-b-2 dark:border-border   md:py-12">
+    <div key={name} className="container py-8   md:py-12">
       <BlockDisplay name={name} />
     </div>
   ));
