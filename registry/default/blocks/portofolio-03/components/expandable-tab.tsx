@@ -93,14 +93,6 @@ export function ExpandableTab({
                 </motion.span>
               )}
             </AnimatePresence>
-
-            {/* <AnimatePresence initial={false}>
-              {selected === index && (
-                <motion.span variants={spanVariants} initial="initial" animate="animate" exit="exit" transition={transition} className="overflow-hidden">
-                  {badge.role}
-                </motion.span>
-              )}
-            </AnimatePresence> */}
           </motion.button>
         );
       })}
