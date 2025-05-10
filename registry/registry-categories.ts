@@ -20,4 +20,9 @@ export const registryCategories = [
     slug: "card",
     hidden: false,
   },
+  {
+    name: "Tool",
+    slug: "tool",
+    hidden: false,
+  },
 ];

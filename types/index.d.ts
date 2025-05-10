@@ -23,3 +23,11 @@ export type DashboardConfig = {
   mainNav: MainNavItem[];
   sidebarNav: SidebarNavItem[];
 };
+
+export type ColorPickerProps = {
+  color: string;
+  onChange: (color: string) => void;
+  label: string;
+};
+
+export type ColorFormat = "hex" | "rgb" | "hsl" | "oklch";

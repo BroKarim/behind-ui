@@ -7,6 +7,7 @@ import { useTheme } from "next-themes";
 
 import { cn } from "@/lib/utils";
 import { ThemeWrapper } from "./theme-wrapper";
+import { Theme, THEMES } from "@/lib/themes";
 import { copyToClipboardWithMeta } from "./copy-button";
 import { useConfig } from "@/lib/use-config";
 import { Button } from "./ui/button";
@@ -15,7 +16,6 @@ import { baseColors, BaseColor } from "@/registry/registry-base-colors";
 import { Skeleton } from "./ui/skeleton";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-
 import "@/styles/mdx.css";
 
 export function ThemeCustomizer() {
@@ -41,13 +41,14 @@ function Customizer() {
   const [mounted, setMounted] = React.useState(false);
   const { setTheme: setMode, resolvedTheme: mode } = useTheme();
   const [config, setConfig] = useConfig();
+  const [activeTheme, setActiveTheme] = React.useState<Theme>(THEMES[0]);
 
   React.useEffect(() => {
     setMounted(true);
   }, []);
 
   return (
-    <ThemeWrapper defaultTheme="zinc" className="flex flex-col space-y-4  md:space-y-6">
+    <ThemeWrapper defaultTheme="zinc" className="flex flex-col space-y-4  md:space-y-6" activeTheme={activeTheme}>
       <div className="flex flex-1 flex-col space-y-4 font-sans md:space-y-6">
         {/* Mode opt */}
         <div className="space-y-4">
@@ -71,6 +72,18 @@ function Customizer() {
               </>
             )}
           </div>
+        </div>
+        <div className="space-y-4">
+          <Select onValueChange={(id) => setActiveTheme(THEMES.find((t) => t.id === id)!)}>
+            <SelectTrigger>{activeTheme.name}</SelectTrigger>
+            <SelectContent>
+              {THEMES.map((theme) => (
+                <SelectItem key={theme.id} value={theme.id}>
+                  {theme.name}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
         {/* color */}
         <div className="space-y-4">
