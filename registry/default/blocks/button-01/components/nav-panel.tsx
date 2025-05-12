@@ -4,59 +4,11 @@ import React, { Fragment, useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { SidebarContent, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, Sidebar, SidebarProvider, SidebarTrigger, SidebarFooter, SidebarHeader } from "@/components/ui/sidebar";
-import {
-  Calendar,
-  ChevronsUpDown,
-  ArrowUpCircleIcon,
-  Home,
-  Inbox,
-  Search,
-  Settings,
-  User,
-  CameraIcon,
-  ClipboardListIcon,
-  DatabaseIcon,
-  FileCodeIcon,
-  FileIcon,
-  FileTextIcon,
-  FolderIcon,
-  HelpCircleIcon,
-  LayoutDashboardIcon,
-  SearchIcon,
-  SettingsIcon,
-} from "lucide-react";
-import Link from "next/link";
+import {  ArrowUpCircleIcon, User, CameraIcon, ClipboardListIcon, DatabaseIcon, FileCodeIcon, FileIcon, FileTextIcon, FolderIcon, HelpCircleIcon, LayoutDashboardIcon, SearchIcon, SettingsIcon } from "lucide-react";
 import { TextureButton } from "@/components/ui/texture-button";
 import { NavMain } from "./nav-main";
 import { NavDocuments } from "./nav-documents";
-
-const items = [
-  {
-    title: "Home",
-    url: "#",
-    icon: Home,
-  },
-  {
-    title: "Inbox",
-    url: "#",
-    icon: Inbox,
-  },
-  {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  },
-  {
-    title: "Settings",
-    url: "#",
-    icon: Settings,
-  },
-];
+import { ImageContent } from "./image-conten";
 
 const data = {
   user: {
@@ -176,56 +128,50 @@ export function NavPanel() {
   const [copied, setCopied] = useState(false);
   const [isInPlayground, setIsInPlayground] = useState(true);
 
-  const options: Option[] = [
-    { id: "images", label: "Images" },
-    { id: "video", label: "Video" },
-    { id: "no-media", label: "Notification" },
-    { id: "code", label: "Code" },
-  ];
   return (
     <>
-      <div className="relative h-[500px] max-w-[300px] md:mx-auto md:w-full">
-        <SidebarProvider className="absolute left-0 top-0 h-full min-h-full overflow-hidden rounded-l-lg">
-          <Sidebar className="absolute h-full">
-            <SidebarHeader>
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:!p-1.5">
-                    <a href="#">
-                      <ArrowUpCircleIcon className="h-5 w-5" />
-                      <span className="text-base font-semibold">Acme Inc.</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarHeader>
-            <SidebarContent>
-              <NavMain items={data.navMain} />
-              <NavDocuments items={data.documents} />
-            </SidebarContent>
-            <SidebarFooter>
-              <SidebarGroup>
-                <SidebarMenuButton className="h-12 w-full justify-between gap-3">
-                  <div className="flex items-center gap-2">
-                    <User className="h-5 w-5 rounded-md" />
-                    <div className="flex flex-col items-start">
-                      <span className="text-sm font-medium">KL</span>
-                      <span className="text-xs text-muted-foreground">kl@example.com</span>
+      <div className="relative h-[700px] max-w-[350px]  overflow-hidden md:mx-auto md:w-full">
+        <AnimatePresence mode="wait">
+          <SidebarProvider className="absolute left-0 top-0 h-full min-h-full overflow-hidden rounded-l-lg">
+            <Sidebar className="absolute h-full">
+              <SidebarHeader>
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:!p-1.5">
+                      <a href="#">
+                        <ArrowUpCircleIcon className="h-5 w-5" />
+                        <span className="text-base font-semibold">Acme Inc.</span>
+                      </a>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarMenu>
+              </SidebarHeader>
+              <SidebarContent>
+                <NavMain items={data.navMain} />
+                <NavDocuments items={data.documents} />
+              </SidebarContent>
+              <SidebarFooter>
+                <SidebarGroup className=" gap-4">
+                  <ImageContent />
+                  <TextureButton className="w-full">
+                    <div className="flex w-full items-center gap-2">
+                      <User className="h-5 w-5 rounded-md" />
+                      <div className="flex flex-col items-start">
+                        <span className="text-sm font-medium">KL</span>
+                        <span className="text-xs text-muted-foreground">kl@example.com</span>
+                      </div>
                     </div>
-                  </div>
-                  <ChevronsUpDown className="h-5 w-5 rounded-md" />
-                </SidebarMenuButton>
-              </SidebarGroup>
-            </SidebarFooter>
-          </Sidebar>
-          <div className="px-4 py-2">
-            <SidebarTrigger />
-          </div>
-        </SidebarProvider>
-        {/* <div className="relative h-full  rounded-l-lg border-y border-l border-gray-200 shadow-md dark:border-zinc-700/50 md:mx-auto md:w-full">
-        </div> */}
+                  </TextureButton>
+                </SidebarGroup>
+              </SidebarFooter>
+            </Sidebar>
+            <div className="px-4 py-2">
+              <SidebarTrigger />
+            </div>
+          </SidebarProvider>
+          <div className="pointer-events-none absolute -right-4 top-0 h-full w-10 bg-white dark:bg-transparent" />
+        </AnimatePresence>
       </div>
-      {/* <AnimatePresence></AnimatePresence> */}
     </>
   );
 }
