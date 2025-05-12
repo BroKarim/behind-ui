@@ -2,6 +2,34 @@ import { type Registry } from "@/registry/schema";
 
 export const blocks: Registry["items"] = [
   {
+    name: "buttton-01",
+    type: "registry:block",
+    description: "Sleek  button with soft glow and depth.",
+    registryDependencies: ["button", "sidebar"],
+    files: [
+      {
+        path: "blocks/button-01/page.tsx",
+        type: "registry:page",
+        target: "app/page.tsx",
+      },
+      {
+        path: "blocks/button-01/components/nav-panel.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "ui/sidebar.tsx",
+        type: "registry:ui",
+        target: "components/ui/sidebar.tsx",
+      },
+      {
+        path: "ui/button.tsx",
+        type: "registry:ui",
+        target: "components/ui/button.tsx",
+      },
+    ],
+    categories: ["portofolio"],
+  },
+  {
     name: "card-01",
     type: "registry:block",
     description: "Ideal for product designers.",
