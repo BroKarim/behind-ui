@@ -14,6 +14,7 @@
     "build": "next build",
     "build:registry": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-registry.mts && prettier --loglevel silent --write \"registry/**/*.{ts,tsx,mdx}\" --cache",
     "registry:capture": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/capture-registry.mts",
+    "generate-theme-registry": "tsx scripts/generate-theme-registry-tweakcn.ts && tsx scripts/generate-registry-tweakcn.ts",
     "typecheck": "tsc --noEmit",
     "start": "next start",
     "clean": "rm -rf .next",

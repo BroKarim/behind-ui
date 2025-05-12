@@ -2,6 +2,8 @@ import { defaultDarkThemeStyles, defaultLightThemeStyles } from "@/config/theme-
 import { ThemeStyleProps, ThemeStyles } from "@/types/theme-tweakcn";
 import { colorFormatter } from "@/utils/color-converter";
 import { getShadowMap } from "../shadow";
+import { getPresetThemeStyles } from "../theme-preset-helper-tweakcn";
+
 
 // Convert HSL color to the format expected by shadcn registry
 const convertToRegistryColor = (color: string): string => {
@@ -62,6 +64,12 @@ const convertThemeStyles = (styles: ThemeStyles) => {
     light: { ...defaultLightThemeStyles, ...convertTheme(light) },
     dark: { ...defaultDarkThemeStyles, ...convertTheme(dark) },
   };
+};
+
+export const generateThemeRegistryFromPreset = (name: string) => {
+  const styles = getPresetThemeStyles(name);
+  const registryItem = generateThemeRegistryItemFromStyles(name, styles);
+  return registryItem;
 };
 
 export const generateThemeRegistryItemFromStyles = (name: string, themeStyles: ThemeStyles) => {
