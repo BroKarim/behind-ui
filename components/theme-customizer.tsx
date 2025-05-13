@@ -17,10 +17,10 @@ import { Skeleton } from "./ui/skeleton";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import "@/styles/mdx.css";
-
+import ThemePresetSelect from "./editor/theme-select";
+import { useThemePresetStore } from "@/store/theme-preset-store";
+import { useEditorStore } from "@/store/editor-store";
 export function ThemeCustomizer() {
-  const [config, setConfig] = useConfig();
-  const { resolvedTheme: mode } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
@@ -41,14 +41,15 @@ function Customizer() {
   const [mounted, setMounted] = React.useState(false);
   const { setTheme: setMode, resolvedTheme: mode } = useTheme();
   const [config, setConfig] = useConfig();
-  const [activeTheme, setActiveTheme] = React.useState<Theme>(THEMES[0]);
+  const { applyThemePreset, themeState } = useEditorStore();
+  const presets = useThemePresetStore((state) => state.getAllPresets());
 
   React.useEffect(() => {
     setMounted(true);
   }, []);
 
   return (
-    <ThemeWrapper defaultTheme="zinc" className="flex flex-col space-y-4  md:space-y-6" activeTheme={activeTheme}>
+    <ThemeWrapper defaultTheme="zinc" className="flex flex-col space-y-4  md:space-y-6" >
       <div className="flex flex-1 flex-col space-y-4 font-sans md:space-y-6">
         {/* Mode opt */}
         <div className="space-y-4">
@@ -74,16 +75,7 @@ function Customizer() {
           </div>
         </div>
         <div className="space-y-4">
-          <Select onValueChange={(id) => setActiveTheme(THEMES.find((t) => t.id === id)!)}>
-            <SelectTrigger>{activeTheme.name}</SelectTrigger>
-            <SelectContent>
-              {THEMES.map((theme) => (
-                <SelectItem key={theme.id} value={theme.id}>
-                  {theme.name}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <ThemePresetSelect presets={presets} currentPreset={themeState.preset || null} onPresetChange={applyThemePreset} />
         </div>
         {/* color */}
         <div className="space-y-4">

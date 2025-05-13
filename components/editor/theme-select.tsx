@@ -13,6 +13,8 @@ import { Input } from "../ui/input";
 import { Badge } from "../ui/badge";
 import { cn } from "@/lib/utils";
 import { useTheme } from "../theme-provider-tweakcn";
+import { useEditorStore } from "@/store/editor-store";
+
 
 interface ThemePresetSelectProps {
   presets: Record<string, ThemePreset>;
@@ -40,6 +42,14 @@ const ThemeColors: React.FC<ThemeColorsProps> = ({ presetName, mode }) => {
       <ColorBox color={styles.border} />
     </div>
   );
+};
+
+const isThemeNew = (preset: ThemePreset) => {
+  if (!preset.createdAt) return false;
+  const createdAt = new Date(preset.createdAt);
+  const timePeriod = new Date();
+  timePeriod.setDate(timePeriod.getDate() - 5);
+  return createdAt > timePeriod;
 };
 
 interface ThemeControlsProps {
@@ -101,12 +111,12 @@ const ThemePresetSelect: React.FC<ThemePresetSelectProps> = ({ presets, currentP
   const mode = themeState.currentMode;
   const [search, setSearch] = useState("");
 
-  const isSavedTheme = useCallback(
-    (presetId: string) => {
-      return presets[presetId]?.source === "SAVED";
-    },
-    [presets]
-  );
+  // const isSavedTheme = useCallback(
+  //   (presetId: string) => {
+  //     return presets[presetId]?.source === "SAVED";
+  //   },
+  //   [presets]
+  // );
 
   const presetNames = useMemo(() => ["default", ...Object.keys(presets)], [presets]);
   const value = presetNames?.find((name) => name === currentPreset);
@@ -119,21 +129,34 @@ const ThemePresetSelect: React.FC<ThemePresetSelectProps> = ({ presets, currentP
             .filter(([_, preset]) => preset.label?.toLowerCase().includes(search.toLowerCase()))
             .map(([name]) => name);
 
-    // Sort each list
+    return filteredList.sort((a, b) => {
+      const labelA = presets[a]?.label || a;
+      const labelB = presets[b]?.label || b;
+      return labelA.localeCompare(labelB);
+    });
+  }, [presetNames, search, presets]);
 
-    // Combine saved themes first, then default themes
-    return [...sortThemes(savedThemesList), ...sortThemes(defaultThemesList)];
-  }, [presetNames, search, presets, isSavedTheme]);
+  const currentIndex = useMemo(() => filteredPresets.indexOf(value || "default"), [filteredPresets, value]) ?? 0;
 
   const randomize = useCallback(() => {
     const random = Math.floor(Math.random() * filteredPresets.length);
     onPresetChange(filteredPresets[random]);
   }, [onPresetChange, filteredPresets]);
 
+  const cycleTheme = useCallback(
+    (direction: "prev" | "next") => {
+      const newIndex = direction === "next" ? (currentIndex + 1) % filteredPresets.length : (currentIndex - 1 + filteredPresets.length) % filteredPresets.length;
+      onPresetChange(filteredPresets[newIndex]);
+    },
+    [currentIndex, filteredPresets, onPresetChange]
+  );
+
   const handleThemeToggle = (event: React.MouseEvent<HTMLButtonElement>) => {
     const { clientX: x, clientY: y } = event;
     toggleTheme({ x, y });
   };
+
+  const filteredDefaultThemes = filteredPresets;
 
   return (
     <>

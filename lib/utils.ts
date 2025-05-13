@@ -7,6 +7,10 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export function isDeepEqual(a: unknown, b: unknown): boolean {
+  return isEqual(a, b);
+}
+
 export function humanize(name: string): string {
   return name
     .replace(/-/g, " ")

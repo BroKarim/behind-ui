@@ -5,9 +5,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Analytics } from "@/components/analytics";
 import { PHProvider } from "@/components/posthog-provider";
 import { ThemeProvider } from "@/components/theme-provider";
-import { TemplateToaster } from "@/components/home/template-toast";
 import { siteConfig, SiteConfig } from "@/config/site";
-
+import { Suspense } from "react";
 import "@/styles/globals.css";
 import "@/styles/mdx.css";
 
@@ -62,16 +61,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={cn("relative flex h-screen w-full flex-col justify-center overflow-hidden scroll-smooth bg-background  font-sans  antialiased", fontSans.variable, fontMono.variable, fontRoboto.variable, fontSerif.variable  )}>
+      <body className={cn("relative flex h-screen w-full flex-col justify-center overflow-hidden scroll-smooth bg-background  font-sans  antialiased", fontSans.variable, fontMono.variable, fontRoboto.variable, fontSerif.variable)}>
         <PHProvider>
-          <ThemeProvider attribute="class" enableSystem disableTransitionOnChange enableColorScheme>
-            <TooltipProvider>
-              <Toaster />
-              {children}
-              <Analytics />
-              {/* <TemplateToaster /> */}
-            </TooltipProvider>
-          </ThemeProvider>
+          <Suspense>
+            <ThemeProvider defaultTheme="light">
+              <TooltipProvider>
+                <Toaster />
+                {children}
+                <Analytics />
+              </TooltipProvider>
+            </ThemeProvider>
+          </Suspense>
         </PHProvider>
       </body>
     </html>
