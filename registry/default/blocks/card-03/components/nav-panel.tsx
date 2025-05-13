@@ -2,35 +2,8 @@
 
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  SidebarContent,
-  SidebarMenu,
-  SidebarMenuItem,
-  SidebarMenuButton,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  Sidebar,
-  SidebarProvider,
-  SidebarTrigger,
-  SidebarFooter,
-  SidebarHeader,
-} from "@/components/ui/sidebar";
-import {
-  ArrowUpCircleIcon,
-  User,
-  CameraIcon,
-  ClipboardListIcon,
-  DatabaseIcon,
-  FileCodeIcon,
-  FileIcon,
-  FileTextIcon,
-  FolderIcon,
-  HelpCircleIcon,
-  LayoutDashboardIcon,
-  SearchIcon,
-  SettingsIcon,
-} from "lucide-react";
+import { SidebarContent, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, Sidebar, SidebarProvider, SidebarTrigger, SidebarFooter, SidebarHeader } from "@/components/ui/sidebar";
+import { ArrowUpCircleIcon, User, CameraIcon, ClipboardListIcon, DatabaseIcon, FileCodeIcon, FileIcon, FileTextIcon, FolderIcon, HelpCircleIcon, LayoutDashboardIcon, SearchIcon, SettingsIcon } from "lucide-react";
 import { TextureButton } from "@/components/ui/texture-button";
 import { NavMain } from "./nav-main";
 import { NavDocuments } from "./nav-documents";
@@ -149,21 +122,16 @@ export function NavPanel() {
               <SidebarHeader>
                 <SidebarMenu>
                   <SidebarMenuItem>
-                    <SidebarMenuButton
-                      asChild
-                      className="data-[slot=sidebar-menu-button]:!p-1.5"
-                    >
+                    <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:!p-1.5">
                       <a href="#">
                         <ArrowUpCircleIcon className="h-5 w-5" />
-                        <span className="text-base font-semibold">
-                          Acme Inc.
-                        </span>
+                        <span className="text-base font-semibold text-primary">Acme Inc.</span>
                       </a>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 </SidebarMenu>
               </SidebarHeader>
-              <SidebarContent>
+              <SidebarContent className="text-primary">
                 <NavMain items={data.navMain} />
                 <NavDocuments items={data.documents} />
               </SidebarContent>
@@ -175,9 +143,7 @@ export function NavPanel() {
                       <User className="h-5 w-5 rounded-md" />
                       <div className="flex flex-col items-start">
                         <span className="text-sm font-medium">BroKarim</span>
-                        <span className="text-xs dark:text-muted-foreground">
-                          brokariim@gmail.com
-                        </span>
+                        <span className="text-xs dark:text-muted-foreground">brokariim@gmail.com</span>
                       </div>
                     </div>
                   </TextureButton>
