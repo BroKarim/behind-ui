@@ -1,14 +1,40 @@
 "use client";
 
-import React, { Fragment, useState, useEffect } from "react";
+import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { SidebarContent, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, Sidebar, SidebarProvider, SidebarTrigger, SidebarFooter, SidebarHeader } from "@/components/ui/sidebar";
-import {  ArrowUpCircleIcon, User, CameraIcon, ClipboardListIcon, DatabaseIcon, FileCodeIcon, FileIcon, FileTextIcon, FolderIcon, HelpCircleIcon, LayoutDashboardIcon, SearchIcon, SettingsIcon } from "lucide-react";
+import {
+  SidebarContent,
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  Sidebar,
+  SidebarProvider,
+  SidebarTrigger,
+  SidebarFooter,
+  SidebarHeader,
+} from "@/components/ui/sidebar";
+import {
+  ArrowUpCircleIcon,
+  User,
+  CameraIcon,
+  ClipboardListIcon,
+  DatabaseIcon,
+  FileCodeIcon,
+  FileIcon,
+  FileTextIcon,
+  FolderIcon,
+  HelpCircleIcon,
+  LayoutDashboardIcon,
+  SearchIcon,
+  SettingsIcon,
+} from "lucide-react";
 import { TextureButton } from "@/components/ui/texture-button";
 import { NavMain } from "./nav-main";
 import { NavDocuments } from "./nav-documents";
-import { ImageContent } from "./image-conten";
+import { ImageContent } from "./image-content";
 
 const data = {
   user: {
@@ -113,34 +139,25 @@ const data = {
   ],
 };
 
-interface Option {
-  id: "images" | "video" | "no-media" | "code";
-  label: string;
-}
-
-interface InfoCardDemoProps {
-  initialCodeHtml: string;
-}
-
 export function NavPanel() {
-  const [selected, setSelected] = useState<Option["id"]>("images");
-  const [key, setKey] = useState(0);
-  const [copied, setCopied] = useState(false);
-  const [isInPlayground, setIsInPlayground] = useState(true);
-
   return (
     <>
-      <div className="relative h-[700px] max-w-[350px]  overflow-hidden md:mx-auto md:w-full">
+      <div className="relative h-[700px] max-w-[350px]  overflow-hidden rounded-l-lg border-y border-l border-gray-200  dark:border-zinc-700/50 md:mx-auto md:w-full">
         <AnimatePresence mode="wait">
           <SidebarProvider className="absolute left-0 top-0 h-full min-h-full overflow-hidden rounded-l-lg">
             <Sidebar className="absolute h-full">
               <SidebarHeader>
                 <SidebarMenu>
                   <SidebarMenuItem>
-                    <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:!p-1.5">
+                    <SidebarMenuButton
+                      asChild
+                      className="data-[slot=sidebar-menu-button]:!p-1.5"
+                    >
                       <a href="#">
                         <ArrowUpCircleIcon className="h-5 w-5" />
-                        <span className="text-base font-semibold">Acme Inc.</span>
+                        <span className="text-base font-semibold">
+                          Acme Inc.
+                        </span>
                       </a>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
@@ -151,14 +168,16 @@ export function NavPanel() {
                 <NavDocuments items={data.documents} />
               </SidebarContent>
               <SidebarFooter>
+                <ImageContent />
                 <SidebarGroup className=" gap-4">
-                  <ImageContent />
-                  <TextureButton className="w-full">
+                  <TextureButton variant="accent" className="w-full">
                     <div className="flex w-full items-center gap-2">
                       <User className="h-5 w-5 rounded-md" />
                       <div className="flex flex-col items-start">
-                        <span className="text-sm font-medium">KL</span>
-                        <span className="text-xs text-muted-foreground">kl@example.com</span>
+                        <span className="text-sm font-medium">BroKarim</span>
+                        <span className="text-xs dark:text-muted-foreground">
+                          brokariim@gmail.com
+                        </span>
                       </div>
                     </div>
                   </TextureButton>

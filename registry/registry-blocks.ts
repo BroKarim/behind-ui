@@ -2,18 +2,39 @@ import { type Registry } from "@/registry/schema";
 
 export const blocks: Registry["items"] = [
   {
-    name: "buttton-01",
+    name: "card-03",
     type: "registry:block",
-    description: "Sleek  button with soft glow and depth.",
-    registryDependencies: ["button", "sidebar"],
+    description:
+      "Information cards to deliver news, updates, and alerts to your users by KL UI",
+    registryDependencies: ["chart", "sidebar"],
     files: [
       {
-        path: "blocks/button-01/page.tsx",
+        path: "blocks/card-03/page.tsx",
         type: "registry:page",
         target: "app/page.tsx",
       },
       {
-        path: "blocks/button-01/components/nav-panel.tsx",
+        path: "blocks/card-03/components/nav-panel.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/card-03/components/nav-main.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/card-03/components/nav-documents.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/card-03/components/infor-card.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/card-03/components/image-content.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/card-03/components/chart-content.tsx",
         type: "registry:component",
       },
       {
@@ -22,12 +43,12 @@ export const blocks: Registry["items"] = [
         target: "components/ui/sidebar.tsx",
       },
       {
-        path: "ui/button.tsx",
+        path: "ui/chart.tsx",
         type: "registry:ui",
-        target: "components/ui/button.tsx",
+        target: "components/ui/chart.tsx",
       },
     ],
-    categories: ["portofolio"],
+    categories: ["card"],
   },
   {
     name: "card-01",

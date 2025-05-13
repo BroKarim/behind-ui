@@ -5,17 +5,37 @@ import * as React from "react"
 
 export const Index: Record<string, any> = {
   "default": {
-    "buttton-01": {
-      name: "buttton-01",
-      description: "Sleek  button with soft glow and depth.",
+    "card-03": {
+      name: "card-03",
+      description: "Information cards to deliver news, updates, and alerts to your users by KL UI",
       type: "registry:block",
-      registryDependencies: ["button","sidebar"],
+      registryDependencies: ["chart","sidebar"],
       files: [{
-        path: "registry/default/blocks/button-01/page.tsx",
+        path: "registry/default/blocks/card-03/page.tsx",
         type: "registry:page",
         target: "app/page.tsx"
       },{
-        path: "registry/default/blocks/button-01/components/nav-panel.tsx",
+        path: "registry/default/blocks/card-03/components/nav-panel.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/card-03/components/nav-main.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/card-03/components/nav-documents.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/card-03/components/infor-card.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/card-03/components/image-content.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/card-03/components/chart-content.tsx",
         type: "registry:component",
         target: ""
       },{
@@ -23,13 +43,13 @@ export const Index: Record<string, any> = {
         type: "registry:ui",
         target: "components/ui/sidebar.tsx"
       },{
-        path: "registry/default/ui/button.tsx",
+        path: "registry/default/ui/chart.tsx",
         type: "registry:ui",
-        target: "components/ui/button.tsx"
+        target: "components/ui/chart.tsx"
       }],
-      categories: ["portofolio"],
-      component: React.lazy(() => import("@/registry/default/blocks/button-01/page.tsx")),
-      source: "__registry__/default/blocks/button-01/page.tsx",
+      categories: ["card"],
+      component: React.lazy(() => import("@/registry/default/blocks/card-03/page.tsx")),
+      source: "__registry__/default/blocks/card-03/page.tsx",
       meta: undefined,
     },
     "card-01": {
