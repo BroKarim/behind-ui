@@ -2,6 +2,55 @@ import { type Registry } from "@/registry/schema";
 
 export const blocks: Registry["items"] = [
   {
+    name: "card-03",
+    type: "registry:block",
+    description:
+      "Information cards to deliver news, updates, and alerts to your users by KL UI",
+    registryDependencies: ["chart", "sidebar"],
+    files: [
+      {
+        path: "blocks/card-03/page.tsx",
+        type: "registry:page",
+        target: "app/page.tsx",
+      },
+      {
+        path: "blocks/card-03/components/nav-panel.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/card-03/components/nav-main.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/card-03/components/nav-documents.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/card-03/components/infor-card.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/card-03/components/image-content.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/card-03/components/chart-content.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "ui/sidebar.tsx",
+        type: "registry:ui",
+        target: "components/ui/sidebar.tsx",
+      },
+      {
+        path: "ui/chart.tsx",
+        type: "registry:ui",
+        target: "components/ui/chart.tsx",
+      },
+    ],
+    categories: ["card"],
+  },
+  {
     name: "card-01",
     type: "registry:block",
     description: "Ideal for product designers.",
