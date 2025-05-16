@@ -1,6 +1,7 @@
 import { defaultThemeState } from "@/config/theme-tweakcn";
 import { ThemeStyles } from "@/types/theme-tweakcn";
 
+//Mengubah objek warna tema (mis. background, foreground, dst.) menjadi CSS variable format (mis. --background: #fff;)
 export function themeColorsToCssVariables(colors: Record<string, string>): Record<string, string> {
   const cssVars = colors
     ? Object.fromEntries(
@@ -11,12 +12,6 @@ export function themeColorsToCssVariables(colors: Record<string, string>): Recor
         })
       )
     : {};
-
-  // for (const key of Array.from({ length: 5 }, (_, index) => index)) {
-  //   cssVars[`--chart-${key + 1}`] =
-  //     cssVars[`--chart-${key + 1}`] ||
-  //     `${cssVars["--primary"]} / ${100 - key * 20}%`
-  // }
 
   return cssVars;
 }

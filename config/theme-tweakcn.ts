@@ -11,7 +11,7 @@ export const DEFAULT_FONT_MONO = 'ui-monospace, SFMono-Regular, Menlo, Monaco, C
 
 // Default light theme styles
 export const defaultLightThemeStyles = {
-  background: "hsl(0 0% 100%)",
+  background: "hsl(0 0% 0%%)",
   foreground: "hsl(0 0% 14.5%)",
   card: "hsl(0 0% 100%)",
   "card-foreground": "hsl(0 0% 14.5%)",

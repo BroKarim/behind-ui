@@ -3,8 +3,6 @@
 import { createContext, useContext, useEffect } from "react";
 import { useEditorStore } from "@/store/editor-store";
 import { applyThemeToElement } from "@/utils/apply-theme";
-import { ThemeProvider as NextThemesProvider } from "next-themes";
-// import { ThemeProviderProps } from "next-themes/dist/types";
 
 type Theme = "dark" | "light";
 
@@ -29,11 +27,17 @@ const initialState: ThemeProviderState = {
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
-export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
+export function ThemeProvider({ children, defaultTheme = "light", ...props }: ThemeProviderProps) {
   const { themeState, setThemeState } = useEditorStore();
 
   // Handle theme preset from URL
   // useThemePresetFromUrl();
+
+  useEffect(() => {
+    if (!themeState.currentMode) {
+      setThemeState({ ...themeState, currentMode: defaultTheme });
+    }
+  }, [defaultTheme]);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -43,6 +47,15 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   }, [themeState]);
 
   const handleThemeChange = (newMode: Theme) => {
+    const root = document.documentElement;
+
+    // Sync dengan class Tailwind
+    if (newMode === "dark") {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+
     setThemeState({ ...themeState, currentMode: newMode });
   };
 
@@ -79,3 +92,13 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
     </ThemeProviderContext.Provider>
   );
 }
+
+export const useTheme = () => {
+  const context = useContext(ThemeProviderContext);
+
+  if (context === undefined) {
+    throw new Error("useTheme must be used within a ThemeProvider");
+  }
+
+  return context;
+};

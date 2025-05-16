@@ -4,6 +4,7 @@ import { colorFormatter } from "@/utils/color-converter";
 import { getShadowMap } from "../shadow";
 import { getPresetThemeStyles } from "../theme-preset-helper-tweakcn";
 
+//Menggabungkan tema preset, mengonversi warnanya ke format yang sesuai untuk ShadCN registry, dan menghasilkan struktur cssVars untuk tema light dan dark.
 
 // Convert HSL color to the format expected by shadcn registry
 const convertToRegistryColor = (color: string): string => {

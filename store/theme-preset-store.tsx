@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { ThemePreset } from "@/types/theme-tweakcn";
 import { defaultPresets } from "@/lib/theme-preset-tweakcn";
 
+//Menyimpan, mengatur, dan mengakses preset tema (ThemePreset) melalui Zustand, berisi fungsi register, update, dan get untuk manajemen preset.
 interface ThemePresetStore {
   presets: Record<string, ThemePreset>;
   registerPreset: (name: string, preset: ThemePreset) => void;

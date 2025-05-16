@@ -17,6 +17,8 @@ interface EditorStore {
   hasUnsavedChanges: () => boolean;
 }
 
+
+//Zustand store yang menyimpan themeState dan setThemeState, termasuk currentMode dan styles untuk light/dark.
 export const useEditorStore = create<EditorStore>()(
   persist(
     (set, get) => ({

@@ -15,6 +15,7 @@ import { cn } from "@/lib/utils";
 import { useTheme } from "../theme-provider-tweakcn";
 import { useEditorStore } from "@/store/editor-store";
 
+//bagian tampilan utama theme
 
 interface ThemePresetSelectProps {
   presets: Record<string, ThemePreset>;
@@ -111,12 +112,6 @@ const ThemePresetSelect: React.FC<ThemePresetSelectProps> = ({ presets, currentP
   const mode = themeState.currentMode;
   const [search, setSearch] = useState("");
 
-  // const isSavedTheme = useCallback(
-  //   (presetId: string) => {
-  //     return presets[presetId]?.source === "SAVED";
-  //   },
-  //   [presets]
-  // );
 
   const presetNames = useMemo(() => ["default", ...Object.keys(presets)], [presets]);
   const value = presetNames?.find((name) => name === currentPreset);

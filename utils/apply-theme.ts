@@ -7,6 +7,8 @@ import { COMMON_STYLES } from "@/config/theme-tweakcn";
 
 type Theme = "dark" | "light";
 
+//untuk menerapkan ariabel tema (--background, --accent, dll) ke elemen (biasanya <html>).
+
 const COMMON_NON_COLOR_KEYS = COMMON_STYLES;
 
 // Helper functions (not exported, used internally by applyThemeToElement)

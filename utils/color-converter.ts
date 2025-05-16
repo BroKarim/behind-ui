@@ -2,6 +2,8 @@ import * as culori from "culori";
 import { ColorFormat } from "../types";
 import { Hsl } from "culori";
 
+//Mengubah format warna (seperti hex, hsl, oklch) menggunakan culori untuk menyesuaikan dengan kebutuhan tema dan Tailwind.
+// dipake pas generate code
 export const formatNumber = (num?: number) => {
   if (!num) return "0";
   return num % 1 === 0 ? num : num.toFixed(2);

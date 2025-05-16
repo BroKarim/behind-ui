@@ -94,7 +94,7 @@ export default async function BlockPage({
   return (
     <>
       <div className={cn(" bg-background", item.meta?.container)}>
-        <ThemeWrapper>
+        <ThemeWrapper >
           <Component  />
         </ThemeWrapper>
       </div>

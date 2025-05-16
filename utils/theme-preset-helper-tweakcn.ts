@@ -4,6 +4,8 @@ import { defaultPresets } from "@/lib/theme-preset-tweakcn";
 import { ThemeStyles } from "@/types/theme-tweakcn";
 import { defaultThemeState } from "@/config/theme-tweakcn";
 
+
+//mengambil dan menggabungkan style dari preset tertentu dengan default style, lalu mengembalikan objek ThemeStyles (light dan dark).
 export function getPresetThemeStyles(name: string): ThemeStyles {
   const defaultTheme = defaultThemeState.styles;
   if (name === "default") {
@@ -20,8 +22,7 @@ export function getPresetThemeStyles(name: string): ThemeStyles {
     },
     dark: {
       ...defaultTheme.dark,
-      ...(preset.styles.light || {}),
-      ...(preset.styles.dark || {}),
+      ...(preset.styles.dark || {}), // ✅ Ini yang benar
     },
   };
 }
