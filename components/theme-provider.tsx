@@ -30,58 +30,65 @@ const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 export function ThemeProvider({ children, defaultTheme = "light", ...props }: ThemeProviderProps) {
   const { themeState, setThemeState } = useEditorStore();
 
-  // Handle theme preset from URL
-  // useThemePresetFromUrl();
-
+  // Initialize theme when component mounts
   useEffect(() => {
+    // Only set if currentMode is not already set
     if (!themeState.currentMode) {
-      setThemeState({ ...themeState, currentMode: defaultTheme });
+      setThemeState({
+        ...themeState,
+        currentMode: defaultTheme,
+      });
     }
-  }, [defaultTheme]);
 
+    // Apply initial theme
+    const root = document.documentElement;
+    if (root) {
+      applyThemeToElement({ ...themeState, currentMode: themeState.currentMode || defaultTheme }, root);
+    }
+  }, []);
+
+  // Re-apply theme whenever themeState changes
   useEffect(() => {
+    if (!themeState.currentMode) return;
+
     const root = document.documentElement;
     if (!root) return;
 
     applyThemeToElement(themeState, root);
-  }, [themeState]);
+
+    // Debug
+    console.log("Theme applied:", themeState.currentMode, root.classList.contains("dark"));
+  }, [themeState.currentMode]);
 
   const handleThemeChange = (newMode: Theme) => {
-    const root = document.documentElement;
-
-    // Sync dengan class Tailwind
-    if (newMode === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-
+    console.log("Setting theme to:", newMode);
     setThemeState({ ...themeState, currentMode: newMode });
   };
 
   const handleThemeToggle = (coords?: Coords) => {
-    const root = document.documentElement;
     const newMode = themeState.currentMode === "light" ? "dark" : "light";
+    console.log("Toggling theme from", themeState.currentMode, "to", newMode);
 
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const prefersReducedMotion = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (!document.startViewTransition || prefersReducedMotion) {
+    // Apply view transitions if supported
+    if (typeof document !== "undefined" && "startViewTransition" in document && !prefersReducedMotion) {
+      if (coords) {
+        document.documentElement.style.setProperty("--x", `${coords.x}px`);
+        document.documentElement.style.setProperty("--y", `${coords.y}px`);
+      }
+
+      // @ts-ignore - TypeScript doesn't know about startViewTransition yet
+      document.startViewTransition(() => {
+        handleThemeChange(newMode);
+      });
+    } else {
       handleThemeChange(newMode);
-      return;
     }
-
-    if (coords) {
-      root.style.setProperty("--x", `${coords.x}px`);
-      root.style.setProperty("--y", `${coords.y}px`);
-    }
-
-    document.startViewTransition(() => {
-      handleThemeChange(newMode);
-    });
   };
 
   const value: ThemeProviderState = {
-    theme: themeState.currentMode,
+    theme: themeState.currentMode || defaultTheme,
     setTheme: handleThemeChange,
     toggleTheme: handleThemeToggle,
   };

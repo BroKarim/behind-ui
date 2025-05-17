@@ -5,7 +5,7 @@ import { setShadowVariables } from "./shadow";
 import { applyStyleToElement } from "./apply-style-to-elements";
 import { COMMON_STYLES } from "@/config/theme-tweakcn";
 
-type Theme = "dark" | "light";
+type Theme = "dark" | "light" ;
 
 //untuk menerapkan ariabel tema (--background, --accent, dll) ke elemen (biasanya <html>).
 

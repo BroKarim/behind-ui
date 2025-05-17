@@ -97,18 +97,38 @@
   }
 }
 
+:root,
+.dark {
+  transition: background-color 0.3s ease;
+}
+
 @layer base {
   * {
     @apply border-border;
   }
   html {
     @apply scroll-smooth;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    -webkit-font-smoothing: antialiased;
   }
   body {
     @apply bg-background text-foreground overscroll-none;
     /* font-feature-settings: "rlig" 1, "calt" 1; */
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
+  }
+
+  @property --x {
+    syntax: "<length>";
+    initial-value: 50%;
+    inherits: false;
+  }
+
+  @property --y {
+    syntax: "<length>";
+    initial-value: 50%;
+    inherits: false;
   }
 
   @supports (font: -apple-system-body) and (-webkit-appearance: none) {

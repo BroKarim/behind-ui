@@ -1,3 +1,4 @@
+import React from "react";
 import { Moon, Sun } from "lucide-react";
 import * as SwitchPrimitives from "@radix-ui/react-switch";
 import { useTheme } from "@/components/theme-provider";
@@ -7,10 +8,17 @@ export function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
 
   console.log("Current theme:", theme);
+  // Debug the current theme
+  React.useEffect(() => {
+    console.log("ThemeToggle rendered with theme:", theme);
+    console.log("HTML classes:", document.documentElement.className);
+  }, [theme]);
 
   const handleThemeToggle = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault(); // Prevent default to ensure the event is fully handled
     const { clientX: x, clientY: y } = event;
-    console.log("Toggling theme", { x, y });
+
+    console.log("Toggle clicked:", { theme, x, y });
     toggleTheme({ x, y });
   };
 

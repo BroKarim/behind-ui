@@ -25,6 +25,7 @@ export const useEditorStore = create<EditorStore>()(
       themeState: defaultThemeState,
       themeCheckpoint: null,
       setThemeState: (state: ThemeEditorState) => {
+        console.log("Store updating theme state:", state.currentMode);
         set({ themeState: state });
       },
       applyThemePreset: (preset: string) => {

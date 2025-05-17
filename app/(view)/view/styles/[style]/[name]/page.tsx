@@ -1,3 +1,5 @@
+
+
 import * as React from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -7,6 +9,9 @@ import { siteConfig } from "@/config/site";
 import { getAllBlockIds } from "@/lib/block";
 import { absoluteUrl, cn } from "@/lib/utils";
 import { Style, styles } from "@/registry/registry-styles";
+// import { useEditorStore } from "@/store/editor-store";
+// import { useTheme } from "@/components/theme-provider";
+// import ClientBlockPage from "@/components/client-block-page";
 
 import "@/styles/mdx.css";
 
@@ -86,6 +91,17 @@ export default async function BlockPage({
   const { name, style } = params;
   const item = await getCachedRegistryItem(name, style);
   const Component = getRegistryComponent(name, style);
+  // const themeState = useEditorStore((s) => s.themeState);
+  // const mode = useTheme().theme;
+  // const styleVars = themeState.styles[mode];
+
+  // React.useEffect(() => {
+  //   const root = document.documentElement;
+  //   if (!styleVars) return;
+  //   Object.entries(styleVars).forEach(([key, value]) => {
+  //     root.style.setProperty(`--${key}`, value);
+  //   });
+  // }, [styleVars]);
 
   if (!item || !Component) {
     return notFound();
@@ -94,8 +110,8 @@ export default async function BlockPage({
   return (
     <>
       <div className={cn(" bg-background", item.meta?.container)}>
-        <ThemeWrapper >
-          <Component  />
+        <ThemeWrapper>
+          <Component />
         </ThemeWrapper>
       </div>
     </>
