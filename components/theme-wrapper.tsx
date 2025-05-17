@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { fontSans, fontMono, fontRoboto, fontSerif } from "@/lib/font";
+// import { fontSans, fontMono, fontRoboto, fontSerif } from "@/lib/font";
 import { cn } from "@/lib/utils";
 import { useConfig } from "@/lib/use-config";
 import { useEditorStore } from "@/store/editor-store";
@@ -54,7 +54,7 @@ export function ThemeWrapper({ children, className }: ThemeWrapperProps) {
       className={cn(
         "w-full",
         className,
-        config.font === "roboto" ? fontRoboto.className : config.font === "mono" ? fontMono.className : config.font === "serif" ? fontSerif.className : fontSans.className // default
+        // config.font === "roboto" ? fontRoboto.className : config.font === "mono" ? fontMono.className : config.font === "serif" ? fontSerif.className : fontSans.className // default
       )}
       style={
         {
