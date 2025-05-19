@@ -1,3 +1,5 @@
+
+
 import * as React from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -95,7 +97,7 @@ export default async function BlockPage({
     <>
       <div className={cn(" bg-background", item.meta?.container)}>
         <ThemeWrapper>
-          <Component  />
+          <Component />
         </ThemeWrapper>
       </div>
     </>

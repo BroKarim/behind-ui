@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Check, ChevronRight, Clipboard, File, Folder, Fullscreen, Monitor, Smartphone, Tablet, Terminal } from "lucide-react";
@@ -20,6 +21,7 @@ import { Sidebar, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarM
 import { Tabs, TabsList, TabsTrigger } from "../ui/tabs";
 import { ToggleGroup, ToggleGroupItem } from "../ui/toggle-group";
 import { Style } from "@/registry/registry-styles";
+import { useEditorStore } from "@/store/editor-store";
 
 type BlockViewerContext = {
   item: z.infer<typeof registryEntrySchema>;
@@ -148,6 +150,15 @@ function BlockViewerToolbar() {
 
 function BlockViewerView() {
   const { item, style, resizablePanelRef } = useBlockViewer();
+  const { themeState, setThemeState } = useEditorStore();// ambil mode dan styles
+
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    if (iframeRef.current) {
+      iframeRef.current.src = `/view/styles/${style}/${item.name}?_mode=${themeState.currentMode}`;
+    }
+  }, [themeState.currentMode, style, item.name]);
 
   if (!item || !item.files) return null;
 
@@ -158,7 +169,7 @@ function BlockViewerView() {
           <ResizablePanel ref={resizablePanelRef} className="relative aspect-[4/2.5] rounded-xl border bg-background md:aspect-auto" defaultSize={100} minSize={30}>
             <Image src={`/r/styles/${style}/${item.name}-light.png`} alt={item.name} data-block={item.name} width={1440} height={900} className="object-cover dark:hidden md:hidden md:dark:hidden" />
             <Image src={`/r/styles/${style}/${item.name}-dark.png`} alt={item.name} data-block={item.name} width={1440} height={900} className="hidden object-cover dark:block md:hidden md:dark:hidden" />
-            <iframe src={`/view/styles/${style}/${item.name}`} height={item.meta?.iframeHeight ?? 930} className="relative z-20 hidden w-full bg-background md:block" />
+            <iframe ref={iframeRef} src={`/view/styles/${style}/${item.name}`} height={item.meta?.iframeHeight ?? 930} className="relative z-20 hidden w-full bg-background md:block" />
           </ResizablePanel>
           <ResizableHandle className="relative hidden w-3 bg-transparent p-0 after:absolute after:right-0 after:top-1/2 after:h-8 after:w-[6px] after:-translate-y-1/2 after:translate-x-[-1px] after:rounded-full after:bg-border after:transition-all after:hover:h-10 md:block" />
           <ResizablePanel defaultSize={0} minSize={0} />

@@ -1,42 +1,65 @@
 "use client";
 
-import { fontSans, fontMono, fontRoboto, fontSerif } from "@/lib/font";
+import { useEffect, useRef } from "react";
+// import { fontSans, fontMono, fontRoboto, fontSerif } from "@/lib/font";
 import { cn } from "@/lib/utils";
 import { useConfig } from "@/lib/use-config";
-import { BaseColor } from "@/registry/registry-base-colors";
-import { baseColors } from "@/registry/registry-base-colors";
-import { useTheme } from "next-themes";
+import { useEditorStore } from "@/store/editor-store";
+import { useTheme } from "./theme-provider";
+import { useSearchParams } from "next/navigation";
 
-interface ThemeWrapperProps extends React.ComponentProps<"div"> {
-  defaultTheme?: string;
-}
+interface ThemeWrapperProps extends React.ComponentProps<"div"> {}
 
-export function ThemeWrapper({ defaultTheme, children, className }: ThemeWrapperProps) {
+//Context buatan sendiri (ThemeProviderContext) untuk mengatur dan toggle mode tema serta menerapkan theme ke document.documentElement
+export function ThemeWrapper({ children, className }: ThemeWrapperProps) {
   const [config] = useConfig();
-  const { setTheme: setMode, resolvedTheme: mode } = useTheme();
-  const activeTheme = baseColors.find((theme) => theme.name === (defaultTheme || config.theme));
+  const { theme: systemTheme } = useTheme();
+  // console.log("🚀 ~ ThemeWrapper ~ mode:", mode);
+  const themeStyles = useEditorStore((state) => state.themeState.styles);
+  console.log("🚀 ~ ThemeWrapper ~ themeStyles:", themeStyles);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const searchParams = useSearchParams();
+  const queryMode = searchParams.get("mode");
+  const mode = queryMode || systemTheme;
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (!wrapperRef.current) return;
+
+      const styles = getComputedStyle(wrapperRef.current);
+      console.log("Background var:", styles.getPropertyValue("--radius"));
+    }, 50);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  useEffect(() => {
+    const lightVars = themeStyles?.light;
+    const darkVars = themeStyles?.dark;
+
+    if (!lightVars || !darkVars || !mode) return;
+
+    const isDark = mode === "dark"; // gunakan mode dari query
+    const root = document.documentElement;
+    const vars = isDark ? darkVars : lightVars;
+
+    Object.entries(vars).forEach(([key, value]) => {
+      root.style.setProperty(`--${key}`, value);
+    });
+  }, [themeStyles, mode]);
 
   return (
     <div
+      ref={wrapperRef}
       className={cn(
-        `theme-${defaultTheme || config.theme}`,
         "w-full",
         className,
-        config.font === "roboto" ? fontRoboto.className : config.font === "mono" ? fontMono.className : config.font === "serif" ? fontSerif.className : fontSans.className // default
+        // config.font === "roboto" ? fontRoboto.className : config.font === "mono" ? fontMono.className : config.font === "serif" ? fontSerif.className : fontSans.className // default
       )}
       style={
         {
-          "--radius": `${defaultTheme ? 0.5 : config.radius}rem`,
-          ...(activeTheme
-            ? {
-                "--primary": activeTheme.cssVars[mode === "dark" ? "dark" : "light"].primary,
-                "--primary-foreground": activeTheme.cssVars[mode === "dark" ? "dark" : "light"]["primary-foreground"],
-                "--secondary": activeTheme.cssVars[mode === "dark" ? "dark" : "light"].secondary,
-                "--accent-from": activeTheme?.cssVars?.[mode === "dark" ? "dark" : "light"]?.primary ?? "#818cf8", // fallback indigo-400
-                "--accent-to": activeTheme?.cssVars?.[mode === "dark" ? "dark" : "light"]?.["primary-foreground"] ?? "#6366f1", // fallback indigo-500
-                // Add all other color variables here
-              }
-            : {}),
+          "--radius": `${config.radius}rem`,
+          ...(themeStyles ?? {}),
         } as React.CSSProperties
       }
     >

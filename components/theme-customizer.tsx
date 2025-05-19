@@ -4,9 +4,10 @@ import * as React from "react";
 import template from "lodash.template";
 import { Check, Copy, Moon, Repeat, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-
+import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
 import { ThemeWrapper } from "./theme-wrapper";
+import { Theme, THEMES } from "@/lib/themes";
 import { copyToClipboardWithMeta } from "./copy-button";
 import { useConfig } from "@/lib/use-config";
 import { Button } from "./ui/button";
@@ -15,13 +16,16 @@ import { baseColors, BaseColor } from "@/registry/registry-base-colors";
 import { Skeleton } from "./ui/skeleton";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-
 import "@/styles/mdx.css";
+import ThemePresetSelect from "./editor/theme-select";
+import { useThemePresetStore } from "@/store/theme-preset-store";
+import { useEditorStore } from "@/store/editor-store";
+import { CodePanelDialog } from "./code-panel-dialog";
 
 export function ThemeCustomizer() {
-  const [config, setConfig] = useConfig();
-  const { resolvedTheme: mode } = useTheme();
   const [mounted, setMounted] = React.useState(false);
+  const [codePanelOpen, setCodePanelOpen] = React.useState(false);
+  const { themeState } = useEditorStore();
 
   React.useEffect(() => {
     setMounted(true);
@@ -31,7 +35,11 @@ export function ThemeCustomizer() {
     <>
       <div className="w-full">
         <Customizer />
-        <CopyCodeButton variant="ghost" size="sm" className=" [&_svg]:hidden" />
+        {/* <CopyCodeButton variant="ghost" size="sm" className=" [&_svg]:hidden" /> */}
+        <Button className="mt-8 w-full bg-black text-white" onClick={() => setCodePanelOpen(true)}>
+          Show Code
+        </Button>
+        <CodePanelDialog open={codePanelOpen} onOpenChange={setCodePanelOpen} themeEditorState={themeState} />
       </div>
     </>
   );
@@ -41,36 +49,33 @@ function Customizer() {
   const [mounted, setMounted] = React.useState(false);
   const { setTheme: setMode, resolvedTheme: mode } = useTheme();
   const [config, setConfig] = useConfig();
+  const { applyThemePreset, themeState } = useEditorStore();
+  const presets = useThemePresetStore((state) => state.getAllPresets());
 
   React.useEffect(() => {
     setMounted(true);
   }, []);
 
   return (
-    <ThemeWrapper defaultTheme="zinc" className="flex flex-col space-y-4  md:space-y-6">
+    <ThemeWrapper className="flex flex-col space-y-4  md:space-y-6">
       <div className="flex flex-1 flex-col space-y-4 font-sans md:space-y-6">
         {/* Mode opt */}
-        <div className="space-y-4">
+        <div className="space-y-4 bg-background">
           <h3 className="text-xl font-medium">Mode</h3>
           <div className="grid grid-cols-3 gap-2">
             {mounted ? (
               <>
-                <Button variant={"outline"} size="sm" onClick={() => setMode("light")} className={cn(mode === "light" && "border-2 border-primary")}>
-                  <Sun className="mr-1 -translate-x-1" />
-                  Light
-                </Button>
-                <Button variant={"outline"} size="sm" onClick={() => setMode("dark")} className={cn(mode === "dark" && "border-2 border-primary")}>
-                  <Moon className="mr-1 -translate-x-1" />
-                  Dark
-                </Button>
+                <ThemeToggle />
               </>
             ) : (
               <>
                 <Skeleton className="h-8 w-full" />
-                <Skeleton className="h-8 w-full" />
               </>
             )}
           </div>
+        </div>
+        <div className="space-y-4">
+          <ThemePresetSelect presets={presets} currentPreset={themeState.preset || null} onPresetChange={applyThemePreset} />
         </div>
         {/* color */}
         <div className="space-y-4">
@@ -153,162 +158,162 @@ function Customizer() {
   );
 }
 
-function CopyCodeButton({ className, ...props }: React.ComponentProps<typeof Button>) {
-  const [config, setConfig] = useConfig();
-  const activeTheme = baseColors.find((theme) => theme.name === config.theme);
-  const [hasCopied, setHasCopied] = React.useState(false);
+// function CopyCodeButton({ className, ...props }: React.ComponentProps<typeof Button>) {
+//   const [config, setConfig] = useConfig();
+//   const activeTheme = baseColors.find((theme) => theme.name === config.theme);
+//   const [hasCopied, setHasCopied] = React.useState(false);
 
-  React.useEffect(() => {
-    setTimeout(() => {
-      setHasCopied(false);
-    }, 2000);
-  }, [hasCopied]);
+//   React.useEffect(() => {
+//     setTimeout(() => {
+//       setHasCopied(false);
+//     }, 2000);
+//   }, [hasCopied]);
 
-  return (
-    <>
-      {activeTheme && (
-        <Button
-          onClick={() => {
-            copyToClipboardWithMeta(getThemeCode(activeTheme, config.radius), {
-              name: "copy_theme_code",
-              properties: {
-                theme: activeTheme.name,
-                radius: config.radius,
-              },
-            });
-            setHasCopied(true);
-          }}
-          className={cn("md:hidden", className)}
-          {...props}
-        >
-          {hasCopied ? <Check /> : <Copy />}
-          Copy code
-        </Button>
-      )}
-      <Dialog>
-        <div className="mt-10 flex w-full  items-center space-x-2">
-          <DialogTrigger asChild className="flex items-center justify-center">
-            <Button className={cn(" w-full  bg-black text-white   ", className)} {...props}>
-              Copy code
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="flex max-w-2xl flex-col outline-none">
-            <DialogHeader>
-              <DialogTitle>Theme</DialogTitle>
-              <DialogDescription>Copy and paste the following code into your CSS file.</DialogDescription>
-            </DialogHeader>
-            <ThemeWrapper defaultTheme="zinc" className="relative">
-              <CustomizerCode />
-              {activeTheme && (
-                <Button
-                  size="sm"
-                  onClick={() => {
-                    copyToClipboardWithMeta(getThemeCode(activeTheme, config.radius), {
-                      name: "copy_theme_code",
-                      properties: {
-                        theme: activeTheme.name,
-                        radius: config.radius,
-                      },
-                    });
-                    setHasCopied(true);
-                  }}
-                  className="absolute right-4 top-4 bg-muted text-muted-foreground hover:bg-muted hover:text-muted-foreground"
-                >
-                  {hasCopied ? <Check /> : <Copy />}
-                  Copy
-                </Button>
-              )}
-            </ThemeWrapper>
-          </DialogContent>
+//   return (
+//     <>
+//       {activeTheme && (
+//         <Button
+//           onClick={() => {
+//             copyToClipboardWithMeta(getThemeCode(activeTheme, config.radius), {
+//               name: "copy_theme_code",
+//               properties: {
+//                 theme: activeTheme.name,
+//                 radius: config.radius,
+//               },
+//             });
+//             setHasCopied(true);
+//           }}
+//           className={cn("md:hidden", className)}
+//           {...props}
+//         >
+//           {hasCopied ? <Check /> : <Copy />}
+//           Copy code
+//         </Button>
+//       )}
+//       <Dialog>
+//         <div className="mt-10 flex w-full  items-center space-x-2">
+//           <DialogTrigger asChild className="flex items-center justify-center">
+//             <Button className={cn(" w-full  bg-black text-white   ", className)} {...props}>
+//               Copy code
+//             </Button>
+//           </DialogTrigger>
+//           <DialogContent className="flex max-w-2xl flex-col outline-none">
+//             <DialogHeader>
+//               <DialogTitle>Theme</DialogTitle>
+//               <DialogDescription>Copy and paste the following code into your CSS file.</DialogDescription>
+//             </DialogHeader>
+//             <ThemeWrapper  className="relative">
+//               <CustomizerCode />
+//               {activeTheme && (
+//                 <Button
+//                   size="sm"
+//                   onClick={() => {
+//                     copyToClipboardWithMeta(getThemeCode(activeTheme, config.radius), {
+//                       name: "copy_theme_code",
+//                       properties: {
+//                         theme: activeTheme.name,
+//                         radius: config.radius,
+//                       },
+//                     });
+//                     setHasCopied(true);
+//                   }}
+//                   className="absolute right-4 top-4 bg-muted text-muted-foreground hover:bg-muted hover:text-muted-foreground"
+//                 >
+//                   {hasCopied ? <Check /> : <Copy />}
+//                   Copy
+//                 </Button>
+//               )}
+//             </ThemeWrapper>
+//           </DialogContent>
 
-          <Button
-            size="icon"
-            variant="ghost"
-            className="rounded-md border-2 border-black"
-            onClick={() => {
-              setConfig({
-                ...config,
-                theme: "zinc",
-                radius: 0.5,
-              });
-            }}
-          >
-            <Repeat />
-            <span className="sr-only">Reset</span>
-          </Button>
-        </div>
-      </Dialog>
-    </>
-  );
-}
+//           <Button
+//             size="icon"
+//             variant="ghost"
+//             className="rounded-md border-2 border-black"
+//             onClick={() => {
+//               setConfig({
+//                 ...config,
+//                 theme: "zinc",
+//                 radius: 0.5,
+//               });
+//             }}
+//           >
+//             <Repeat />
+//             <span className="sr-only">Reset</span>
+//           </Button>
+//         </div>
+//       </Dialog>
+//     </>
+//   );
+// }
 
-function CustomizerCode() {
-  const [config] = useConfig();
-  const activeTheme = baseColors.find((theme) => theme.name === config.theme);
+// function CustomizerCode() {
+//   const [config] = useConfig();
+//   const activeTheme = baseColors.find((theme) => theme.name === config.theme);
 
-  return (
-    <ThemeWrapper defaultTheme="zinc" className="relative space-y-4">
-      <div data-rehype-pretty-code-fragment="">
-        <pre className="max-h-[450px] overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900">
-          <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
-            <span className="line text-white">@layer base &#123;</span>
-            <span className="line text-white">&nbsp;&nbsp;:root &#123;</span>
-            <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--background: {activeTheme?.cssVars.light["background"]};</span>
-            <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--foreground: {activeTheme?.cssVars.light["foreground"]};</span>
-            {["card", "popover", "primary", "secondary", "muted", "accent", "destructive"].map((prefix) => (
-              <>
-                <span className="line text-white">
-                  &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}: {activeTheme?.cssVars.light[prefix as keyof typeof activeTheme.cssVars.light]};
-                </span>
-                <span className="line text-white">
-                  &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}-foreground: {activeTheme?.cssVars.light[`${prefix}-foreground` as keyof typeof activeTheme.cssVars.light]};
-                </span>
-              </>
-            ))}
-            <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--border: {activeTheme?.cssVars.light["border"]};</span>
-            <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--input: {activeTheme?.cssVars.light["input"]};</span>
-            <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--ring: {activeTheme?.cssVars.light["ring"]};</span>
-            <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--radius: {config.radius}rem;</span>
-            {["chart-1", "chart-2", "chart-3", "chart-4", "chart-5"].map((prefix) => (
-              <>
-                <span className="line text-white">
-                  &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}: {activeTheme?.cssVars.light[prefix as keyof typeof activeTheme.cssVars.light]};
-                </span>
-              </>
-            ))}
-            <span className="line text-white">&nbsp;&nbsp;&#125;</span>
-            <span className="line text-white">&nbsp;</span>
-            <span className="line text-white">&nbsp;&nbsp;.dark &#123;</span>
-            <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--background: {activeTheme?.cssVars.dark["background"]};</span>
-            <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--foreground: {activeTheme?.cssVars.dark["foreground"]};</span>
-            {["card", "popover", "primary", "secondary", "muted", "accent", "destructive"].map((prefix) => (
-              <>
-                <span className="line text-white">
-                  &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}: {activeTheme?.cssVars.dark[prefix as keyof typeof activeTheme.cssVars.dark]};
-                </span>
-                <span className="line text-white">
-                  &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}-foreground: {activeTheme?.cssVars.dark[`${prefix}-foreground` as keyof typeof activeTheme.cssVars.dark]};
-                </span>
-              </>
-            ))}
-            <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--border: {activeTheme?.cssVars.dark["border"]};</span>
-            <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--input: {activeTheme?.cssVars.dark["input"]};</span>
-            <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--ring: {activeTheme?.cssVars.dark["ring"]};</span>
-            {["chart-1", "chart-2", "chart-3", "chart-4", "chart-5"].map((prefix) => (
-              <>
-                <span className="line text-white">
-                  &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}: {activeTheme?.cssVars.dark[prefix as keyof typeof activeTheme.cssVars.dark]};
-                </span>
-              </>
-            ))}
-            <span className="line text-white">&nbsp;&nbsp;&#125;</span>
-            <span className="line text-white">&#125;</span>
-          </code>
-        </pre>
-      </div>
-    </ThemeWrapper>
-  );
-}
+//   return (
+//     <ThemeWrapper className="relative space-y-4">
+//       <div data-rehype-pretty-code-fragment="">
+//         <pre className="max-h-[450px] overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900">
+//           <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
+//             <span className="line text-white">@layer base &#123;</span>
+//             <span className="line text-white">&nbsp;&nbsp;:root &#123;</span>
+//             <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--background: {activeTheme?.cssVars.light["background"]};</span>
+//             <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--foreground: {activeTheme?.cssVars.light["foreground"]};</span>
+//             {["card", "popover", "primary", "secondary", "muted", "accent", "destructive"].map((prefix) => (
+//               <>
+//                 <span className="line text-white">
+//                   &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}: {activeTheme?.cssVars.light[prefix as keyof typeof activeTheme.cssVars.light]};
+//                 </span>
+//                 <span className="line text-white">
+//                   &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}-foreground: {activeTheme?.cssVars.light[`${prefix}-foreground` as keyof typeof activeTheme.cssVars.light]};
+//                 </span>
+//               </>
+//             ))}
+//             <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--border: {activeTheme?.cssVars.light["border"]};</span>
+//             <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--input: {activeTheme?.cssVars.light["input"]};</span>
+//             <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--ring: {activeTheme?.cssVars.light["ring"]};</span>
+//             <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--radius: {config.radius}rem;</span>
+//             {["chart-1", "chart-2", "chart-3", "chart-4", "chart-5"].map((prefix) => (
+//               <>
+//                 <span className="line text-white">
+//                   &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}: {activeTheme?.cssVars.light[prefix as keyof typeof activeTheme.cssVars.light]};
+//                 </span>
+//               </>
+//             ))}
+//             <span className="line text-white">&nbsp;&nbsp;&#125;</span>
+//             <span className="line text-white">&nbsp;</span>
+//             <span className="line text-white">&nbsp;&nbsp;.dark &#123;</span>
+//             <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--background: {activeTheme?.cssVars.dark["background"]};</span>
+//             <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--foreground: {activeTheme?.cssVars.dark["foreground"]};</span>
+//             {["card", "popover", "primary", "secondary", "muted", "accent", "destructive"].map((prefix) => (
+//               <>
+//                 <span className="line text-white">
+//                   &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}: {activeTheme?.cssVars.dark[prefix as keyof typeof activeTheme.cssVars.dark]};
+//                 </span>
+//                 <span className="line text-white">
+//                   &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}-foreground: {activeTheme?.cssVars.dark[`${prefix}-foreground` as keyof typeof activeTheme.cssVars.dark]};
+//                 </span>
+//               </>
+//             ))}
+//             <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--border: {activeTheme?.cssVars.dark["border"]};</span>
+//             <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--input: {activeTheme?.cssVars.dark["input"]};</span>
+//             <span className="line text-white">&nbsp;&nbsp;&nbsp;&nbsp;--ring: {activeTheme?.cssVars.dark["ring"]};</span>
+//             {["chart-1", "chart-2", "chart-3", "chart-4", "chart-5"].map((prefix) => (
+//               <>
+//                 <span className="line text-white">
+//                   &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}: {activeTheme?.cssVars.dark[prefix as keyof typeof activeTheme.cssVars.dark]};
+//                 </span>
+//               </>
+//             ))}
+//             <span className="line text-white">&nbsp;&nbsp;&#125;</span>
+//             <span className="line text-white">&#125;</span>
+//           </code>
+//         </pre>
+//       </div>
+//     </ThemeWrapper>
+//   );
+// }
 
 function getThemeCode(theme: BaseColor, radius: number) {
   if (!theme) {
