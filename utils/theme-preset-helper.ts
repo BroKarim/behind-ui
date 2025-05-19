@@ -1,9 +1,8 @@
 // utils/theme-preset-helper.ts
 
-import { defaultPresets } from "@/lib/theme-preset-tweakcn";
-import { ThemeStyles } from "@/types/theme-tweakcn";
-import { defaultThemeState } from "@/config/theme-tweakcn";
-
+import { defaultPresets } from "@/lib/theme-preset";
+import { ThemeStyles } from "@/types/theme";
+import { defaultThemeState } from "@/config/theme";
 
 //mengambil dan menggabungkan style dari preset tertentu dengan default style, lalu mengembalikan objek ThemeStyles (light dan dark).
 export function getPresetThemeStyles(name: string): ThemeStyles {

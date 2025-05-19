@@ -2,8 +2,8 @@ import { ThemeEditorState } from "@/types/editor";
 import { colorFormatter } from "./color-converter";
 import { ColorFormat } from "@/types";
 import { getShadowMap } from "./shadow";
-import { defaultLightThemeStyles } from "@/config/theme-tweakcn";
-import { ThemeStyles } from "@/types/theme-tweakcn";
+import { defaultLightThemeStyles } from "@/config/theme";
+import { ThemeStyles } from "@/types/theme";
 
 type ThemeMode = "light" | "dark";
 
@@ -159,7 +159,7 @@ export const generateThemeCode = (themeEditorState: ThemeEditorState, colorForma
 
   const lightTheme = generateThemeVariables(themeStyles, "light", formatColor);
   const darkTheme = generateThemeVariables(themeStyles, "dark", formatColor);
-//   const tailwindV4Theme = tailwindVersion === "4" ? `\n\n${generateTailwindV4ThemeInline(themeStyles)}` : "";
+  //   const tailwindV4Theme = tailwindVersion === "4" ? `\n\n${generateTailwindV4ThemeInline(themeStyles)}` : "";
 
   const bodyLetterSpacing = themeStyles["light"]["letter-spacing"] !== "0em" ? "\n\nbody {\n  letter-spacing: var(--tracking-normal);\n}" : "";
 

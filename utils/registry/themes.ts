@@ -1,8 +1,8 @@
-import { defaultDarkThemeStyles, defaultLightThemeStyles } from "@/config/theme-tweakcn";
-import { ThemeStyleProps, ThemeStyles } from "@/types/theme-tweakcn";
+import { defaultDarkThemeStyles, defaultLightThemeStyles } from "@/config/theme";
+import { ThemeStyleProps, ThemeStyles } from "@/types/theme";
 import { colorFormatter } from "@/utils/color-converter";
 import { getShadowMap } from "../shadow";
-import { getPresetThemeStyles } from "../theme-preset-helper-tweakcn";
+import { getPresetThemeStyles } from "../theme-preset-helper";
 
 //Menggabungkan tema preset, mengonversi warnanya ke format yang sesuai untuk ShadCN registry, dan menghasilkan struktur cssVars untuk tema light dan dark.
 

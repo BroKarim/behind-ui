@@ -1,11 +1,11 @@
 import { ThemeEditorState } from "@/types/editor";
-import { ThemeStyleProps, ThemeStyles } from "@/types/theme-tweakcn";
+import { ThemeStyleProps, ThemeStyles } from "@/types/theme";
 import { colorFormatter } from "./color-converter";
 import { setShadowVariables } from "./shadow";
 import { applyStyleToElement } from "./apply-style-to-elements";
-import { COMMON_STYLES } from "@/config/theme-tweakcn";
+import { COMMON_STYLES } from "@/config/theme";
 
-type Theme = "dark" | "light" ;
+type Theme = "dark" | "light";
 
 //untuk menerapkan ariabel tema (--background, --accent, dll) ke elemen (biasanya <html>).
 

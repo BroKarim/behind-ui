@@ -1,6 +1,6 @@
 import { colorFormatter } from "./color-converter";
 import { ThemeEditorState } from "../types/editor";
-import { defaultThemeState } from "@/config/theme-tweakcn";
+import { defaultThemeState } from "@/config/theme";
 import { applyStyleToElement } from "./apply-style-to-elements";
 
 export const getShadowMap = (themeEditorState: ThemeEditorState) => {

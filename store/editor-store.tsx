@@ -1,8 +1,8 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { ThemeEditorState } from "@/types/editor";
-import { defaultThemeState } from "@/config/theme-tweakcn";
-import { getPresetThemeStyles } from "@/utils/theme-preset-helper-tweakcn";
+import { defaultThemeState } from "@/config/theme";
+import { getPresetThemeStyles } from "@/utils/theme-preset-helper";
 import { isDeepEqual } from "@/lib/utils";
 
 interface EditorStore {
@@ -18,7 +18,6 @@ interface EditorStore {
 }
 
 
-//Zustand store yang menyimpan themeState dan setThemeState, termasuk currentMode dan styles untuk light/dark.
 export const useEditorStore = create<EditorStore>()(
   persist(
     (set, get) => ({

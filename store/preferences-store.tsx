@@ -4,7 +4,6 @@ import { ColorFormat } from "@/types";
 
 type PackageManager = "pnpm" | "npm" | "yarn" | "bun";
 
-//ini berkaitan dengan generate code tailiwnd doank
 
 interface PreferencesStore {
   tailwindVersion: "3" | "4";

@@ -1,4 +1,4 @@
-import { ThemeStyles } from "./theme-tweakcn";
+import { ThemeStyles } from "./theme";
 
 // Base interface for any editor's state
 export interface BaseEditorState {

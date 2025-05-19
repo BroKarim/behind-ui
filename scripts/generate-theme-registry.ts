@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
-import { defaultPresets } from "../lib/theme-preset-tweakcn";
-import { generateThemeRegistryFromPreset } from "../utils/registry/themes-tweakcn";
+import { defaultPresets } from "../lib/theme-preset";
+import { generateThemeRegistryFromPreset } from "../utils/registry/themes";
 
 const THEMES_DIR = path.join(process.cwd(), "public", "r", "themes");
 
