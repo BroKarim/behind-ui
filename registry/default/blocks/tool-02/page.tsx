@@ -1,6 +1,11 @@
 import React from "react";
 import { Compare } from "./components/compare";
-import { ImageComparison, ImageComparisonImage, ImageComparisonSlider, ImageComparisonMarquee } from "./components/image-compare";
+import {
+  ImageComparison,
+  ImageComparisonImage,
+  ImageComparisonSlider,
+  ImageComparisonMarquee,
+} from "./components/image-compare";
 
 const Index = () => {
   return (
@@ -15,12 +20,36 @@ const Index = () => {
         </ImageComparison> */}
         <ImageComparisonMarquee
           comparisons={[
-            { leftSrc: "https://motion-primitives.com/mp_dark.png", rightSrc: "https://motion-primitives.com/mp_light.png", alt: "Perbandingan 1" },
-            { leftSrc: "https://motion-primitives.com/mp_dark.png", rightSrc: "https://motion-primitives.com/mp_light.png", alt: "Perbandingan 2" },
-            { leftSrc: "https://motion-primitives.com/mp_dark.png", rightSrc: "https://motion-primitives.com/mp_light.png", alt: "Perbandingan 3" },
-            { leftSrc: "https://motion-primitives.com/mp_dark.png", rightSrc: "https://motion-primitives.com/mp_light.png", alt: "Perbandingan 4" },
-            { leftSrc: "https://motion-primitives.com/mp_dark.png", rightSrc: "https://motion-primitives.com/mp_light.png", alt: "Perbandingan 5" },
-            { leftSrc: "https://motion-primitives.com/mp_dark.png", rightSrc: "https://motion-primitives.com/mp_light.png", alt: "Perbandingan 6" },
+            {
+              leftSrc: "https://motion-primitives.com/mp_dark.png",
+              rightSrc: "https://motion-primitives.com/mp_light.png",
+              alt: "Perbandingan 1",
+            },
+            {
+              leftSrc: "https://motion-primitives.com/mp_dark.png",
+              rightSrc: "https://motion-primitives.com/mp_light.png",
+              alt: "Perbandingan 2",
+            },
+            {
+              leftSrc: "https://motion-primitives.com/mp_dark.png",
+              rightSrc: "https://motion-primitives.com/mp_light.png",
+              alt: "Perbandingan 3",
+            },
+            {
+              leftSrc: "https://motion-primitives.com/mp_dark.png",
+              rightSrc: "https://motion-primitives.com/mp_light.png",
+              alt: "Perbandingan 4",
+            },
+            {
+              leftSrc: "https://motion-primitives.com/mp_dark.png",
+              rightSrc: "https://motion-primitives.com/mp_light.png",
+              alt: "Perbandingan 5",
+            },
+            {
+              leftSrc: "https://motion-primitives.com/mp_dark.png",
+              rightSrc: "https://motion-primitives.com/mp_light.png",
+              alt: "Perbandingan 6",
+            },
           ]}
           transitionDuration={3000} // Waktu transisi dalam milidetik
           pauseOnHover={true}

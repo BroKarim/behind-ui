@@ -107,7 +107,7 @@ const ThemeCycleButton: React.FC<ThemeCycleButtonProps> = ({ direction, onClick 
 );
 
 const ThemePresetSelect: React.FC<ThemePresetSelectProps> = ({ presets, currentPreset, onPresetChange }) => {
-  const { themeState, hasUnsavedChanges } = useEditorStore();
+  const { themeState } = useEditorStore();
   const { theme, toggleTheme } = useTheme();
   const mode = themeState.currentMode;
   const [search, setSearch] = useState("");

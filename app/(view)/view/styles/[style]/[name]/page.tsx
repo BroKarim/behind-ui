@@ -4,13 +4,13 @@ import * as React from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ThemeWrapper } from "@/components/theme-wrapper";
-
 import { siteConfig } from "@/config/site";
 import { getAllBlockIds } from "@/lib/block";
 import { absoluteUrl, cn } from "@/lib/utils";
 import { Style, styles } from "@/registry/registry-styles";
 
-import "@/styles/mdx.css";
+
+// import "@/styles/mdx.css";
 
 import { getRegistryItem, getRegistryComponent } from "@/lib/registry-utils";
 

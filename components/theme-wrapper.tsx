@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-// import { fontSans, fontMono, fontRoboto, fontSerif } from "@/lib/font";
 import { cn } from "@/lib/utils";
 import { useConfig } from "@/lib/use-config";
 import { useEditorStore } from "@/store/editor-store";
 import { useTheme } from "./theme-provider";
 import { useSearchParams } from "next/navigation";
+import { ThemeMessageReceiver } from "./theme-message-receiver";
 
 interface ThemeWrapperProps extends React.ComponentProps<"div"> {}
 
@@ -53,7 +53,7 @@ export function ThemeWrapper({ children, className }: ThemeWrapperProps) {
       ref={wrapperRef}
       className={cn(
         "w-full",
-        className,
+        className
         // config.font === "roboto" ? fontRoboto.className : config.font === "mono" ? fontMono.className : config.font === "serif" ? fontSerif.className : fontSans.className // default
       )}
       style={
@@ -63,7 +63,10 @@ export function ThemeWrapper({ children, className }: ThemeWrapperProps) {
         } as React.CSSProperties
       }
     >
+      <ThemeMessageReceiver />
       {children}
     </div>
   );
 }
+
+

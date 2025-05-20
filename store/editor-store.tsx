@@ -3,7 +3,7 @@ import { persist } from "zustand/middleware";
 import { ThemeEditorState } from "@/types/editor";
 import { defaultThemeState } from "@/config/theme";
 import { getPresetThemeStyles } from "@/utils/theme-preset-helper";
-import { isDeepEqual } from "@/lib/utils";
+// import { isDeepEqual } from "@/lib/utils";
 
 interface EditorStore {
   themeState: ThemeEditorState;
@@ -13,8 +13,8 @@ interface EditorStore {
   saveThemeCheckpoint: () => void;
   restoreThemeCheckpoint: () => void;
   resetToCurrentPreset: () => void;
-  hasThemeChangedFromCheckpoint: () => boolean;
-  hasUnsavedChanges: () => boolean;
+  // hasThemeChangedFromCheckpoint: () => boolean;
+  // hasUnsavedChanges: () => boolean;
 }
 
 
@@ -58,17 +58,17 @@ export const useEditorStore = create<EditorStore>()(
           console.warn("No theme checkpoint available to restore to.");
         }
       },
-      hasThemeChangedFromCheckpoint: () => {
-        const checkpoint = get().themeCheckpoint;
-        return !isDeepEqual(get().themeState, checkpoint);
-      },
-      hasUnsavedChanges: () => {
-        const themeState = get().themeState;
-        const presetThemeStyles = getPresetThemeStyles(themeState.preset ?? "default");
-        const stylesChanged = !isDeepEqual(themeState.styles, presetThemeStyles);
-        const hslChanged = !isDeepEqual(themeState.hslAdjustments, defaultThemeState.hslAdjustments);
-        return stylesChanged || hslChanged;
-      },
+      // // hasThemeChangedFromCheckpoint: () => {
+      //   const checkpoint = get().themeCheckpoint;
+      //   return !isDeepEqual(get().themeState, checkpoint);
+      // },
+      // hasUnsavedChanges: () => {
+      //   const themeState = get().themeState;
+      //   const presetThemeStyles = getPresetThemeStyles(themeState.preset ?? "default");
+      //   const stylesChanged = !isDeepEqual(themeState.styles, presetThemeStyles);
+      //   const hslChanged = !isDeepEqual(themeState.hslAdjustments, defaultThemeState.hslAdjustments);
+      //   return stylesChanged || hslChanged;
+      // },
       resetToCurrentPreset: () => {
         const themeState = get().themeState;
         const presetThemeStyles = getPresetThemeStyles(themeState.preset ?? "default");

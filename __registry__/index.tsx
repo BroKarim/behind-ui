@@ -475,21 +475,6 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
-    "calendar": {
-      name: "calendar",
-      description: "",
-      type: "registry:ui",
-      registryDependencies: ["button"],
-      files: [{
-        path: "registry/default/ui/calendar.tsx",
-        type: "registry:ui",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/ui/calendar.tsx")),
-      source: "",
-      meta: undefined,
-    },
     "card": {
       name: "card",
       description: "",
