@@ -16,7 +16,7 @@ export function ThemeWrapper({ children, className }: ThemeWrapperProps) {
   const { theme: systemTheme } = useTheme();
   // console.log("🚀 ~ ThemeWrapper ~ mode:", mode);
   const themeStyles = useEditorStore((state) => state.themeState.styles);
-  console.log("🚀 ~ ThemeWrapper ~ themeStyles:", themeStyles);
+  // console.log("🚀 ~ ThemeWrapper ~ themeStyles:", themeStyles);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const searchParams = useSearchParams();
   const queryMode = searchParams.get("mode");

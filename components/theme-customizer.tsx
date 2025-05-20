@@ -2,19 +2,17 @@
 
 import * as React from "react";
 import template from "lodash.template";
-import { Check, Copy, Moon, Repeat, Sun } from "lucide-react";
+import { Check } from "lucide-react";
 import { useTheme } from "next-themes";
 import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
 import { ThemeWrapper } from "./theme-wrapper";
-import { Theme, THEMES } from "@/lib/themes";
 import { copyToClipboardWithMeta } from "./copy-button";
 import { useConfig } from "@/lib/use-config";
 import { Button } from "./ui/button";
 import { Label } from "./ui/label";
 import { baseColors, BaseColor } from "@/registry/registry-base-colors";
 import { Skeleton } from "./ui/skeleton";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import "@/styles/mdx.css";
 import ThemePresetSelect from "./editor/theme-select";
@@ -45,6 +43,7 @@ export function ThemeCustomizer() {
   );
 }
 
+// TODO: Update customization approach to align with TweaKCN for font, color, radius, and shadow
 function Customizer() {
   const [mounted, setMounted] = React.useState(false);
   const { setTheme: setMode, resolvedTheme: mode } = useTheme();

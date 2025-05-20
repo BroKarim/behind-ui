@@ -148,6 +148,7 @@ function BlockViewerToolbar() {
   );
 }
 
+// FIXME: Theme changes are not reflected due to iframe usage; investigate re-rendering approach
 function BlockViewerView() {
   const { item, style, resizablePanelRef } = useBlockViewer();
   const { themeState, setThemeState } = useEditorStore();// ambil mode dan styles
@@ -159,6 +160,8 @@ function BlockViewerView() {
       iframeRef.current.src = `/view/styles/${style}/${item.name}?_mode=${themeState.currentMode}`;
     }
   }, [themeState.currentMode, style, item.name]);
+
+  
 
   if (!item || !item.files) return null;
 
