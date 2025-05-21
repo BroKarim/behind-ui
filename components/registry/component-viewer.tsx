@@ -148,25 +148,20 @@ function BlockViewerToolbar() {
   );
 }
 
-// FIXME: Theme changes are not reflected due to iframe usage; investigate re-rendering approach
 function BlockViewerView() {
   const { item, style, resizablePanelRef } = useBlockViewer();
   const { themeState } = useEditorStore();
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
-  // Effect untuk memuat iframe
   useEffect(() => {
     if (iframeRef.current) {
-      iframeRef.current.src = `/view/styles/${style}/${item.name}?_mode=${themeState.currentMode}`;
+      iframeRef.current.src = `/view/styles/${style}/${item.name}`;
     }
   }, [style, item.name]);
 
-  // Effect untuk mengirim pesan tema ke iframe saat tema berubah
   useEffect(() => {
     if (iframeRef.current && iframeRef.current.contentWindow) {
-      // Tunggu iframe selesai dimuat
       const handleIframeLoaded = () => {
-        // Kirim pesan ke iframe dengan tema saat ini
         iframeRef.current?.contentWindow?.postMessage(
           {
             type: "THEME_CHANGE",
@@ -177,10 +172,8 @@ function BlockViewerView() {
         );
       };
 
-      // Tambahkan event listener untuk load event pada iframe
       iframeRef.current.addEventListener("load", handleIframeLoaded);
 
-      // Jika iframe sudah dimuat, kirim pesan langsung
       if (iframeRef.current.contentDocument?.readyState === "complete") {
         handleIframeLoaded();
       }
@@ -200,7 +193,7 @@ function BlockViewerView() {
           <ResizablePanel ref={resizablePanelRef} className="relative aspect-[4/2.5] rounded-xl border bg-background md:aspect-auto" defaultSize={100} minSize={30}>
             <Image src={`/r/styles/${style}/${item.name}-light.png`} alt={item.name} data-block={item.name} width={1440} height={900} className="object-cover dark:hidden md:hidden md:dark:hidden" />
             <Image src={`/r/styles/${style}/${item.name}-dark.png`} alt={item.name} data-block={item.name} width={1440} height={900} className="hidden object-cover dark:block md:hidden md:dark:hidden" />
-            <iframe loading="lazy" ref={iframeRef} src={`/view/styles/${style}/${item.name}?_mode=${themeState.currentMode}`} height={item.meta?.iframeHeight ?? 930} className="relative z-20 hidden w-full bg-background md:block" />
+            <iframe loading="lazy" ref={iframeRef} src={`/view/styles/${style}/${item.name}`} height={item.meta?.iframeHeight ?? 930} className="relative z-20 hidden w-full bg-background md:block" />
           </ResizablePanel>
           <ResizableHandle className="relative hidden w-3 bg-transparent p-0 after:absolute after:right-0 after:top-1/2 after:h-8 after:w-[6px] after:-translate-y-1/2 after:translate-x-[-1px] after:rounded-full after:bg-border after:transition-all after:hover:h-10 md:block" />
           <ResizablePanel defaultSize={0} minSize={0} />
@@ -210,6 +203,7 @@ function BlockViewerView() {
   );
 }
 
+// FIXME: Code display is cut off and cannot be scrolled; ensure full visibility
 function BlockViewerCode() {
   const { activeFile, highlightedFiles } = useBlockViewer();
 
@@ -218,7 +212,7 @@ function BlockViewerCode() {
   }, [highlightedFiles, activeFile]);
 
   if (!file) {
-    console.warn("No file found matching the activeFile:", activeFile); // Peringatan jika file tidak ditemukan
+    console.warn("No file found matching the activeFile:", activeFile); 
     return null;
   }
 

@@ -31,9 +31,8 @@ export function ThemeCustomizer() {
 
   return (
     <>
-      <div className="w-full">
+      <div>
         <Customizer />
-        {/* <CopyCodeButton variant="ghost" size="sm" className=" [&_svg]:hidden" /> */}
         <Button className="mt-8 w-full bg-black text-white" onClick={() => setCodePanelOpen(true)}>
           Show Code
         </Button>
@@ -59,7 +58,7 @@ function Customizer() {
     <ThemeWrapper className="flex flex-col space-y-4  md:space-y-6">
       <div className="flex flex-1 flex-col space-y-4 font-sans md:space-y-6">
         {/* Mode opt */}
-        <div className="space-y-4 bg-background">
+        <div className="space-y-4">
           <h3 className="text-xl font-medium">Mode</h3>
           <div className="grid grid-cols-3 gap-2">
             {mounted ? (

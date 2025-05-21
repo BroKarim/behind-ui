@@ -4,8 +4,7 @@ export const blocks: Registry["items"] = [
   {
     name: "card-03",
     type: "registry:block",
-    description:
-      "Information cards to deliver news, updates, and alerts to your users by KL UI",
+    description: "Information cards to deliver news, updates, and alerts to your users by KL UI",
     registryDependencies: ["chart", "sidebar"],
     files: [
       {
@@ -258,12 +257,7 @@ export const blocks: Registry["items"] = [
     name: "hero-02",
     type: "registry:block",
     description: "Designed for library applications.",
-    registryDependencies: [
-      "banner",
-      "colorfulButton",
-      "githubButton",
-      "openSource",
-    ],
+    registryDependencies: ["banner", "colorfulButton", "githubButton", "openSource"],
     files: [
       {
         path: "blocks/tool-01/main.tsx",
@@ -306,6 +300,7 @@ export const blocks: Registry["items"] = [
     ],
     categories: ["hero", "tool"],
   },
+  // TODO: Remove heavy components with excessive animations as they are not suitable for this website
   {
     name: "bento-01",
     type: "registry:block",

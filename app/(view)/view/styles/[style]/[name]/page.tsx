@@ -10,7 +10,7 @@ import { absoluteUrl, cn } from "@/lib/utils";
 import { Style, styles } from "@/registry/registry-styles";
 
 
-// import "@/styles/mdx.css";
+import "@/styles/mdx.css";
 
 import { getRegistryItem, getRegistryComponent } from "@/lib/registry-utils";
 

@@ -15,17 +15,20 @@ export default async function AppLayout({ children }: AppLayoutProps) {
       <main className="no-scrollbar relative flex h-screen overflow-hidden ">
         <div className="hidden h-screen shrink-0 flex-col gap-2 overflow-y-auto font-sans md:flex md:w-[300px] lg:w-[400px]">
           <div className="sticky top-0 z-30 flex h-fit w-full flex-col items-center gap-2 border-b bg-background p-2 px-4 sm:static ">
-            <h1 className="w-full font-bold">Customizer</h1>
-            <p className="w-full ">Designed for effortless use—just copy and paste! Make your work with ShadCN and Tailwind faster, cleaner, and visually stunning.</p>
+            <h1 className="w-full font-bold">UI EDITOR</h1>
+            <p className="w-full ">
+              A curated collection of open-source UI components built with TypeScript, Tailwind CSS, and Framer Motion. <br className="mt-4" />
+            </p>
+            <p className="w-full mt-3">Inspired by ShadCN and TweakCN, with a unique touch.</p>
           </div>
           <ScrollArea className="h-full w-full flex-1 p-4">
             <ThemeCustomizer />
           </ScrollArea>
         </div>
-        {/* Main Content */}
         <div className="relative flex w-full flex-col border-l  md:w-[calc(100%-300px)]  lg:w-[calc(100%-400px)]">
           {" "}
           <div className=" flex w-full items-center justify-center px-0 py-4">
+            {/* FIXME: BlocksNav disappears when navigating to other sections; ensure persistence across views */}
             <BlocksNav />
           </div>
           <ScrollArea className="h-full w-full ">
