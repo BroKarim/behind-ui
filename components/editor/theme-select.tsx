@@ -106,6 +106,7 @@ const ThemeCycleButton: React.FC<ThemeCycleButtonProps> = ({ direction, onClick 
   </>
 );
 
+
 const ThemePresetSelect: React.FC<ThemePresetSelectProps> = ({ presets, currentPreset, onPresetChange }) => {
   const { themeState } = useEditorStore();
   const { theme, toggleTheme } = useTheme();
@@ -158,7 +159,7 @@ const ThemePresetSelect: React.FC<ThemePresetSelectProps> = ({ presets, currentP
       <div className="flex items-center">
         <TooltipProvider>
           <Popover>
-            <PopoverTrigger className="bg-muted/10" asChild>
+            <PopoverTrigger asChild>
               <Button variant="ghost" className={cn("group relative min-h-14 w-full justify-between rounded-none md:min-w-56")}>
                 <div className="flex items-center gap-3">
                   <div className="flex gap-0.5">

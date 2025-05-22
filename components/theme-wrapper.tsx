@@ -58,7 +58,6 @@ export function ThemeWrapper({ children, className }: ThemeWrapperProps) {
       )}
       style={
         {
-          "--radius": `${config.radius}rem`,
           ...(themeStyles ?? {}),
         } as React.CSSProperties
       }

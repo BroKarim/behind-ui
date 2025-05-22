@@ -14,7 +14,7 @@ export const docsConfig: DocsConfig = {
 
     {
       title: "Changelog",
-      href: "/roadmap",
+      href: "/changelog",
     },
   ],
   sidebarNav: [
