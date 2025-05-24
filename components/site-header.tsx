@@ -9,8 +9,8 @@ import { MainNav } from "./main-nav";
 
 export function SiteHeader() {
   return (
-    <header className={cn("supports-backdrop-blur:bg-background/90 sticky top-0 z-[999] w-full bg-background/40 backdrop-blur-lg")}>
-      <div className="container flex h-16 items-center justify-between md:justify-center">
+    <header className={cn("border-b w-full ")}>
+      <div className="flex p-4 items-center justify-between ">
         <MainNav />
         {/* <MobileNav /> */}
         <div className="flex items-center justify-between gap-2 md:flex-1 md:justify-end">
@@ -58,7 +58,6 @@ export function SiteHeader() {
           </nav>
         </div>
       </div>
-      <hr className="m-0 h-px w-full border-none bg-gradient-to-r from-neutral-200/0 via-neutral-200/30 to-neutral-200/0" />
     </header>
   );
 }

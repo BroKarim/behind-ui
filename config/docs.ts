@@ -8,22 +8,14 @@ interface DocsConfig {
 export const docsConfig: DocsConfig = {
   mainNav: [
     {
-      title: "Components",
-      href: "/",
+      title: "Template",
+      href: "/template",
     },
 
-    // {
-    //   title: "Tools",
-    //   href: "/",
-    // },
-    // {
-    //   title: "Template",
-    //   href: "/",
-    // },
-    // {
-    //   title: "Service",
-    //   href: "/",
-    // },
+    {
+      title: "Changelog",
+      href: "/changelog",
+    },
   ],
   sidebarNav: [
     {
