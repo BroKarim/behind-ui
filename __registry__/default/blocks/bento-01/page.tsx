@@ -1,6 +1,7 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
+
 import { useAnimations } from "./hooks/useAnimation";
 import { motion } from "framer-motion";
 import { MoveUpRight } from "lucide-react";

@@ -296,7 +296,7 @@ export const Index: Record<string, any> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["hero"],
+      categories: ["hero","tool"],
       component: React.lazy(() => import("@/registry/default/blocks/tool-01/main.tsx")),
       source: "__registry__/default/blocks/tool-01/main.tsx",
       meta: undefined,
@@ -330,6 +330,29 @@ export const Index: Record<string, any> = {
       categories: ["bento"],
       component: React.lazy(() => import("@/registry/default/blocks/bento-01/page.tsx")),
       source: "__registry__/default/blocks/bento-01/page.tsx",
+      meta: undefined,
+    },
+    "tool-02": {
+      name: "tool-02",
+      description: "Before after components.",
+      type: "registry:block",
+      registryDependencies: ["compare"],
+      files: [{
+        path: "registry/default/blocks/tool-02/page.tsx",
+        type: "registry:page",
+        target: "app/main.tsx"
+      },{
+        path: "registry/default/blocks/tool-02/components/compare.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/lib/utils.ts",
+        type: "registry:ui",
+        target: "lib/utils.ts"
+      }],
+      categories: ["tool"],
+      component: React.lazy(() => import("@/registry/default/blocks/tool-02/page.tsx")),
+      source: "__registry__/default/blocks/tool-02/page.tsx",
       meta: undefined,
     },
     "utils": {
@@ -449,21 +472,6 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/ui/texture-button.tsx")),
-      source: "",
-      meta: undefined,
-    },
-    "calendar": {
-      name: "calendar",
-      description: "",
-      type: "registry:ui",
-      registryDependencies: ["button"],
-      files: [{
-        path: "registry/default/ui/calendar.tsx",
-        type: "registry:ui",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/ui/calendar.tsx")),
       source: "",
       meta: undefined,
     },

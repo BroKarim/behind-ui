@@ -1,11 +1,15 @@
-import { Metadata } from "next";
 import { env } from "@/env.mjs";
 import clsx, { ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+// import { isEqual } from "@ngard/tiny-isequal";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+// export function isDeepEqual(a: unknown, b: unknown): boolean {
+//   return isEqual(a, b);
+// }
 
 export function humanize(name: string): string {
   return name
@@ -54,50 +58,3 @@ export function absoluteUrl(path: string) {
   return `${env.NEXT_PUBLIC_APP_URL}${path}`;
 }
 
-// export function constructMetadata({
-//   title = "BehindUI - When Dribble Meet Code",
-//   description = "BehindUI is a collection of ready to use world class headline components for your website",
-//   image = absoluteUrl("/og"),
-//   ...props
-// }: {
-//   title?: string;
-//   description?: string;
-//   image?: string;
-//   [key: string]: Metadata[keyof Metadata];
-// }): Metadata {
-//   return {
-//     title,
-//     description,
-//     keywords: ["React", "Tailwind CSS", "Framer Motion", "Landing Page", "Components", "Next.js"],
-//     openGraph: {
-//       title,
-//       description,
-//       type: "website",
-//       images: [
-//         {
-//           url: image,
-//           width: 1200,
-//           height: 630,
-//           alt: title,
-//         },
-//       ],
-//     },
-//     twitter: {
-//       card: "summary_large_image",
-//       title,
-//       description,
-//       images: [image],
-//       creator: "@BroKariim",
-//     },
-//     icons: "/favicon.ico",
-//     metadataBase: new URL("https://behindui.vercel.app/"),
-//     authors: [
-//       {
-//         name: "BroKarim",
-//         url: "https://x.com/BroKariim",
-//       },
-//     ],
-//     creator: "BroKarim",
-//     ...props,
-//   };
-// }

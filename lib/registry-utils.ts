@@ -31,7 +31,6 @@ export async function getRegistryItem(name: string, style: Style["name"] = DEFAU
   }
 
   // Convert all file paths to object.
-  // TODO: remove when we migrate to new registry.
   item.files = item.files.map((file: unknown) => (typeof file === "string" ? { path: file } : file));
 
   // Fail early before doing expensive file operations.
@@ -95,7 +94,6 @@ async function getFileContent(file: z.infer<typeof registryItemFileSchema>) {
 
   // Some registry items uses default export.
   // We want to use named export instead.
-  // TODO: do we really need this? - @shadcn.
   if (file.type !== "registry:page") {
     code = code.replaceAll("export default", "export");
   }

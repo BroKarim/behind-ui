@@ -15,16 +15,11 @@ export function MainNav() {
   const pathname = usePathname();
 
   return (
-    <div className="flex  gap-x-8 md:mr-4">
-      <Link href="/" className="relative flex items-center justify-center text-center md:mr-6">
+    <div className="flex  gap-x-8 ">
+      <Link href="/" className="relative flex items-center justify-center text-center ">
         <Icons.logo1 className="size-0  md:size-8" />
         <span className=" inline-block text-center  font-mono font-bold">{siteConfig.name}</span>
       </Link>
-      {/* 
-
-      NOTE: Navigation component prepared for future main navigation bar.
-            Currently not displayed, but retained for upcoming features or layout updates.
-
       <nav className=" items-center font-medium  md:flex md:space-x-6">
         {docsConfig.mainNav.map((item) => (
           <Link
@@ -40,9 +35,7 @@ export function MainNav() {
             {item.external && <ExternalLinkIcon className="ml-2 size-4" />}
           </Link>
         ))}
-      </nav> 
-      
-      */}
+      </nav>
     </div>
   );
 }

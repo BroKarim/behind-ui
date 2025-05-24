@@ -304,8 +304,9 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["hero"],
+    categories: ["hero", "tool"],
   },
+  // TODO: Remove heavy components with excessive animations as they are not suitable for this website
   {
     name: "bento-01",
     type: "registry:block",
@@ -337,5 +338,28 @@ export const blocks: Registry["items"] = [
       },
     ],
     categories: ["bento"],
+  },
+  {
+    name: "tool-02",
+    type: "registry:block",
+    description: "Before after components.",
+    registryDependencies: ["compare"],
+    files: [
+      {
+        path: "blocks/tool-02/page.tsx",
+        type: "registry:page",
+        target: "app/main.tsx",
+      },
+      {
+        path: "blocks/tool-02/components/compare.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "lib/utils.ts",
+        type: "registry:ui",
+        target: "lib/utils.ts",
+      },
+    ],
+    categories: ["tool"],
   },
 ];
