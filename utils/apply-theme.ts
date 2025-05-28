@@ -7,11 +7,9 @@ import { COMMON_STYLES } from "@/config/theme";
 
 type Theme = "dark" | "light";
 
-//untuk menerapkan ariabel tema (--background, --accent, dll) ke elemen (biasanya <html>).
 
 const COMMON_NON_COLOR_KEYS = COMMON_STYLES;
 
-// Helper functions (not exported, used internally by applyThemeToElement)
 const updateThemeClass = (root: HTMLElement, mode: Theme) => {
   if (mode === "light") {
     root.classList.remove("dark");
@@ -39,17 +37,16 @@ const applyThemeColors = (root: HTMLElement, themeStyles: ThemeStyles, mode: The
   });
 };
 
-// Exported function to apply theme styles to an element
 export const applyThemeToElement = (themeState: ThemeEditorState, rootElement: HTMLElement) => {
   const { currentMode: mode, styles: themeStyles } = themeState;
 
   if (!rootElement) return;
 
   updateThemeClass(rootElement, mode);
-  // Apply common styles (like border-radius) based on the 'light' mode definition
+ 
   applyCommonStyles(rootElement, themeStyles.light);
-  // Apply mode-specific colors
+
   applyThemeColors(rootElement, themeStyles, mode);
-  // Apply shadow variables
+
   setShadowVariables(themeState);
 };

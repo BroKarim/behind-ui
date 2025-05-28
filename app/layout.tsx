@@ -4,13 +4,12 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Analytics } from "@/components/analytics";
 import { PHProvider } from "@/components/posthog-provider";
 import { ThemeProvider } from "@/components/theme-provider";
-import { siteConfig, SiteConfig } from "@/config/site";
+import { siteConfig } from "@/config/site";
 import { Suspense } from "react";
 import { ThemeScript } from "@/components/theme-script";
 import "./globals.css";
 import "@/styles/mdx.css";
 
-import type { Viewport } from "next";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -50,12 +49,6 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = {
-  themeColor: [
-    // { media: "(prefers-color-scheme: light)", color: "black" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
-};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

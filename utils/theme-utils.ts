@@ -1,5 +1,4 @@
 
-//Mengubah objek warna tema (mis. background, foreground, dst.) menjadi CSS variable format (mis. --background: #fff;)
 export function themeColorsToCssVariables(colors: Record<string, string>): Record<string, string> {
   const cssVars = colors
     ? Object.fromEntries(

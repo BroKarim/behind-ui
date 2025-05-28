@@ -12,7 +12,7 @@ export default function CodePreview({ children, language = "javascript" }: CodeP
   const [hasCheckIcon, setHasCheckIcon] = useState(false);
 
   const onCopy = () => {
-    navigator.clipboard.writeText(children); // Salin isi dari children ke clipboard
+    navigator.clipboard.writeText(children); 
     setHasCheckIcon(true);
 
     setTimeout(() => {
