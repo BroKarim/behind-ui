@@ -1,7 +1,5 @@
 import { ThemePreset } from "@/types/theme";
 
-//File yang berisi defaultPresets, getPresetThemeStyles(), dan defaultThemeState.
-//Menyimpan preset tema default (defaultPresets) dalam format Record<string, ThemePreset>, mencakup label, createdAt, dan struktur styles.light serta styles.dark.
 export const defaultPresets: Record<string, ThemePreset> = {
   "modern-minimal": {
     label: "Modern Minimal",

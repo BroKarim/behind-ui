@@ -12,7 +12,7 @@ import { Command, CommandEmpty, CommandGroup, CommandItem } from "../ui/command"
 import { Input } from "../ui/input";
 import { Badge } from "../ui/badge";
 import { cn } from "@/lib/utils";
-import { useTheme } from "../theme-provider-tweakcn";
+import { useTheme } from "../theme-provider";
 import { useEditorStore } from "@/store/editor-store";
 
 //bagian tampilan utama theme
@@ -91,7 +91,6 @@ interface ThemeCycleButtonProps {
   onClick: () => void;
 }
 
-// bagain atas, arrow untuk ganti theme (next/prev)
 const ThemeCycleButton: React.FC<ThemeCycleButtonProps> = ({ direction, onClick }) => (
   <>
     <Separator orientation="vertical" className="h-8" />

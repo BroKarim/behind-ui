@@ -55,10 +55,7 @@ export const themeStylesSchema = z.object({
 export type ThemeStyleProps = z.infer<typeof themeStylePropsSchema>;
 export type ThemeStyles = z.infer<typeof themeStylesSchema>;
 
-export interface ThemeEditorPreviewProps {
-  styles: ThemeStyles;
-  currentMode: "light" | "dark";
-}
+
 
 export type ThemePreset = {
   source?: "SAVED" | "BUILT_IN";

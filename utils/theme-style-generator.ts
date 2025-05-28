@@ -7,7 +7,6 @@ import { ThemeStyles } from "@/types/theme";
 
 type ThemeMode = "light" | "dark";
 
-//untuk generat cide, g dipake d tempat lain
 
 const generateColorVariables = (themeStyles: ThemeStyles, mode: ThemeMode, formatColor: (color: string) => string): string => {
   const styles = themeStyles[mode];
@@ -159,8 +158,6 @@ export const generateThemeCode = (themeEditorState: ThemeEditorState, colorForma
 
   const lightTheme = generateThemeVariables(themeStyles, "light", formatColor);
   const darkTheme = generateThemeVariables(themeStyles, "dark", formatColor);
-  //   const tailwindV4Theme = tailwindVersion === "4" ? `\n\n${generateTailwindV4ThemeInline(themeStyles)}` : "";
-
   const bodyLetterSpacing = themeStyles["light"]["letter-spacing"] !== "0em" ? "\n\nbody {\n  letter-spacing: var(--tracking-normal);\n}" : "";
 
   return `${lightTheme}\n\n${darkTheme}${bodyLetterSpacing}`;

@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
-import { useConfig } from "@/lib/use-config";
 import { useEditorStore } from "@/store/editor-store";
 import { useTheme } from "./theme-provider";
 import { useSearchParams } from "next/navigation";
@@ -10,13 +9,10 @@ import { ThemeMessageReceiver } from "./theme-message-receiver";
 
 interface ThemeWrapperProps extends React.ComponentProps<"div"> {}
 
-//Context buatan sendiri (ThemeProviderContext) untuk mengatur dan toggle mode tema serta menerapkan theme ke document.documentElement
 export function ThemeWrapper({ children, className }: ThemeWrapperProps) {
-  const [config] = useConfig();
   const { theme: systemTheme } = useTheme();
-  // console.log("🚀 ~ ThemeWrapper ~ mode:", mode);
+
   const themeStyles = useEditorStore((state) => state.themeState.styles);
-  // console.log("🚀 ~ ThemeWrapper ~ themeStyles:", themeStyles);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const searchParams = useSearchParams();
   const queryMode = searchParams.get("mode");
@@ -51,11 +47,7 @@ export function ThemeWrapper({ children, className }: ThemeWrapperProps) {
   return (
     <div
       ref={wrapperRef}
-      className={cn(
-        "w-full",
-        className
-        // config.font === "roboto" ? fontRoboto.className : config.font === "mono" ? fontMono.className : config.font === "serif" ? fontSerif.className : fontSans.className // default
-      )}
+      className={cn("w-full", className)}
       style={
         {
           ...(themeStyles ?? {}),
@@ -67,5 +59,3 @@ export function ThemeWrapper({ children, className }: ThemeWrapperProps) {
     </div>
   );
 }
-
-

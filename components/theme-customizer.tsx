@@ -7,7 +7,7 @@ import { ThemeWrapper } from "./theme-wrapper";
 import { Button } from "./ui/button";
 import { Label } from "./ui/label";
 import { Skeleton } from "./ui/skeleton";
-import "@/styles/mdx.css";
+// import "@/styles/mdx.css";
 import ThemePresetSelect from "./editor/theme-select";
 import { useThemePresetStore } from "@/store/theme-preset-store";
 import { useEditorStore } from "@/store/editor-store";

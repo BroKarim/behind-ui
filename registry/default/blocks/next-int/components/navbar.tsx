@@ -80,8 +80,7 @@ function Desktop({
     </nav>
   );
 }
-// keknya bagian mobiele kita buat bentuk Tirana aja, dengan catatan ada animasi x close
-// namun saat dipanggil tetap kaya cali.so
+
 
 export const navigationItems = [
   { href: "/", text: "About" },
