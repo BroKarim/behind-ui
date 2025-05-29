@@ -49,7 +49,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={cn("min-h-screen")}>
@@ -63,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className={cn("relative flex h-screen w-full flex-col justify-center overflow-hidden scroll-smooth bg-background  font-sans  antialiased")}>
+      <body>
         <PHProvider>
           <Suspense>
             <ThemeProvider defaultTheme="light">
