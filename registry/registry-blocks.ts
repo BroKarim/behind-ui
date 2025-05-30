@@ -2,6 +2,32 @@ import { type Registry } from "@/registry/schema";
 
 export const blocks: Registry["items"] = [
   {
+    name: "embed-01",
+    type: "registry:block",
+    description: "reusable Figma frame",
+    registryDependencies: ["mac-terminal", "figma", "iframe"],
+    files: [
+      {
+        path: "blocks/embed-01/main.tsx",
+        type: "registry:page",
+        target: "app/main.tsx",
+      },
+      {
+        path: "blocks/embed-01/components/figma-embed.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/embed-01/components/window.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/embed-01/components/window-header.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["embed"],
+  },
+  {
     name: "card-03",
     type: "registry:block",
     description:

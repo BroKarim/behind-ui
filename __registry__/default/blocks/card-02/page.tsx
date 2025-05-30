@@ -21,7 +21,7 @@ const TIERS = [
 export default function Page() {
   return (
     <>
-      <div className=" z-50  flex flex-1 justify-center gap-6 bg-background p-6 ">
+      <div className="max-w-screen bg-backgroud z-50 flex min-h-screen items-center justify-center p-4">
         {TIERS.map((tier) => (
           <PricingCard key={tier.name} tier={tier} paymentFrequency="monthly" />
         ))}

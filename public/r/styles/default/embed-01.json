@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "embed-01",
+  "type": "registry:block",
+  "author": "shadcn (https://ui.shadcn.com)",
+  "description": "reusable Figma frame",
+  "registryDependencies": [
+    "mac-terminal",
+    "figma",
+    "iframe"
+  ],
+  "files": [
+    {
+      "path": "blocks/embed-01/main.tsx",
+      "content": "import { Window } from \"./components/window\";\nimport { FigmaEmbed } from \"./components/figma-embed\";\n\n//source design : https://creatifly.co/\n// figma buat gini : https://www.figma.com/design/fdOs4FEqWlEqJYutOt66bm/Creatifly-Work-Showcase-2.0?node-id=0-1&p=f&t=BOxUn8qaxFkonaCm-0\n\n\nconst Index = () => {\n  return (\n    <>\n      <div className=\"max-w-screen bg-backgroud z-50 flex min-h-screen items-center justify-center px-4 py-8\">\n        <Window title=\"My Design Showcase\" height=\"h-[800px]\">\n          <FigmaEmbed\n            src=\"https://embed.figma.com/design/nrPSsILSYjesyc5UHjYYa4?embed-host=figma-embed-docs\"\n            showLogo={true}\n          />\n        </Window>\n      </div>\n    </>\n  );\n};\nexport default Index;\n",
+      "type": "registry:page",
+      "target": "app/main.tsx"
+    },
+    {
+      "path": "blocks/embed-01/components/figma-embed.tsx",
+      "content": "interface FigmaEmbedProps {\n  src: string;\n  showLogo?: boolean;\n}\n\nexport function FigmaEmbed({ src, showLogo = true }: FigmaEmbedProps) {\n  return (\n    <div className=\"absolute inset-0\">\n      <div className=\"w-full h-full overflow-hidden shadow-lg\">\n        <iframe src={src} className=\"w-full h-full border-0\" allowFullScreen />\n      </div>\n\n      {showLogo && (\n        <div className=\"absolute bottom-20 left-8 z-20\">\n          <div className=\"bg-black/90 rounded-lg flex items-center justify-center h-8 w-8\">\n            <FigmaLogo />\n          </div>\n        </div>\n      )}\n    </div>\n  );\n}\n\nfunction FigmaLogo() {\n  return (\n    <svg width=\"16\" height=\"20\" viewBox=\"0 0 54 80\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <g clip-path=\"url(#clip0_912_3)\">\n        <path d=\"M13.3333 80.0002C20.6933 80.0002 26.6667 74.0268 26.6667 66.6668V53.3335H13.3333C5.97333 53.3335 0 59.3068 0 66.6668C0 74.0268 5.97333 80.0002 13.3333 80.0002Z\" fill=\"#0ACF83\" />\n        <path d=\"M0 39.9998C0 32.6398 5.97333 26.6665 13.3333 26.6665H26.6667V53.3332H13.3333C5.97333 53.3332 0 47.3598 0 39.9998Z\" fill=\"#A259FF\" />\n        <path d=\"M0 13.3333C0 5.97333 5.97333 0 13.3333 0H26.6667V26.6667H13.3333C5.97333 26.6667 0 20.6933 0 13.3333Z\" fill=\"#F24E1E\" />\n        <path d=\"M26.6667 0H40.0001C47.3601 0 53.3334 5.97333 53.3334 13.3333C53.3334 20.6933 47.3601 26.6667 40.0001 26.6667H26.6667V0Z\" fill=\"#FF7262\" />\n        <path\n          d=\"M53.3334 39.9998C53.3334 47.3598 47.3601 53.3332 40.0001 53.3332C32.6401 53.3332 26.6667 47.3598 26.6667 39.9998C26.6667 32.6398 32.6401 26.6665 40.0001 26.6665C47.3601 26.6665 53.3334 32.6398 53.3334 39.9998Z\"\n          fill=\"#1ABCFE\"\n        />\n      </g>\n      <defs>\n        <clipPath id=\"clip0_912_3\">\n          <rect width=\"53.3333\" height=\"80\" fill=\"white\" />\n        </clipPath>\n      </defs>\n    </svg>\n  );\n}\n",
+      "type": "registry:component",
+      "target": ""
+    },
+    {
+      "path": "blocks/embed-01/components/window.tsx",
+      "content": "import WindowHeader from \"./window-header\";\n\ninterface WindowProps {\n  title: string;\n  children: React.ReactNode;\n  height?: string;\n}\n\nexport function Window({ title, children, height = \"h-[800px]\" }: WindowProps) {\n  return (\n    <div className={`w-full ${height} bg-background`}>\n      <div className=\"max-w-7xl mx-auto h-full\">\n        <div className=\"rounded-sm shadow-2xl h-full overflow-hidden\">\n          <WindowHeader title={title} />\n          <div className=\"relative h-full\">{children}</div>\n        </div>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": ""
+    },
+    {
+      "path": "blocks/embed-01/components/window-header.tsx",
+      "content": "interface WindowHeaderProps {\n  title: string;\n}\n\nfunction WindowHeader({ title }: WindowHeaderProps) {\n  return (\n    <div className=\"bg-background px-4 py-1 flex gap-2 items-center border-b\">\n      <div className=\"flex items-center space-x-2\">\n        <div className=\"w-3 h-3 bg-red-500 rounded-sm\"></div>\n        <div className=\"w-3 h-3 bg-yellow-500 rounded-sm\"></div>\n        <div className=\"w-3 h-3 bg-green-500 rounded-sm\"></div>\n      </div>\n      <div className=\"flex-1\">\n        <span className=\"text-gray-700 font-medium\">{title}</span>\n      </div>\n    </div>\n  );\n}\n\nexport default WindowHeader;\n",
+      "type": "registry:component",
+      "target": ""
+    }
+  ],
+  "categories": [
+    "embed"
+  ]
+}
