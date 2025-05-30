@@ -20,7 +20,7 @@ export function getPresetThemeStyles(name: string): ThemeStyles {
     },
     dark: {
       ...defaultTheme.dark,
-      ...(preset.styles.dark || {}), 
+      ...(preset.styles.dark || {}),
     },
   };
 }

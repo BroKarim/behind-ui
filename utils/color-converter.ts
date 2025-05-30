@@ -11,7 +11,11 @@ export const formatHsl = (hsl: Hsl) => {
   return `hsl(${formatNumber(hsl.h)} ${formatNumber(hsl.s * 100)}% ${formatNumber(hsl.l * 100)}%)`;
 };
 
-export const colorFormatter = (colorValue: string, format: ColorFormat = "hsl", tailwindVersion: "3" | "4" = "3"): string => {
+export const colorFormatter = (
+  colorValue: string,
+  format: ColorFormat = "hsl",
+  tailwindVersion: "3" | "4" = "3",
+): string => {
   try {
     const color = culori.parse(colorValue);
     if (!color) throw new Error("Invalid color input");
@@ -41,4 +45,5 @@ export const colorFormatter = (colorValue: string, format: ColorFormat = "hsl", 
   }
 };
 
-export const convertToHSL = (colorValue: string): string => colorFormatter(colorValue, "hsl");
+export const convertToHSL = (colorValue: string): string =>
+  colorFormatter(colorValue, "hsl");

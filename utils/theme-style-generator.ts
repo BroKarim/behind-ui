@@ -7,8 +7,11 @@ import { ThemeStyles } from "@/types/theme";
 
 type ThemeMode = "light" | "dark";
 
-
-const generateColorVariables = (themeStyles: ThemeStyles, mode: ThemeMode, formatColor: (color: string) => string): string => {
+const generateColorVariables = (
+  themeStyles: ThemeStyles,
+  mode: ThemeMode,
+  formatColor: (color: string) => string,
+): string => {
   const styles = themeStyles[mode];
   return `
   --background: ${formatColor(styles.background)};
@@ -45,7 +48,10 @@ const generateColorVariables = (themeStyles: ThemeStyles, mode: ThemeMode, forma
   --sidebar-ring: ${formatColor(styles["sidebar-ring"])};`;
 };
 
-const generateFontVariables = (themeStyles: ThemeStyles, mode: ThemeMode): string => {
+const generateFontVariables = (
+  themeStyles: ThemeStyles,
+  mode: ThemeMode,
+): string => {
   const styles = themeStyles[mode];
   return `
   --font-sans: ${styles["font-sans"]};
@@ -80,17 +86,42 @@ const generateTrackingVariables = (themeStyles: ThemeStyles): string => {
   --tracking-widest: calc(var(--tracking-normal) + 0.1em);`;
 };
 
-const generateThemeVariables = (themeStyles: ThemeStyles, mode: ThemeMode, formatColor: (color: string) => string): string => {
+const generateThemeVariables = (
+  themeStyles: ThemeStyles,
+  mode: ThemeMode,
+  formatColor: (color: string) => string,
+): string => {
   const selector = mode === "dark" ? ".dark" : ":root";
   const colorVars = generateColorVariables(themeStyles, mode, formatColor);
   const fontVars = generateFontVariables(themeStyles, mode);
   const radiusVar = `\n  --radius: ${themeStyles[mode].radius};`;
-  const shadowVars = generateShadowVariables(getShadowMap({ styles: themeStyles, currentMode: mode }));
-  const spacingVar = mode === "light" && themeStyles["light"].spacing !== defaultLightThemeStyles.spacing ? `\n  --spacing: ${themeStyles["light"].spacing};` : "";
+  const shadowVars = generateShadowVariables(
+    getShadowMap({ styles: themeStyles, currentMode: mode }),
+  );
+  const spacingVar =
+    mode === "light" &&
+    themeStyles["light"].spacing !== defaultLightThemeStyles.spacing
+      ? `\n  --spacing: ${themeStyles["light"].spacing};`
+      : "";
 
-  const trackingVars = mode === "light" && themeStyles["light"]["letter-spacing"] !== defaultLightThemeStyles["letter-spacing"] ? `\n  --tracking-normal: ${themeStyles["light"]["letter-spacing"]};` : "";
+  const trackingVars =
+    mode === "light" &&
+    themeStyles["light"]["letter-spacing"] !==
+      defaultLightThemeStyles["letter-spacing"]
+      ? `\n  --tracking-normal: ${themeStyles["light"]["letter-spacing"]};`
+      : "";
 
-  return selector + " {" + colorVars + fontVars + radiusVar + shadowVars + trackingVars + spacingVar + "\n}";
+  return (
+    selector +
+    " {" +
+    colorVars +
+    fontVars +
+    radiusVar +
+    shadowVars +
+    trackingVars +
+    spacingVar +
+    "\n}"
+  );
 };
 
 const generateTailwindV4ThemeInline = (themeStyles: ThemeStyles): string => {
@@ -148,17 +179,29 @@ const generateTailwindV4ThemeInline = (themeStyles: ThemeStyles): string => {
 }`;
 };
 
-export const generateThemeCode = (themeEditorState: ThemeEditorState, colorFormat: ColorFormat = "hsl", tailwindVersion: "3" | "4" = "3"): string => {
-  if (!themeEditorState || !("light" in themeEditorState.styles) || !("dark" in themeEditorState.styles)) {
+export const generateThemeCode = (
+  themeEditorState: ThemeEditorState,
+  colorFormat: ColorFormat = "hsl",
+  tailwindVersion: "3" | "4" = "3",
+): string => {
+  if (
+    !themeEditorState ||
+    !("light" in themeEditorState.styles) ||
+    !("dark" in themeEditorState.styles)
+  ) {
     throw new Error("Invalid theme styles: missing light or dark mode");
   }
 
   const themeStyles = themeEditorState.styles as ThemeStyles;
-  const formatColor = (color: string) => colorFormatter(color, colorFormat, tailwindVersion);
+  const formatColor = (color: string) =>
+    colorFormatter(color, colorFormat, tailwindVersion);
 
   const lightTheme = generateThemeVariables(themeStyles, "light", formatColor);
   const darkTheme = generateThemeVariables(themeStyles, "dark", formatColor);
-  const bodyLetterSpacing = themeStyles["light"]["letter-spacing"] !== "0em" ? "\n\nbody {\n  letter-spacing: var(--tracking-normal);\n}" : "";
+  const bodyLetterSpacing =
+    themeStyles["light"]["letter-spacing"] !== "0em"
+      ? "\n\nbody {\n  letter-spacing: var(--tracking-normal);\n}"
+      : "";
 
   return `${lightTheme}\n\n${darkTheme}${bodyLetterSpacing}`;
 };

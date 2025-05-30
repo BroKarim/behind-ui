@@ -4,7 +4,9 @@ import localFont from "next/font/local";
 
 export const fontSans = GeistSans;
 
-export const fontClash = localFont({ src: "../assets/fonts/ClashDisplay-Bold.otf" });
+export const fontClash = localFont({
+  src: "../assets/fonts/ClashDisplay-Bold.otf",
+});
 
 export const fontMono = FontMono({
   subsets: ["latin"],

@@ -14,8 +14,13 @@ import { useEditorStore } from "@/store/editor-store";
 import { CodePanelDialog } from "./code-panel-dialog";
 import { ScrollArea } from "./ui/scroll-area";
 import ThemeFontSelect from "./editor/theme-font-select";
-import { getAppliedThemeFont, monoFonts, sansSerifFonts, serifFonts } from "@/utils/theme-fonts";
-import {  DEFAULT_FONT_SANS } from "@/config/theme";
+import {
+  getAppliedThemeFont,
+  monoFonts,
+  sansSerifFonts,
+  serifFonts,
+} from "@/utils/theme-fonts";
+import { DEFAULT_FONT_SANS } from "@/config/theme";
 
 interface ColorBoxProps {
   color: string;
@@ -35,10 +40,17 @@ export function ThemeCustomizer() {
       <div className="h-screen overflow-hidden flex flex-col">
         <ScrollArea className="overflow-auto flex-1 p-4 ">
           <Customizer />
-          <Button className="mt-8 w-full bg-black text-white" onClick={() => setCodePanelOpen(true)}>
+          <Button
+            className="mt-8 w-full bg-black text-white"
+            onClick={() => setCodePanelOpen(true)}
+          >
             Show Code
           </Button>
-          <CodePanelDialog open={codePanelOpen} onOpenChange={setCodePanelOpen} themeEditorState={themeState} />
+          <CodePanelDialog
+            open={codePanelOpen}
+            onOpenChange={setCodePanelOpen}
+            themeEditorState={themeState}
+          />
         </ScrollArea>
       </div>
     </>
@@ -60,7 +72,12 @@ const primaryPresets = [
   { name: "Yellow", value: "hsl(47 100% 50%)" },
   { name: "Violet", value: "hsl(262 83% 58%)" },
 ];
-const ColorBox: React.FC<ColorBoxProps> = ({ color }) => <div className="h-3 w-3 rounded-sm border border-muted" style={{ backgroundColor: color }} />;
+const ColorBox: React.FC<ColorBoxProps> = ({ color }) => (
+  <div
+    className="h-3 w-3 rounded-sm border border-muted"
+    style={{ backgroundColor: color }}
+  />
+);
 
 function Customizer() {
   const [mounted, setMounted] = React.useState(false);
@@ -76,7 +93,10 @@ function Customizer() {
     ...(currentMode === "dark" ? styles.dark : {}),
   };
 
-  function updateStyle<K extends keyof typeof currentStyles>(key: K, value: (typeof currentStyles)[K]) {
+  function updateStyle<K extends keyof typeof currentStyles>(
+    key: K,
+    value: (typeof currentStyles)[K],
+  ) {
     const updatedStyles = {
       ...styles,
       [currentMode]: {
@@ -117,7 +137,11 @@ function Customizer() {
           </div>
         </div>
         <div className="space-y-4">
-          <ThemePresetSelect presets={presets} currentPreset={themeState.preset || null} onPresetChange={applyThemePreset} />
+          <ThemePresetSelect
+            presets={presets}
+            currentPreset={themeState.preset || null}
+            onPresetChange={applyThemePreset}
+          />
         </div>
         {/* color */}
         <div className="space-y-4">
@@ -132,7 +156,10 @@ function Customizer() {
                   variant="outline"
                   size="sm"
                   onClick={() => updateStyle("primary", preset.value)}
-                  className={cn("justify-start ", isActive && "border-2 border-primary bg-primary/20")}
+                  className={cn(
+                    "justify-start ",
+                    isActive && "border-2 border-primary bg-primary/20",
+                  )}
                   style={
                     {
                       "--theme-primary": `hsl(${preset.value})`,
@@ -156,7 +183,13 @@ function Customizer() {
               const isActive = currentRadius === radiusValue;
 
               return (
-                <Button variant="outline" size="sm" key={value} onClick={() => updateStyle("radius", `${radiusValue}rem`)} className={cn(isActive && "border-2 border-primary")}>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  key={value}
+                  onClick={() => updateStyle("radius", `${radiusValue}rem`)}
+                  className={cn(isActive && "border-2 border-primary")}
+                >
                   {value}
                 </Button>
               );
@@ -166,7 +199,12 @@ function Customizer() {
         {/* font */}
         <div className="space-y-4">
           <h3 className="text-sm font-medium">Font</h3>
-          <ThemeFontSelect fonts={{ ...sansSerifFonts, ...serifFonts, ...monoFonts }} defaultValue={DEFAULT_FONT_SANS} currentFont={getAppliedThemeFont(themeState, "font-sans")} onFontChange={(value) => updateStyle("font-sans", value)} />
+          <ThemeFontSelect
+            fonts={{ ...sansSerifFonts, ...serifFonts, ...monoFonts }}
+            defaultValue={DEFAULT_FONT_SANS}
+            currentFont={getAppliedThemeFont(themeState, "font-sans")}
+            onFontChange={(value) => updateStyle("font-sans", value)}
+          />
         </div>
       </div>
     </ThemeWrapper>

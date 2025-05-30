@@ -4,7 +4,6 @@ import { ColorFormat } from "@/types";
 
 type PackageManager = "pnpm" | "npm" | "yarn" | "bun";
 
-
 interface PreferencesStore {
   tailwindVersion: "3" | "4";
   colorFormat: ColorFormat;
@@ -32,6 +31,6 @@ export const usePreferencesStore = create<PreferencesStore>()(
     }),
     {
       name: "preferences-storage", // unique name for localStorage
-    }
-  )
+    },
+  ),
 );

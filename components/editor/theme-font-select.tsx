@@ -1,5 +1,12 @@
 import React, { useMemo } from "react";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface ThemeFontSelectProps {
   fonts: Record<string, string>;
@@ -8,17 +15,24 @@ interface ThemeFontSelectProps {
   onFontChange: (font: string) => void;
 }
 
-const ThemeFontSelect: React.FC<ThemeFontSelectProps> = ({ fonts, defaultValue, currentFont, onFontChange }) => {
+const ThemeFontSelect: React.FC<ThemeFontSelectProps> = ({
+  fonts,
+  defaultValue,
+  currentFont,
+  onFontChange,
+}) => {
   const fontNames = useMemo(() => ["System", ...Object.keys(fonts)], [fonts]);
-  const value = currentFont ? (fonts[currentFont] ?? defaultValue) : defaultValue;
+  const value = currentFont
+    ? (fonts[currentFont] ?? defaultValue)
+    : defaultValue;
 
   return (
     <Select value={value || ""} onValueChange={onFontChange}>
-      <SelectTrigger >
+      <SelectTrigger>
         <SelectValue placeholder="Select theme font" />
       </SelectTrigger>
 
-      <SelectContent >
+      <SelectContent>
         <SelectGroup>
           {fontNames.map((fontName) => (
             <SelectItem key={fontName} value={fonts[fontName] ?? defaultValue}>

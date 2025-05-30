@@ -10,8 +10,15 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function BlocksPage({ params }: { params: { categories?: string[] } }) {
-  const blocks = await getAllBlockIds(["registry:block"], params.categories ?? []);
+export default async function BlocksPage({
+  params,
+}: {
+  params: { categories?: string[] };
+}) {
+  const blocks = await getAllBlockIds(
+    ["registry:block"],
+    params.categories ?? [],
+  );
 
   return blocks.map((name) => (
     <div key={name} className="container py-8   md:py-12">

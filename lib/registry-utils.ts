@@ -10,9 +10,14 @@ import { z } from "zod";
 
 export const DEFAULT_REGISTRY_STYLE = "default" satisfies Style["name"];
 
-const memoizedIndex: typeof Index = Object.fromEntries(Object.entries(Index).map(([style, items]) => [style, { ...items }]));
+const memoizedIndex: typeof Index = Object.fromEntries(
+  Object.entries(Index).map(([style, items]) => [style, { ...items }]),
+);
 
-export function getRegistryComponent(name: string, style: Style["name"] = DEFAULT_REGISTRY_STYLE) {
+export function getRegistryComponent(
+  name: string,
+  style: Style["name"] = DEFAULT_REGISTRY_STYLE,
+) {
   const component = memoizedIndex[style][name]?.component;
 
   if (!component) {
@@ -23,7 +28,10 @@ export function getRegistryComponent(name: string, style: Style["name"] = DEFAUL
   return memoizedIndex[style][name]?.component;
 }
 
-export async function getRegistryItem(name: string, style: Style["name"] = DEFAULT_REGISTRY_STYLE) {
+export async function getRegistryItem(
+  name: string,
+  style: Style["name"] = DEFAULT_REGISTRY_STYLE,
+) {
   const item = memoizedIndex[style][name];
 
   if (!item) {
@@ -31,7 +39,9 @@ export async function getRegistryItem(name: string, style: Style["name"] = DEFAU
   }
 
   // Convert all file paths to object.
-  item.files = item.files.map((file: unknown) => (typeof file === "string" ? { path: file } : file));
+  item.files = item.files.map((file: unknown) =>
+    typeof file === "string" ? { path: file } : file,
+  );
 
   // Fail early before doing expensive file operations.
   const result = registryEntrySchema.safeParse(item);
@@ -134,7 +144,12 @@ function fixFilePaths(files: z.infer<typeof registryEntrySchema>["files"]) {
 export function fixImport(content: string) {
   const regex = /@\/(.+?)\/((?:.*?\/)?(?:components|ui|hooks|lib))\/([\w-]+)/g;
 
-  const replacement = (match: string, path: string, type: string, component: string) => {
+  const replacement = (
+    match: string,
+    path: string,
+    type: string,
+    component: string,
+  ) => {
     if (type.endsWith("components")) {
       return `@/components/${component}`;
     } else if (type.endsWith("ui")) {
@@ -177,7 +192,10 @@ function getFileTarget(file: z.infer<typeof registryItemFileSchema>) {
       target = `app/${fileName}`;
     }
     // Penanganan untuk tipe lainnya
-    else if (file.type === "registry:block" || file.type === "registry:component") {
+    else if (
+      file.type === "registry:block" ||
+      file.type === "registry:component"
+    ) {
       target = `components/${fileName}`;
     }
 
@@ -203,7 +221,9 @@ export type FileTree = {
   children?: FileTree[];
 };
 
-export function createFileTreeForRegistryItemFiles(files: Array<{ path: string; target?: string }>) {
+export function createFileTreeForRegistryItemFiles(
+  files: Array<{ path: string; target?: string }>,
+) {
   const root: FileTree[] = [];
 
   for (const file of files) {
@@ -225,7 +245,9 @@ export function createFileTreeForRegistryItemFiles(files: Array<{ path: string; 
           currentLevel = existingNode.children!;
         }
       } else {
-        const newNode: FileTree = isFile ? { name: part, path } : { name: part, children: [] };
+        const newNode: FileTree = isFile
+          ? { name: part, path }
+          : { name: part, children: [] };
 
         currentLevel.push(newNode);
 

@@ -4,15 +4,25 @@ import React from "react";
 
 import { cn } from "@/lib/utils";
 
-interface PulsatingButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface PulsatingButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   pulseColor?: string;
   duration?: string;
 }
 
-export function PulsatingButton({ className, children, pulseColor = "#0096ff", duration = "1.5s", ...props }: PulsatingButtonProps) {
+export function PulsatingButton({
+  className,
+  children,
+  pulseColor = "#0096ff",
+  duration = "1.5s",
+  ...props
+}: PulsatingButtonProps) {
   return (
     <button
-      className={cn("relative flex cursor-pointer items-center justify-center rounded-lg bg-blue-500 px-4 py-2 text-center text-white dark:bg-blue-500 dark:text-black", className)}
+      className={cn(
+        "relative flex cursor-pointer items-center justify-center rounded-lg bg-blue-500 px-4 py-2 text-center text-white dark:bg-blue-500 dark:text-black",
+        className,
+      )}
       style={
         {
           "--pulse-color": pulseColor,

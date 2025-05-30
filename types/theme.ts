@@ -55,8 +55,6 @@ export const themeStylesSchema = z.object({
 export type ThemeStyleProps = z.infer<typeof themeStylePropsSchema>;
 export type ThemeStyles = z.infer<typeof themeStylesSchema>;
 
-
-
 export type ThemePreset = {
   source?: "SAVED" | "BUILT_IN";
   createdAt?: string;

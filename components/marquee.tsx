@@ -10,7 +10,15 @@ interface MarqueeProps {
   [key: string]: any;
 }
 
-export function Marquee({ className, reverse, pauseOnHover = false, children, vertical = false, repeat = 4, ...props }: MarqueeProps) {
+export function Marquee({
+  className,
+  reverse,
+  pauseOnHover = false,
+  children,
+  vertical = false,
+  repeat = 4,
+  ...props
+}: MarqueeProps) {
   return (
     <div
       {...props}
@@ -20,7 +28,7 @@ export function Marquee({ className, reverse, pauseOnHover = false, children, ve
           "flex-row": !vertical,
           "flex-col": vertical,
         },
-        className
+        className,
       )}
     >
       {Array(repeat)

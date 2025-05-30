@@ -5,10 +5,21 @@ import { z } from "zod";
 
 import { Style } from "@/registry/registry-styles";
 
-export async function getAllBlockIds(types: z.infer<typeof registryEntrySchema>["type"][] = ["registry:block", "registry:internal"], categories: string[] = [], style: Style["name"] = "default"): Promise<string[]> {
+export async function getAllBlockIds(
+  types: z.infer<typeof registryEntrySchema>["type"][] = [
+    "registry:block",
+    "registry:internal",
+  ],
+  categories: string[] = [],
+  style: Style["name"] = "default",
+): Promise<string[]> {
   const { Index } = await import("@/__registry__");
 
-  if (!Index[style] || typeof Index[style] !== "object" || Array.isArray(Index[style])) {
+  if (
+    !Index[style] ||
+    typeof Index[style] !== "object" ||
+    Array.isArray(Index[style])
+  ) {
     return []; // Return empty array instead of throwing error
   }
 
@@ -27,9 +38,21 @@ export async function getAllBlockIds(types: z.infer<typeof registryEntrySchema>[
       }
     }
 
-    console.log(`Successfully validated ${validEntries.length} out of ${entries.length} entries`);
+    console.log(
+      `Successfully validated ${validEntries.length} out of ${entries.length} entries`,
+    );
 
-    return validEntries.filter((block) => types.includes(block.type) && (categories.length === 0 || block.categories?.some((category) => categories.includes(category))) && !block.name.startsWith("chart-")).map((block) => block.name);
+    return validEntries
+      .filter(
+        (block) =>
+          types.includes(block.type) &&
+          (categories.length === 0 ||
+            block.categories?.some((category) =>
+              categories.includes(category),
+            )) &&
+          !block.name.startsWith("chart-"),
+      )
+      .map((block) => block.name);
   } catch (error) {
     console.error("Function error:", error);
     return []; // Return empty array instead of throwing error

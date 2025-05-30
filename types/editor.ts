@@ -5,9 +5,6 @@ export interface BaseEditorState {
   styles: ThemeStyles;
 }
 
-
-
-
 export interface ThemeEditorState extends BaseEditorState {
   preset?: string;
   styles: ThemeStyles;

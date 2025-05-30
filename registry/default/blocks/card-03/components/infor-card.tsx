@@ -170,9 +170,7 @@ function InfoCard({
               transition={{ duration: 0.3, delay: 0 }}
               className={cn(
                 "group rounded-lg border p-3",
-                "bg-white",
-                "dark:bg-gradient-to-br dark:from-zinc-800 dark:to-zinc-900",
-                "dark:border-zinc-700",
+
                 className,
               )}
               onMouseEnter={() => setIsHovered(true)}

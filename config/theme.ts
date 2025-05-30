@@ -1,13 +1,27 @@
 import { ThemeEditorState } from "@/types/editor";
 
-export const COMMON_STYLES = ["font-sans", "font-serif", "font-mono", "radius", "shadow-opacity", "shadow-blur", "shadow-spread", "shadow-offset-x", "shadow-offset-y", "letter-spacing", "spacing"];
+export const COMMON_STYLES = [
+  "font-sans",
+  "font-serif",
+  "font-mono",
+  "radius",
+  "shadow-opacity",
+  "shadow-blur",
+  "shadow-spread",
+  "shadow-offset-x",
+  "shadow-offset-y",
+  "letter-spacing",
+  "spacing",
+];
 
 export const DEFAULT_FONT_SANS =
   "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'";
 
-export const DEFAULT_FONT_SERIF = 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif';
+export const DEFAULT_FONT_SERIF =
+  'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif';
 
-export const DEFAULT_FONT_MONO = 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
+export const DEFAULT_FONT_MONO =
+  'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
 
 // Default light theme styles
 export const defaultLightThemeStyles = {
@@ -111,7 +125,11 @@ export const defaultThemeState: ThemeEditorState = {
     dark: defaultDarkThemeStyles,
   },
   // currentMode: null,
-  currentMode: typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light",
+  currentMode:
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light",
   hslAdjustments: {
     hueShift: 0,
     saturationScale: 1,

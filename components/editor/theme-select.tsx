@@ -1,14 +1,38 @@
 "use client";
 import React, { useCallback, useMemo, useState } from "react";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { getPresetThemeStyles } from "@/utils/theme-preset-helper";
 import { ThemePreset } from "@/types/theme";
 import { Button } from "../ui/button";
-import { ArrowLeft, ArrowRight, Check, ChevronDown, Moon, Search, Shuffle, Sun, Heart } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Check,
+  ChevronDown,
+  Moon,
+  Search,
+  Shuffle,
+  Sun,
+  Heart,
+} from "lucide-react";
 import { Separator } from "../ui/separator";
 import { ScrollArea } from "../ui/scroll-area";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../ui/tooltip";
-import { Command, CommandEmpty, CommandGroup, CommandItem } from "../ui/command";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../ui/tooltip";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandItem,
+} from "../ui/command";
 import { Input } from "../ui/input";
 import { Badge } from "../ui/badge";
 import { cn } from "@/lib/utils";
@@ -26,7 +50,12 @@ interface ColorBoxProps {
   color: string;
 }
 
-const ColorBox: React.FC<ColorBoxProps> = ({ color }) => <div className="h-3 w-3 rounded-sm border border-muted" style={{ backgroundColor: color }} />;
+const ColorBox: React.FC<ColorBoxProps> = ({ color }) => (
+  <div
+    className="h-3 w-3 rounded-sm border border-muted"
+    style={{ backgroundColor: color }}
+  />
+);
 
 interface ThemeColorsProps {
   presetName: string;
@@ -60,12 +89,25 @@ interface ThemeControlsProps {
 }
 
 //batton ganto dark/light mode dan shuffle theme
-const ThemeControls: React.FC<ThemeControlsProps> = ({ onRandomize, onThemeToggle, theme }) => (
+const ThemeControls: React.FC<ThemeControlsProps> = ({
+  onRandomize,
+  onThemeToggle,
+  theme,
+}) => (
   <div className="flex gap-1">
     <Tooltip>
       <TooltipTrigger asChild>
-        <Button variant="ghost" size="sm" className="h-7 w-7 p-0" onClick={onThemeToggle}>
-          {theme === "light" ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
+        <Button
+          variant="ghost"
+          size="sm"
+          className="h-7 w-7 p-0"
+          onClick={onThemeToggle}
+        >
+          {theme === "light" ? (
+            <Sun className="h-3.5 w-3.5" />
+          ) : (
+            <Moon className="h-3.5 w-3.5" />
+          )}
         </Button>
       </TooltipTrigger>
       <TooltipContent side="bottom">
@@ -75,7 +117,12 @@ const ThemeControls: React.FC<ThemeControlsProps> = ({ onRandomize, onThemeToggl
 
     <Tooltip>
       <TooltipTrigger asChild>
-        <Button variant="ghost" size="sm" className="h-7 w-7 p-0" onClick={onRandomize}>
+        <Button
+          variant="ghost"
+          size="sm"
+          className="h-7 w-7 p-0"
+          onClick={onRandomize}
+        >
           <Shuffle className="h-3.5 w-3.5" />
         </Button>
       </TooltipTrigger>
@@ -91,29 +138,48 @@ interface ThemeCycleButtonProps {
   onClick: () => void;
 }
 
-const ThemeCycleButton: React.FC<ThemeCycleButtonProps> = ({ direction, onClick }) => (
+const ThemeCycleButton: React.FC<ThemeCycleButtonProps> = ({
+  direction,
+  onClick,
+}) => (
   <>
     <Separator orientation="vertical" className="h-8" />
     <Tooltip>
       <TooltipTrigger asChild>
-        <Button variant="ghost" size="icon" className="size-14 shrink-0 rounded-none bg-muted/10" onClick={onClick}>
-          {direction === "prev" ? <ArrowLeft className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
+        <Button
+          variant="ghost"
+          size="icon"
+          className="size-14 shrink-0 rounded-none bg-muted/10"
+          onClick={onClick}
+        >
+          {direction === "prev" ? (
+            <ArrowLeft className="h-4 w-4" />
+          ) : (
+            <ArrowRight className="h-4 w-4" />
+          )}
         </Button>
       </TooltipTrigger>
-      <TooltipContent>{direction === "prev" ? "Previous theme" : "Next theme"}</TooltipContent>
+      <TooltipContent>
+        {direction === "prev" ? "Previous theme" : "Next theme"}
+      </TooltipContent>
     </Tooltip>
   </>
 );
 
-
-const ThemePresetSelect: React.FC<ThemePresetSelectProps> = ({ presets, currentPreset, onPresetChange }) => {
+const ThemePresetSelect: React.FC<ThemePresetSelectProps> = ({
+  presets,
+  currentPreset,
+  onPresetChange,
+}) => {
   const { themeState } = useEditorStore();
   const { theme, toggleTheme } = useTheme();
   const mode = themeState.currentMode;
   const [search, setSearch] = useState("");
 
-
-  const presetNames = useMemo(() => ["default", ...Object.keys(presets)], [presets]);
+  const presetNames = useMemo(
+    () => ["default", ...Object.keys(presets)],
+    [presets],
+  );
   const value = presetNames?.find((name) => name === currentPreset);
 
   const filteredPresets = useMemo(() => {
@@ -121,7 +187,9 @@ const ThemePresetSelect: React.FC<ThemePresetSelectProps> = ({ presets, currentP
       search.trim() === ""
         ? presetNames
         : Object.entries(presets)
-            .filter(([_, preset]) => preset.label?.toLowerCase().includes(search.toLowerCase()))
+            .filter(([_, preset]) =>
+              preset.label?.toLowerCase().includes(search.toLowerCase()),
+            )
             .map(([name]) => name);
 
     return filteredList.sort((a, b) => {
@@ -131,7 +199,11 @@ const ThemePresetSelect: React.FC<ThemePresetSelectProps> = ({ presets, currentP
     });
   }, [presetNames, search, presets]);
 
-  const currentIndex = useMemo(() => filteredPresets.indexOf(value || "default"), [filteredPresets, value]) ?? 0;
+  const currentIndex =
+    useMemo(
+      () => filteredPresets.indexOf(value || "default"),
+      [filteredPresets, value],
+    ) ?? 0;
 
   const randomize = useCallback(() => {
     const random = Math.floor(Math.random() * filteredPresets.length);
@@ -140,10 +212,14 @@ const ThemePresetSelect: React.FC<ThemePresetSelectProps> = ({ presets, currentP
 
   const cycleTheme = useCallback(
     (direction: "prev" | "next") => {
-      const newIndex = direction === "next" ? (currentIndex + 1) % filteredPresets.length : (currentIndex - 1 + filteredPresets.length) % filteredPresets.length;
+      const newIndex =
+        direction === "next"
+          ? (currentIndex + 1) % filteredPresets.length
+          : (currentIndex - 1 + filteredPresets.length) %
+            filteredPresets.length;
       onPresetChange(filteredPresets[newIndex]);
     },
-    [currentIndex, filteredPresets, onPresetChange]
+    [currentIndex, filteredPresets, onPresetChange],
   );
 
   const handleThemeToggle = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -159,7 +235,12 @@ const ThemePresetSelect: React.FC<ThemePresetSelectProps> = ({ presets, currentP
         <TooltipProvider>
           <Popover>
             <PopoverTrigger asChild>
-              <Button variant="ghost" className={cn("group relative min-h-14 w-full justify-between rounded-none md:min-w-56")}>
+              <Button
+                variant="ghost"
+                className={cn(
+                  "group relative min-h-14 w-full justify-between rounded-none md:min-w-56",
+                )}
+              >
                 <div className="flex items-center gap-3">
                   <div className="flex gap-0.5">
                     {/* ini ubah  */}
@@ -177,11 +258,20 @@ const ThemePresetSelect: React.FC<ThemePresetSelectProps> = ({ presets, currentP
                 <div className="flex w-full items-center">
                   <div className="flex w-full items-center border-b px-3 py-1">
                     <Search className="size-4 shrink-0 opacity-50" />
-                    <Input placeholder="Search themes..." className="border-0 shadow-none focus-visible:ring-0 focus-visible:ring-offset-0" value={search} onChange={(e) => setSearch(e.target.value)} />
+                    <Input
+                      placeholder="Search themes..."
+                      className="border-0 shadow-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                      value={search}
+                      onChange={(e) => setSearch(e.target.value)}
+                    />
                   </div>
                 </div>
                 <div className="flex items-center justify-between px-4 py-2">
-                  <ThemeControls onRandomize={randomize} onThemeToggle={handleThemeToggle} theme={theme} />
+                  <ThemeControls
+                    onRandomize={randomize}
+                    onThemeToggle={handleThemeToggle}
+                    theme={theme}
+                  />
                 </div>
                 <Separator />
                 <ScrollArea className="h-[500px] max-h-[70vh]">
@@ -202,14 +292,22 @@ const ThemePresetSelect: React.FC<ThemePresetSelectProps> = ({ presets, currentP
                         >
                           <ThemeColors presetName={presetName} mode={mode} />
                           <div className="flex flex-1 items-center gap-2">
-                            <span className="text-sm font-medium capitalize">{presets[presetName]?.label || presetName}</span>
-                            {presets[presetName] && isThemeNew(presets[presetName]) && (
-                              <Badge variant="secondary" className="rounded-full text-xs">
-                                New
-                              </Badge>
-                            )}
+                            <span className="text-sm font-medium capitalize">
+                              {presets[presetName]?.label || presetName}
+                            </span>
+                            {presets[presetName] &&
+                              isThemeNew(presets[presetName]) && (
+                                <Badge
+                                  variant="secondary"
+                                  className="rounded-full text-xs"
+                                >
+                                  New
+                                </Badge>
+                              )}
                           </div>
-                          {presetName === value && <Check className="h-4 w-4 shrink-0 opacity-70" />}
+                          {presetName === value && (
+                            <Check className="h-4 w-4 shrink-0 opacity-70" />
+                          )}
                         </CommandItem>
                       ))}
                     </CommandGroup>

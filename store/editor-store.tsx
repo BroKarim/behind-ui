@@ -4,7 +4,6 @@ import { ThemeEditorState } from "@/types/editor";
 import { defaultThemeState } from "@/config/theme";
 import { getPresetThemeStyles } from "@/utils/theme-preset-helper";
 
-
 interface EditorStore {
   themeState: ThemeEditorState;
   themeCheckpoint: ThemeEditorState | null;
@@ -14,7 +13,6 @@ interface EditorStore {
   restoreThemeCheckpoint: () => void;
   resetToCurrentPreset: () => void;
 }
-
 
 export const useEditorStore = create<EditorStore>()(
   persist(
@@ -34,10 +32,11 @@ export const useEditorStore = create<EditorStore>()(
           styles: newStyles,
           hslAdjustments: defaultThemeState.hslAdjustments,
         };
-        const updates: Partial<EditorStore> & { themeState: ThemeEditorState } = {
-          themeState: newThemeState,
-          themeCheckpoint: newThemeState,
-        };
+        const updates: Partial<EditorStore> & { themeState: ThemeEditorState } =
+          {
+            themeState: newThemeState,
+            themeCheckpoint: newThemeState,
+          };
         set(updates);
       },
       saveThemeCheckpoint: () => {
@@ -58,7 +57,9 @@ export const useEditorStore = create<EditorStore>()(
       },
       resetToCurrentPreset: () => {
         const themeState = get().themeState;
-        const presetThemeStyles = getPresetThemeStyles(themeState.preset ?? "default");
+        const presetThemeStyles = getPresetThemeStyles(
+          themeState.preset ?? "default",
+        );
         const newThemeState: ThemeEditorState = {
           ...themeState,
           styles: presetThemeStyles,
@@ -73,6 +74,6 @@ export const useEditorStore = create<EditorStore>()(
     }),
     {
       name: "editor-storage",
-    }
-  )
+    },
+  ),
 );
