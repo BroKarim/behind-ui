@@ -2,7 +2,6 @@ import { create } from "zustand";
 import { ThemePreset } from "@/types/theme";
 import { defaultPresets } from "@/lib/theme-preset";
 
-
 interface ThemePresetStore {
   presets: Record<string, ThemePreset>;
   registerPreset: (name: string, preset: ThemePreset) => void;

@@ -13,9 +13,19 @@ export function BlocksNav() {
     <div className="relative overflow-hidden">
       <ScrollArea className="max-w-none">
         <div className="flex items-center">
-          <BlocksNavLink category={{ name: "Featured", slug: "", hidden: false }} isActive={pathname === "/" || pathname === ""} />
+          <BlocksNavLink
+            category={{ name: "Featured", slug: "", hidden: false }}
+            isActive={pathname === "/" || pathname === ""}
+          />
           {registryCategories.map((category) => (
-            <BlocksNavLink key={category.slug} category={category} isActive={pathname === `/${category.slug}` || pathname.startsWith(`/${category.slug}/`)} />
+            <BlocksNavLink
+              key={category.slug}
+              category={category}
+              isActive={
+                pathname === `/${category.slug}` ||
+                pathname.startsWith(`/${category.slug}/`)
+              }
+            />
           ))}
         </div>
         <ScrollBar orientation="horizontal" className="invisible" />
@@ -24,7 +34,13 @@ export function BlocksNav() {
   );
 }
 
-function BlocksNavLink({ category, isActive }: { category: (typeof registryCategories)[number]; isActive: boolean }) {
+function BlocksNavLink({
+  category,
+  isActive,
+}: {
+  category: (typeof registryCategories)[number];
+  isActive: boolean;
+}) {
   if (category.hidden) {
     return null;
   }

@@ -7,7 +7,6 @@ import { COMMON_STYLES } from "@/config/theme";
 
 type Theme = "dark" | "light";
 
-
 const COMMON_NON_COLOR_KEYS = COMMON_STYLES;
 
 const updateThemeClass = (root: HTMLElement, mode: Theme) => {
@@ -20,7 +19,11 @@ const updateThemeClass = (root: HTMLElement, mode: Theme) => {
 
 const applyCommonStyles = (root: HTMLElement, themeStyles: ThemeStyleProps) => {
   Object.entries(themeStyles)
-    .filter(([key]) => COMMON_NON_COLOR_KEYS.includes(key as (typeof COMMON_NON_COLOR_KEYS)[number]))
+    .filter(([key]) =>
+      COMMON_NON_COLOR_KEYS.includes(
+        key as (typeof COMMON_NON_COLOR_KEYS)[number],
+      ),
+    )
     .forEach(([key, value]) => {
       if (typeof value === "string") {
         applyStyleToElement(root, key, value);
@@ -28,9 +31,18 @@ const applyCommonStyles = (root: HTMLElement, themeStyles: ThemeStyleProps) => {
     });
 };
 
-const applyThemeColors = (root: HTMLElement, themeStyles: ThemeStyles, mode: Theme) => {
+const applyThemeColors = (
+  root: HTMLElement,
+  themeStyles: ThemeStyles,
+  mode: Theme,
+) => {
   Object.entries(themeStyles[mode]).forEach(([key, value]) => {
-    if (typeof value === "string" && !COMMON_NON_COLOR_KEYS.includes(key as (typeof COMMON_NON_COLOR_KEYS)[number])) {
+    if (
+      typeof value === "string" &&
+      !COMMON_NON_COLOR_KEYS.includes(
+        key as (typeof COMMON_NON_COLOR_KEYS)[number],
+      )
+    ) {
       const hslValue = colorFormatter(value, "hsl", "4");
       applyStyleToElement(root, key, hslValue);
     }

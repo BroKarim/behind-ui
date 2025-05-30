@@ -15,7 +15,12 @@ interface PostDetailProps {
   author: Author;
 }
 
-const PostDetail: React.FC<PostDetailProps> = ({ lastUpdate, builtWith, tags, author }) => {
+const PostDetail: React.FC<PostDetailProps> = ({
+  lastUpdate,
+  builtWith,
+  tags,
+  author,
+}) => {
   return (
     <div className="flex w-full flex-col items-start justify-start space-y-4 text-gray-400 md:mt-4 md:flex-row md:gap-20 md:space-y-1 md:px-4">
       <div className="space-y-4 md:space-y-1">
@@ -41,9 +46,16 @@ const PostDetail: React.FC<PostDetailProps> = ({ lastUpdate, builtWith, tags, au
         </div>
         <div className="flex flex-col gap-2">
           Author:
-          <a href={author.link} className="flex flex-row items-center text-white transition-colors lg:pl-4">
+          <a
+            href={author.link}
+            className="flex flex-row items-center text-white transition-colors lg:pl-4"
+          >
             <Avatar>
-              <AvatarImage src={author.avatar} className="h-8 w-8" alt={author.name} />
+              <AvatarImage
+                src={author.avatar}
+                className="h-8 w-8"
+                alt={author.name}
+              />
               <AvatarFallback>{author.name[0]}</AvatarFallback>
             </Avatar>
             {author.name}

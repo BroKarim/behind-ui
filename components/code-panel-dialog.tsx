@@ -8,7 +8,11 @@ interface CodePanelDialogProps {
   themeEditorState: ThemeEditorState;
 }
 
-export function CodePanelDialog({ open, onOpenChange, themeEditorState }: CodePanelDialogProps) {
+export function CodePanelDialog({
+  open,
+  onOpenChange,
+  themeEditorState,
+}: CodePanelDialogProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="h-[80vh] max-w-4xl gap-6 overflow-hidden rounded-lg border p-0 py-6 outline-none">

@@ -1,6 +1,9 @@
 "use client";
 
-import { defaultDarkThemeStyles, defaultLightThemeStyles } from "@/config/theme";
+import {
+  defaultDarkThemeStyles,
+  defaultLightThemeStyles,
+} from "@/config/theme";
 
 export function ThemeScript() {
   const scriptContent = `
@@ -39,5 +42,10 @@ export function ThemeScript() {
     })();
   `;
 
-  return <script dangerouslySetInnerHTML={{ __html: scriptContent }} suppressHydrationWarning />;
+  return (
+    <script
+      dangerouslySetInnerHTML={{ __html: scriptContent }}
+      suppressHydrationWarning
+    />
+  );
 }

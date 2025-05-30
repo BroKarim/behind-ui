@@ -13,13 +13,17 @@ export default async function AppLayout({ children }: AppLayoutProps) {
     <>
       <SiteHeader />
       <main className="no-scrollbar relative flex h-screen overflow-hidden ">
-        <div className="hidden h-screen shrink-0 flex-col gap-2 overflow-y-auto font-sans md:flex md:w-[300px] lg:w-[400px]">
+        <div className="hidden h-screen shrink-0 flex-col gap-2 overflow-y-auto  md:flex md:w-[300px] lg:w-[400px]">
           <div className="sticky top-0 z-30 flex h-fit w-full flex-col items-center gap-2 border-b bg-background p-2 px-4 sm:static ">
-
             <p className="w-full ">
-              I love building UI components — but let’s be honest, there are tons of those out there already. That’s why I wanted to take a different approach. <br className="mt-4" />
+              I love building UI components — but let’s be honest, there are
+              tons of those out there already. That’s why I wanted to take a
+              different approach. <br className="mt-4" />
             </p>
-            <p className="w-full mt-3">Inspired by ShadCN and TweakCN, It’s about showing how each component adapts and interacts across different design styles.</p>
+            <p className="w-full mt-3">
+              Inspired by ShadCN and TweakCN, It’s about showing how each
+              component adapts and interacts across different design styles.
+            </p>
           </div>
           <ScrollArea className="h-full w-full flex-1 p-4">
             <ThemeCustomizer />
@@ -33,7 +37,9 @@ export default async function AppLayout({ children }: AppLayoutProps) {
           </div>
           <ScrollArea className="h-full w-full ">
             <div className=" flex w-full flex-col items-start gap-2 px-2 py-4 md:py-10 lg:py-0">
-              <div className="grid h-full w-full grid-cols-1 md:items-center md:justify-center md:gap-8 ">{children}</div>
+              <div className="grid h-full w-full grid-cols-1 md:items-center md:justify-center md:gap-8 ">
+                {children}
+              </div>
             </div>
           </ScrollArea>
         </div>

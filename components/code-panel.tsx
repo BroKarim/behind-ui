@@ -5,7 +5,13 @@ import { ThemeEditorState } from "@/types/editor";
 import { Alert } from "./ui/alert";
 import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 import { ColorFormat } from "@/types";
-import { Select, SelectContent, SelectTrigger, SelectValue, SelectItem } from "./ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectTrigger,
+  SelectValue,
+  SelectItem,
+} from "./ui/select";
 import { useEditorStore } from "@/store/editor-store";
 import { usePreferencesStore } from "@/store/preferences-store";
 import { generateThemeCode } from "@/utils/theme-style-generator";
@@ -46,7 +52,10 @@ const CodePanel: React.FC<CodePanelProps> = ({ themeEditorState }) => {
           </div>
         </div>
         <div className="mb-4 flex items-center gap-2 ">
-          <Select value={colorFormat} onValueChange={(value: ColorFormat) => setColorFormat(value)}>
+          <Select
+            value={colorFormat}
+            onValueChange={(value: ColorFormat) => setColorFormat(value)}
+          >
             <SelectTrigger className="outline-hidden w-fit gap-1 border-none bg-muted/50 focus:border-none focus:ring-transparent">
               <SelectValue className="focus:ring-transparent" />
             </SelectTrigger>
@@ -64,7 +73,15 @@ const CodePanel: React.FC<CodePanelProps> = ({ themeEditorState }) => {
             <span className="text-sm font-medium">index.css</span>
 
             <div className="flex items-center gap-2">
-              <Button variant="outline" size="sm" onClick={() => copyToClipboard(code)} className="h-8" aria-label={copied ? "Copied to clipboard" : "Copy to clipboard"}>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => copyToClipboard(code)}
+                className="h-8"
+                aria-label={
+                  copied ? "Copied to clipboard" : "Copy to clipboard"
+                }
+              >
                 {copied ? (
                   <>
                     <Check className="size-4" />

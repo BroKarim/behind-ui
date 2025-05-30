@@ -48,7 +48,9 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
     const root = document.documentElement;
     const newMode = themeState.currentMode === "light" ? "dark" : "light";
 
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
     if (!document.startViewTransition || prefersReducedMotion) {
       handleThemeChange(newMode);

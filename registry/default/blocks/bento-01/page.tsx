@@ -15,7 +15,7 @@ export default function MainLayout() {
 
   return (
     <>
-      <div className="max-w-screen  bg-backgroud z-50 h-screen p-4  2xl:overflow-visible">
+      <div className="max-w-screen  bg-backgroud z-50  p-4  2xl:overflow-visible grid place-items-center">
         <div className="grid grid-cols-4 grid-rows-8 gap-5 text-primary lg:grid-cols-3">
           <div className=" col-span-full h-full w-full lg:col-span-1 lg:col-start-2 lg:row-span-2 lg:row-start-2">
             <Card className=" h-full w-full">

@@ -36,13 +36,25 @@ const HeroAnimated = ({
         },
       }}
     >
-      <motion.h1 className={cn(headerClassName, "drop-shadow-sm")} variants={FADE_UP_ANIMATION_VARIANTS}>
+      <motion.h1
+        className={cn(headerClassName, "drop-shadow-sm")}
+        variants={FADE_UP_ANIMATION_VARIANTS}
+      >
         {header}
       </motion.h1>
-      <motion.p className={cn(descriptionClassName, "mt-6")} variants={FADE_UP_ANIMATION_VARIANTS}>
+      <motion.p
+        className={cn(descriptionClassName, "mt-6")}
+        variants={FADE_UP_ANIMATION_VARIANTS}
+      >
         {description}
       </motion.p>
-      <motion.div className={cn(childrenClassName, "mx-auto mt-6 flex items-center justify-center space-x-5")} variants={FADE_UP_ANIMATION_VARIANTS}>
+      <motion.div
+        className={cn(
+          childrenClassName,
+          "mx-auto mt-6 flex items-center justify-center space-x-5",
+        )}
+        variants={FADE_UP_ANIMATION_VARIANTS}
+      >
         {children}
       </motion.div>
     </motion.div>

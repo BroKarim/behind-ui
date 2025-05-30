@@ -38,9 +38,21 @@ export function WordPullUp({
   className,
 }: WordPullUpProps) {
   return (
-    <motion.h1 variants={wrapperFramerProps} initial="hidden" animate="show" className={cn("font-display text-center text-4xl font-bold leading-[5rem] tracking-[-0.02em] drop-shadow-sm", className)}>
+    <motion.h1
+      variants={wrapperFramerProps}
+      initial="hidden"
+      animate="show"
+      className={cn(
+        "font-display text-center text-4xl font-bold leading-[5rem] tracking-[-0.02em] drop-shadow-sm",
+        className,
+      )}
+    >
       {words.split(" ").map((word, i) => (
-        <motion.span key={i} variants={framerProps} style={{ display: "inline-block", paddingRight: "8px" }}>
+        <motion.span
+          key={i}
+          variants={framerProps}
+          style={{ display: "inline-block", paddingRight: "8px" }}
+        >
           {word === "" ? <span>&nbsp;</span> : word}
         </motion.span>
       ))}
@@ -62,7 +74,15 @@ export function GradualSpacing({
     <div className={cn("flex justify-center space-x-1", className)}>
       <AnimatePresence>
         {text.split("").map((char, i) => (
-          <motion.h1 key={i} initial="hidden" animate="visible" exit="hidden" variants={framerProps} transition={{ duration, delay: i * delayMultiple }} className={cn("drop-shadow-sm ", className)}>
+          <motion.h1
+            key={i}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={framerProps}
+            transition={{ duration, delay: i * delayMultiple }}
+            className={cn("drop-shadow-sm ", className)}
+          >
             {char === " " ? <span>&nbsp;</span> : char}
           </motion.h1>
         ))}

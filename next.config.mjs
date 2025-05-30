@@ -23,6 +23,10 @@ const nextConfig = {
         protocol: "http",
         hostname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "github.com",
+      },
     ],
   },
   async redirects() {

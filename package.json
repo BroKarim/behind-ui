@@ -4,10 +4,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "install:cli": "pnpm prefix:cli install",
-    "dev:cli": "pnpm prefix:cli dev",
-    "build:cli": "pnpm prefix:cli build",
-    "release:cli": "pnpm prefix:cli release",
     "preinstall": "npx only-allow pnpm",
     "dev": "next dev",
     "prebuild": "pnpm build:registry",
@@ -18,8 +14,6 @@
     "typecheck": "tsc --noEmit",
     "start": "next start",
     "clean": "rm -rf .next",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
     "prepare": "husky"
@@ -55,7 +49,6 @@
     "culori": "^4.0.1",
     "date-fns": "^2.30.0",
     "depcheck": "^1.4.7",
-    "eslint-plugin-tailwindcss": "^3.18.0",
     "framer-motion": "^11.18.2",
     "geist": "^1.3.1",
     "jotai": "^2.12.2",

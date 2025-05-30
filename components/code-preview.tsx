@@ -8,7 +8,10 @@ type CodePreviewProps = {
   language?: string;
 };
 
-export default function CodePreview({ children, language = "javascript" }: CodePreviewProps) {
+export default function CodePreview({
+  children,
+  language = "javascript",
+}: CodePreviewProps) {
   const [hasCheckIcon, setHasCheckIcon] = useState(false);
 
   const onCopy = () => {
@@ -22,11 +25,18 @@ export default function CodePreview({ children, language = "javascript" }: CodeP
 
   return (
     <div className="relative">
-      <div className="absolute right-4 top-4 cursor-pointer bg-transparent p-2" onClick={onCopy}>
-        <div className={`absolute inset-0 transition-all duration-300${hasCheckIcon ? "scale-0 opacity-0" : "scale-100 opacity-100"}`}>
+      <div
+        className="absolute right-4 top-4 cursor-pointer bg-transparent p-2"
+        onClick={onCopy}
+      >
+        <div
+          className={`absolute inset-0 transition-all duration-300${hasCheckIcon ? "scale-0 opacity-0" : "scale-100 opacity-100"}`}
+        >
           <Copy className="h-4 w-4 text-zinc-50" />
         </div>
-        <div className={`absolute inset-0 transition-all duration-300${hasCheckIcon ? "scale-100 opacity-100" : "scale-0 opacity-0"}`}>
+        <div
+          className={`absolute inset-0 transition-all duration-300${hasCheckIcon ? "scale-100 opacity-100" : "scale-0 opacity-0"}`}
+        >
           <Check className="h-4 w-4 text-zinc-50" />
         </div>
       </div>

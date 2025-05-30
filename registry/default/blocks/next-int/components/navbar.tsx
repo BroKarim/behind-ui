@@ -81,7 +81,6 @@ function Desktop({
   );
 }
 
-
 export const navigationItems = [
   { href: "/", text: "About" },
   { href: "/", text: "Service" },

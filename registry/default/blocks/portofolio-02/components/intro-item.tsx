@@ -12,7 +12,7 @@ export function IntroItem({
   const isLink = !!href;
 
   return (
-    <div className="flex items-center gap-4 font-mono text-sm [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:text-muted-foreground">
+    <div className="flex items-center gap-4  text-sm [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:text-muted-foreground">
       {icon}
 
       <p className="text-balance">

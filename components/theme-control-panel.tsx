@@ -7,7 +7,11 @@ const ThemeControlPanel = () => {
   const presets = useThemePresetStore((state) => state.getAllPresets());
   return (
     <>
-      <ThemePresetSelect presets={presets} currentPreset={themeState.preset || null} onPresetChange={applyThemePreset} />
+      <ThemePresetSelect
+        presets={presets}
+        currentPreset={themeState.preset || null}
+        onPresetChange={applyThemePreset}
+      />
     </>
   );
 };

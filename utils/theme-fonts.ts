@@ -1,10 +1,37 @@
 import { ThemeEditorState } from "@/types/editor";
 
-const sansSerifFontNames = ["Inter", "Roboto", "Open Sans", "Poppins", "Montserrat", "Outfit", "Plus Jakarta Sans", "DM Sans", "Geist", "Oxanium", "Architects Daughter"];
+const sansSerifFontNames = [
+  "Inter",
+  "Roboto",
+  "Open Sans",
+  "Poppins",
+  "Montserrat",
+  "Outfit",
+  "Plus Jakarta Sans",
+  "DM Sans",
+  "Geist",
+  "Oxanium",
+  "Architects Daughter",
+];
 
-const serifFontNames = ["Merriweather", "Playfair Display", "Lora", "Source Serif Pro", "Libre Baskerville", "Space Grotesk"];
+const serifFontNames = [
+  "Merriweather",
+  "Playfair Display",
+  "Lora",
+  "Source Serif Pro",
+  "Libre Baskerville",
+  "Space Grotesk",
+];
 
-const monoFontNames = ["JetBrains Mono", "Fira Code", "Source Code Pro", "IBM Plex Mono", "Roboto Mono", "Space Mono", "Geist Mono"];
+const monoFontNames = [
+  "JetBrains Mono",
+  "Fira Code",
+  "Source Code Pro",
+  "IBM Plex Mono",
+  "Roboto Mono",
+  "Space Mono",
+  "Geist Mono",
+];
 
 export const fonts: Record<string, string> = {
   // Sans-serif fonts
@@ -39,11 +66,20 @@ export const fonts: Record<string, string> = {
   "Geist Mono": "Geist Mono, monospace",
 };
 
-export const sansSerifFonts = Object.fromEntries(Object.entries(fonts).filter(([key]) => sansSerifFontNames.includes(key)));
-export const serifFonts = Object.fromEntries(Object.entries(fonts).filter(([key]) => serifFontNames.includes(key)));
-export const monoFonts = Object.fromEntries(Object.entries(fonts).filter(([key]) => monoFontNames.includes(key)));
+export const sansSerifFonts = Object.fromEntries(
+  Object.entries(fonts).filter(([key]) => sansSerifFontNames.includes(key)),
+);
+export const serifFonts = Object.fromEntries(
+  Object.entries(fonts).filter(([key]) => serifFontNames.includes(key)),
+);
+export const monoFonts = Object.fromEntries(
+  Object.entries(fonts).filter(([key]) => monoFontNames.includes(key)),
+);
 
-export const getAppliedThemeFont = (state: ThemeEditorState, fontKey: "font-sans" | "font-serif" | "font-mono"): string | null => {
+export const getAppliedThemeFont = (
+  state: ThemeEditorState,
+  fontKey: "font-sans" | "font-serif" | "font-mono",
+): string | null => {
   const fontSans = state.styles.light[fontKey];
   // find key of font in fonts object based on value
   const key = Object.keys(fonts).find((key) => fonts[key].includes(fontSans));
