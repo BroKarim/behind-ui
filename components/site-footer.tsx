@@ -16,7 +16,7 @@ export function SiteFooter() {
     return () => clearInterval(interval);
   }, []);
   return (
-    <footer className="w-full flex  items-center justify-center border-none py-6 md:py-0">
+    <footer className="w-full flex  items-center justify-center border-t py-6 md:py-0">
       <div className="container flex  items-center justify-center gap-4 md:h-12 ">
         <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
           Built with{" "}

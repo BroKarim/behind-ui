@@ -1,9 +1,6 @@
 import { Window } from "./components/window";
 import { FigmaEmbed } from "./components/figma-embed";
 
-//source design : https://creatifly.co/
-// figma buat gini : https://www.figma.com/design/fdOs4FEqWlEqJYutOt66bm/Creatifly-Work-Showcase-2.0?node-id=0-1&p=f&t=BOxUn8qaxFkonaCm-0
-
 const Index = () => {
   return (
     <>

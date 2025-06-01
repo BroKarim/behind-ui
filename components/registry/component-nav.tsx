@@ -8,7 +8,6 @@ import { registryCategories } from "@/registry/registry-categories";
 
 export function BlocksNav() {
   const pathname = usePathname();
-
   return (
     <div className="relative overflow-hidden">
       <ScrollArea className="max-w-none">
