@@ -1,7 +1,6 @@
 import { Window } from "./components/window";
 import { FigmaEmbed } from "./components/figma-embed";
 
-
 const Index = () => {
   return (
     <>
