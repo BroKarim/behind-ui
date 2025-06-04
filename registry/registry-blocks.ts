@@ -4,7 +4,7 @@ export const blocks: Registry["items"] = [
   {
     name: "button-01",
     type: "registry:block",
-    description: "reusable Figma frame",
+    description: "Hotkeys Dialog",
     registryDependencies: ["mac-terminal", "figma", "iframe"],
     files: [
       {
