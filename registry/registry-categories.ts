@@ -25,4 +25,9 @@ export const registryCategories = [
     slug: "embed",
     hidden: false,
   },
+  {
+    name: "Button",
+    slug: "button",
+    hidden: false,
+  },
 ];

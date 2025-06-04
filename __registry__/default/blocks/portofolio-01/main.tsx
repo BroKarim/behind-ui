@@ -1,10 +1,8 @@
 import { List } from "./components/list";
-import Link from "next/link";
 import { Footer } from "./components/footer";
 import { projects } from "./contents/projects";
-import AnimatedBackground from "./components/animated-background";
 
-export default function Layout() {
+export default function Main() {
   return (
     <>
       <div className=" relative z-50 mx-auto flex h-full w-full justify-center px-4 pt-20 text-primary md:h-screen">

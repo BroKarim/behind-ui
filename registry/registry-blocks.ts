@@ -2,6 +2,43 @@ import { type Registry } from "@/registry/schema";
 
 export const blocks: Registry["items"] = [
   {
+    name: "button-01",
+    type: "registry:block",
+    description: "reusable Figma frame",
+    registryDependencies: ["mac-terminal", "figma", "iframe"],
+    files: [
+      {
+        path: "blocks/button-01/main.tsx",
+        type: "registry:page",
+        target: "app/main.tsx",
+      },
+      {
+        path: "blocks/button-01/components/hotkeys-dialog.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/button-01/components/kbd.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "ui/button.tsx",
+        type: "registry:ui",
+        target: "components/ui/sidebar.tsx",
+      },
+      {
+        path: "ui/dialog.tsx",
+        type: "registry:ui",
+        target: "components/ui/sidebar.tsx",
+      },
+      {
+        path: "lib/utils.ts",
+        type: "registry:lib",
+        target: "lib/utils.ts",
+      },
+    ],
+    categories: ["button"],
+  },
+  {
     name: "embed-01",
     type: "registry:block",
     description: "reusable Figma frame",
@@ -126,7 +163,7 @@ export const blocks: Registry["items"] = [
       },
       {
         path: "lib/utils.ts",
-        type: "registry:ui",
+        type: "registry:lib",
         target: "lib/utils.ts",
       },
     ],
@@ -382,7 +419,7 @@ export const blocks: Registry["items"] = [
       },
       {
         path: "lib/utils.ts",
-        type: "registry:ui",
+        type: "registry:lib",
         target: "lib/utils.ts",
       },
     ],
