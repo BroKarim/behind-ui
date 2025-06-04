@@ -3,7 +3,7 @@
   "name": "button-01",
   "type": "registry:block",
   "author": "shadcn (https://ui.shadcn.com)",
-  "description": "reusable Figma frame",
+  "description": "Hotkeys Dialog",
   "registryDependencies": [
     "mac-terminal",
     "figma",

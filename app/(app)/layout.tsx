@@ -14,7 +14,7 @@ export default async function AppLayout({ children }: AppLayoutProps) {
   return (
     <>
       <SiteHeader />
-      <main className="flex h-screen overflow-hidden">
+      <main className="flex h-screen">
         <div className="hidden h-full w-[300px] flex-col border-r md:flex lg:w-[400px]">
           <div className="sticky top-0 z-30 flex flex-col gap-2 border-b bg-background p-4">
             <p>

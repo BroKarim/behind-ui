@@ -7,7 +7,7 @@ export const Index: Record<string, any> = {
   "default": {
     "button-01": {
       name: "button-01",
-      description: "reusable Figma frame",
+      description: "Hotkeys Dialog",
       type: "registry:block",
       registryDependencies: ["mac-terminal","figma","iframe"],
       files: [{
