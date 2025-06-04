@@ -5,6 +5,41 @@ import * as React from "react"
 
 export const Index: Record<string, any> = {
   "default": {
+    "button-01": {
+      name: "button-01",
+      description: "reusable Figma frame",
+      type: "registry:block",
+      registryDependencies: ["mac-terminal","figma","iframe"],
+      files: [{
+        path: "registry/default/blocks/button-01/main.tsx",
+        type: "registry:page",
+        target: "app/main.tsx"
+      },{
+        path: "registry/default/blocks/button-01/components/hotkeys-dialog.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/button-01/components/kbd.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/ui/button.tsx",
+        type: "registry:ui",
+        target: "components/ui/sidebar.tsx"
+      },{
+        path: "registry/default/ui/dialog.tsx",
+        type: "registry:ui",
+        target: "components/ui/sidebar.tsx"
+      },{
+        path: "registry/default/lib/utils.ts",
+        type: "registry:lib",
+        target: "lib/utils.ts"
+      }],
+      categories: ["button"],
+      component: React.lazy(() => import("@/registry/default/blocks/button-01/main.tsx")),
+      source: "__registry__/default/blocks/button-01/main.tsx",
+      meta: undefined,
+    },
     "embed-01": {
       name: "embed-01",
       description: "reusable Figma frame",
@@ -125,7 +160,7 @@ export const Index: Record<string, any> = {
         target: "components/ui/texture-button.tsx"
       },{
         path: "registry/default/lib/utils.ts",
-        type: "registry:ui",
+        type: "registry:lib",
         target: "lib/utils.ts"
       }],
       categories: ["card"],
@@ -374,7 +409,7 @@ export const Index: Record<string, any> = {
         target: ""
       },{
         path: "registry/default/lib/utils.ts",
-        type: "registry:ui",
+        type: "registry:lib",
         target: "lib/utils.ts"
       }],
       categories: ["tool"],

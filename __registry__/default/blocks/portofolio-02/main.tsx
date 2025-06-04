@@ -18,7 +18,7 @@ function Divider() {
   );
 }
 
-export default function Layout() {
+export default function Main() {
   return (
     <>
       <div className="max-w-screen bg-backgroud z-50 flex h-screen flex-col items-center justify-between overflow-x-hidden">

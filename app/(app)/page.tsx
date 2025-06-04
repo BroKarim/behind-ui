@@ -11,7 +11,7 @@ export default async function IndexPage() {
         {FEATURED_BLOCKS.map((block) => (
           <div
             key={block}
-            className="container py-8 first:pt-6 last:border-b-2 dark:border-border   md:py-12"
+            className="container py-8 first:pt-6 "
           >
             <BlockDisplay name={block} />
           </div>
