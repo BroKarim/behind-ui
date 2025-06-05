@@ -63,7 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className={cn("relative flex h-screen w-full flex-col justify-center  scroll-smooth bg-background  font-sans  antialiased")}>
+      <body className={cn("relative flex  w-full flex-col justify-center  scroll-smooth bg-background  font-sans  antialiased")}>
         <PHProvider>
           <Suspense>
             <ThemeProvider defaultTheme="light">
