@@ -10,11 +10,7 @@ export const registryCategories = [
     slug: "portofolio",
     hidden: false,
   },
-  {
-    name: "Bento",
-    slug: "bento",
-    hidden: false,
-  },
+
   {
     name: "Card",
     slug: "card",
