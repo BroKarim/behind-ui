@@ -19,6 +19,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@ncdai/react-wheel-picker": "^1.0.17",
     "@next/bundle-analyzer": "^15.3.2",
     "@radix-ui/react-accordion": "^1.2.3",
     "@radix-ui/react-alert-dialog": "^1.1.6",

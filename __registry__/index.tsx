@@ -168,6 +168,29 @@ export const Index: Record<string, any> = {
       source: "__registry__/default/blocks/card-02/page.tsx",
       meta: undefined,
     },
+    "card-04": {
+      name: "card-04",
+      description: "Alarm time picker.",
+      type: "registry:block",
+      registryDependencies: ["pricing","shades","currency"],
+      files: [{
+        path: "registry/default/blocks/card-04/page.tsx",
+        type: "registry:page",
+        target: "app/page.tsx"
+      },{
+        path: "registry/default/blocks/card-04/components/alarm-time-picker.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/lib/utils.ts",
+        type: "registry:lib",
+        target: "lib/utils.ts"
+      }],
+      categories: ["card"],
+      component: React.lazy(() => import("@/registry/default/blocks/card-04/page.tsx")),
+      source: "__registry__/default/blocks/card-04/page.tsx",
+      meta: undefined,
+    },
     "hero-01": {
       name: "hero-01",
       description: "Ideal for product designers.",
@@ -361,37 +384,6 @@ export const Index: Record<string, any> = {
       categories: ["hero","tool"],
       component: React.lazy(() => import("@/registry/default/blocks/tool-01/main.tsx")),
       source: "__registry__/default/blocks/tool-01/main.tsx",
-      meta: undefined,
-    },
-    "bento-01": {
-      name: "bento-01",
-      description: "Ideal for product designers.",
-      type: "registry:block",
-      registryDependencies: ["nav","lang-switch","photos"],
-      files: [{
-        path: "registry/default/blocks/bento-01/page.tsx",
-        type: "registry:page",
-        target: "app/page.tsx"
-      },{
-        path: "registry/default/blocks/bento-01/components/animated-emoji.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/default/blocks/bento-01/components/logo.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/default/ui/card.tsx",
-        type: "registry:ui",
-        target: "components/ui/card.tsx"
-      },{
-        path: "registry/default/blocks/bento-01/hooks/useAnimation.tsx",
-        type: "registry:file",
-        target: "hooks/use-animation.ts"
-      }],
-      categories: ["bento"],
-      component: React.lazy(() => import("@/registry/default/blocks/bento-01/page.tsx")),
-      source: "__registry__/default/blocks/bento-01/page.tsx",
       meta: undefined,
     },
     "tool-02": {

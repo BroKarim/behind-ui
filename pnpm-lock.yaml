@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@ncdai/react-wheel-picker':
+        specifier: ^1.0.17
+        version: 1.0.17(react@18.3.1)
       '@next/bundle-analyzer':
         specifier: ^15.3.2
         version: 15.3.2
@@ -562,6 +565,11 @@ packages:
 
   '@napi-rs/wasm-runtime@0.2.9':
     resolution: {integrity: sha512-OKRBiajrrxB9ATokgEQoG87Z25c67pCpYcCwmXYX8PBftC9pBfN18gnm/fh1wurSLEKIAt+QRFLFCQISrb66Jg==}
+
+  '@ncdai/react-wheel-picker@1.0.17':
+    resolution: {integrity: sha512-fnKwMDla0yAnBA5tRq9GRLl6+wiyuzkGKfaN6pn1VM2o6aElB4HWRwITRMBmdTfZOYdPE0BAf6ZYbmMeaogucQ==}
+    peerDependencies:
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0.0 || ^19.0.0-rc
 
   '@next/bundle-analyzer@15.3.2':
     resolution: {integrity: sha512-zY5O1PNKNxWEjaFX8gKzm77z2oL0cnj+m5aiqNBgay9LPLCDO13Cf+FJONeNq/nJjeXptwHFT9EMmTecF9U4Iw==}
@@ -4566,6 +4574,10 @@ snapshots:
       '@emnapi/runtime': 1.4.3
       '@tybys/wasm-util': 0.9.0
     optional: true
+
+  '@ncdai/react-wheel-picker@1.0.17(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
 
   '@next/bundle-analyzer@15.3.2':
     dependencies:

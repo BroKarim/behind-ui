@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-04",
+  "type": "registry:block",
+  "author": "shadcn (https://ui.shadcn.com)",
+  "description": "Alarm time picker.",
+  "registryDependencies": [
+    "pricing",
+    "shades",
+    "currency"
+  ],
+  "files": [
+    {
+      "path": "blocks/card-04/page.tsx",
+      "content": "import AlarmTimePicker from \"./components/alarm-time-picker\";\nexport default function Page() {\n  return (\n    <>\n      <div className=\"max-w-screen bg-backgroud z-50 flex min-h-screen items-center justify-center p-4\">\n        <AlarmTimePicker />\n      </div>\n    </>\n  );\n}\n",
+      "type": "registry:page",
+      "target": "app/page.tsx"
+    },
+    {
+      "path": "blocks/card-04/components/alarm-time-picker.tsx",
+      "content": "import React, { useState } from \"react\";\nimport { Card } from \"@/components/ui/card\";\nimport { Label } from \"@/components/ui/label\";\nimport { Switch } from \"@/components/ui/switch\";\nimport type { WheelPickerOption } from \"@/components/wheel-picker\";\nimport { WheelPicker, WheelPickerWrapper } from \"@/components/wheel-picker\";\n\nconst createArray = (length: number, add = 0): WheelPickerOption[] =>\n  Array.from({ length }, (_, i) => {\n    const value = i + add;\n    return {\n      label: value.toString().padStart(2, \"0\"),\n      value: value.toString(),\n    };\n  });\n\nconst hourOptions = createArray(24);\nconst minuteOptions = createArray(60);\n\nexport default function AlarmTimePicker() {\n  const [selectedHour, setSelectedHour] = useState(\"12\");\n  const [selectedMinute, setSelectedMinute] = useState(\"45\");\n  const [repeatDaily, setRepeatDaily] = useState(true);\n\n  return (\n    <div className=\"min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4\">\n      <Card className=\"w-full max-w-md bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl border-slate-700/50 p-8 rounded-3xl shadow-[0px_32px_64px_-16px_#0000004c,0px_16px_32px_-8px_#0000004c,0px_8px_16px_-4px_#0000003d,0px_4px_8px_-2px_#0000003d,0px_-8px_16px_-1px_#00000029,0px_2px_4px_-1px_#0000003d,0px_0px_0px_1px_#000000,inset_0px_0px_0px_1px_#ffffff14,inset_0px_1px_0px_#ffffff33]\">\n        <div className=\"space-y-6\">\n          {/* Header */}\n          <div className=\"space-y-2\">\n            <h2 className=\"text-2xl font-semibold text-white\">Period</h2>\n            <p className=\"text-slate-400 text-sm\">Set your reminder length</p>\n          </div>\n\n          {/* Time Display */}\n          <div className=\"flex justify-end\">\n            <div className=\"bg-blue-600/20 border-2 border-blue-500 rounded-2xl px-6 py-3 backdrop-blur-sm\">\n              <span className=\"text-4xl font-light text-white tabular-nums\">\n                {selectedHour} : {selectedMinute}\n              </span>\n            </div>\n          </div>\n\n          {/* Wheel Picker */}\n          <div className=\"bg-black/40 rounded-2xl p-6 backdrop-blur-sm border border-slate-700/50\">\n            <WheelPickerWrapper>\n              <div className=\"flex items-center gap-2\">\n                <WheelPicker options={hourOptions} infinite defaultValue={selectedHour} onChange={(value) => setSelectedHour(value)} />\n                <span className=\"text-slate-500 text-lg font-medium\">hours</span>\n              </div>\n              <div className=\"flex items-center gap-2\">\n                <WheelPicker options={minuteOptions} infinite defaultValue={selectedMinute} onChange={(value) => setSelectedMinute(value)} />\n                <span className=\"text-slate-500 text-lg font-medium\">minutes</span>\n              </div>\n            </WheelPickerWrapper>\n          </div>\n\n          {/* Repeat Toggle */}\n          <div className=\"flex items-center justify-between pt-4\">\n            <Label htmlFor=\"repeat-toggle\" className=\"text-slate-300 text-base font-medium cursor-pointer\">\n              Repeat alarm every day\n            </Label>\n            <Switch id=\"repeat-toggle\" checked={repeatDaily} onCheckedChange={setRepeatDaily} className=\"data-[state=checked]:bg-green-500\" />\n          </div>\n        </div>\n      </Card>\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": ""
+    },
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n",
+      "type": "registry:lib",
+      "target": "lib/utils.ts"
+    }
+  ],
+  "categories": [
+    "card"
+  ]
+}

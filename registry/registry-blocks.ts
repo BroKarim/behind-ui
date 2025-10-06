@@ -67,7 +67,8 @@ export const blocks: Registry["items"] = [
   {
     name: "card-03",
     type: "registry:block",
-    description: "Information cards to deliver news, updates, and alerts to your users by KL UI",
+    description:
+      "Information cards to deliver news, updates, and alerts to your users by KL UI",
     registryDependencies: ["chart", "sidebar"],
     files: [
       {
@@ -159,6 +160,29 @@ export const blocks: Registry["items"] = [
         path: "ui/texture-button.tsx",
         type: "registry:ui",
         target: "components/ui/texture-button.tsx",
+      },
+      {
+        path: "lib/utils.ts",
+        type: "registry:lib",
+        target: "lib/utils.ts",
+      },
+    ],
+    categories: ["card"],
+  },
+  {
+    name: "card-04",
+    type: "registry:block",
+    description: "Alarm time picker.",
+    registryDependencies: ["pricing", "shades", "currency"],
+    files: [
+      {
+        path: "blocks/card-04/page.tsx",
+        type: "registry:page",
+        target: "app/page.tsx",
+      },
+      {
+        path: "blocks/card-04/components/alarm-time-picker.tsx",
+        type: "registry:component",
       },
       {
         path: "lib/utils.ts",
@@ -320,7 +344,12 @@ export const blocks: Registry["items"] = [
     name: "hero-02",
     type: "registry:block",
     description: "Designed for library applications.",
-    registryDependencies: ["banner", "colorfulButton", "githubButton", "openSource"],
+    registryDependencies: [
+      "banner",
+      "colorfulButton",
+      "githubButton",
+      "openSource",
+    ],
     files: [
       {
         path: "blocks/tool-01/main.tsx",
