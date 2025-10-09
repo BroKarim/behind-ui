@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-05",
+  "type": "registry:block",
+  "author": "shadcn (https://ui.shadcn.com)",
+  "description": "Media upload.",
+  "registryDependencies": [
+    "upload",
+    "images",
+    "videos"
+  ],
+  "files": [
+    {
+      "path": "blocks/card-05/page.tsx",
+      "content": "import UploadMedia from \"./components/media-upload\";\nexport default function Page() {\n  return (\n    <>\n      <div className=\"max-w-screen bg-backgroud z-50 flex min-h-screen items-center justify-center p-4\">\n        <UploadMedia />\n      </div>\n    </>\n  );\n}\n",
+      "type": "registry:page",
+      "target": "app/page.tsx"
+    },
+    {
+      "path": "blocks/card-05/components/media-upload.tsx",
+      "content": "'use client'\n\nimport React, { useState } from \"react\";\nimport { Card } from \"@/components/ui/card\";\nimport { Button } from \"@/components/ui/button\";\n\nexport default function UploadMedia() {\n  const [mediaFiles, setMediaFiles] = useState<(File | null)[]>([]);\n\n  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {\n    const files = Array.from(e.target.files || []);\n    setMediaFiles(files);\n  };\n\n  const removeFile = (index: number) => {\n    const newFiles = [...mediaFiles];\n    newFiles.splice(index, 1);\n    setMediaFiles(newFiles);\n  };\n\n  return (\n    <div className=\"max-w-md mx-auto p-6\">\n      <Card className=\"rounded-2xl p-6 bg-[#0F0F10] border-none shadow-[0px_32px_64px_-16px_#0000004c,0px_16px_32px_-8px_#0000004c,0px_8px_16px_-4px_#0000003d,0px_4px_8px_-2px_#0000003d,0px_-8px_16px_-1px_#00000029,0px_2px_4px_-1px_#0000003d,0px_0px_0px_1px_#000000,inset_0px_0px_0px_1px_#ffffff14,inset_0px_1px_0px_#ffffff33]\">\n        <h3 className=\"text-lg font-semibold text-white mb-4\">Images</h3>\n\n        {/* Upload Area */}\n        <label\n          htmlFor=\"file-upload\"\n          className=\"flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer bg-muted/30 hover:bg-muted/50 transition-colors\"\n        >\n          <div className=\"flex flex-col items-center justify-center pt-5 pb-6\">\n            <svg\n              className=\"w-10 h-10 mb-3 text-muted-foreground\"\n              fill=\"none\"\n              stroke=\"currentColor\"\n              viewBox=\"0 0 24 24\"\n              xmlns=\"http://www.w3.org/2000/svg\"\n            >\n              <path\n                strokeLinecap=\"round\"\n                strokeLinejoin=\"round\"\n                strokeWidth={2}\n                d=\"M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12\"\n              />\n            </svg>\n            <p className=\"mb-2 text-sm text-muted-foreground\">\n              <span className=\"font-semibold\">Choose images or videos</span> or\n              drag & drop here\n            </p>\n            <p className=\"text-xs text-muted-foreground\">\n              JPG, JPEG, PNG, WEBP, MP4. Max 20 MB.\n            </p>\n          </div>\n          <input\n            id=\"file-upload\"\n            type=\"file\"\n            className=\"hidden\"\n            accept=\"image/jpeg,image/jpg,image/png,image/webp,video/mp4\"\n            multiple\n            onChange={handleFileChange}\n          />\n        </label>\n\n        {/* Preview Section */}\n        {mediaFiles.length > 0 && (\n          <div className=\"flex flex-wrap gap-3 mt-4\">\n            {mediaFiles.map((file, index) => {\n              if (!file) return null;\n\n              const isVideo = file.type.startsWith(\"video/\");\n              const previewURL = URL.createObjectURL(file);\n\n              return (\n                <div\n                  key={index}\n                  className=\"relative w-28 h-28 rounded-lg overflow-hidden border border-border shadow-md\"\n                >\n                  {isVideo ? (\n                    <video\n                      src={previewURL}\n                      className=\"w-full h-full object-cover\"\n                      controls\n                    />\n                  ) : (\n                    <img\n                      src={previewURL}\n                      alt={`preview-${index}`}\n                      className=\"w-full h-full object-cover\"\n                    />\n                  )}\n\n                  <button\n                    type=\"button\"\n                    onClick={() => removeFile(index)}\n                    className=\"absolute top-1 right-1 bg-red-600 hover:bg-red-700 text-white rounded-full p-1 text-xs\"\n                  >\n                    ✕\n                  </button>\n                </div>\n              );\n            })}\n          </div>\n        )}\n\n        <p className=\"text-xs text-muted-foreground text-center mt-4\">\n          JPG/PNG ≤ 1MB, MP4 ≤ 20MB\n        </p>\n      </Card>\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": ""
+    },
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n",
+      "type": "registry:lib",
+      "target": "lib/utils.ts"
+    }
+  ],
+  "categories": [
+    "card"
+  ]
+}

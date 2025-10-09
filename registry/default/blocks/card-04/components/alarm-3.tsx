@@ -42,7 +42,8 @@ export default function MinimalistAlarmPicker() {
                   onValueChange={(val: string) => setHour(val)}
                   classNames={{
                     optionItem: "text-4xl text-gray-700 font-bold",
-                    highlightWrapper: "!bg-[#1a2e1a] text-[#9fefa1] rounded-l-2xl",
+                    highlightWrapper:
+                      "!bg-[#1a2e1a] text-[#9fefa1] rounded-l-2xl",
                   }}
                 />
               </div>
@@ -55,7 +56,8 @@ export default function MinimalistAlarmPicker() {
                   onValueChange={(val: string) => setMinute(val)}
                   classNames={{
                     optionItem: "text-4xl text-gray-700 font-bold",
-                    highlightWrapper: "!bg-[#1a2e1a] text-[#9fefa1] rounded-r-2xl",
+                    highlightWrapper:
+                      "!bg-[#1a2e1a] text-[#9fefa1] rounded-r-2xl",
                   }}
                 />
               </div>
@@ -83,11 +85,21 @@ export default function MinimalistAlarmPicker() {
 
           {/* Footer Aksi */}
           <div className="w-full max-w-md gap-2 flex justify-between items-center">
-            <Button size="icon" className="bg-[#1c1c1c] hover:bg-gray-800 rounded-full h-8 w-8" aria-label="Cancel">
+            <Button
+              size="icon"
+              className="bg-[#1c1c1c] hover:bg-gray-800 rounded-full h-8 w-8"
+              aria-label="Cancel"
+            >
               <X size={18} className="text-gray-400" />
             </Button>
-            <span className="text-sm   font-semibold tracking-widest text-gray-500">CHOOSE TIME</span>
-            <Button size="icon" className="bg-[#9fefa1] hover:bg-[#8cdb8e] text-black rounded-full h-8 w-8" aria-label="Confirm Time">
+            <span className="text-sm   font-semibold tracking-widest text-gray-500">
+              CHOOSE TIME
+            </span>
+            <Button
+              size="icon"
+              className="bg-[#9fefa1] hover:bg-[#8cdb8e] text-black rounded-full h-8 w-8"
+              aria-label="Confirm Time"
+            >
               <Check size={18} />
             </Button>
           </div>

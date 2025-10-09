@@ -181,7 +181,30 @@ export const blocks: Registry["items"] = [
         target: "app/page.tsx",
       },
       {
-        path: "blocks/card-04/components/alarm-time-picker.tsx",
+        path: "blocks/card-04/components/alarm-3.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "lib/utils.ts",
+        type: "registry:lib",
+        target: "lib/utils.ts",
+      },
+    ],
+    categories: ["card"],
+  },
+  {
+    name: "card-05",
+    type: "registry:block",
+    description: "Media upload.",
+    registryDependencies: ["upload", "images", "videos"],
+    files: [
+      {
+        path: "blocks/card-05/page.tsx",
+        type: "registry:page",
+        target: "app/page.tsx",
+      },
+      {
+        path: "blocks/card-05/components/media-upload.tsx",
         type: "registry:component",
       },
       {
