@@ -59,9 +59,16 @@ const bars = [
 export const Spinner = ({ size = 20, color = "#8f8f8f" }: SpinnerProps) => {
   return (
     <div style={{ width: size, height: size }}>
-      <div className="relative top-1/2 left-1/2" style={{ width: size, height: size }}>
+      <div
+        className="relative top-1/2 left-1/2"
+        style={{ width: size, height: size }}
+      >
         {bars.map((item) => (
-          <div key={item.transform} className="absolute h-[8%] w-[24%] -left-[10%] -top-[3.9%] rounded-[5px] animate-fade-spin" style={{ backgroundColor: color, ...item }} />
+          <div
+            key={item.transform}
+            className="absolute h-[8%] w-[24%] -left-[10%] -top-[3.9%] rounded-[5px] animate-fade-spin"
+            style={{ backgroundColor: color, ...item }}
+          />
         ))}
       </div>
     </div>

@@ -216,6 +216,29 @@ export const blocks: Registry["items"] = [
     categories: ["card"],
   },
   {
+    name: "card-06",
+    type: "registry:block",
+    description: "Media upload.",
+    registryDependencies: ["upload", "images", "videos"],
+    files: [
+      {
+        path: "blocks/card-06/page.tsx",
+        type: "registry:page",
+        target: "app/page.tsx",
+      },
+      {
+        path: "blocks/card-06/components/hover-link-preview.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "lib/utils.ts",
+        type: "registry:lib",
+        target: "lib/utils.ts",
+      },
+    ],
+    categories: ["card"],
+  },
+  {
     name: "hero-01",
     type: "registry:block",
     description: "Ideal for product designers.",

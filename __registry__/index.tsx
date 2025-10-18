@@ -214,6 +214,29 @@ export const Index: Record<string, any> = {
       source: "__registry__/default/blocks/card-05/page.tsx",
       meta: undefined,
     },
+    "card-06": {
+      name: "card-06",
+      description: "Media upload.",
+      type: "registry:block",
+      registryDependencies: ["upload","images","videos"],
+      files: [{
+        path: "registry/default/blocks/card-06/page.tsx",
+        type: "registry:page",
+        target: "app/page.tsx"
+      },{
+        path: "registry/default/blocks/card-06/components/hover-link-preview.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/lib/utils.ts",
+        type: "registry:lib",
+        target: "lib/utils.ts"
+      }],
+      categories: ["card"],
+      component: React.lazy(() => import("@/registry/default/blocks/card-06/page.tsx")),
+      source: "__registry__/default/blocks/card-06/page.tsx",
+      meta: undefined,
+    },
     "hero-01": {
       name: "hero-01",
       description: "Ideal for product designers.",
