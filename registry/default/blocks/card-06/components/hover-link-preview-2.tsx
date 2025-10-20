@@ -2,7 +2,12 @@
 
 import * as React from "react";
 import { useRef, useState } from "react";
-import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useSpring,
+} from "framer-motion";
 import { de } from "date-fns/locale";
 
 interface HoverComponentPreviewProps {
@@ -12,7 +17,12 @@ interface HoverComponentPreviewProps {
   previewClassName?: string;
 }
 
-function HoverComponentPreview({ href, previewComponent, children, previewClassName = "" }: HoverComponentPreviewProps) {
+function HoverComponentPreview({
+  href,
+  previewComponent,
+  children,
+  previewClassName = "",
+}: HoverComponentPreviewProps) {
   const [showPreview, setShowPreview] = useState(false);
   const prevX = useRef<number | null>(null);
 
@@ -41,7 +51,7 @@ function HoverComponentPreview({ href, previewComponent, children, previewClassN
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     const PREVIEW_WIDTH = 300;
     const PREVIEW_HEIGHT = 200;
-    const OFFSET_Y = 40;
+    const OFFSET_Y = 65;
 
     // Position the preview
     motionTop.set(e.clientY - PREVIEW_HEIGHT - OFFSET_Y);
@@ -67,7 +77,13 @@ function HoverComponentPreview({ href, previewComponent, children, previewClassN
 
   return (
     <>
-      <WrapperElement {...linkProps} className="relative inline-block cursor-pointer text-blue-600 underline" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onMouseMove={handleMouseMove}>
+      <WrapperElement
+        {...linkProps}
+        className="relative inline-block cursor-pointer text-blue-600 underline"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onMouseMove={handleMouseMove}
+      >
         {children}
       </WrapperElement>
 
@@ -91,20 +107,6 @@ function HoverComponentPreview({ href, previewComponent, children, previewClassN
         )}
       </AnimatePresence>
     </>
-  );
-}
-
-// Example ProfileCard component
-function ProfileCard() {
-  return (
-    <div className="flex items-center gap-3 min-w-[250px]">
-      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-lg">JD</div>
-      <div>
-        <h3 className="font-semibold text-gray-900">John Doe</h3>
-        <p className="text-sm text-gray-500">Software Engineer</p>
-        <p className="text-xs text-gray-400 mt-1">San Francisco, CA</p>
-      </div>
-    </div>
   );
 }
 

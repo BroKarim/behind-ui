@@ -224,10 +224,6 @@ export const Index: Record<string, any> = {
         type: "registry:page",
         target: "app/page.tsx"
       },{
-        path: "registry/default/blocks/card-06/components/hover-link-preview.tsx",
-        type: "registry:component",
-        target: ""
-      },{
         path: "registry/default/lib/utils.ts",
         type: "registry:lib",
         target: "lib/utils.ts"

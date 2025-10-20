@@ -1,19 +1,17 @@
-import HoverLinkPreview from "./components/hover-link-preview";
-
+import HoverComponentPreview from "./components/hover-link-preview-2";
+import { ProfileCard } from "./components/profile-card";
 export default function Page() {
   return (
     <>
       <div className="max-w-screen bg-backgroud z-50 flex min-h-screen items-center justify-center p-4">
         <div className="flex flex-col gap-12 items-center text-center">
-          <div className="p-10 flex gap-1 font-medium text-xl">
-            Hey, have you tried
-            <HoverLinkPreview href="https://21st/dev/magic" previewImage="https://21st.dev/magic-agent-og-image.png" imageAlt="Example preview">
-              Magic MCP?
-            </HoverLinkPreview>
-            It's amazing!
+          <div className=" text-neutral-500   gap-1 font-medium text-xl">
+            Hey, I am {""}
+            <HoverComponentPreview href="https://21st/dev/magic" previewComponent={<ProfileCard />}>
+              Michel
+            </HoverComponentPreview>
+            {""} and i design interface to Ethereum and web3...
           </div>
-
-          <p>(Try hovering link)</p>
         </div>
       </div>
     </>

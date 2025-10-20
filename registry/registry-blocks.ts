@@ -227,10 +227,6 @@ export const blocks: Registry["items"] = [
         target: "app/page.tsx",
       },
       {
-        path: "blocks/card-06/components/hover-link-preview.tsx",
-        type: "registry:component",
-      },
-      {
         path: "lib/utils.ts",
         type: "registry:lib",
         target: "lib/utils.ts",
